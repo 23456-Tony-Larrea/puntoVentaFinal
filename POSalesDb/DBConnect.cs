@@ -549,7 +549,43 @@ namespace POSalesDB
                 cn.Close();
             }
         }
+        //get ajustamiento id
+        public Ajustamiento selectAjustamientosPorId(int Id)
+        {
+            Ajustamiento ajustamiento = new Ajustamiento();
+            try
+            {
+                cm = new SqlCommand($"Select * from Ajustamiento Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    ajustamiento.Id = (int)dt.Rows[0]["Id"];
+                    ajustamiento.referenceno = dt.Rows[0]["referenceno"].ToString();
+                    ajustamiento.pcode = dt.Rows[0]["pcode"].ToString();
+                    ajustamiento.qty = Convert.ToInt16(dt.Rows[0]["qty"]);
+                    ajustamiento.action = dt.Rows[0]["action"].ToString();
+                    ajustamiento.remarks = dt.Rows[0]["remarks"].ToString();
+                    ajustamiento.sdate = Convert.ToDateTime(dt.Rows[0]["sdate"].ToString());
+                    ajustamiento.user = dt.Rows[0]["[user]"].ToString();
 
+                }
+                cm.ExecuteNonQuery();
+                return ajustamiento;
+
+            }
+            catch (Exception ex)
+            {
+                return ajustamiento;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        // get usuarios 
 
     }
 }
