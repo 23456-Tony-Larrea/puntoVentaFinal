@@ -283,10 +283,10 @@ namespace POSalesDB
                         item.combo = (bool)r["combo"];
                         item.gasto = (bool)r["gasto"];
                         item.ice = (decimal)r["ice"];
-                        item.valorIce = (decimal)r["valorIce"];
-                        item.HasIva = (bool)r["HasIva"];
+                        item.valorIce = decimal.Parse(r["valorIce"].ToString());
+                        item.HasIva = bool.Parse(r["HasIva"].ToString());
                         item.iva = (decimal)r["iva"];
-                        item.imagen = (byte[])r["imagen"];
+                        item.imagen = Encoding.ASCII.GetBytes(r["imagen"].ToString());
                         item.descripcion = r["imagenUrl"].ToString();
                         item.montoTotal = (decimal)r["montoTotal"];
                         item.categoriaA = r["categoriaA"].ToString();
@@ -382,7 +382,7 @@ namespace POSalesDB
             try
             {
                 cm = new SqlCommand("UPDATE Items SET nombre=@nombre,codigoUno=@codigoUno,codigoDos=@codigoDos,codigoTres=@codigoTres,codigoCuatro=@codigoCuatro,precioA=@precioA,precioB=@precioB,precioC=@precioC,precioD=@precioD,descripcion=@descripcion,unidadCaja=@unidadCaja,peso=@peso,comision=@comision,descMax=@descMax,stockMin=@stockMin,stockMax=@stockMax,costo=@costo,unidad=@unidad,bId=@bId,cId=@cId ,gId=@gId,mId=@mId,servicio=@servicio,aplicaSeries=@aplicaSeries,negativo=@negativo,combo=@combo,gasto=@gasto,ice=@ice,valorIce=@valorIce,imagen=@imagen,imagenUrl=@imagenUrl,iva=@iva,montoTotal=@montoTotal,HasIva=HasIva,categoriaA=@categoriaA,categoriaB=@categoriaB,categoriaC=@categoriaC,categoriaD=@categoriaD,categoriaE=@categoriaE  WHERE Id = @Id  ", cn);
-                cm.Parameters.AddWithValue("@", item.Id);
+                cm.Parameters.AddWithValue("@Id", item.Id);
                 cm.Parameters.AddWithValue("@nombre", item.nombre);
                 cm.Parameters.AddWithValue("@codigoUno", item.codigoUno);
                 cm.Parameters.AddWithValue("@codigoDos", item.codigoDos);
