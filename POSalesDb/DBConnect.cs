@@ -492,14 +492,14 @@ namespace POSalesDB
             }
         }
         // get usuarios 
-        public List<Usuarios> selectTodosLosUsuarios(int Id)
+        public List<Usuarios> selectTodosLosUsuarios()
         {
             cn.ConnectionString = myConnection();
             List<Usuarios> usuarios = new List<Usuarios>();
 
             try
             {
-                cm = new SqlCommand($"Select * from Items Where Id = {Id}");
+                cm = new SqlCommand($"Select * from Items");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();
@@ -647,7 +647,50 @@ namespace POSalesDB
                 cn.Close();
             }
         }
-        // get ajustes 
+        // get ajustamiento
+        public List<Ajustamiento> selectTodosLosAjustes()
+        {
+            cn.ConnectionString = myConnection();
+            List<Ajustamiento> ajustamientos = new List<Ajustamiento>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Ajustamientos ");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Ajustamiento ajustamiento = new Ajustamiento();
+                        ajustamiento.Id = (int)r["Id"];
+                        ajustamiento.referenceno = r["referenceno"].ToString();
+                        ajustamiento.pcode = r["pcode"].ToString();
+                        ajustamiento.qty =Convert.ToInt32(r["qty"]);
+                        ajustamiento.action=r["action"].ToString();
+                        ajustamiento.remarks = r["remarks"].ToString();
+                        ajustamiento.sdate = Convert.ToDateTime(r["sdate"]);
+                        ajustamiento.user = r["[user]"].ToString();
+
+                        ajustamientos.Add(ajustamiento);
+                    }
+
+                }
+                cm.ExecuteNonQuery();
+                return ajustamientos;
+            }
+
+            catch (Exception ex)
+            {
+                return ajustamientos;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
 
     }
 }
