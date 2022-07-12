@@ -41,7 +41,7 @@ namespace POSalesDb
 		public bool gasto { get; set; }
 		public decimal ice { get; set; }
 		public decimal valorIce { get; set; }
-		public byte[] imagen { get; set; }
+		public string imagen { get; set; }
 		public string imagenUrl { get; set; }
 		public decimal iva { get; set; }
 		public decimal montoTotal { get; set; }

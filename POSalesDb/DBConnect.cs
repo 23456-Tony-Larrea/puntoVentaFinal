@@ -214,7 +214,7 @@ namespace POSalesDB
                     item.valorIce = (decimal)dt.Rows[0]["valorIce"];
                     item.HasIva = (bool)dt.Rows[0]["HasIva"];
                     item.iva = (decimal)dt.Rows[0]["iva"];
-                    item.imagen = (byte[])dt.Rows[0]["imagen"];
+                    item.imagen = dt.Rows[0]["imagen"].ToString();
                     item.descripcion = dt.Rows[0]["imagenUrl"].ToString();
                     item.montoTotal = (decimal)dt.Rows[0]["montoTotal"];
                     item.categoriaA = dt.Rows[0]["categoriaA"].ToString();
@@ -240,6 +240,8 @@ namespace POSalesDB
          {
             cn.ConnectionString = myConnection();
             List<Items> items = new List<Items>();
+            decimal precioA = 0, precioB = 0, precioC = 0, precioD = 0, peso = 0, comision = 0, descMax = 0, costo = 0, ice = 0, valorIce = 0, iva = 0, montoTotal = 0;
+            int Id = 0, unidadCaja = 0, stockMax = 0, stockMin = 0, bId = 0, cId = 0, gId = 0, mId = 0, unidad = 0;
 
             try
             {    
@@ -253,42 +255,62 @@ namespace POSalesDB
                     foreach (DataRow r in dt.Rows)
                     {
                         Items item = new Items();
-                        item.Id = (int)r["Id"];
+                        int.TryParse(r["Id"].ToString(),out Id);
+                        item.Id = Id;
                         item.nombre = r["nombre"].ToString();
                         item.codigoUno = r["codigoUno"].ToString();
                         item.codigoDos = r["codigoDos"].ToString();
                         item.codigoTres = r["codigoTres"].ToString();
                         item.codigoCuatro = r["codigoCuatro"].ToString();
                         item.codigoBarras = r["codigoBarras"].ToString();
-                        item.precioA = (decimal)r["precioA"];
-                        item.precioB = (decimal)r["precioB"];
-                        item.precioC = (decimal)r["precioC"];
-                        item.precioD = (decimal)r["precioD"];
+                        decimal.TryParse(r["precioA"].ToString(), out precioA);
+                        item.precioA = precioA;
+                        decimal.TryParse(r["precioB"].ToString(), out precioB);
+                        item.precioB = precioB;
+                        decimal.TryParse(r["precioC"].ToString(), out precioC);
+                        item.precioC = precioC;
+                        decimal.TryParse(r["precioD"].ToString(), out precioD);
+                        item.precioD = precioD;
                         item.descripcion = r["descripcion"].ToString();
-                        item.unidadCaja = (int)r["unidadCaja"];
-                        item.peso = (decimal)r["peso"];
-                        item.comision = (decimal)r["comision"];
-                        item.descMax = (decimal)r["descMax"];
-                        item.stockMax = (int)r["stockMax"];
-                        item.stockMin = (int)r["stockMin"];
+                        int.TryParse(r["unidadCaja"].ToString(), out unidadCaja);
+                        item.unidadCaja = unidadCaja;
+                        decimal.TryParse(r["peso"].ToString(), out peso);
+                        item.peso = peso;
+                        decimal.TryParse(r["comision"].ToString(), out comision);
+                        item.comision = comision;
+                        decimal.TryParse(r["descMax"].ToString(), out descMax);
+                        item.descMax = descMax;
+                        int.TryParse(r["stockMax"].ToString(), out stockMax);
+                        item.stockMax = stockMax;
+                        int.TryParse(r["stockMin"].ToString(), out stockMin);
+                        item.stockMin = stockMin;
                         item.costo = (decimal)r["costo"];
+                        int.TryParse(r["unidad"].ToString(), out unidad);
                         item.unidad = (int)r["unidad"];
+                        int.TryParse(r["bId"].ToString(), out bId);
                         item.bId = (int)r["bId"];
+                        int.TryParse(r["cId"].ToString(), out cId);
                         item.cId = (int)r["cId"];
+                        int.TryParse(r["gId"].ToString(), out gId);
                         item.gId = (int)r["gId"];
-                        item.mId = (int)r["mId"];
+                        int.TryParse(r["mId"].ToString(), out mId);
+                        item.mId = mId;
                         item.servicio = (bool)r["servicio"];
                         item.aplicaSeries = (bool)r["aplicaSeries"];
                         item.negativo = (bool)r["negativo"];
                         item.combo = (bool)r["combo"];
                         item.gasto = (bool)r["gasto"];
-                        item.ice = (decimal)r["ice"];
-                        item.valorIce = decimal.Parse(r["valorIce"].ToString());
+                        decimal.TryParse(r["ice"].ToString(), out ice);
+                        item.ice = ice;
+                        decimal.TryParse(r["valorIce"].ToString(), out valorIce);
+                        item.valorIce = valorIce;
                         item.HasIva = bool.Parse(r["HasIva"].ToString());
-                        item.iva = (decimal)r["iva"];
-                        item.imagen = Encoding.ASCII.GetBytes(r["imagen"].ToString());
+                        decimal.TryParse(r["iva"].ToString(), out iva);
+                        item.iva = iva;
+                        item.imagen = r["imagen"].ToString();
                         item.descripcion = r["imagenUrl"].ToString();
-                        item.montoTotal = (decimal)r["montoTotal"];
+                        decimal.TryParse(r["montoTotal"].ToString(), out montoTotal);
+                        item.montoTotal = montoTotal;
                         item.categoriaA = r["categoriaA"].ToString();
                         item.categoriaB = r["categoriaB"].ToString();
                         item.categoriaC = r["categoriaC"].ToString();
@@ -318,7 +340,7 @@ namespace POSalesDB
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("Insert into Items (nombre,codigoUno,codigoDos,codigoTres,codigoCuatro,codigoBarras,precioA,precioB,precioC,precioD,descripcion,unidadCaja,peso,comision,descMax,stockMin,stockMax,costo,unidad,bId,cId,gId,mId,servicio,aplicaSeries,negativo,combo,gasto,ice,valorIce,imagen,imagenUrl,iva,montoTotal,HasIva,categoriaA,categoriaB,categoriaC,categoriaD,categoriaE values(@nombre,@codigoUno,@codigoDos,@codigoTres,@codigoCuatro,@codigoBarras,@precioA,@precioB,@precioC,@precioD,@descripcion,@unidadCaja,@peso,@comision,@descMax,@stockMin,@stockMax,@costo,@unidad,@bId,@cId,@gId,@mId,@servicio,@aplicaSeries,@negativo,@combo,@gasto,@ice,@valorIce,@imagen,@imagenUrl,@iva,@montoTotal,@HasIva,@categoriaA,@categoriaB,@categoriaC,@categoriaD,@categoriaE))");
+                cm = new SqlCommand("Insert into Items (nombre,codigoUno,codigoDos,codigoTres,codigoCuatro,codigoBarras,precioA,precioB,precioC,precioD,descripcion,unidadCaja,peso,comision,descMax,stockMin,stockMax,costo,unidad,bId,cId,gId,mId,servicio,aplicaSeries,negativo,combo,gasto,ice,valorIce,imagen,imagenUrl,iva,montoTotal,HasIva,categoriaA,categoriaB,categoriaC,categoriaD,categoriaE values(@nombre,@codigoUno,@codigoDos,@codigoTres,@codigoCuatro,@codigoBarras,@precioA,@precioB,@precioC,@precioD,@descripcion,@unidadCaja,@peso,@comision,@descMax,@stockMin,@stockMax,@costo,@unidad,@bId,@cId,@gId,@mId,@servicio,@aplicaSeries,@negativo,@combo,@gasto,@ice,@valorIce,@imagen,@imagenUrl,@iva,@montoTotal,@HasIva,@categoriaA,@categoriaB,@categoriaC,@categoriaD,@categoriaE))",cn);
                 cm.Parameters.AddWithValue("@nombre", item.nombre);
                 cm.Parameters.AddWithValue("@codigoUno", item.codigoUno);
                 cm.Parameters.AddWithValue("@codigoDos", item.codigoDos);
@@ -465,7 +487,7 @@ namespace POSalesDB
             Usuarios usuarios = new Usuarios();
             try
             {
-                cm = new SqlCommand($"Select * from Usuarios Where Id = {Id}");
+                cm = new SqlCommand($"Select * from Usuarios Where Id = {Id}",cn);
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();
@@ -538,7 +560,7 @@ namespace POSalesDB
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("Insert into Usuarios (username,contraseña,role,nombre,isactive values(@username,@contraseña,@role,@nombre,@isactive))");
+                cm = new SqlCommand("Insert into Usuarios (username,contraseña,role,nombre,isactive values(@username,@contraseña,@role,@nombre,@isactive))", cn);
                 cm.Parameters.AddWithValue("@username", usuarios.nombre);
                 cm.Parameters.AddWithValue("@role", usuarios.role);
                 cm.Parameters.AddWithValue("@nombre", usuarios.nombre);
@@ -617,7 +639,7 @@ namespace POSalesDB
             Ajustamiento ajustamiento = new Ajustamiento();
             try
             {
-                cm = new SqlCommand($"Select * from Ajustamiento Where Id = {Id}");
+                cm = new SqlCommand($"Select * from Ajustamiento Where Id = {Id}", cn);
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();

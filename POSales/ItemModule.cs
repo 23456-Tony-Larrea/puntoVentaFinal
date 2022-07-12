@@ -22,6 +22,7 @@ namespace POSales
         DBConnect dbcon = new DBConnect();
         string stitle = "Punto de venta";
         Items product;
+        string imageLocation = string.Empty;
         bool Nuevo = false;
         public ItemModule(Items pd)
         {
@@ -35,6 +36,7 @@ namespace POSales
             if (product.Id > 0)
             {
                 CargarItem();
+                btnSave.Visible = false;
             }
             else 
             {
@@ -80,13 +82,7 @@ namespace POSales
             txtCatC.Text = product.categoriaC;
             txtCatD.Text = product.categoriaD;
             txtCatE.Text = product.categoriaE;
-            Image newImage = null;
-            using (MemoryStream ms = new MemoryStream(product.imagen, 0, product.imagen.Length))
-            {
-                ms.Write(product.imagen, 0, product.imagen.Length);
-                newImage = Image.FromStream(ms, true);
-            }
-            picItem.Image = newImage;
+            picItem.ImageLocation = product.imagen;
 
 
         }
@@ -201,7 +197,7 @@ namespace POSales
                         item.valorIce = decimal.Parse(txtValorIce.Text);
                         item.HasIva = HasIva.Checked;
                         item.iva = decimal.Parse(txtIva.Text);
-                        item.imagen = bytes;
+                        item.imagen = imageLocation;
                         item.imagenUrl = txtReason.Text;
                         item.montoTotal = decimal.Parse(txtPriceA.Text) * decimal.Parse(txtIva.Text);
                         item.categoriaA = txtCatA.Text;
@@ -238,9 +234,6 @@ namespace POSales
             picItem.Enabled = false;
             MemoryStream ms = new MemoryStream();
             picItem.Visible = true;
-            byte[] data = System.IO.File.ReadAllBytes(Url);
-            picItem.Image.Save(ms, picItem.Image.RawFormat);
-            byte[] bytes = data;
             try
             {
                 if (MessageBox.Show("Estas seguro de actualizar este Item?", "Actualizar producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -283,7 +276,7 @@ namespace POSales
                     item.valorIce= decimal.Parse(txtValorIce.Text);
                     item.HasIva= HasIva.Checked;
                     item.iva= decimal.Parse(txtIva.Text);
-                    item.imagen= bytes;
+                    item.imagen= imageLocation;
                     item.imagenUrl= txtReason.Text;
                     item.montoTotal= decimal.Parse(txtPriceA.Text) * decimal.Parse(txtIva.Text);
                     item.categoriaA= txtCatA.Text;
@@ -301,11 +294,8 @@ namespace POSales
                     {
                         MessageBox.Show(Error);
                     }
-                   
-                    Clear();
-                   
-                   
                 }
+                else
                 {
 
                 }
