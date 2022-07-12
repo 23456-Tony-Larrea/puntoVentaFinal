@@ -30,7 +30,7 @@ namespace POSales
             using (var repo = new Repository(new SqlConnection(dbcon.myConnection())))
             {
                 dgvItem.Rows.Clear();
-                itemsBindingSource.DataSource = repo.GetAll<Items>("Items"); 
+                itemsBindingSource.DataSource = dbcon.selectTodosLosItems();
             }
         }
         
