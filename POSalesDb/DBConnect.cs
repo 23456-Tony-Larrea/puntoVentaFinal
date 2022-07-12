@@ -22,6 +22,45 @@ namespace POSalesDB
             return con;
         }
 
+
+        public Usuarios loginAction(string account, string password)
+        {
+            Usuarios usuario = new Usuarios();
+
+            string _username = "", _name = "", _role = "";
+            try
+            {
+                bool found;
+                cn.Open();
+                cm = new SqlCommand("Select * From Usuarios Where username = @username and contraseña = @contraseña", cn);
+                cm.Parameters.AddWithValue("@username", account);
+                cm.Parameters.AddWithValue("@contraseña", password);
+                dr = cm.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    usuario.Id = (int)dr["Id"];
+                    usuario.username = dr["username"].ToString();
+                    usuario.nombre = dr["nombre"].ToString();
+                    usuario.role = dr["role"].ToString();
+                    usuario.isactive = bool.Parse(dr["isactive"].ToString());
+
+                }
+                else
+                {
+                    found = false;
+                }
+                dr.Close();
+                cn.Close();
+
+                return usuario;
+            }
+            catch (SqlException ex)
+            {
+                return usuario;
+                cn.Close();
+            }
+        }
         public DataTable getTable(string qury)
         {
             cn.ConnectionString = myConnection();
@@ -93,7 +132,7 @@ namespace POSalesDB
             cn = new SqlConnection();
             cn.ConnectionString = myConnection();
             cm = new SqlCommand("BEGIN TRANSACTION;", cn);
-            cn.Open();
+            cn.Open();      
             cm.ExecuteNonQuery();
             cn.Close();
         }
@@ -102,11 +141,22 @@ namespace POSalesDB
           
             cn = new SqlConnection();
             cn.ConnectionString = myConnection();
-            cm = new SqlCommand("COMMIT", cn);
+            cm = new SqlCommand("COMMIT;", cn);
             cn.Open();
             cm.ExecuteNonQuery();
             cn.Close();
         }
+        public void rollBackTransaction()
+        {
+
+            cn = new SqlConnection();
+            cn.ConnectionString = myConnection();
+            cm = new SqlCommand("ROLLBACK;", cn);
+            cn.Open();
+            cm.ExecuteNonQuery();
+            cn.Close();
+        }
+
 
 
         /// <summary>
@@ -115,7 +165,7 @@ namespace POSalesDB
         /// <param name="item"></param>
         /// <returns></returns>
         /// 
-     ///   CRUD PARA CLASE ITEM
+        ///   CRUD PARA CLASE ITEM
         ///------ SECCION PARA SELECT ITEMS --------------
         public Items selectItemPorId(int Id)
        {

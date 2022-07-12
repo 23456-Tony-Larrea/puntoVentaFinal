@@ -8,7 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using POSalesDb;
 using POSalesDB;
+
 namespace POSales
 {
     public partial class Login : Form
@@ -37,85 +39,57 @@ namespace POSales
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string _username = "", _name = "", _role = "";
-            try
+         
+            string _role = string.Empty;
+            Usuarios usuario = new Usuarios();
+            usuario = dbcon.loginAction(txtName.Text, txtPass.Text);
+            if (usuario.Id > 0)
             {
-                bool found;
-                cn.Open();
-                cm = new SqlCommand("Select * From Usuarios Where username = @username and contraseña = @contraseña", cn);
-                cm.Parameters.AddWithValue("@username", txtName.Text);
-                cm.Parameters.AddWithValue("@contraseña", txtPass.Text);
-                dr = cm.ExecuteReader();
-                dr.Read();
-                if (dr.HasRows)
+             
+                if (!usuario.isactive)
                 {
-                    found = true;
-                    _username = dr["username"].ToString();
-                    _name = dr["nombre"].ToString();
-                    _role = dr["role"].ToString();
-                    _pass = dr["contraseña"].ToString();
-                    _isactive = bool.Parse(dr["isactive"].ToString());
+                    MessageBox.Show("La cuenta está desactivada.Incapaz de iniciar sesión", "Cuenta inactiva", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (usuario.role == "cashier")
+                {
+                    MessageBox.Show("Bienvenido " + usuario.nombre + " |", "ACCESSO CONCEBIDO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtName.Clear();
+                    txtPass.Clear();
+                    this.Hide();
+                    Cashier cashier = new Cashier();
+                    cashier.lblUsername.Text = usuario.nombre;
+                    cashier.lblname.Text = usuario.nombre + " | " + _role;
+                    cashier.ShowDialog();
+                }
+
+                if (usuario.role == "Administrador")
+                {
+                    MessageBox.Show("BIENVENIDO " + usuario.nombre + " |", "ACCESSO CONCEBIDO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtName.Clear();
+                    txtPass.Clear();
+                    this.Hide();
+                    MainForm main = new MainForm();
+                    main.lblUsername.Text = usuario.username;
+                    main.lblName.Text = usuario.nombre;
+                    main._pass = _pass;
+                    main.ShowDialog();
+                }
+                if (usuario.role == "facturero")
+                {
+                    MessageBox.Show("Bienvenido " + usuario.nombre + " |", "ACCESSO CONCEBIDO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtName.Clear();
+                    txtPass.Clear();
+                    this.Hide();
+                    MenuPrincipalFactura menuPrincipalFactura = new MenuPrincipalFactura();
+                    menuPrincipalFactura.ShowDialog();
 
                 }
-                else
-                {
-                    found = false;
-                }
-                dr.Close();
-                cn.Close();
 
-                if (found)
-                {
-                    if (!_isactive)
-                    {
-                        MessageBox.Show("La cuenta está desactivada.Incapaz de iniciar sesión", "Cuenta inactiva", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-                    if (_role == "cashier")
-                    {
-                        MessageBox.Show("Bienvenido " + _name + " |", "ACCESSO CONCEBIDO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtName.Clear();
-                        txtPass.Clear();
-                        this.Hide();
-                        Cashier cashier = new Cashier();
-                        cashier.lblUsername.Text = _username;
-                        cashier.lblname.Text = _name + " | " + _role;
-                        cashier.ShowDialog();
-                    }
-
-                    if(_role=="Administrador")
-                    {
-                        MessageBox.Show("BIENVENIDO " + _name + " |", "ACCESSO CONCEBIDO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtName.Clear();
-                        txtPass.Clear();
-                        this.Hide();
-                        MainForm main = new MainForm();
-                        main.lblUsername.Text = _username;
-                        main.lblName.Text = _name;
-                        main._pass = _pass;
-                        main.ShowDialog();
-                    }
-                    if(_role =="facturero")
-                    {
-                        MessageBox.Show("Bienvenido " + _name + " |", "ACCESSO CONCEBIDO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtName.Clear();
-                        txtPass.Clear();
-                        this.Hide();
-                        MenuPrincipalFactura menuPrincipalFactura = new MenuPrincipalFactura();
-                        menuPrincipalFactura.ShowDialog();
-                       
-                    }
-
-                }
-                else
-                {
-                    MessageBox.Show("nombre de usuario y contraseña inválidos!", "ACCESS DENEGADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
             }
-            catch (SqlException ex)
+            else
             {
-                cn.Close();
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("nombre de usuario y contraseña inválidos!", "ACCESS DENEGADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
