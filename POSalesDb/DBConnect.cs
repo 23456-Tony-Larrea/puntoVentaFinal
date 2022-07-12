@@ -403,7 +403,7 @@ namespace POSalesDB
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("UPDATE Items SET nombre=@nombre,codigoUno=@codigoUno,codigoDos=@codigoDos,codigoTres=@codigoTres,codigoCuatro=@codigoCuatro,precioA=@precioA,precioB=@precioB,precioC=@precioC,precioD=@precioD,descripcion=@descripcion,unidadCaja=@unidadCaja,peso=@peso,comision=@comision,descMax=@descMax,stockMin=@stockMin,stockMax=@stockMax,costo=@costo,unidad=@unidad,bId=@bId,cId=@cId ,gId=@gId,mId=@mId,servicio=@servicio,aplicaSeries=@aplicaSeries,negativo=@negativo,combo=@combo,gasto=@gasto,ice=@ice,valorIce=@valorIce,imagen=@imagen,imagenUrl=@imagenUrl,iva=@iva,montoTotal=@montoTotal,HasIva=HasIva,categoriaA=@categoriaA,categoriaB=@categoriaB,categoriaC=@categoriaC,categoriaD=@categoriaD,categoriaE=@categoriaE  WHERE Id = @Id  ", cn);
+                cm = new SqlCommand("UPDATE Items SET nombre=@nombre,codigoUno=@codigoUno,codigoDos=@codigoDos,codigoTres=@codigoTres,codigoCuatro=@codigoCuatro,precioA=@precioA,precioB=@precioB,precioC=@precioC,precioD=@precioD,descripcion=@descripcion,unidadCaja=@unidadCaja,peso=@peso,comision=@comision,descMax=@descMax,stockMin=@stockMin,stockMax=@stockMax,costo=@costo,unidad=@unidad,bId=@bId,cId=@cId ,gId=@gId,mId=@mId,servicio=@servicio,aplicaSeries=@aplicaSeries,negativo=@negativo,combo=@combo,gasto=@gasto,ice=@ice,valorIce=@valorIce,imagen=@imagen,imagenUrl=@imagenUrl,iva=@iva,montoTotal=@montoTotal,HasIva=HasIva,categoriaA=@categoriaA,categoriaB=@categoriaB,categoriaC=@categoriaC,categoriaD=@categoriaD,categoriaE=@categoriaE WHERE Id = @Id ", cn);
                 cm.Parameters.AddWithValue("@Id", item.Id);
                 cm.Parameters.AddWithValue("@nombre", item.nombre);
                 cm.Parameters.AddWithValue("@codigoUno", item.codigoUno);
@@ -588,7 +588,7 @@ namespace POSalesDB
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("UPDATE Usuarios SET username=@username,contraseña=@contraseña,nombre=nombre,role=@role,isactive=@isactive WHERE Id = @Id  ", cn);
+                cm = new SqlCommand("UPDATE Usuarios SET username=@username,contraseña=@contraseña,nombre=@nombre,role=@role,isactive=@isactive WHERE Id = @Id  ", cn);
                 cm.Parameters.AddWithValue("@", usuarios.Id);
                 cm.Parameters.AddWithValue("@nombre", usuarios.nombre);
                 cm.Parameters.AddWithValue("@contraseña", usuarios.contraseña);
@@ -713,6 +713,228 @@ namespace POSalesDB
                 cn.Close();
             }
         }
+        //insertar ajustamientos 
+        public string Ajustamiento (Ajustamiento ajustamiento)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Ajustamiento (referenceno,pcode,qty,action,remarks,sdate,[user] values(@referenceno,@pcode,@qty,@action,@remarks,@sdate,@[user]))");
+                cm.Parameters.AddWithValue("@referenceno", ajustamiento.referenceno);
+                cm.Parameters.AddWithValue("@pcode", ajustamiento.pcode);
+                cm.Parameters.AddWithValue("@qty", ajustamiento.qty);
+                cm.Parameters.AddWithValue("@action", ajustamiento.action);
+                cm.Parameters.AddWithValue("@remarks", ajustamiento.remarks);
+                cm.Parameters.AddWithValue("@sdate", ajustamiento.sdate);
+                cm.Parameters.AddWithValue("@[user]", ajustamiento.user);
 
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar ajustamiento 
+        public string actualizarAjustamiento(Ajustamiento ajustamientos)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Ajustamiento SET referenceno=@referenceno,pcode=@pcode,qty=@qty,action=@action,sdate=@sdate,[user]=@[user] WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", ajustamientos.Id);
+                cm.Parameters.AddWithValue("@referenceno", ajustamientos.referenceno);
+                cm.Parameters.AddWithValue("@pcode", ajustamientos.pcode);
+                cm.Parameters.AddWithValue("@qty", ajustamientos.qty);
+                cm.Parameters.AddWithValue("@action", ajustamientos.action);
+                cm.Parameters.AddWithValue("@sdate", ajustamientos.sdate);
+                cm.Parameters.AddWithValue("@[user]", ajustamientos.user);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar usuarios
+        public string deleteItems(int idAjustamiento)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM Ajustamiento WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", idAjustamiento);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //obtener bodega id 
+        public Bodega selectBodegaId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Bodega bodegas = new Bodega();
+            try
+            {
+                cm = new SqlCommand($"Select * from Bodega Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    bodegas.Id = (int)dt.Rows[0]["Id"];
+                    bodegas.Nombre = dt.Rows[0]["nombre"].ToString();
+                }
+                cm.ExecuteNonQuery();
+                return bodegas;
+
+            }
+            catch (Exception ex)
+            {
+                return bodegas;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //obtener bodega
+        public List<Bodega> selectTodosLosBodegas()
+        {
+            cn.ConnectionString = myConnection();
+            List<Bodega> bodega = new List<Bodega>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Bodega");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Bodega bodegas = new Bodega();
+                        bodegas.Id = (int)r["Id"];
+                        bodegas.Nombre = r["nombre"].ToString();
+                         bodega.Add(bodegas);
+                    }
+
+                }
+                cm.ExecuteNonQuery();
+                return bodega;
+            }
+
+            catch (Exception ex)
+            {
+                return bodega;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar bodega
+        public string insertBodega(Bodega bodega)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Bodega (nombre values(@Bodega))");
+                cm.Parameters.AddWithValue("@nombre", bodega.Nombre);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public string actualizarBodega(Bodega bodega)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Bodega SET nombre=@nombre WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", bodega.Id);
+                cm.Parameters.AddWithValue("@nombre", bodega.Nombre);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar usuarios
+        public string deleteBodegas(int idBodegas)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM Bodega WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", idBodegas);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
     }
 }

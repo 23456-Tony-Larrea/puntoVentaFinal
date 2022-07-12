@@ -68,7 +68,11 @@ namespace POSales
                 item.cId = Convert.ToInt32(dgvItem.Rows[e.RowIndex].Cells["CId"].Value.ToString());
                 item.gId = Convert.ToInt32(dgvItem.Rows[e.RowIndex].Cells["gId"].Value.ToString());
                 item.mId = Convert.ToInt32(dgvItem.Rows[e.RowIndex].Cells["mId"].Value.ToString());
+<<<<<<< HEAD
                 item.servicio = Convert.ToBoolean(dgvItem.Rows[e.RowIndex].Cells["servicio"].Value);
+=======
+                item.servicio = Convert.ToBoolean(dgvItem.Rows[e.RowIndex].Cells["servicio"].Value.ToString());
+>>>>>>> b7e6449c9c471d9bae818ee0b80dbd81c142fba7
                 item.aplicaSeries = Convert.ToBoolean(dgvItem.Rows[e.RowIndex].Cells["aplicaSeries"].Value.ToString());
                 item.negativo = Convert.ToBoolean(dgvItem.Rows[e.RowIndex].Cells["negativo"].Value.ToString());
                 item.combo = Convert.ToBoolean(dgvItem.Rows[e.RowIndex].Cells["Combo"].Value.ToString());

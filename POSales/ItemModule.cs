@@ -36,6 +36,7 @@ namespace POSales
             if (product.Id > 0)
             {
                 CargarItem();
+                btnSave.Visible = false;
             }
             else 
             {
@@ -233,9 +234,6 @@ namespace POSales
             picItem.Enabled = false;
             MemoryStream ms = new MemoryStream();
             picItem.Visible = true;
-            byte[] data = System.IO.File.ReadAllBytes(Url);
-            picItem.Image.Save(ms, picItem.Image.RawFormat);
-            byte[] bytes = data;
             try
             {
                 if (MessageBox.Show("Estas seguro de actualizar este Item?", "Actualizar producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -296,11 +294,8 @@ namespace POSales
                     {
                         MessageBox.Show(Error);
                     }
-                   
-                    Clear();
-                   
-                   
                 }
+                else
                 {
 
                 }
