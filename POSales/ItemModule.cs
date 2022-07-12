@@ -160,7 +160,7 @@ namespace POSales
 
                         decimal PrecioA = 0, PrecioB = 0, PrecioC = 0, PrecioD = 0;
                         item.nombre = txtNameProdcut.Text;
-                        item.codigoUno = txtCodUno.Text;
+                         item.codigoUno = txtCodUno.Text;
                         item.codigoDos = txtCodDos.Text;
                         item.codigoTres = txtCod3.Text;
                         item.codigoCuatro = txtCod4.Text;
@@ -358,6 +358,19 @@ namespace POSales
 
         private void txtPriceA_TextChanged(object sender, EventArgs e)
         {
+            decimal iva = 0;
+            if (HasIva.Checked == true)
+            {
+                if (!string.IsNullOrEmpty(txtPriceA.Text))
+                {
+                    if (decimal.TryParse(txtPriceA.Text, out decimal price))
+                    {
+                        decimal.TryParse(txtIva.Text, out iva);
+                        decimal calculo = price * (iva / 100);
+                        valA.Text = calculo.ToString();
+                    }
+                }
+            }
 
         }
         string Url;
@@ -415,7 +428,19 @@ namespace POSales
 
         private void txtPriceC_TextChanged(object sender, EventArgs e)
         {
-
+            decimal iva = 0;
+            if (HasIva.Checked == true)
+            {
+                if (!string.IsNullOrEmpty(txtPriceC.Text))
+                {
+                    if (decimal.TryParse(txtPriceC.Text, out decimal price))
+                    {
+                        decimal.TryParse(txtIva.Text, out iva);
+                        decimal calculo = price * (iva / 100);
+                        textBox25.Text = calculo.ToString();
+                    }
+                }
+            }
         }
 
         private void txtPriceC_KeyPress(object sender, KeyPressEventArgs e)
@@ -527,6 +552,40 @@ namespace POSales
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void txtPriceB_TextChanged(object sender, EventArgs e)
+        {
+            decimal iva = 0;
+            if (HasIva.Checked == true)
+            {
+                if (!string.IsNullOrEmpty(txtPriceB.Text))
+                {
+                    if (decimal.TryParse(txtPriceB.Text, out decimal price))
+                    {
+                        decimal.TryParse(txtIva.Text, out iva);
+                        decimal calculo = price * (iva / 100);
+                        textBox24.Text = calculo.ToString();
+                    }
+                }
+            }
+        }
+
+        private void txtPriceD_TextChanged(object sender, EventArgs e)
+        {
+            decimal iva = 0;
+            if (HasIva.Checked == true)
+            {
+                if (!string.IsNullOrEmpty(txtPriceD.Text))
+                {
+                    if (decimal.TryParse(txtPriceD.Text, out decimal price))
+                    {
+                        decimal.TryParse(txtIva.Text, out iva);
+                        decimal calculo = price * (iva / 100);
+                        textBox26.Text = calculo.ToString();
+                    }
+                }
+            }
         }
     }
 }
