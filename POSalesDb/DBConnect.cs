@@ -636,7 +636,7 @@ namespace POSalesDB
                 cn.Close();
             }
         }
-        // get usuarios 
+        // get ajustes 
 
     }
 }
