@@ -57,6 +57,7 @@ namespace POSales
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(795, 67);
             this.panel1.TabIndex = 8;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox1
             // 
@@ -85,14 +86,14 @@ namespace POSales
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(67, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(236, 44);
+            this.label1.Size = new System.Drawing.Size(185, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Punto Venta";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(425, 151);
+            this.pictureBox2.Location = new System.Drawing.Point(354, 129);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 100);
             this.pictureBox2.TabIndex = 9;
@@ -115,7 +116,7 @@ namespace POSales
             this.txtName.DisplayIcon = true;
             this.txtName.Icon = ((System.Drawing.Image)(resources.GetObject("txtName.Icon")));
             this.txtName.Lines = new string[0];
-            this.txtName.Location = new System.Drawing.Point(341, 320);
+            this.txtName.Location = new System.Drawing.Point(270, 298);
             this.txtName.MaxLength = 32767;
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
@@ -137,9 +138,9 @@ namespace POSales
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Schoolbook", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(312, 266);
+            this.label2.Location = new System.Drawing.Point(265, 247);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(363, 32);
+            this.label2.Size = new System.Drawing.Size(280, 25);
             this.label2.TabIndex = 11;
             this.label2.Text = "Por favor Login primero";
             // 
@@ -160,7 +161,7 @@ namespace POSales
             this.txtPass.DisplayIcon = true;
             this.txtPass.Icon = ((System.Drawing.Image)(resources.GetObject("txtPass.Icon")));
             this.txtPass.Lines = new string[0];
-            this.txtPass.Location = new System.Drawing.Point(341, 371);
+            this.txtPass.Location = new System.Drawing.Point(270, 349);
             this.txtPass.MaxLength = 32767;
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '●';
@@ -186,7 +187,7 @@ namespace POSales
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(341, 418);
+            this.btnLogin.Location = new System.Drawing.Point(270, 396);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(268, 31);
             this.btnLogin.TabIndex = 12;
@@ -202,7 +203,7 @@ namespace POSales
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(341, 455);
+            this.btnCancel.Location = new System.Drawing.Point(270, 433);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(268, 31);
             this.btnCancel.TabIndex = 12;
@@ -212,7 +213,7 @@ namespace POSales
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(795, 548);

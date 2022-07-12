@@ -19,9 +19,6 @@ namespace POSales
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
         SqlDataReader dr;
-
-        public string _pass = "";
-        public bool _isactive;
         public Login()
         {
             InitializeComponent();
@@ -57,6 +54,7 @@ namespace POSales
                     txtName.Clear();
                     txtPass.Clear();
                     this.Hide();
+                    
                     Cashier cashier = new Cashier();
                     cashier.lblUsername.Text = usuario.nombre;
                     cashier.lblname.Text = usuario.nombre + " | " + _role;
@@ -72,7 +70,6 @@ namespace POSales
                     MainForm main = new MainForm();
                     main.lblUsername.Text = usuario.username;
                     main.lblName.Text = usuario.nombre;
-                    main._pass = _pass;
                     main.ShowDialog();
                 }
                 if (usuario.role == "facturero")
@@ -110,6 +107,11 @@ namespace POSales
         }
 
         private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
