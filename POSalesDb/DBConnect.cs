@@ -173,6 +173,7 @@ namespace POSalesDB
             Items item = new Items();
             try
             {
+                cn.ConnectionString = myConnection();
                 cm = new SqlCommand($"Select * from Items Where Id = {Id}");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
@@ -235,13 +236,14 @@ namespace POSalesDB
                 cn.Close();
             }
         }
-        public List<Items> selectTodosLosItems(int Id)
-        {
+        public List<Items> selectTodosLosItems()
+         {
+            cn.ConnectionString = myConnection();
             List<Items> items = new List<Items>();
 
             try
-            {
-                cm = new SqlCommand($"Select * from Items Where Id = {Id}");
+            {    
+                cm = new SqlCommand($"Select * from Items ");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();
@@ -312,6 +314,7 @@ namespace POSalesDB
         ///------ SECCION PARA NSERT ITEMS --------------
         public string insertItem(Items item)
         {
+            cn.ConnectionString = myConnection();
             string Error = String.Empty;
             try
             {
@@ -374,6 +377,7 @@ namespace POSalesDB
         ///------ SECCION PARA UPDATE ITEMS --------------
         public string actualizarItem(Items item)
         {
+            cn.ConnectionString = myConnection();
             string Error = String.Empty;
             try
             {
@@ -434,6 +438,7 @@ namespace POSalesDB
         ///------ SECCION PARA DELETE ITEMS --------------
         public string deleteItem(int idItem)
         {
+            cn.ConnectionString = myConnection();
             string Error = String.Empty;
             try
             {
@@ -456,6 +461,7 @@ namespace POSalesDB
         //get Usuarios Id
         public Usuarios selectUsuariosPorId(int Id)
         {
+            cn.ConnectionString = myConnection();
             Usuarios usuarios = new Usuarios();
             try
             {
@@ -488,6 +494,7 @@ namespace POSalesDB
         // get usuarios 
         public List<Usuarios> selectTodosLosUsuarios(int Id)
         {
+            cn.ConnectionString = myConnection();
             List<Usuarios> usuarios = new List<Usuarios>();
 
             try
@@ -527,6 +534,7 @@ namespace POSalesDB
         //insertar usuarios
         public string insertUsuarios(Usuarios usuarios)
         {
+            cn.ConnectionString = myConnection();
             string Error = String.Empty;
             try
             {
@@ -554,6 +562,7 @@ namespace POSalesDB
         //actualizar usuario 
         public string actualizarItem(Usuarios usuarios)
         {
+            cn.ConnectionString = myConnection();
             string Error = String.Empty;
             try
             {
@@ -581,6 +590,7 @@ namespace POSalesDB
         //eliminar usuarios
         public string deleteUsers(int idUsuarios)
         {
+            cn.ConnectionString = myConnection();
             string Error = String.Empty;
             try
             {
@@ -603,6 +613,7 @@ namespace POSalesDB
         //get ajustamiento id
         public Ajustamiento selectAjustamientosPorId(int Id)
         {
+            cn.ConnectionString = myConnection();
             Ajustamiento ajustamiento = new Ajustamiento();
             try
             {
