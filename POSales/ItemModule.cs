@@ -144,7 +144,7 @@ namespace POSales
                     item.categoriaE = txtCatE.Text;
                     MessageBox.Show("Item ingresado  con exito.", stitle);
                     DBConnect db = new DBConnect();
-                    string Error = db.InsertItem(item);
+                    string Error = db.insertItem(item);
 
                 }
                 }
@@ -221,7 +221,7 @@ namespace POSales
                     item.categoriaD = txtCatD.Text;
                     item.categoriaE = txtCatE.Text;
                     DBConnect db = new DBConnect();
-                   string Error = db.ActualizarItem(item);
+                   string Error = db.actualizarItem(item);
                     if (string.IsNullOrEmpty(Error))
                     {
                         MessageBox.Show("Item actualizado con exito.", stitle);
