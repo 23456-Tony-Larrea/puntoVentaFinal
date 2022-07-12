@@ -30,7 +30,7 @@ namespace POSales
             using (var repo = new Repository(new SqlConnection(dbcon.myConnection())))
             {
                 dgvItem.Rows.Clear();
-                dgvItem.DataSource = repo.GetAll<Items>("Items");
+                itemsBindingSource.DataSource = repo.GetAll<Items>("Items"); 
             }
         }
         
@@ -104,6 +104,11 @@ namespace POSales
         {
             ItemModule productModule = new ItemModule(this);
             productModule.ShowDialog();
+        }
+
+        private void Item_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

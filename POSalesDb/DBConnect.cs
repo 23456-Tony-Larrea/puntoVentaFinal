@@ -26,12 +26,12 @@ namespace POSalesDB
         public Usuarios loginAction(string account, string password)
         {
             Usuarios usuario = new Usuarios();
-
+            cn.ConnectionString = myConnection();
             string _username = "", _name = "", _role = "";
             try
             {
-                bool found;
-                cn.Open();
+                bool found;;
+             
                 cm = new SqlCommand("Select * From Usuarios Where username = @username and contraseña = @contraseña", cn);
                 cm.Parameters.AddWithValue("@username", account);
                 cm.Parameters.AddWithValue("@contraseña", password);
@@ -171,7 +171,7 @@ namespace POSalesDB
        {
             Items item = new Items();
             try
-            {    
+            {       
                 cm = new SqlCommand($"Select * from Items Where Id = {Id}");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
