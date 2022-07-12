@@ -492,14 +492,14 @@ namespace POSalesDB
             }
         }
         // get usuarios 
-        public List<Usuarios> selectTodosLosUsuarios(int Id)
+        public List<Usuarios> selectTodosLosUsuarios()
         {
             cn.ConnectionString = myConnection();
             List<Usuarios> usuarios = new List<Usuarios>();
 
             try
             {
-                cm = new SqlCommand($"Select * from Items Where Id = {Id}");
+                cm = new SqlCommand($"Select * from Items ");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();
