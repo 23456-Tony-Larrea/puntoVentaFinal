@@ -22,6 +22,46 @@ namespace POSalesDB
             return con;
         }
 
+
+        public Usuarios loginAction(string account, string password)
+        {
+            Usuarios usuario = new Usuarios();
+            cn.ConnectionString = myConnection();
+
+            string _username = "", _name = "", _role = "";
+            try
+            {
+                bool found;     
+                cn.Open();
+                cm = new SqlCommand("Select * From Usuarios Where username = @username and contraseña = @contraseña", cn);
+                cm.Parameters.AddWithValue("@username", account);
+                cm.Parameters.AddWithValue("@contraseña", password);
+                dr = cm.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    usuario.Id = (int)dr["Id"];
+                    usuario.username = dr["username"].ToString();
+                    usuario.nombre = dr["nombre"].ToString();
+                    usuario.role = dr["role"].ToString();
+                    usuario.isactive = bool.Parse(dr["isactive"].ToString());
+
+                }
+                else
+                {
+                    found = false;
+                }
+                dr.Close();
+                cn.Close();
+
+                return usuario;
+            }
+            catch (SqlException ex)
+            {
+                return usuario;
+                cn.Close();
+            }
+        }
         public DataTable getTable(string qury)
         {
             cn.ConnectionString = myConnection();
@@ -93,7 +133,7 @@ namespace POSalesDB
             cn = new SqlConnection();
             cn.ConnectionString = myConnection();
             cm = new SqlCommand("BEGIN TRANSACTION;", cn);
-            cn.Open();
+            cn.Open();      
             cm.ExecuteNonQuery();
             cn.Close();
         }
@@ -102,11 +142,22 @@ namespace POSalesDB
 
             cn = new SqlConnection();
             cn.ConnectionString = myConnection();
-            cm = new SqlCommand("COMMIT", cn);
+            cm = new SqlCommand("COMMIT;", cn);
             cn.Open();
             cm.ExecuteNonQuery();
             cn.Close();
         }
+        public void rollBackTransaction()
+        {
+
+            cn = new SqlConnection();
+            cn.ConnectionString = myConnection();
+            cm = new SqlCommand("ROLLBACK;", cn);
+            cn.Open();
+            cm.ExecuteNonQuery();
+            cn.Close();
+        }
+
 
 
         /// <summary>
@@ -419,7 +470,7 @@ namespace POSalesDB
                     usuarios.nombre = dt.Rows[0]["username"].ToString();
                     usuarios.role = dt.Rows[0]["role"].ToString();
                     usuarios.nombre = dt.Rows[0]["nombre"].ToString();
-                    usuarios.isactive = dt.Rows[0]["isactive"].ToString();
+                    usuarios.isactive = Convert.ToBoolean(dt.Rows[0]["isactive"].ToString());
                 }
                 cm.ExecuteNonQuery();
                 return usuarios;
@@ -454,7 +505,7 @@ namespace POSalesDB
                         usuario.Id = (int)r["Id"];
                         usuario.nombre = r["nombre"].ToString();
                         usuario.role = r["role"].ToString();
-                        usuario.isactive = r["isactive"].ToString();
+                        usuario.isactive = Convert.ToBoolean(r["isactive"].ToString());
                         usuarios.Add(usuario);
                     }
 
