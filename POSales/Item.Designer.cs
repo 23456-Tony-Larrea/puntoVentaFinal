@@ -32,10 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Item));
             this.dgvItem = new System.Windows.Forms.DataGridView();
+            this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hasIvaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,7 +68,8 @@
             this.gastoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.iceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorIceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imagenDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ImagenBitmap = new System.Windows.Forms.DataGridViewImageColumn();
+            this.imagenDataGridViewImageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imagenUrlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ivaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.montoTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,8 +82,8 @@
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvItem
@@ -135,6 +136,7 @@
             this.gastoDataGridViewCheckBoxColumn,
             this.iceDataGridViewTextBoxColumn,
             this.valorIceDataGridViewTextBoxColumn,
+            this.ImagenBitmap,
             this.imagenDataGridViewImageColumn,
             this.imagenUrlDataGridViewTextBoxColumn,
             this.ivaDataGridViewTextBoxColumn,
@@ -151,7 +153,7 @@
             this.dgvItem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvItem.EnableHeadersVisualStyles = false;
             this.dgvItem.Location = new System.Drawing.Point(0, 0);
-            this.dgvItem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvItem.Margin = new System.Windows.Forms.Padding(2);
             this.dgvItem.Name = "dgvItem";
             this.dgvItem.ReadOnly = true;
             this.dgvItem.RowHeadersVisible = false;
@@ -159,6 +161,11 @@
             this.dgvItem.Size = new System.Drawing.Size(1284, 302);
             this.dgvItem.TabIndex = 7;
             this.dgvItem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBodega_CellContentClick);
+            this.dgvItem.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvItem_CellFormatting);
+            // 
+            // itemsBindingSource
+            // 
+            this.itemsBindingSource.DataSource = typeof(POSalesDb.Items);
             // 
             // btnAdd
             // 
@@ -166,7 +173,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.Location = new System.Drawing.Point(698, 21);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(29, 26);
             this.btnAdd.TabIndex = 1;
@@ -194,14 +201,10 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 302);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1284, 65);
             this.panel1.TabIndex = 6;
-            // 
-            // itemsBindingSource
-            // 
-            this.itemsBindingSource.DataSource = typeof(POSalesDb.Items);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -427,6 +430,12 @@
             this.valorIceDataGridViewTextBoxColumn.Name = "valorIceDataGridViewTextBoxColumn";
             this.valorIceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // ImagenBitmap
+            // 
+            this.ImagenBitmap.HeaderText = "Imagen";
+            this.ImagenBitmap.Name = "ImagenBitmap";
+            this.ImagenBitmap.ReadOnly = true;
+            // 
             // imagenDataGridViewImageColumn
             // 
             this.imagenDataGridViewImageColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -434,6 +443,8 @@
             this.imagenDataGridViewImageColumn.HeaderText = "imagen";
             this.imagenDataGridViewImageColumn.Name = "imagenDataGridViewImageColumn";
             this.imagenDataGridViewImageColumn.ReadOnly = true;
+            this.imagenDataGridViewImageColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.imagenDataGridViewImageColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // imagenUrlDataGridViewTextBoxColumn
             // 
@@ -525,13 +536,13 @@
             this.ClientSize = new System.Drawing.Size(1284, 367);
             this.Controls.Add(this.dgvItem);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Item";
             this.Text = "Item";
             this.Load += new System.EventHandler(this.Item_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).EndInit();
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -575,7 +586,8 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn gastoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valorIceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn imagenDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewImageColumn ImagenBitmap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imagenDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn imagenUrlDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ivaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn montoTotalDataGridViewTextBoxColumn;

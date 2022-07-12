@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using POSalesDB;
+using System.IO;
 
 namespace POSales
 {
@@ -31,6 +32,8 @@ namespace POSales
             {
                 dgvItem.Rows.Clear();
                 itemsBindingSource.DataSource = dbcon.selectTodosLosItems();
+
+
             }
         }
         
@@ -109,6 +112,19 @@ namespace POSales
         private void Item_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvItem_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dgvItem.Columns[e.ColumnIndex].Name == "imagenDataGridViewImageColumn")
+            {
+                byte[] be = Convert.FromBase64String(this.dgvItem.Rows[e.RowIndex].Cells["imagenDataGridViewImageColumn"].Value.ToString());
+                Bitmap bmp;
+                using (var ms = new MemoryStream(be))
+                {
+                    this.dgvItem.Rows[e.RowIndex].Cells["ImagenBitmap"].Value = new Bitmap(ms);
+                }
+            }
         }
     }
 }
