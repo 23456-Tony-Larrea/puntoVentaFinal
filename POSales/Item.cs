@@ -82,7 +82,7 @@ namespace POSales
                 item.categoriaC = dgvItem.Rows[e.RowIndex].Cells["categoriaC"].Value.ToString();
                 item.categoriaD = dgvItem.Rows[e.RowIndex].Cells["categoriaD"].Value.ToString();
                 item.categoriaE = dgvItem.Rows[e.RowIndex].Cells["categoriaE"].Value.ToString();
-                item.imagen = Encoding.ASCII.GetBytes(dgvItem.Rows[e.RowIndex].Cells["imagen"].Value.ToString());
+                item.imagen =dgvItem.Rows[e.RowIndex].Cells["imagen"].Value.ToString();
                 Form itemModule = new ItemModule(item); 
                 itemModule.Show();
             

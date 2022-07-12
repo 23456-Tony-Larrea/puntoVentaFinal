@@ -22,6 +22,7 @@ namespace POSales
         DBConnect dbcon = new DBConnect();
         string stitle = "Punto de venta";
         Items product;
+        string imageLocation = string.Empty;
         bool Nuevo = false;
         public ItemModule(Items pd)
         {
@@ -80,13 +81,7 @@ namespace POSales
             txtCatC.Text = product.categoriaC;
             txtCatD.Text = product.categoriaD;
             txtCatE.Text = product.categoriaE;
-            Image newImage = null;
-            using (MemoryStream ms = new MemoryStream(product.imagen, 0, product.imagen.Length))
-            {
-                ms.Write(product.imagen, 0, product.imagen.Length);
-                newImage = Image.FromStream(ms, true);
-            }
-            picItem.Image = newImage;
+            picItem.ImageLocation = product.imagen;
 
 
         }
@@ -201,7 +196,7 @@ namespace POSales
                         item.valorIce = decimal.Parse(txtValorIce.Text);
                         item.HasIva = HasIva.Checked;
                         item.iva = decimal.Parse(txtIva.Text);
-                        item.imagen = bytes;
+                        item.imagen = imageLocation;
                         item.imagenUrl = txtReason.Text;
                         item.montoTotal = decimal.Parse(txtPriceA.Text) * decimal.Parse(txtIva.Text);
                         item.categoriaA = txtCatA.Text;
@@ -283,7 +278,7 @@ namespace POSales
                     item.valorIce= decimal.Parse(txtValorIce.Text);
                     item.HasIva= HasIva.Checked;
                     item.iva= decimal.Parse(txtIva.Text);
-                    item.imagen= bytes;
+                    item.imagen= imageLocation;
                     item.imagenUrl= txtReason.Text;
                     item.montoTotal= decimal.Parse(txtPriceA.Text) * decimal.Parse(txtIva.Text);
                     item.categoriaA= txtCatA.Text;
