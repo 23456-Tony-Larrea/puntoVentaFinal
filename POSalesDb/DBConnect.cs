@@ -27,11 +27,12 @@ namespace POSalesDB
         {
             Usuarios usuario = new Usuarios();
             cn.ConnectionString = myConnection();
+
             string _username = "", _name = "", _role = "";
             try
             {
-                bool found;;
-             
+                bool found;     
+                cn.Open();
                 cm = new SqlCommand("Select * From Usuarios Where username = @username and contraseña = @contraseña", cn);
                 cm.Parameters.AddWithValue("@username", account);
                 cm.Parameters.AddWithValue("@contraseña", password);
@@ -80,7 +81,7 @@ namespace POSalesDB
                 cn.Open();
                 cm = new SqlCommand(sql, cn);
                 cm.ExecuteNonQuery();
-               
+
                 Error = "";
                 return Error;
             }
@@ -92,9 +93,9 @@ namespace POSalesDB
             finally
             {
                 cn.Close();
-              
+
             }
-           
+
         }
 
         public String getPassword(string username)
@@ -102,10 +103,10 @@ namespace POSalesDB
             string password = "";
             cn.ConnectionString = myConnection();
             cn.Open();
-            cm = new SqlCommand("SELECT password FROM tbUser WHERE username = '"+ username + "'", cn);
-            dr= cm.ExecuteReader();
+            cm = new SqlCommand("SELECT password FROM tbUser WHERE username = '" + username + "'", cn);
+            dr = cm.ExecuteReader();
             dr.Read();
-            if(dr.HasRows)
+            if (dr.HasRows)
             {
                 password = dr["password"].ToString();
             }
@@ -116,7 +117,7 @@ namespace POSalesDB
 
         public double ExtractData(string sql)
         {
-          
+
             cn = new SqlConnection();
             cn.ConnectionString = myConnection();
             cn.Open();
@@ -128,7 +129,7 @@ namespace POSalesDB
         }
         public void beginTransaction()
         {
-          
+
             cn = new SqlConnection();
             cn.ConnectionString = myConnection();
             cm = new SqlCommand("BEGIN TRANSACTION;", cn);
@@ -136,9 +137,9 @@ namespace POSalesDB
             cm.ExecuteNonQuery();
             cn.Close();
         }
-         public void commitTransaction()
+        public void commitTransaction()
         {
-          
+
             cn = new SqlConnection();
             cn.ConnectionString = myConnection();
             cm = new SqlCommand("COMMIT;", cn);
@@ -168,58 +169,59 @@ namespace POSalesDB
         ///   CRUD PARA CLASE ITEM
         ///------ SECCION PARA SELECT ITEMS --------------
         public Items selectItemPorId(int Id)
-       {
+        {
             Items item = new Items();
             try
-            {       
+            {
+                cn.ConnectionString = myConnection();
                 cm = new SqlCommand($"Select * from Items Where Id = {Id}");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-                if(dt.Rows.Count > 0)
+                if (dt.Rows.Count > 0)
                 {
-                        item.Id = (int)dt.Rows[0]["Id"];
-                        item.nombre= dt.Rows[0]["nombre"].ToString();
-                        item.codigoUno= dt.Rows[0]["codigoUno"].ToString(); 
-                        item.codigoDos= dt.Rows[0]["codigoDos"].ToString();
-                        item.codigoTres= dt.Rows[0]["codigoTres"].ToString(); 
-                        item.codigoCuatro=  dt.Rows[0]["codigoCuatro"].ToString(); 
-                        item.codigoBarras=   dt.Rows[0]["codigoBarras"].ToString(); 
-                        item.precioA=   (decimal)dt.Rows[0]["precioA"];
-                        item.precioB=   (decimal)dt.Rows[0]["precioB"]; 
-                        item.precioC=  (decimal)dt.Rows[0]["precioC"]; 
-                        item.precioD=  (decimal)dt.Rows[0]["precioD"]; 
-                        item.descripcion=dt.Rows[0]["descripcion"].ToString(); 
-                        item.unidadCaja= (int)dt.Rows[0]["unidadCaja"];
-                        item.peso=  (decimal)dt.Rows[0]["peso"];
-                        item.comision= (decimal)dt.Rows[0]["comision"]; 
-                        item.descMax= (decimal)dt.Rows[0]["descMax"];
-                        item.stockMax= (int)dt.Rows[0]["stockMax"];
-                        item.stockMin=(int)dt.Rows[0]["stockMin"]; 
-                        item.costo= (decimal)dt.Rows[0]["costo"];
-                        item.unidad =(int)dt.Rows[0]["unidad"]; 
-                        item.bId = (int)dt.Rows[0]["bId"]; 
-                        item.cId= (int)dt.Rows[0]["cId"]; 
-                        item.gId = (int)dt.Rows[0]["gId"];
-                        item.mId = (int)dt.Rows[0]["mId"];
-                        item.servicio = (bool)dt.Rows[0]["servicio"];
-                        item.aplicaSeries = (bool)dt.Rows[0]["aplicaSeries"]; 
-                        item.negativo = (bool)dt.Rows[0]["negativo"]; 
-                        item.combo = (bool)dt.Rows[0]["combo"]; 
-                        item.gasto =  (bool)dt.Rows[0]["gasto"];
-                        item.ice =  (decimal)dt.Rows[0]["ice"];
-                        item.valorIce = (decimal)dt.Rows[0]["valorIce"]; 
-                        item.HasIva = (bool)dt.Rows[0]["HasIva"]; 
-                        item.iva = (decimal)dt.Rows[0]["iva"]; 
-                        item.imagen =  (byte[])dt.Rows[0]["imagen"]; 
-                        item.descripcion = dt.Rows[0]["imagenUrl"].ToString(); 
-                        item.montoTotal = (decimal)dt.Rows[0]["montoTotal"]; 
-                        item.categoriaA = dt.Rows[0]["categoriaA"].ToString(); 
-                        item.categoriaB =  dt.Rows[0]["categoriaB"].ToString(); 
-                        item.categoriaC =  dt.Rows[0]["categoriaC"].ToString(); 
-                        item.categoriaD = dt.Rows[0]["categoriaD"].ToString();
-                        item.categoriaE = dt.Rows[0]["categoriaE"].ToString(); 
+                    item.Id = (int)dt.Rows[0]["Id"];
+                    item.nombre = dt.Rows[0]["nombre"].ToString();
+                    item.codigoUno = dt.Rows[0]["codigoUno"].ToString();
+                    item.codigoDos = dt.Rows[0]["codigoDos"].ToString();
+                    item.codigoTres = dt.Rows[0]["codigoTres"].ToString();
+                    item.codigoCuatro = dt.Rows[0]["codigoCuatro"].ToString();
+                    item.codigoBarras = dt.Rows[0]["codigoBarras"].ToString();
+                    item.precioA = (decimal)dt.Rows[0]["precioA"];
+                    item.precioB = (decimal)dt.Rows[0]["precioB"];
+                    item.precioC = (decimal)dt.Rows[0]["precioC"];
+                    item.precioD = (decimal)dt.Rows[0]["precioD"];
+                    item.descripcion = dt.Rows[0]["descripcion"].ToString();
+                    item.unidadCaja = (int)dt.Rows[0]["unidadCaja"];
+                    item.peso = (decimal)dt.Rows[0]["peso"];
+                    item.comision = (decimal)dt.Rows[0]["comision"];
+                    item.descMax = (decimal)dt.Rows[0]["descMax"];
+                    item.stockMax = (int)dt.Rows[0]["stockMax"];
+                    item.stockMin = (int)dt.Rows[0]["stockMin"];
+                    item.costo = (decimal)dt.Rows[0]["costo"];
+                    item.unidad = (int)dt.Rows[0]["unidad"];
+                    item.bId = (int)dt.Rows[0]["bId"];
+                    item.cId = (int)dt.Rows[0]["cId"];
+                    item.gId = (int)dt.Rows[0]["gId"];
+                    item.mId = (int)dt.Rows[0]["mId"];
+                    item.servicio = (bool)dt.Rows[0]["servicio"];
+                    item.aplicaSeries = (bool)dt.Rows[0]["aplicaSeries"];
+                    item.negativo = (bool)dt.Rows[0]["negativo"];
+                    item.combo = (bool)dt.Rows[0]["combo"];
+                    item.gasto = (bool)dt.Rows[0]["gasto"];
+                    item.ice = (decimal)dt.Rows[0]["ice"];
+                    item.valorIce = (decimal)dt.Rows[0]["valorIce"];
+                    item.HasIva = (bool)dt.Rows[0]["HasIva"];
+                    item.iva = (decimal)dt.Rows[0]["iva"];
+                    item.imagen = (byte[])dt.Rows[0]["imagen"];
+                    item.descripcion = dt.Rows[0]["imagenUrl"].ToString();
+                    item.montoTotal = (decimal)dt.Rows[0]["montoTotal"];
+                    item.categoriaA = dt.Rows[0]["categoriaA"].ToString();
+                    item.categoriaB = dt.Rows[0]["categoriaB"].ToString();
+                    item.categoriaC = dt.Rows[0]["categoriaC"].ToString();
+                    item.categoriaD = dt.Rows[0]["categoriaD"].ToString();
+                    item.categoriaE = dt.Rows[0]["categoriaE"].ToString();
                 }
                 cm.ExecuteNonQuery();
                 return item;
@@ -230,14 +232,15 @@ namespace POSalesDB
                 return item;
             }
             finally
-            { 
+            {
                 cn.Close();
             }
         }
         public List<Items> selectTodosLosItems()
          {
+            cn.ConnectionString = myConnection();
             List<Items> items = new List<Items>();
-           
+
             try
             {    
                 cm = new SqlCommand($"Select * from Items ");
@@ -245,52 +248,52 @@ namespace POSalesDB
                 cn.Open();
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-                if(dt.Rows.Count > 0)
+                if (dt.Rows.Count > 0)
                 {
-                    foreach(DataRow r in dt.Rows)
+                    foreach (DataRow r in dt.Rows)
                     {
                         Items item = new Items();
                         item.Id = (int)r["Id"];
-                        item.nombre= r["nombre"].ToString();
-                        item.codigoUno= r["codigoUno"].ToString(); 
-                        item.codigoDos= r["codigoDos"].ToString();
-                        item.codigoTres= r["codigoTres"].ToString(); 
-                        item.codigoCuatro=  r["codigoCuatro"].ToString(); 
-                        item.codigoBarras=   r["codigoBarras"].ToString(); 
-                        item.precioA=   (decimal)r["precioA"];
-                        item.precioB=   (decimal)r["precioB"]; 
-                        item.precioC=  (decimal)r["precioC"]; 
-                        item.precioD=  (decimal)r["precioD"]; 
-                        item.descripcion=r["descripcion"].ToString(); 
-                        item.unidadCaja= (int)r["unidadCaja"];
-                        item.peso=  (decimal)r["peso"];
-                        item.comision= (decimal)r["comision"]; 
-                        item.descMax= (decimal)r["descMax"];
-                        item.stockMax= (int)r["stockMax"];
-                        item.stockMin=(int)r["stockMin"]; 
-                        item.costo= (decimal)r["costo"];
-                        item.unidad =(int)r["unidad"]; 
-                        item.bId = (int)r["bId"]; 
-                        item.cId= (int)r["cId"]; 
+                        item.nombre = r["nombre"].ToString();
+                        item.codigoUno = r["codigoUno"].ToString();
+                        item.codigoDos = r["codigoDos"].ToString();
+                        item.codigoTres = r["codigoTres"].ToString();
+                        item.codigoCuatro = r["codigoCuatro"].ToString();
+                        item.codigoBarras = r["codigoBarras"].ToString();
+                        item.precioA = (decimal)r["precioA"];
+                        item.precioB = (decimal)r["precioB"];
+                        item.precioC = (decimal)r["precioC"];
+                        item.precioD = (decimal)r["precioD"];
+                        item.descripcion = r["descripcion"].ToString();
+                        item.unidadCaja = (int)r["unidadCaja"];
+                        item.peso = (decimal)r["peso"];
+                        item.comision = (decimal)r["comision"];
+                        item.descMax = (decimal)r["descMax"];
+                        item.stockMax = (int)r["stockMax"];
+                        item.stockMin = (int)r["stockMin"];
+                        item.costo = (decimal)r["costo"];
+                        item.unidad = (int)r["unidad"];
+                        item.bId = (int)r["bId"];
+                        item.cId = (int)r["cId"];
                         item.gId = (int)r["gId"];
                         item.mId = (int)r["mId"];
                         item.servicio = (bool)r["servicio"];
-                        item.aplicaSeries = (bool)r["aplicaSeries"]; 
-                        item.negativo = (bool)r["negativo"]; 
-                        item.combo = (bool)r["combo"]; 
-                        item.gasto =  (bool)r["gasto"];
-                        item.ice =  (decimal)r["ice"];
-                        item.valorIce = (decimal)r["valorIce"]; 
-                        item.HasIva = (bool)r["HasIva"]; 
-                        item.iva = (decimal)r["iva"]; 
-                        item.imagen =  (byte[])r["imagen"]; 
-                        item.descripcion = r["imagenUrl"].ToString(); 
-                        item.montoTotal = (decimal)r["montoTotal"]; 
-                        item.categoriaA = r["categoriaA"].ToString(); 
-                        item.categoriaB =  r["categoriaB"].ToString(); 
-                        item.categoriaC =  r["categoriaC"].ToString(); 
+                        item.aplicaSeries = (bool)r["aplicaSeries"];
+                        item.negativo = (bool)r["negativo"];
+                        item.combo = (bool)r["combo"];
+                        item.gasto = (bool)r["gasto"];
+                        item.ice = (decimal)r["ice"];
+                        item.valorIce = (decimal)r["valorIce"];
+                        item.HasIva = (bool)r["HasIva"];
+                        item.iva = (decimal)r["iva"];
+                        item.imagen = (byte[])r["imagen"];
+                        item.descripcion = r["imagenUrl"].ToString();
+                        item.montoTotal = (decimal)r["montoTotal"];
+                        item.categoriaA = r["categoriaA"].ToString();
+                        item.categoriaB = r["categoriaB"].ToString();
+                        item.categoriaC = r["categoriaC"].ToString();
                         item.categoriaD = r["categoriaD"].ToString();
-                        item.categoriaE = r["categoriaE"].ToString(); 
+                        item.categoriaE = r["categoriaE"].ToString();
                         items.Add(item);
                     }
 
@@ -304,13 +307,14 @@ namespace POSalesDB
                 return items;
             }
             finally
-            { 
+            {
                 cn.Close();
             }
-         }
+        }
         ///------ SECCION PARA NSERT ITEMS --------------
         public string insertItem(Items item)
         {
+            cn.ConnectionString = myConnection();
             string Error = String.Empty;
             try
             {
@@ -366,13 +370,14 @@ namespace POSalesDB
                 return Error;
             }
             finally
-            { 
+            {
                 cn.Close();
             }
         }
-         ///------ SECCION PARA UPDATE ITEMS --------------
+        ///------ SECCION PARA UPDATE ITEMS --------------
         public string actualizarItem(Items item)
         {
+            cn.ConnectionString = myConnection();
             string Error = String.Empty;
             try
             {
@@ -407,7 +412,7 @@ namespace POSalesDB
                 cm.Parameters.AddWithValue("@combo", item.combo);
                 cm.Parameters.AddWithValue("@gasto", item.gasto);
                 cm.Parameters.AddWithValue("@ice", item.ice);
-                cm.Parameters.AddWithValue("@valorIce",item.valorIce);
+                cm.Parameters.AddWithValue("@valorIce", item.valorIce);
                 cm.Parameters.AddWithValue("@HasIva", item.HasIva);
                 cm.Parameters.AddWithValue("@iva", item.iva);
                 cm.Parameters.AddWithValue("@imagen", item.imagen);
@@ -433,11 +438,12 @@ namespace POSalesDB
         ///------ SECCION PARA DELETE ITEMS --------------
         public string deleteItem(int idItem)
         {
-           string Error = String.Empty;
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
             try
             {
                 cm = new SqlCommand("DETELE FROM Items WHERE Id = @Id  ", cn);
-                cm.Parameters.AddWithValue("@",idItem );
+                cm.Parameters.AddWithValue("@", idItem);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
@@ -451,7 +457,197 @@ namespace POSalesDB
             {
                 cn.Close();
             }
-            
         }
+        //get Usuarios Id
+        public Usuarios selectUsuariosPorId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Usuarios usuarios = new Usuarios();
+            try
+            {
+                cm = new SqlCommand($"Select * from Usuarios Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    usuarios.Id = (int)dt.Rows[0]["Id"];
+                    usuarios.nombre = dt.Rows[0]["username"].ToString();
+                    usuarios.role = dt.Rows[0]["role"].ToString();
+                    usuarios.nombre = dt.Rows[0]["nombre"].ToString();
+                    usuarios.isactive = Convert.ToBoolean(dt.Rows[0]["isactive"].ToString());
+                }
+                cm.ExecuteNonQuery();
+                return usuarios;
+
+            }
+            catch (Exception ex)
+            {
+                return usuarios;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        // get usuarios 
+        public List<Usuarios> selectTodosLosUsuarios(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            List<Usuarios> usuarios = new List<Usuarios>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Items Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Usuarios usuario = new Usuarios();
+                        usuario.Id = (int)r["Id"];
+                        usuario.nombre = r["nombre"].ToString();
+                        usuario.role = r["role"].ToString();
+                        usuario.isactive = Convert.ToBoolean(r["isactive"].ToString());
+                        usuarios.Add(usuario);
+                    }
+
+                }
+                cm.ExecuteNonQuery();
+                return usuarios;
+            }
+
+            catch (Exception ex)
+            {
+                return usuarios;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //insertar usuarios
+        public string insertUsuarios(Usuarios usuarios)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Usuarios (username,contraseña,role,nombre,isactive values(@username,@contraseña,@role,@nombre,@isactive))");
+                cm.Parameters.AddWithValue("@username", usuarios.nombre);
+                cm.Parameters.AddWithValue("@role", usuarios.role);
+                cm.Parameters.AddWithValue("@nombre", usuarios.nombre);
+                cm.Parameters.AddWithValue("@isactive", usuarios.isactive);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar usuario 
+        public string actualizarItem(Usuarios usuarios)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Usuarios SET username=@username,contraseña=@contraseña,nombre=nombre,role=@role,isactive=@isactive WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", usuarios.Id);
+                cm.Parameters.AddWithValue("@nombre", usuarios.nombre);
+                cm.Parameters.AddWithValue("@contraseña", usuarios.contraseña);
+                cm.Parameters.AddWithValue("@role", usuarios.role);
+                cm.Parameters.AddWithValue("@nombre", usuarios.role);
+                cm.Parameters.AddWithValue("@isactive", usuarios.isactive);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar usuarios
+        public string deleteUsers(int idUsuarios)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM usuarios WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", idUsuarios);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //get ajustamiento id
+        public Ajustamiento selectAjustamientosPorId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Ajustamiento ajustamiento = new Ajustamiento();
+            try
+            {
+                cm = new SqlCommand($"Select * from Ajustamiento Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    ajustamiento.Id = (int)dt.Rows[0]["Id"];
+                    ajustamiento.referenceno = dt.Rows[0]["referenceno"].ToString();
+                    ajustamiento.pcode = dt.Rows[0]["pcode"].ToString();
+                    ajustamiento.qty = Convert.ToInt16(dt.Rows[0]["qty"]);
+                    ajustamiento.action = dt.Rows[0]["action"].ToString();
+                    ajustamiento.remarks = dt.Rows[0]["remarks"].ToString();
+                    ajustamiento.sdate = Convert.ToDateTime(dt.Rows[0]["sdate"].ToString());
+                    ajustamiento.user = dt.Rows[0]["[user]"].ToString();
+
+                }
+                cm.ExecuteNonQuery();
+                return ajustamiento;
+
+            }
+            catch (Exception ex)
+            {
+                return ajustamiento;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        // get ajustes 
+
     }
 }

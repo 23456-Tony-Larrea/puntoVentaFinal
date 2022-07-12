@@ -36,13 +36,13 @@ namespace POSales
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-         
+
             string _role = string.Empty;
             Usuarios usuario = new Usuarios();
             usuario = dbcon.loginAction(txtName.Text, txtPass.Text);
             if (usuario.Id > 0)
             {
-             
+
                 if (!usuario.isactive)
                 {
                     MessageBox.Show("La cuenta está desactivada.Incapaz de iniciar sesión", "Cuenta inactiva", MessageBoxButtons.OK, MessageBoxIcon.Warning);

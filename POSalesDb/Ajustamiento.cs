@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POSalesDb
 {
-    internal class Ajustamiento
+ public class Ajustamiento
     {
         public int Id { get; set; }
         public string referenceno { get; set; }
@@ -14,7 +14,7 @@ namespace POSalesDb
         public int qty { get; set; }
         public string action { get; set; }
         public string remarks { get; set; }
-        public DateTime date { get; set; }
+        public DateTime sdate { get; set; }
         public string user { get; set; }
 
 }
