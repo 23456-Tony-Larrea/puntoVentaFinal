@@ -2998,6 +2998,7 @@ namespace POSalesDB
             }
         }
         //insertar Ventas
+        //all views
         public string insertVentas(Venta venta)
         {
             cn.ConnectionString = myConnection();
