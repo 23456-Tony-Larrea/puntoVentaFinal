@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POSalesDb
 {
-    internal class Factura
+    public class Factura
     {
         public int id_venta { get; set; }
         public int numero { get; set; }

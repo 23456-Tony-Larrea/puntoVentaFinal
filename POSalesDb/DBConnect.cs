@@ -1581,6 +1581,171 @@ namespace POSalesDB
                 }
 
             }
+        //obtener id Enstock  
+        public Enstock selectEnstockId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Enstock enstock = new Enstock();
+            try
+            {
+                cm = new SqlCommand($"Select * from Enstock Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    enstock.Id = (int)dt.Rows[0]["Id"];
+                    enstock.refno =Convert.ToString(dt.Rows[0]["refno"]) ;
+                    enstock.pcode = Convert.ToString(dt.Rows[0]["pcode"]);
+                    enstock.qty = (int)dt.Rows[0]["qty"];
+                    enstock.sdate = Convert.ToDateTime(dt.Rows[0]["sdate"]);
+                    enstock.stockinby = Convert.ToString( dt.Rows[0]["stockinby"]);
+                    enstock.status = Convert.ToString(dt.Rows[0]["status"]);
+                    enstock.supplierId = Convert.ToString(dt.Rows[0]["supplierId"]);
+                }
+                cm.ExecuteNonQuery();
+                return enstock;
+
+            }
+            catch (Exception ex)
+            {
+                return enstock;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //obtener Enstock
+        public List<Enstock> obtenerTodosLosEnstock()
+        {
+            cn.ConnectionString = myConnection();
+            List<Enstock> enstocks = new List<Enstock>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Clientes");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Enstock enstock = new Enstock();
+                        enstock.Id = (int)r["Id"];
+                        enstock.refno = Convert.ToString(r["refno"]);
+                        enstock.pcode = Convert.ToString(r["pcode"]);
+                        enstock.qty = (int)r["qty"];
+                        enstock.sdate = Convert.ToDateTime(r["sdate"]);
+                        enstock.stockinby = Convert.ToString(r["stockinby"]);
+                        enstock.status=Convert.ToString(r["status"]);
+                        enstock.supplierId = Convert.ToString(r["supplierId"]);
+                        enstocks.Add(enstock);
+                    }
+
+                }
+                cm.ExecuteNonQuery();
+                return enstocks;
+            }
+
+            catch (Exception ex)
+            {
+                return enstocks;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar Enstock
+        public string insertEnstock(Enstock enstock)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Enstock (refno,pcode,qty,sdate,stockinby,status,supplierId)values(@refno,@pcode,@qty,@sdate,@stockinby,@status,@supplierId)");
+                cm.Parameters.AddWithValue("@refno", enstock.refno);
+                cm.Parameters.AddWithValue("@pcode", enstock.pcode);
+                cm.Parameters.AddWithValue("@qty", enstock.qty);
+                cm.Parameters.AddWithValue("@sdate", enstock.sdate);
+                cm.Parameters.AddWithValue("@stockinby", enstock.stockinby);
+                cm.Parameters.AddWithValue("@stutus", enstock.status);
+                cm.Parameters.AddWithValue("@supplierId",enstock.supplierId);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar en Stock
+        public string actualizarEnstock(Enstock enstock)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Enstock SET refno=@refno,pcode=@pcode,qty=@qty,sdate=@sdate,stockinby=@stockinby,status=@status,supplierId=@supplierId WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", enstock.Id);
+                cm.Parameters.AddWithValue("@refno", enstock.refno);
+                cm.Parameters.AddWithValue("@pcode", enstock.pcode);
+                cm.Parameters.AddWithValue("@qty", enstock.qty);
+                cm.Parameters.AddWithValue("@sdate", enstock.sdate);
+                cm.Parameters.AddWithValue("@stockinby", enstock.stockinby);
+                cm.Parameters.AddWithValue("@status", enstock.status);
+                cm.Parameters.AddWithValue("@supplierId", enstock.supplierId);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar Enstock
+        public string deleteEnstock(int idEnstock)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM Clientes WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", idEnstock);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
         //obtener id Clientes   
         public Clientes selectClientesId(int Id)
         {
@@ -1596,7 +1761,7 @@ namespace POSalesDB
                 if (dt.Rows.Count > 0)
                 {
                     clientes.Id = (int)dt.Rows[0]["Id"];
-                    clientes.nombre =Convert.ToString(dt.Rows[0]["nombre"]) ;
+                    clientes.nombre = Convert.ToString(dt.Rows[0]["nombre"]);
                     clientes.comercio = Convert.ToString(dt.Rows[0]["comercio"]);
                     clientes.codigo = Convert.ToString(dt.Rows[0]["codigo"]);
                     clientes.fechaNacimiento = Convert.ToDateTime(dt.Rows[0]["fechaNacimiento"]);
@@ -1613,7 +1778,7 @@ namespace POSalesDB
                     clientes.cargo = Convert.ToString(dt.Rows[0]["cargo"]);
                     clientes.email = Convert.ToString(dt.Rows[0]["email"]);
                     clientes.tipoCliente = Convert.ToString(dt.Rows[0]["tipoCliente"]);
-                     }
+                }
                 cm.ExecuteNonQuery();
                 return clientes;
 
@@ -1769,7 +1934,7 @@ namespace POSalesDB
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("DETELE FROM DescripcionVenta WHERE Id = @Id  ", cn);
+                cm = new SqlCommand("DETELE FROM Clientes WHERE Id = @Id  ", cn);
                 cm.Parameters.AddWithValue("@", idClientes);
                 cn.Open();
                 cm.ExecuteNonQuery();
@@ -1787,5 +1952,1145 @@ namespace POSalesDB
 
         }
 
+        //obtener id factura   
+        public Factura selectFacturaId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Factura factura= new Factura();
+            try
+            {
+                cm = new SqlCommand($"Select * from factura Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    factura.id_venta = (int)dt.Rows[0]["id_venta"];
+                    factura.numero = (int)dt.Rows[0]["numero"];
+                    factura.clienteId =(int)dt.Rows[0]["clienteId"];
+                    factura.usuario = (int)dt.Rows[0]["usuario"];
+                    factura.fecha_venta = Convert.ToDateTime(dt.Rows[0]["fecha_venta"]);
+                    factura.total = Convert.ToDecimal(dt.Rows[0]["total"]);
+                    factura.iva = Convert.ToDecimal(dt.Rows[0]["iva"]);
+                    factura.subtotal = Convert.ToDecimal(dt.Rows[0]["subtotal"]);
+                    factura.descuento = Convert.ToDecimal(dt.Rows[0]["descuento"]);
+                    factura.productoId = (int)dt.Rows[0]["productoId"];
+                 }
+                cm.ExecuteNonQuery();
+                return factura;
+
+            }
+            catch (Exception ex)
+            {
+                return factura;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //obtener factura
+        public List<Factura> TodosLasFacturas()
+        {
+            cn.ConnectionString = myConnection();
+            List<Factura> fac = new List<Factura>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Clientes");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Factura facturas = new Factura();
+                        facturas.id_venta = (int)r["id_venta"];
+                        facturas.numero = (int)r["nombre"];
+                        facturas.clienteId =(int)r["comercio"];
+                        facturas.usuario = (int)r["usuario"];
+                        facturas.fecha_venta = Convert.ToDateTime(r["fecha_venta"]);
+                        facturas.total = Convert.ToDecimal(r["total"]);
+                        facturas.iva = Convert.ToDecimal(r["iva"]);
+                        facturas.subtotal= Convert.ToDecimal(r["subtotal"]);
+                        facturas.descuento = Convert.ToDecimal(r["descuento"]);
+                        facturas.productoId = (int)r["productoId"];
+                        
+                        fac.Add(facturas);
+                    }
+
+                }
+                cm.ExecuteNonQuery();
+                return fac;
+            }
+
+            catch (Exception ex)
+            {
+                return fac;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar facturas
+        public string insertFacturas(Factura factura)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into factura (numero,clienteId,usuario,fecha_venta,total,iva,subtotal,descuento,productoId)values(@numero,@clienteId,@usuario,@fecha_venta,@total,@iva,@subtotal,@descuento,@productoId)");
+                cm.Parameters.AddWithValue("@numero", factura.numero);
+                cm.Parameters.AddWithValue("@clienteId", factura.clienteId);
+                cm.Parameters.AddWithValue("@usuario", factura.usuario);
+                cm.Parameters.AddWithValue("@fecha_venta", factura.fecha_venta);
+                cm.Parameters.AddWithValue("@total", factura.total);
+                cm.Parameters.AddWithValue("@iva", factura.iva);
+                cm.Parameters.AddWithValue("@subtotal", factura.subtotal);
+                cm.Parameters.AddWithValue("@descuento", factura.descuento);
+                cm.Parameters.AddWithValue("@productoId", factura.productoId);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar una factura
+        public string actualizarFactura(Factura factura)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE factura SET numero=@numero,clienteId=@clienteId,usuario=@usuario,fecha_venta=@fecha_venta,total=@total,iva=@iva,subtotal=@subtotal,descuento=@descuento,productoId=@productoId WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", factura.id_venta);
+                cm.Parameters.AddWithValue("@numero", factura.numero);
+                cm.Parameters.AddWithValue("@clienteId", factura.clienteId);
+                cm.Parameters.AddWithValue("@usuario", factura.usuario);
+                cm.Parameters.AddWithValue("@fecha_venta", factura.fecha_venta);
+                cm.Parameters.AddWithValue("@total", factura.total);
+                cm.Parameters.AddWithValue("@iva", factura.iva);
+                cm.Parameters.AddWithValue("@subtotal", factura.subtotal);
+                cm.Parameters.AddWithValue("@descuento", factura.descuento);
+                cm.Parameters.AddWithValue("@productoId", factura.productoId);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar factura
+        public string deletefactura(int idFacturas)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM Clientes WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", idFacturas);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+
+        //obtener id grupo   
+        public Grupo selectGrupoId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Grupo grupo = new Grupo();
+            try
+            {
+                cm = new SqlCommand($"Select * from Grupo Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    grupo.Id = (int)dt.Rows[0]["Id"];
+                    grupo.nombre = Convert.ToString (dt.Rows[0]["nombre"]);
+               
+                }
+                cm.ExecuteNonQuery();
+                return grupo;
+
+            }
+            catch (Exception ex)
+            {
+                return grupo;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //obtener grupo
+        public List<Grupo> TodosLosGrupo()
+        {
+            cn.ConnectionString = myConnection();
+            List<Grupo> grup = new List<Grupo>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Grupo");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Grupo grupos = new Grupo();
+                        grupos.Id = (int)r["Id"];
+                        grupos.nombre = Convert.ToString( r["nombre"]);
+                        
+                        grup.Add(grupos);
+                    }
+
+                }
+                cm.ExecuteNonQuery();
+                return grup;
+            }
+
+            catch (Exception ex)
+            {
+                return grup;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar grupo
+        public string insertGrupo(Grupo grupo)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Grupo (nombre)values(@nombre)");
+                cm.Parameters.AddWithValue("@nombre", grupo.nombre);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar un grupo
+        public string actualizarGrupo(Grupo grupo)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Grupo SET nombre=@nombre WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", grupo.Id);
+                cm.Parameters.AddWithValue("@nombre", grupo.nombre);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar Grupo
+        public string deleteGrupo(int idGrupo)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM Grupo WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", idGrupo);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+
+        //obtener id Inventario   
+        public Inventario selectInventarioId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Inventario inventario = new Inventario();
+            try
+            {
+                cm = new SqlCommand($"Select * from Inventario Where Id_inventario = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    inventario.Id_inventario = (int)dt.Rows[0]["Id"];
+                    inventario.producto =(int)dt.Rows[0]["producto"];
+                    inventario.cantidad=(int)dt.Rows[0]["cantidad"];
+                    inventario.tipo = Convert.ToString(dt.Rows[0]["tipo"]);
+                    inventario.fecha_inventario = Convert.ToDateTime(dt.Rows[0]["fecha_inventario"]);
+                }
+                cm.ExecuteNonQuery();
+                return inventario;
+
+            }
+            catch (Exception ex)
+            {
+                return inventario;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //obtener Inventario
+        public List<Inventario> TodosLosInventario()
+        {
+            cn.ConnectionString = myConnection();
+            List<Inventario> inv = new List<Inventario>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Inventario");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Inventario inventario = new Inventario();
+                        inventario.Id_inventario = (int)r["Id_inventario"];
+                        inventario.producto =(int)r["producto"];
+                        inventario.cantidad = (int)r["cantidad"];
+                        inventario.tipo = Convert.ToString(r["tipo"]);
+                        inventario.fecha_inventario = Convert.ToDateTime(r["fecha_inventario"]);
+                        inv.Add(inventario);
+                    }
+
+                }
+                cm.ExecuteNonQuery();
+                return inv;
+            }
+
+            catch (Exception ex)
+            {
+                return inv;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar Inventario
+        public string insertInventario(Inventario inventario)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Inventario (producto,cantidad,tipo,fecha_inventario)values(@producto,@cantidad,@tipo,@fecha_inventario)");
+                cm.Parameters.AddWithValue("@producto", inventario.producto);
+                cm.Parameters.AddWithValue("@cantidad", inventario.cantidad);
+                cm.Parameters.AddWithValue("@tipo", inventario.tipo);
+                cm.Parameters.AddWithValue("@fecha_inventario", inventario.fecha_inventario);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar un inventario
+        public string actualizarInventario(Inventario inventario)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Inventario SET producto=@producto,cantidad=@cantidad,tipo=@tipo,fecha_inventario=@fecha_inventario WHERE Id_inventario = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", inventario.Id_inventario);
+                cm.Parameters.AddWithValue("@producto", inventario.producto);
+                cm.Parameters.AddWithValue("@cantidad", inventario.cantidad);
+                cm.Parameters.AddWithValue("@tipo", inventario.tipo);
+                cm.Parameters.AddWithValue("@fecha_inventario", inventario.fecha_inventario);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar Inventario
+        public string deleteInventario(int idInventario)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM inventario WHERE Id_inventario = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", idInventario);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+
+        //obtener id marcas   
+        public Marcas selectMarcasId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Marcas marca = new Marcas();
+            try
+            {
+                cm = new SqlCommand($"Select * from Marcas Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    marca.Id = (int)dt.Rows[0]["Id"];
+                    marca.Marca = Convert.ToString(dt.Rows[0]["marca"]);
+                }
+                cm.ExecuteNonQuery();
+                return marca;
+
+            }
+            catch (Exception ex)
+            {
+                return marca;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //obtener marcas
+        public List<Marcas> TodosLasMarcas()
+        {
+            cn.ConnectionString = myConnection();
+            List<Marcas> marca = new List<Marcas>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Marcas");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Marcas marcas = new Marcas();
+                        marcas.Id = (int)r["Id"];
+                        marcas.Marca = Convert.ToString(r["marca"]);
+
+                        marca.Add(marcas);
+                    }
+
+                }
+                cm.ExecuteNonQuery();
+                return marca;
+            }
+
+            catch (Exception ex)
+            {
+                return marca;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar marca
+        public string insertMarca(Marcas marca)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Marcas (marca)values(@marca)");
+                cm.Parameters.AddWithValue("@marca", marca.Marca);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar una marca
+        public string actualizarMarca(Marcas marca)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Marcas SET marca=@marca WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", marca.Id);
+                cm.Parameters.AddWithValue("@marca", marca.Marca);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar marcas
+        public string deleteMarca(int idMarca)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM Marcas WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", idMarca);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+
+        //obtener id proovedores   
+        public Provedeedores selectProovedoresId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+              Provedeedores provedeedores = new Provedeedores();
+            try
+            {
+                cm = new SqlCommand($"Select * from Inventario Where Id_inventario = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    provedeedores.Id = (int)dt.Rows[0]["Id"];
+                    provedeedores.proveedor = Convert.ToString( dt.Rows[0]["proovedor"]);
+                    provedeedores.direccion = Convert.ToString(dt.Rows[0]["direccion"]);
+                    provedeedores.contactPerson = Convert.ToString(dt.Rows[0]["contactPerson"]);
+                    provedeedores.telefono = Convert.ToString(dt.Rows[0]["telefono"]);
+                    provedeedores.email = Convert.ToString(dt.Rows[0]["email"]);
+                    provedeedores.fax = Convert.ToString(dt.Rows[0]["fax"]);
+                    provedeedores.RazonSocial = Convert.ToString(dt.Rows[0]["RazonSocial"]);
+                    provedeedores.cedulaRuc = Convert.ToString(dt.Rows[0]["cedulaRuc"]);
+                    provedeedores.DiasCredito = (int)dt.Rows[0]["DiasCredito"];
+                    provedeedores.estado = Convert.ToString(dt.Rows[0]["estado"]);
+                    provedeedores.ciudad = Convert.ToString(dt.Rows[0]["ciudad"]);
+                    provedeedores.pais = Convert.ToString(dt.Rows[0]["pais"]);
+                    provedeedores.provincia = Convert.ToString(dt.Rows[0]["provincia"]);
+                    provedeedores.codPostal = Convert.ToString(dt.Rows[0]["codPostal"]);
+                    provedeedores.paginaWeb = Convert.ToString(dt.Rows[0]["paginaWeb"]);
+
+                }
+                cm.ExecuteNonQuery();
+                return provedeedores;
+
+            }
+            catch (Exception ex)
+            {
+                return provedeedores;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //obtener proovedores
+        public List<Provedeedores> TodosLosProovedores()
+        {
+            cn.ConnectionString = myConnection();
+            List<Provedeedores> prov = new List<Provedeedores>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Proveedores");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Provedeedores provedeedores  = new Provedeedores();
+                        provedeedores.Id = (int)r["Id"];
+                        provedeedores.proveedor = Convert.ToString( r["proveedor"]);
+                        provedeedores.direccion = Convert.ToString(r["direccion"]);
+                        provedeedores.contactPerson = Convert.ToString(r["contactPerson"]);
+                        provedeedores.telefono = Convert.ToString(r["telefono"]);
+                        provedeedores.email = Convert.ToString(r["email"]);
+                        provedeedores.fax = Convert.ToString(r["fax"]);
+                        provedeedores.RazonSocial = Convert.ToString(r["RazonSocial"]);
+                        provedeedores.cedulaRuc = Convert.ToString(r["cedulaRuc"]);
+                        provedeedores.DiasCredito = (int)r["DiasCredito"];
+                        provedeedores.estado = Convert.ToString(r["estado"]);
+                        provedeedores.ciudad= Convert.ToString(r["ciudad"]);
+                        provedeedores.pais = Convert.ToString(r["pais"]);
+                        provedeedores.provincia = Convert.ToString(r["provincia"]);
+                        provedeedores.codPostal = Convert.ToString(r["codPostal"]);
+                        provedeedores.paginaWeb = Convert.ToString(r["paginaWeb"]);
+                        prov.Add(provedeedores);
+                    }
+
+                }
+                cm.ExecuteNonQuery();
+                return prov;
+            }
+
+            catch (Exception ex)
+            {
+                return prov;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar Proveedores
+        public string insertProveedores(Provedeedores provedeedores)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Proveedores (proveedor,direccion,contactPerson,telefono,email,fax,RazonSocial,cedulaRuc,DiasCredito,estado,ciudad,pais,provincia,codPostal,paginaWeb)values(@proveedor,@direccion,@contactPerson,@telefono,@email,@fax,@RazonSocial,@cedulaRuc,@DiasCredito,@estado,@ciudad,@pais,@provincia,@codPostal,@paginaWeb)");
+                cm.Parameters.AddWithValue("@proveedor", provedeedores.proveedor);
+                cm.Parameters.AddWithValue("@direccion", provedeedores.direccion);
+                cm.Parameters.AddWithValue("@contactPerson",provedeedores.contactPerson);
+                cm.Parameters.AddWithValue("@telefono", provedeedores.telefono);
+                cm.Parameters.AddWithValue("@email", provedeedores.email);
+                cm.Parameters.AddWithValue("@fax", provedeedores.fax);
+                cm.Parameters.AddWithValue("@RazonSocial", provedeedores.RazonSocial);
+                cm.Parameters.AddWithValue("@cedulaRuc", provedeedores.cedulaRuc);
+                cm.Parameters.AddWithValue("@DiasCredito", provedeedores.DiasCredito);
+                cm.Parameters.AddWithValue("@estado", provedeedores.estado);
+                cm.Parameters.AddWithValue("@ciudad", provedeedores.ciudad);
+                cm.Parameters.AddWithValue("@pais", provedeedores.pais);
+                cm.Parameters.AddWithValue("@codPostal", provedeedores.codPostal);
+                cm.Parameters.AddWithValue("@paginaWeb", provedeedores.paginaWeb);
+                cm.Parameters.AddWithValue("@estado", provedeedores.estado);
+
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar un proveedores
+        public string actualizarProveedores(Provedeedores provedeedores)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Proveedores SET proveedor=@proveedor,direccion=@direccion,contactPerson=@contactPerson,telefono=@telefono,email=@email,fax=@fax,RazonSocial=@RazonSocial,cedulaRuc=@cedulaRuc,DiasCredito=@DiasCredito,estado=@estado,ciudad=@ciudad,pais=@pais,provincia=@provincia,codPostal=@codPostal,paginaWeb=@paginaWeb WHERE Id_inventario = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", provedeedores.Id);
+                cm.Parameters.AddWithValue("@proveedor", provedeedores.proveedor);
+                cm.Parameters.AddWithValue("@direccion", provedeedores.direccion);
+                cm.Parameters.AddWithValue("@contactPerson", provedeedores.contactPerson);
+                cm.Parameters.AddWithValue("@telefono", provedeedores.telefono);
+                cm.Parameters.AddWithValue("@email", provedeedores.email);
+                cm.Parameters.AddWithValue("@fax", provedeedores.fax);
+                cm.Parameters.AddWithValue("@RazonSocial", provedeedores.RazonSocial);
+                cm.Parameters.AddWithValue("@cedulaRuc", provedeedores.cedulaRuc);
+                cm.Parameters.AddWithValue("@DiasCredito", provedeedores.DiasCredito);
+                cm.Parameters.AddWithValue("@estado", provedeedores.estado);
+                cm.Parameters.AddWithValue("@ciudad", provedeedores.ciudad);
+                cm.Parameters.AddWithValue("@pais", provedeedores.pais);
+                cm.Parameters.AddWithValue("@provincia", provedeedores.provincia);
+                cm.Parameters.AddWithValue("@codPostal", provedeedores.codPostal);
+                cm.Parameters.AddWithValue("@paginaWeb", provedeedores.paginaWeb);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar Proveedores
+        public string deleteProveedores(int idProveedor)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM Proveedores WHERE Id_inventario = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", idProveedor);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+        //obtener id Tiendas  
+        public Tiendas selectTiendasId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Tiendas tienda = new Tiendas();
+            try
+            {
+                cm = new SqlCommand($"Select * from Tiendas Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    tienda.Id = (int)dt.Rows[0]["Id"];
+                    tienda.store= Convert.ToString(dt.Rows[0]["store"]);
+                    tienda.address = Convert.ToString(dt.Rows[0]["address"]);
+                }
+                cm.ExecuteNonQuery();
+                return tienda;
+
+            }
+            catch (Exception ex)
+            {
+                return tienda;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //obtener Tiendas
+        public List<Tiendas> TodosLasTiendas()
+        {
+            cn.ConnectionString = myConnection();
+            List<Tiendas> tiendas = new List<Tiendas>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Tiendas");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Tiendas tienda = new Tiendas();
+                        tienda.Id = (int)r["Id"];
+                        tienda.store = Convert.ToString(r["store"]);
+                        tienda.address = Convert.ToString(r["address"]);
+                        tiendas.Add(tienda);
+                    }
+
+                }
+                cm.ExecuteNonQuery();
+                return tiendas;
+            }
+
+            catch (Exception ex)
+            {
+                return tiendas;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar tiendas
+        public string insertTiendas(Tiendas tienda)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Tiendas (store,address)values(@store,@address)");
+                cm.Parameters.AddWithValue("@store", tienda.store);
+                cm.Parameters.AddWithValue("@address", tienda.address);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar una tienda
+        public string actualizarTienda(Tiendas tienda)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Tiendas SET store=@store,address=@address WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", tienda.Id);
+                cm.Parameters.AddWithValue("@store", tienda.store);
+                cm.Parameters.AddWithValue("@address", tienda.address);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar tiendas
+        public string deleteTTiendas(int idTienda)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM Tiendas WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", idTienda);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+
+        //obtener id Venta  
+        public Venta selectVentasId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Venta venta = new Venta();
+            try
+            {
+                cm = new SqlCommand($"Select * from Venta Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    venta.Id_venta = (int)dt.Rows[0]["Id"];
+                    venta.numero = (int)dt.Rows[0]["numero"];
+                    venta.cliente = (int)dt.Rows[0]["cliente"];
+                    venta.usuario= (int)dt.Rows[0]["usuario"];
+                    venta.fecha_venta = Convert.ToDateTime(dt.Rows[0]["fecha_venta"]);
+                    venta.total = Convert.ToDecimal(dt.Rows[0]["total"]);
+                    venta.iva = Convert.ToDecimal(dt.Rows[0]["iva"]);
+                    venta.subtotal = Convert.ToDecimal(dt.Rows[0]["subtotal"]);
+                    venta.descuento= Convert.ToDecimal(dt.Rows[0]["total"]);
+                   
+                }
+                cm.ExecuteNonQuery();
+                return venta;
+
+            }
+            catch (Exception ex)
+            {
+                return venta;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //obtener ventas
+        public List<Venta> TodosLasVentas()
+        {
+            cn.ConnectionString = myConnection();
+            List<Venta> ventas = new List<Venta>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Venta");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Venta venta = new Venta();
+                        venta.Id_venta = (int)r["Id_venta"];
+                        venta.numero = (int)r["numero"];
+                        venta.cliente = (int)r["cliente"];
+                        venta.usuario = (int)r["usuario"];
+                        venta.fecha_venta = Convert.ToDateTime(r["fecha_venta"]);
+                        venta.total = Convert.ToDecimal(r["total"]);
+                        venta.iva = Convert.ToDecimal(r["iva"]);
+                        venta.subtotal = Convert.ToDecimal(r["subtotal"]);
+                        venta.descuento = Convert.ToDecimal(r["descuento"]);
+
+                        ventas.Add(venta);
+                    }
+
+                }
+                cm.ExecuteNonQuery();
+                return ventas;
+            }
+
+            catch (Exception ex)
+            {
+                return ventas;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar Ventas
+        //all views
+        public string insertVentas(Venta venta)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Venta (numero,cliente,usuario,fecha_venta,total,iva,subtotal,descuento)values(@numero,@cliente,@usuario,@fecha_venta,@total,@iva,@subtotal,@descuento)");
+                cm.Parameters.AddWithValue("@numero", venta.numero);
+                cm.Parameters.AddWithValue("@cliente", venta.cliente);
+                cm.Parameters.AddWithValue("@usuario", venta.usuario);
+                cm.Parameters.AddWithValue("@fecha_venta", venta.fecha_venta);
+                cm.Parameters.AddWithValue("@total", venta.total);
+                cm.Parameters.AddWithValue("@iva", venta.iva);
+                cm.Parameters.AddWithValue("@subtotal", venta.subtotal);
+                cm.Parameters.AddWithValue("@descuento", venta.descuento);
+
+
+
+            
+
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar una venta
+        public string actualizaVenta(Venta venta)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Venta SET numero=@numero,cliente=@cliente,usuario=@usuario,fecha_venta=@fecha_venta,total=@total,iva=@iva,subtotal=@subtotal,descuento=@descuento WHERE Id_venta = @Id  ", cn);
+                cm.Parameters.AddWithValue("@",venta.Id_venta);
+                cm.Parameters.AddWithValue("@numero", venta.numero);
+                cm.Parameters.AddWithValue("@cliente", venta.cliente);
+                cm.Parameters.AddWithValue("@usuario", venta.usuario);
+                cm.Parameters.AddWithValue("@fecha_venta", venta.fecha_venta);
+                cm.Parameters.AddWithValue("@total", venta.total);
+                cm.Parameters.AddWithValue("@iva", venta.iva);
+                cm.Parameters.AddWithValue("@subtotal", venta.subtotal);
+                cm.Parameters.AddWithValue("@descuento", venta.descuento);
+
+
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar Venta
+        public string deleteVenta(int idVenta)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM Venta WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", idVenta);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
     }
 }
