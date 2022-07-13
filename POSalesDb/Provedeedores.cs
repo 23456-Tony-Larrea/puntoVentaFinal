@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POSalesDb
 {
-    internal class Provedeedores
+    public class Provedeedores
     {
         public int Id { get; set; }
         public string proveedor { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POSalesDb
 {
-    internal class Inventario
+    public class Inventario
     {
         public int Id_inventario { get; set; }
         public int producto { get; set; }
