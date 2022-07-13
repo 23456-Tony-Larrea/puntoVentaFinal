@@ -19,13 +19,15 @@ namespace POSales
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
         SqlDataReader dr;
+        Usuarios usuarios = new Usuarios();
         int userId;
         public MainForm(int idUser)
         {
             userId = idUser;
             InitializeComponent();
             customizeDesing();
-            cn = new SqlConnection(dbcon.myConnection());            
+            cn = new SqlConnection(dbcon.myConnection());
+            usuarios = dbcon.selectUsuariosPorId(userId);
         }
 
 
@@ -136,7 +138,7 @@ namespace POSales
 
         private void btnSaleHist_Click(object sender, EventArgs e)
         {           
-            openChildForm(new DailySale(this));            
+            openChildForm(new DailySale(usuarios.username));            
             hideSubmenu();
         }
 
@@ -192,7 +194,7 @@ namespace POSales
             while (dr.Read())
             {
                 i++;
-                Alert alert = new Alert(this);
+                Alert alert = new Alert();
                 alert.lblPcode.Text = dr["codigo"].ToString();
                 alert.btnReorder.Enabled = true;
                 alert.showAlert(i + ". " + dr["pDesc"].ToString() + " - " + dr["cantidad"].ToString());

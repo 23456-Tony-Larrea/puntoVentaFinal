@@ -14,14 +14,13 @@ namespace POSales
     {
         private Random random;
         private int tempIndex;
-        MainForm main;
-        public Alert(MainForm mn)
+
+        public Alert()
         {
             InitializeComponent();
             random = new Random();
             Color color = SelectThemeColor();
             panel1.BackColor = color;
-            main = mn;
         }
 
         public enum enmAction

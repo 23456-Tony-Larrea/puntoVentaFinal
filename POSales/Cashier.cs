@@ -95,7 +95,7 @@ namespace POSales
         private void btnDSales_Click(object sender, EventArgs e)
         {
             slide(btnDSales);
-            DailySale dailySale = new DailySale(new MainForm());
+            DailySale dailySale = new DailySale(lblUsername.Text);
             dailySale.solduser = lblUsername.Text;
             dailySale.dtFrom.Enabled = false;
             dailySale.dtTo.Enabled = false;
@@ -387,7 +387,7 @@ namespace POSales
             while (dr.Read())
             {
                 i++;
-                Alert alert = new Alert(new MainForm());
+                Alert alert = new Alert();
                 alert.lblPcode.Text = dr["codigo"].ToString();
                 alert.showAlert(i + ". " + dr["pDesc"].ToString() + " - " + dr["cantidad"].ToString());
             }

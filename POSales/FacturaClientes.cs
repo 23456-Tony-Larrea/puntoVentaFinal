@@ -108,45 +108,47 @@ namespace POSales
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            InsertarRow();
             calcular();
         }
-        private void calcular()
+        private void InsertarRow()
         {
-            decimal calculo = 0, calculo2 = 0 ;
-
-
+            decimal calculo = 0, calculo2 = 0;
             switch (cliente.tipoCliente)
             {
                 case "precioA":
                     calculo = (itemFactura.precioA - (itemFactura.precioA * (itemFactura.descMax / 100))) + ((itemFactura.precioA - (itemFactura.precioA * (itemFactura.descMax / 100))) * itemFactura.iva);
-                    calculo2 =  itemFactura.precioA* itemFactura.iva;
-                    ggvProductos.Rows.Add(itemFactura.Id,itemFactura.nombre, itemFactura.precioA, calculo2, itemFactura.unidad,calculo);
+                    calculo2 = itemFactura.precioA * itemFactura.iva;
+                    ggvProductos.Rows.Add(itemFactura.Id, itemFactura.nombre, itemFactura.precioA, calculo2, itemFactura.unidad, calculo);
                     break;
                 case "precioB":
                     calculo = (itemFactura.precioB - (itemFactura.precioB * (itemFactura.descMax / 100))) + ((itemFactura.precioB - (itemFactura.precioB * (itemFactura.descMax / 100))) * itemFactura.iva);
                     calculo2 = itemFactura.precioB * itemFactura.iva;
-                    ggvProductos.Rows.Add(itemFactura.Id, itemFactura.nombre, itemFactura.precioB, calculo2, itemFactura.unidad,calculo);
+                    ggvProductos.Rows.Add(itemFactura.Id, itemFactura.nombre, itemFactura.precioB, calculo2, itemFactura.unidad, calculo);
                     break;
                 case "precioC":
                     calculo = (itemFactura.precioC - (itemFactura.precioC * (itemFactura.descMax / 100))) + ((itemFactura.precioC - (itemFactura.precioC * (itemFactura.descMax / 100))) * itemFactura.iva);
                     calculo2 = itemFactura.precioC * itemFactura.iva;
-                    ggvProductos.Rows.Add(itemFactura.Id, itemFactura.nombre, itemFactura.precioC, calculo2, itemFactura.unidad,calculo);
+                    ggvProductos.Rows.Add(itemFactura.Id, itemFactura.nombre, itemFactura.precioC, calculo2, itemFactura.unidad, calculo);
                     break;
                 case "precioD":
                     calculo = (itemFactura.precioD - (itemFactura.precioD * (itemFactura.descMax / 100))) + ((itemFactura.precioD - (itemFactura.precioD * (itemFactura.descMax / 100))) * itemFactura.iva);
                     calculo2 = itemFactura.precioD * itemFactura.iva;
-                    ggvProductos.Rows.Add(itemFactura.Id, itemFactura.nombre, itemFactura.precioD, calculo2, itemFactura.unidad,calculo);
+                    ggvProductos.Rows.Add(itemFactura.Id, itemFactura.nombre, itemFactura.precioD, calculo2, itemFactura.unidad, calculo);
                     break;
             }
 
+        }
+        private void calcular()
+        {
             decimal subtotal = 0;
             if (ggvProductos.Rows.Count > 0)
             {
                 foreach (DataGridViewRow row in ggvProductos.Rows)
                 {
                     decimal totalenRow = 0;
-                    decimal.TryParse(row.Cells["total"].ToString(), out totalenRow);
-                    subtotal += totalenRow;
+                    decimal.TryParse(row.Cells["total"].Value.ToString(), out totalenRow);
+                    subtotal = subtotal + totalenRow;
                 }
 
             }
@@ -176,18 +178,24 @@ namespace POSales
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             int index = ggvProductos.CurrentCell.RowIndex;
-            if (ggvProductos.Rows.Count > 0)
+            if (ggvProductos.Rows.Count > (-1))
             {
                 if (ggvProductos.SelectedRows.Count > 0)
                 {
                     ggvProductos.Rows.RemoveAt(index);
                 }
             }
+            calcular();
         }
 
         private void txtCant_KeyUp(object sender, KeyEventArgs e)
         {
             
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
