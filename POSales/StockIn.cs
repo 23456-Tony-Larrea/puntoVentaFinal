@@ -66,7 +66,6 @@ namespace POSales
             int.TryParse(supplier, out val);
             
         }
-
         public void LoadStockIn()
         {
             int No = 0;

@@ -168,6 +168,7 @@ namespace POSalesDB
         /// 
         ///   CRUD PARA CLASE ITEM
         ///------ SECCION PARA SELECT ITEMS --------------
+        ///
         public Items selectItemPorId(int Id)
         {
             Items item = new Items();
@@ -230,6 +231,28 @@ namespace POSalesDB
             catch (Exception ex)
             {
                 return item;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public DataTable selectPendientesEnStock(string txtRefNo)
+        {
+            cn.ConnectionString = myConnection();
+            List<Enstock> enstocks = new List<Enstock>();
+            DataTable dt = new DataTable();
+            try
+            {
+                cm = new SqlCommand($"SELECT * FROM vwEnStock WHERE refno = '{txtRefNo}' AND status = 'Pending'", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return dt;
             }
             finally
             {
