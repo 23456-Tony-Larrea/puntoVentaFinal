@@ -353,7 +353,13 @@ namespace POSales
 
         private void txtPriceA_TextChanged(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrEmpty(txtPriceA.Text))
+            {
+                if (decimal.TryParse(txtPriceA.Text, out decimal price))
+                {
+                    
+                }
+            }
         }
         string Url;
         private void picBrowse_Click(object sender, EventArgs e)

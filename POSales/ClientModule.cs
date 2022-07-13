@@ -38,7 +38,7 @@ namespace POSales
                 if (MessageBox.Show("Estas seguro de guardar este ecliente?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    cm = new SqlCommand("Insert into Clientes(nombre,comercio,codigo,fechaNacimiento,fechaRegistro,ciudad,tipo,ciRuc,pais,estado,direccion,celular,fax,cargo,email) values(@nombre,@comercio,@codigo,@fechaNacimiento,@fechaRegistro,@ciudad,@tipo,@ciRuc,@pais,@estado,@direccion,@celular,@fax,@cargo,@email)",cn);
+                    cm = new SqlCommand("Insert into Clientes(nombre,comercio,codigo,fechaNacimiento,fechaRegistro,ciudad,tipo,ciRuc,pais,estado,direccion,celular,fax,cargo,email,tipoCliente) values(@nombre,@comercio,@codigo,@fechaNacimiento,@fechaRegistro,@ciudad,@tipo,@ciRuc,@pais,@estado,@direccion,@celular,@fax,@cargo,@email,@tipoCliente)",cn);
                     cm.Parameters.AddWithValue("@nombre", txtName.Text);
                     cm.Parameters.AddWithValue("@comercio", txtComercio.Text);
                     cm.Parameters.AddWithValue("@codigo", txtCodigo.Text);
@@ -55,6 +55,8 @@ namespace POSales
                     cm.Parameters.AddWithValue("@fax", txtFax.Text);
                     cm.Parameters.AddWithValue("@cargo", txtCargo.Text);
                     cm.Parameters.AddWithValue("@email", txtEmail.Text);
+                    cm.Parameters.AddWithValue("@tipoCliente",cboTipoCliente.SelectedValue);
+
                     cm.ExecuteNonQuery();
                     cn.Close();
                     MessageBox.Show("Existosamente guardado.", "POS");
@@ -96,7 +98,7 @@ namespace POSales
             if (MessageBox.Show("Estas seguro de actualizar este cliente?", "Actualizado con exito!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 cn.Open();
-                cm = new SqlCommand("UPDATE Clientes SET nombre=@nombre,comercio=@comercio,codigo=@codigo,fechaNacimiento=@fechaNacimiento,fechaRegistro=@fechaRegistro,ciudad=@ciudad,tip=@tipo,ciRuc=@ciRuc,pais=@pais,estado=@estado,direccion=@direccion,celular=@celular,fax=@fax,cargo=cargo,emaiñ=@emaiñ  WHERE id LIKE'" + txtId.Text + "'", cn);
+                cm = new SqlCommand("UPDATE Clientes SET nombre=@nombre,comercio=@comercio,codigo=@codigo,fechaNacimiento=@fechaNacimiento,fechaRegistro=@fechaRegistro,ciudad=@ciudad,tip=@tipo,ciRuc=@ciRuc,pais=@pais,estado=@estado,direccion=@direccion,celular=@celular,fax=@fax,cargo=cargo,emaiñ=@email,tipoCliente=@tipoCliente  WHERE id LIKE'" + txtId.Text + "'", cn);
                 cm.Parameters.AddWithValue("@nombre", txtName.Text);
                 cm.Parameters.AddWithValue("@comercio", txtComercio.Text);
                 cm.Parameters.AddWithValue("@codigo", txtCodigo.Text);
@@ -113,6 +115,8 @@ namespace POSales
                 cm.Parameters.AddWithValue("@fax", txtFax.Text);
                 cm.Parameters.AddWithValue("@cargo", txtCargo.Text);
                 cm.Parameters.AddWithValue("@email", txtEmail.Text);
+                cm.Parameters.AddWithValue("@tipoCliente", cboTipoCliente.SelectedValue);
+
                 cm.ExecuteNonQuery();
                 cn.Close();
                 MessageBox.Show("Existosamente guardado.", "POS");

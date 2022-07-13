@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POSalesDb
 {
-    internal class Cancel
+    public class Cancel
     {
         public int Id { get; set; }
         public string transno { get; set; }

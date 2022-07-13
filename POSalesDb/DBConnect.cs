@@ -913,7 +913,7 @@ namespace POSalesDB
                 cn.Close();
             }
         }
-        //eliminar usuarios
+        //eliminar bodegas
         public string deleteBodegas(int idBodegas)
         {
             cn.ConnectionString = myConnection();
@@ -936,5 +936,638 @@ namespace POSalesDB
                 cn.Close();
             }
         }
-    }
+        //obtener cancel por id 
+        public Cancel selectCancelId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Cancel cancel = new Cancel();
+            try
+            {
+                cm = new SqlCommand($"Select * from Cancel Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    cancel.Id = (int)dt.Rows[0]["Id"];
+                    cancel.transno = dt.Rows[0]["nombre"].ToString();
+                    cancel.pcode= dt.Rows[0]["pcode"].ToString();
+                    cancel.qty = (int)dt.Rows[0]["qty"];
+                    cancel.total = (decimal)dt.Rows[0]["total"];
+                    cancel.sdate = (DateTime)dt.Rows[0]["sdate"];
+                    cancel.voidby = dt.Rows[0]["voidby"].ToString();
+                    cancel.cancelledby = dt.Rows[0]["cancelledby"].ToString();
+                    cancel.reason = dt.Rows[0]["reason"].ToString();
+                    cancel.action = dt.Rows[0]["action"].ToString();
+                }
+                cm.ExecuteNonQuery();
+                return cancel;
+
+            }
+            catch (Exception ex)
+            {
+                return cancel;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //obtener cancel
+        public List<Cancel> selectTodosLosCancel()
+        {
+            cn.ConnectionString = myConnection();
+            List<Cancel> cancel = new List<Cancel>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Cancel");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Cancel cnl = new Cancel();
+                        cnl.Id = (int)dt.Rows[0]["Id"];
+                        cnl.transno = dt.Rows[0]["nombre"].ToString();
+                        cnl.pcode = dt.Rows[0]["pcode"].ToString();
+                        cnl.qty = (int)dt.Rows[0]["qty"];
+                        cnl.total = (decimal)dt.Rows[0]["total"];
+                        cnl.sdate = (DateTime)dt.Rows[0]["sdate"];
+                        cnl.voidby = dt.Rows[0]["voidby"].ToString();
+                        cnl.cancelledby = dt.Rows[0]["cancelledby"].ToString();
+                        cnl.reason = dt.Rows[0]["reason"].ToString();
+                        cnl.action = dt.Rows[0]["action"].ToString();
+                        cancel.Add(cnl);
+                    }
+
+                }
+                cm.ExecuteNonQuery();
+                return cancel;
+            }
+
+            catch (Exception ex)
+            {
+                return cancel;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar cancel
+        public string insertCancel(Cancel cancel)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Cancel (transno,pcode,price,qty,total,sdate,voidby,cancelledby,reason,action values(@transno,@pcode,@price,@qty,@total,@sdate,@voidby,@cancelledby,@reason,@action))");
+                cm.Parameters.AddWithValue("@transno", cancel.transno);
+                cm.Parameters.AddWithValue("@pcode", cancel.pcode);
+                cm.Parameters.AddWithValue("@price", cancel.price);
+                cm.Parameters.AddWithValue("@qty", cancel.qty);
+                cm.Parameters.AddWithValue("@total", cancel.total);
+                cm.Parameters.AddWithValue("@sdate", cancel.sdate);
+                cm.Parameters.AddWithValue("@voidby", cancel.voidby);
+                cm.Parameters.AddWithValue("@cancelledby", cancel.cancelledby);
+                cm.Parameters.AddWithValue("@reason", cancel.reason);
+                cm.Parameters.AddWithValue("@action", cancel.action);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar cancel
+        public string actualizarCancel(Cancel cancel)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Cancel SET transno=@transno,pcode=@pcode,price=@price,qty=@qty,total=@total,sdate=@sdate,voidby=@voidby,cancelledby=@cancelledby, WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", cancel.Id);
+                cm.Parameters.AddWithValue("@transno", cancel.transno);
+                cm.Parameters.AddWithValue("@pcode", cancel.pcode);
+                cm.Parameters.AddWithValue("@price", cancel.price);
+                cm.Parameters.AddWithValue("@qty", cancel.qty);
+                cm.Parameters.AddWithValue("@total", cancel.total);
+                cm.Parameters.AddWithValue("@sdate", cancel.sdate);
+                cm.Parameters.AddWithValue("@voidby", cancel.voidby);
+                cm.Parameters.AddWithValue("@cancelledby", cancel.cancelledby);
+                cm.Parameters.AddWithValue("@reason", cancel.reason);
+                cm.Parameters.AddWithValue("@action", cancel.action);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar cancel
+        public string deleteCancel(int idCancel)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM Bodega WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", idCancel);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //obtener id carrito
+        public Carrito selectCarritoId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Carrito carrito = new Carrito();
+            try
+            {
+                cm = new SqlCommand($"Select * from Carrito Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    carrito.Id = (int)dt.Rows[0]["Id"];
+                    carrito.trasnno = dt.Rows[0]["transnno"].ToString();
+                    carrito.pcode = dt.Rows[0]["pcode"].ToString();
+                    carrito.price = Convert.ToDecimal(dt.Rows[0]["price"].ToString());
+                    carrito.cantidad = (int)dt.Rows[0]["cantidad"];
+                    carrito.disc_percent = Convert.ToDecimal(dt.Rows[0]["disc_percent"]);
+                    carrito.disc = Convert.ToDecimal(dt.Rows[0]["disc"].ToString());
+                    carrito.total = Convert.ToDecimal(dt.Rows[0]["total"].ToString());
+                    carrito.sdate = Convert.ToDateTime(dt.Rows[0]["sdate"].ToString());
+                    carrito.status = dt.Rows[0]["status"].ToString();
+                    carrito.cashier = dt.Rows[0]["cashier"].ToString();
+                    
+                }
+                cm.ExecuteNonQuery();
+                return carrito;
+
+            }
+            catch (Exception ex)
+            {
+                return carrito;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //obtener Carrito
+        public List<Carrito> selectTodosLosCarrito()
+        {
+            cn.ConnectionString = myConnection();
+            List<Carrito> carrito = new List<Carrito>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Bodega");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Carrito carritos = new Carrito();
+                        carritos.Id = (int)r["Id"];
+                        carritos.trasnno = r["nombre"].ToString();
+                        carritos.pcode = r["pcode"].ToString();
+                        carritos.price = Convert.ToDecimal(r["price"].ToString());
+                        carritos.cantidad = (int)r["cantidad"];
+                        carritos.disc_percent = Convert.ToDecimal(r["disc_percent"].ToString());
+                        carritos.disc = Convert.ToDecimal(r["disc"].ToString());
+                        carritos.total = Convert.ToDecimal(r["total"].ToString());
+                        carritos.sdate = Convert.ToDateTime(r["sdate"].ToString());
+                        carritos.status = r["status"].ToString();
+                        carritos.cashier = r["cashier"].ToString();
+
+                        carrito.Add(carritos);
+                    }
+
+                }
+                cm.ExecuteNonQuery();
+                return carrito;
+            }
+
+            catch (Exception ex)
+            {
+                return carrito;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar carrito
+        public string insertCarrito(Carrito carrito)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Carrito (trasnno,pcode,price,cantidad,disc_percent,disc,total,sdate,status,cashier values(@trasnno,@pcode,@price,@cantidad,@disc_percent,@disc,@total,@sdate,@status,@cashier))");
+                cm.Parameters.AddWithValue("@trasnno", carrito.trasnno);
+                cm.Parameters.AddWithValue("@pcode", carrito.pcode);
+                cm.Parameters.AddWithValue("@price", carrito.price);
+                cm.Parameters.AddWithValue("@cantidad", carrito.cantidad);
+                cm.Parameters.AddWithValue("@disc_percent", carrito.disc_percent);
+                cm.Parameters.AddWithValue("@disc", carrito.disc);
+                cm.Parameters.AddWithValue("@total", carrito.total);
+                cm.Parameters.AddWithValue("@sdate", carrito.sdate);
+                cm.Parameters.AddWithValue("@status", carrito.status);
+                cm.Parameters.AddWithValue("@cashier", carrito.cashier);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar un carrito
+        public string actualizarCarrito(Carrito carrito)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Carrito SET transnno=@transnno,pcode=@pcode,price=@price,camtidad=@cantidad,disc_percent=@disc_percent,disc=@disc,total=@total,sdate=@sdate,status=@status,cashier=@cashier WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", carrito.Id);
+                cm.Parameters.AddWithValue("@transnno", carrito.trasnno);
+                cm.Parameters.AddWithValue("@pcode", carrito.pcode);
+                cm.Parameters.AddWithValue("@price", carrito.price);
+                cm.Parameters.AddWithValue("@cantidad", carrito.cantidad);
+                cm.Parameters.AddWithValue("@disc_percent", carrito.disc_percent);
+                cm.Parameters.AddWithValue("@disc", carrito.disc);
+                cm.Parameters.AddWithValue("@total", carrito.total);
+                cm.Parameters.AddWithValue("@sdate", carrito.sdate);
+                cm.Parameters.AddWithValue("@status", carrito.status);
+                cm.Parameters.AddWithValue("@cashier", carrito.cashier);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar usuarios
+        public string deleteCarrito(int idCarrito)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM Carrito WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", idCarrito);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //obtener id categorias
+        public Categorias selectCategoriasId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Categorias categoria = new Categorias();
+            try
+            {
+                cm = new SqlCommand($"Select * from Categorias Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    categoria.Id = (int)dt.Rows[0]["Id"];
+                    categoria.Categoria = dt.Rows[0]["Categoria"].ToString();
+        
+                }
+                cm.ExecuteNonQuery();
+                return categoria;
+
+            }
+            catch (Exception ex)
+            {
+                return categoria;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //obtener Categoria
+        public List<Categorias> selectTodosLasCategorias()
+        {
+            cn.ConnectionString = myConnection();
+            List<Categorias> categoria = new List<Categorias>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Categorias");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Categorias cat = new Categorias();
+                        cat.Id = (int)r["Id"];
+                        cat.Categoria = r["Categoria"].ToString();
+                      
+                        categoria.Add(cat);
+                    }
+
+                }
+                cm.ExecuteNonQuery();
+                return categoria;
+            }
+
+            catch (Exception ex)
+            {
+                return categoria;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar categoria
+        public string insertCategoria(Categorias categoria)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Categorias (Categoria values(@Categoria))");
+                cm.Parameters.AddWithValue("@Categoria", categoria.Categoria);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar una Categoria
+        public string actualizarCategoria(Categorias categoria)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Categorias SET Categorias=@Categorias WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", categoria.Id);
+                cm.Parameters.AddWithValue("@categoria", categoria.Categoria);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar Categorias
+        public string deleteCategorias(int idCarrito)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM Categorias WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", idCarrito);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            //obtener id Clientes
+            public Clientes selectClientesId(int Id)
+            {
+                cn.ConnectionString = myConnection();
+                Categorias categoria = new Categorias();
+                try
+                {
+                    cm = new SqlCommand($"Select * from Categorias Where Id = {Id}");
+                    SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                    cn.Open();
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        categoria.Id = (int)dt.Rows[0]["Id"];
+                        categoria.Categoria = dt.Rows[0]["Categoria"].ToString();
+
+                    }
+                    cm.ExecuteNonQuery();
+                    return categoria;
+
+                }
+                catch (Exception ex)
+                {
+                    return categoria;
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            //obtener Categoria
+            public List<Categorias> selectTodosLasCategorias()
+            {
+                cn.ConnectionString = myConnection();
+                List<Categorias> categoria = new List<Categorias>();
+
+                try
+                {
+                    cm = new SqlCommand($"Select * from Categorias");
+                    SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                    cn.Open();
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        foreach (DataRow r in dt.Rows)
+                        {
+                            Categorias cat = new Categorias();
+                            cat.Id = (int)r["Id"];
+                            cat.Categoria = r["Categoria"].ToString();
+
+                            categoria.Add(cat);
+                        }
+
+                    }
+                    cm.ExecuteNonQuery();
+                    return categoria;
+                }
+
+                catch (Exception ex)
+                {
+                    return categoria;
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            //insertar categoria
+            public string insertCategoria(Categorias categoria)
+            {
+                cn.ConnectionString = myConnection();
+                string Error = String.Empty;
+                try
+                {
+                    cm = new SqlCommand("Insert into Categorias (Categoria values(@Categoria))");
+                    cm.Parameters.AddWithValue("@Categoria", categoria.Categoria);
+                    cn.Open();
+                    cm.ExecuteNonQuery();
+                    return Error;
+
+                }
+
+                catch (Exception ex)
+                {
+                    Error = ex.ToString();
+                    return Error;
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            //actualizar una Categoria
+            public string actualizarCategoria(Categorias categoria)
+            {
+                cn.ConnectionString = myConnection();
+                string Error = String.Empty;
+                try
+                {
+                    cm = new SqlCommand("UPDATE Categorias SET Categorias=@Categorias WHERE Id = @Id  ", cn);
+                    cm.Parameters.AddWithValue("@", categoria.Id);
+                    cm.Parameters.AddWithValue("@categoria", categoria.Categoria);
+                    cn.Open();
+                    cm.ExecuteNonQuery();
+                    return Error;
+                }
+                catch (Exception ex)
+                {
+                    Error = ex.ToString();
+                    return Error;
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+            //eliminar Categorias
+            public string deleteCategorias(int idCarrito)
+            {
+                cn.ConnectionString = myConnection();
+                string Error = String.Empty;
+                try
+                {
+                    cm = new SqlCommand("DETELE FROM Categorias WHERE Id = @Id  ", cn);
+                    cm.Parameters.AddWithValue("@", idCarrito);
+                    cn.Open();
+                    cm.ExecuteNonQuery();
+                    return Error;
+                }
+                catch (Exception ex)
+                {
+                    Error = ex.ToString();
+                    return Error;
+                }
+                finally
+                {
+                    cn.Close();
+                }
+
+            }
+
+        }
 }
