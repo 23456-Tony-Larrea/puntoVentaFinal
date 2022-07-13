@@ -72,7 +72,7 @@ namespace POSalesDB
             return table;
         }
 
-        public string ExecuteQuery(String sql)  
+        public string ExecuteQuery(String sql)
         {
             string Error = String.Empty;
             try
@@ -582,7 +582,7 @@ namespace POSalesDB
             }
         }
         //actualizar usuario 
-        public string actualizarItem(Usuarios usuarios)
+        public string actualizarUsuario(Usuarios usuarios)
         {
             cn.ConnectionString = myConnection();
             string Error = String.Empty;
@@ -774,7 +774,7 @@ namespace POSalesDB
                 cn.Close();
             }
         }
-        //eliminar usuarios
+        //eliminar Items
         public string deleteItems(int idAjustamiento)
         {
             cn.ConnectionString = myConnection();
@@ -1263,7 +1263,7 @@ namespace POSalesDB
                 cn.Close();
             }
         }
-        //eliminar usuarios
+        //eliminar Carrito
         public string deleteCarrito(int idCarrito)
         {
             cn.ConnectionString = myConnection();
@@ -1507,14 +1507,12 @@ namespace POSalesDB
                         cli.telefono = r["telefono"].ToString();
                         cli.celular = r["celular"].ToString();
                         cli.fax = r["fax"].ToString();
-                        cli.cargo = r["cargo"].ToString();
                         cli.email = r["email"].ToString();
                         cli.tipoCliente = r["tipoCliente"].ToString();
                         cliente.Add(cli);
                     }
 
                 }
-                cm.ExecuteNonQuery();
                 return cliente;
             }
 
@@ -1633,7 +1631,345 @@ namespace POSalesDB
             }
 
         }
-        //esto es un cambio 
+        //obtener id descipcionVenta
+        public DescripcionVenta selectDescripcionVentaId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            DescripcionVenta descripcion = new DescripcionVenta();
+            try
+            {
+                cm = new SqlCommand($"Select * from DescripcionVenta Where Id_descripcion_venta = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    descripcion.Id_descripcion_venta = (int)dt.Rows[0]["Id_descripcion_venta"];
+                    descripcion.producto = (int)dt.Rows[0]["producto"];
+                    descripcion.venta = (int)dt.Rows[0]["cantidad"];
+                    descripcion.precio = Convert.ToDecimal(dt.Rows[0]["venta"].ToString());
 
+                }
+                cm.ExecuteNonQuery();
+                return descripcion;
+
+            }
+            catch (Exception ex)
+            {
+                return descripcion;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //obtener descripcion
+        public List<DescripcionVenta> selectTodosDescripcionVenta()
+        {
+            cn.ConnectionString = myConnection();
+            List<DescripcionVenta> descripcions = new List<DescripcionVenta>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from DescripcionVenta");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        DescripcionVenta dis = new DescripcionVenta();
+                        dis.Id_descripcion_venta = (int)r["Id_descripcion_venta"];
+                        dis.producto = (int)r["producto"];
+                        dis.cantidad = (int)r["cantidad"];
+                        dis.venta = (int)r["venta"];
+                        dis.precio = Convert.ToDecimal(r["precio"]);
+                        descripcions.Add(dis);
+                    }
+
+                }
+                cm.ExecuteNonQuery();
+                return descripcions;
+            }
+
+            catch (Exception ex)
+            {
+                return descripcions;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar descripcion
+        public string insertDescripcionVenta(DescripcionVenta descripcion)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into DescripcionVenta (producto,cantidad,venta,precio) values(@producto,@cantidad,@venta,@precio)");
+                cm.Parameters.AddWithValue("@producto", descripcion.producto);
+                cm.Parameters.AddWithValue("@cantidad", descripcion.cantidad);
+                cm.Parameters.AddWithValue("@venta", descripcion.venta);
+                cm.Parameters.AddWithValue("@precio", descripcion.precio);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar una descripcion
+        public string actualizarDescripcionVenta(DescripcionVenta descripcion)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE DescripcionVenta SET producto=@producto, venta=@venta ,precio=@precio  WHERE Id_descripcion_venta = @Id_descripcion_venta", cn);
+                cm.Parameters.AddWithValue("@", descripcion.Id_descripcion_venta);
+                cm.Parameters.AddWithValue("@producto", descripcion.producto);
+                cm.Parameters.AddWithValue("@venta", descripcion.venta);
+                cm.Parameters.AddWithValue("@precio", descripcion.precio);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar descipcion
+        public string deleteDescripcionVenta(int idDescripcion)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DELETE FROM Clientes WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", idDescripcion);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+
+        //obtener id en stock
+        public Enstock selectEnstockId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Enstock enstock = new Enstock();
+            try
+            {
+                cm = new SqlCommand($"Select * from Enstock Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    enstock.Id = (int)dt.Rows[0]["Id"];
+                    enstock.refno = dt.Rows[0]["refno"].ToString();
+                    enstock.pcode = dt.Rows[0]["pcode"].ToString();
+                    enstock.qty = (int)dt.Rows[0]["qty"];
+                    enstock.sdate = Convert.ToDateTime(dt.Rows[0]["sdate"].ToString());
+                    enstock.stockinby = Convert.ToString(dt.Rows[0]["stockinby"]);
+                    enstock.status = dt.Rows[0]["status"].ToString();
+                    enstock.supplierId = dt.Rows[0]["supplierId"].ToString();
+
+                }
+                cm.ExecuteNonQuery();
+                return enstock;
+
+            }
+            catch (Exception ex)
+            {
+                return enstock;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //obtener descripcion
+        public List<Enstock> selectTodosEnstock()
+        {
+            cn.ConnectionString = myConnection();
+            List<Enstock> enstocks = new List<Enstock>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Enstock");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Enstock enstock = new Enstock();
+                        enstock.Id = (int)r["Id"];
+                        enstock.refno = r["producto"].ToString();
+                        enstock.pcode = r["pcode"].ToString();
+                        enstock.qty = (int)r["qty"];
+                        enstock.status = r["sdate"].ToString();
+                        enstock.stockinby = Convert.ToString(dt.Rows[0]["stockinby"]);
+                        enstock.status = Convert.ToString(dt.Rows[0]["status"]);
+                        enstock.supplierId = Convert.ToString(r["supplierId"]);
+                        enstocks.Add(enstock);
+                    }
+
+                }
+                cm.ExecuteNonQuery();
+                return enstocks;
+            }
+
+            catch (Exception ex)
+            {
+                return enstocks;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar descripcion
+        public string insertEnstock(Enstock enstock)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("INSERT INTO Enstock (refno, pcode, sdate, stockinby,supplierid,qty,status)VALUES (@refno, @pcode, @sdate, @stockinby, @supplierid,@qty,@status)", cn);
+                cm.Parameters.AddWithValue("@refno", enstock.refno);
+                cm.Parameters.AddWithValue("@pcode", enstock.pcode);
+                cm.Parameters.AddWithValue("@sdate", enstock.sdate);
+                cm.Parameters.AddWithValue("@stockinby", enstock.stockinby);
+                cm.Parameters.AddWithValue("@supplierId", enstock.supplierId);
+                cm.Parameters.AddWithValue("@qty", enstock.qty);
+                cm.Parameters.AddWithValue("@status", enstock.status);
+
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar una descripcion
+        public string actualizarEnstock(Enstock stock)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Enstock SET refno=@refno, pcode=@pcode ,qty=@qty ,sdate,=@sdate,stockinby=@stockinby,status=@status,supplierId=@suplierId WHERE Id_descripcion_venta = @Id_descripcion_venta", cn);
+                cm.Parameters.AddWithValue("@", stock.Id);
+                cm.Parameters.AddWithValue("@refno", stock.refno);
+                cm.Parameters.AddWithValue("@pcode", stock.pcode);
+                cm.Parameters.AddWithValue("@qty", stock.qty);
+                cm.Parameters.AddWithValue("@sdate", stock.sdate);
+                cm.Parameters.AddWithValue("@stockinby", stock.stockinby);
+                cm.Parameters.AddWithValue("@status", stock.status);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //eliminar descipcion
+        public string deleteEnstock(int idstock)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DELETE FROM Enstock WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", idstock);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+        public DataTable selectPendientesEnStock(string txtRefNo)
+        {
+            cn.ConnectionString = myConnection();
+            List<Enstock> enstocks = new List<Enstock>();
+            DataTable dt = new DataTable();
+            try
+            {
+                cm = new SqlCommand($"SELECT * FROM vwEnStock WHERE refno = '{txtRefNo}' AND status = 'Pending'", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return dt;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
     }
 }

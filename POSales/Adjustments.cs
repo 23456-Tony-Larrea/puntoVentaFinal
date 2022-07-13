@@ -107,19 +107,15 @@ namespace POSales
                 }
 
                 //update stock
-                if (int.Parse(txtQty.Text) > _qty)
+                if (cbAction.SelectedIndex > 0)
                 {
-                    MessageBox.Show("La cantidad de stock disponible debe ser mayor que la cantidad de ajuste.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    dbcon.ExecuteQuery("UPDATE Productos SET cantidad = (cantidad + " + int.Parse(txtQty.Text) + ") WHERE codigo = '" + lblPcode.Text + "'");
                 }
-                if (cbAction.Text == "Eliminar del inventario")
+                else if(cbAction.SelectedIndex == 0)
                 {
-                    dbcon.ExecuteQuery("UPDATE Productos SET cantidad = (cantidad - " + int.Parse(txtQty.Text) + ") WHERE codigo LIKE '" + lblPcode.Text + "'");
+                    dbcon.ExecuteQuery("UPDATE Productos SET cantidad = (cantidad - " + int.Parse(txtQty.Text) + ") WHERE codigo = '" + lblPcode.Text + "'");
                 }
-                else if (cbAction.Text == "Agregar al Inventario")
-                {
-                    dbcon.ExecuteQuery("UPDATE Productos SET cantidad = (cantidad + " + int.Parse(txtQty.Text) + ") WHERE codigo LIKE '" + lblPcode.Text + "'");
-                }
+                
 
                 dbcon.ExecuteQuery("INSERT INTO Ajustamiento(referenceno, pcode, qty, action, remarks, sdate, [user]) VALUES ('" + lblRefNo.Text + "','" + lblPcode.Text + "','" + int.Parse(txtQty.Text) + "', '" + cbAction.Text + "', '" + txtRemark.Text + "', '" + DateTime.Now.ToShortDateString() + "','" + lblUsername.Text + "')");
                 MessageBox.Show("El stock se ha ajustado con éxito.", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -134,6 +130,11 @@ namespace POSales
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

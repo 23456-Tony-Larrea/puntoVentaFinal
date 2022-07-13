@@ -118,6 +118,7 @@
             this.Controls.Add(this.picClientes);
             this.Name = "MenuPrincipalFactura";
             this.Text = "MenuPrincipalFactura";
+            this.Load += new System.EventHandler(this.MenuPrincipalFactura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFactura)).EndInit();
             this.panel1.ResumeLayout(false);

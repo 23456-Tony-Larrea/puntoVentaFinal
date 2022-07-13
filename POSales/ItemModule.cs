@@ -353,7 +353,6 @@ namespace POSales
 
         private void txtPriceA_TextChanged(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             decimal iva = 0;
             if (HasIva.Checked == true)
             {
@@ -368,15 +367,6 @@ namespace POSales
                 }
             }
 
-=======
-            if (!string.IsNullOrEmpty(txtPriceA.Text))
-            {
-                if (decimal.TryParse(txtPriceA.Text, out decimal price))
-                {
-                    
-                }
-            }
->>>>>>> 5dead11c97c76d55a116ee29e6e8ab7f15cd0f82
         }
         string Url;
         private void picBrowse_Click(object sender, EventArgs e)

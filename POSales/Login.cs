@@ -78,7 +78,7 @@ namespace POSales
                     txtName.Clear();
                     txtPass.Clear();
                     this.Hide();
-                    MenuPrincipalFactura menuPrincipalFactura = new MenuPrincipalFactura();
+                    MenuPrincipalFactura menuPrincipalFactura = new MenuPrincipalFactura(usuario.Id);
                     menuPrincipalFactura.ShowDialog();
 
                 }

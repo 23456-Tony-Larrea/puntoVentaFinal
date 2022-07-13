@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using POSalesDB;
+using POSalesDb;
 namespace POSales
 {
     public partial class ProductStockIn : Form
@@ -18,12 +19,14 @@ namespace POSales
         DBConnect dbcon = new DBConnect();
         SqlDataReader dr;
         string stitle = "Punto de venta";
-        StockIn stockIn;
-        public ProductStockIn(StockIn stk)
+        string _refNo;
+        Enstock stockIn = new Enstock();
+
+        public ProductStockIn(Enstock _stockIn)
         {
+            stockIn = _stockIn;
             InitializeComponent();
             cn = new SqlConnection(dbcon.myConnection());
-            stockIn = stk;
             LoadProduct();
         }
 
@@ -53,37 +56,24 @@ namespace POSales
             string colName = dgvProduct.Columns[e.ColumnIndex].Name;
             if (colName == "Select")
             {
-                if (stockIn.txtStockInBy.Text == string.Empty)
-                {
-                    MessageBox.Show("Por favor ingrese stock en por nombre", stitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    stockIn.txtStockInBy.Focus();
-                    this.Dispose();
-                }
-
                 if (MessageBox.Show("Añadir este artículo? ", stitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    addStockIn(dgvProduct.Rows[e.RowIndex].Cells[1].Value.ToString());
+                    addStockIn(e.RowIndex);
                     MessageBox.Show("Añadido existosamente", stitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
             }
         }
 
-        public void addStockIn(string pcode)
+        public void addStockIn(int index)
         {
+ 
+            stockIn.pcode = dgvProduct.Rows[index].Cells[1].Value.ToString();
+            stockIn.qty = Convert.ToInt32(dgvProduct.Rows[index].Cells[3].Value.ToString());
+            stockIn.status = "Pending";
             try
             {
-                cn.Open();
-                cm = new SqlCommand("INSERT INTO Enstock (refno, pcode, sdate, stockinby, supplierid)VALUES (@refno, @pcode, @sdate, @stockinby, @supplierid)", cn);
-                cm.Parameters.AddWithValue("@refno", stockIn.txtRefNo.Text);
-                cm.Parameters.AddWithValue("@pcode", pcode);
-                cm.Parameters.AddWithValue("@sdate", stockIn.dtStockIn.Value);
-                cm.Parameters.AddWithValue("@stockinby", stockIn.txtStockInBy.Text);
-                cm.Parameters.AddWithValue("@supplierid", stockIn.lblId.Text);
-                cm.ExecuteNonQuery();
-                cn.Close();
-                stockIn.LoadStockIn();
-
+                dbcon.insertEnstock(stockIn);
             }
             catch (Exception ex)
             {
@@ -102,6 +92,11 @@ namespace POSales
             {
                 this.Dispose();
             }
+        }
+
+        private void ProductStockIn_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

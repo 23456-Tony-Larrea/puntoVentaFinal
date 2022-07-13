@@ -10,16 +10,19 @@ using System.Windows.Forms;
 
 namespace POSales
 {
+   
     public partial class MenuPrincipalFactura : Form
     {
-        public MenuPrincipalFactura()
+        int idUser;
+        public MenuPrincipalFactura(int _idUser)
         {
+            idUser = _idUser;
             InitializeComponent();
         }
 
         private void btnFactura_Click(object sender, EventArgs e)
         {
-            FacturaClientes factura = new FacturaClientes();
+            FacturaClientes factura = new FacturaClientes(idUser);
             factura.ShowDialog();
         }
 
@@ -33,6 +36,11 @@ namespace POSales
             ClientModule clientModule = new ClientModule(new Clients());
             clientModule.ShowDialog();
            
+        }
+
+        private void MenuPrincipalFactura_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

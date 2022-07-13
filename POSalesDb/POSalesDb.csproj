@@ -53,6 +53,7 @@
     <Compile Include="DBConnect.cs" />
     <Compile Include="DescripcionVenta.cs" />
     <Compile Include="Enstock.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="Factura.cs" />
     <Compile Include="Grupo.cs" />
     <Compile Include="Inventario.cs" />

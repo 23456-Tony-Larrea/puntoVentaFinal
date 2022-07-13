@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using POSalesDB;
+using POSalesDb;
+using System.IO;
+
 namespace POSales
 {
     public partial class StockIn : Form
@@ -19,6 +22,7 @@ namespace POSales
         SqlDataReader dr;
         string stitle = "Punto de venta";
         MainForm main;
+        byte[] img;
         public StockIn(MainForm mn)
         {
             InitializeComponent();
@@ -27,6 +31,7 @@ namespace POSales
             LoadSupplier();
             GetRefeNo();
             txtStockInBy.Text = main.lblUsername.Text;
+            LoadStockIn();
         }
 
         public void GetRefeNo()
@@ -64,19 +69,31 @@ namespace POSales
 
         public void LoadStockIn()
         {
-            int i = 0;
-            dgvStockIn.Rows.Clear();
-            cn.Open();
-            cm = new SqlCommand("SELECT * FROM vwEnStock WHERE refno LIKE '" + txtRefNo.Text + "' AND status LIKE 'Pending'", cn);
-            dr = cm.ExecuteReader();
-            while (dr.Read())
-            {
-                i++;
-                dgvStockIn.Rows.Add(i, dr["no"].ToString(), dr["noReferencia"].ToString(), dr["codP"].ToString(), dr["Descripcion"].ToString(), dr["cant"].ToString(), dr["dateStock"].ToString(), dr["Inventario"].ToString(), dr[7].ToString());
+            int No = 0;
 
+            DataTable Stock = new DataTable(); 
+            Stock= dbcon.selectPendientesEnStock(txtRefNo.Text);
+            dgvStockIn.Rows.Clear();
+            if (Stock.Rows.Count > 0)
+            {
+                foreach (DataRow dr in Stock.Rows)
+                {
+                    
+                    try
+                    {
+                        No++;
+                        dgvStockIn.Rows.Add(No.ToString(), dr["id"].ToString(), dr["refno"].ToString(), dr["pcode"].ToString(), dr["pDesc"].ToString(), dr["qty"].ToString(), dr["sdate"].ToString(), dr["stockinBy"].ToString(), dr["status"].ToString(), dr["proveedor"].ToString(), img);
+                    }
+                    catch
+                    { 
+                    
+                    }
+                    
+                }
             }
-            dr.Close();
-            cn.Close();
+           
+
+
         }
 
         private void cbSupplier_SelectedIndexChanged(object sender, EventArgs e)
@@ -96,8 +113,15 @@ namespace POSales
 
         private void LinProduct_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ProductStockIn productStock = new ProductStockIn(this);
+            Enstock inStock = new Enstock();
+            inStock.refno = txtRefNo.Text;
+            inStock.sdate = dtStockIn.Value;
+            inStock.stockinby = txtStockInBy.Text;
+            inStock.supplierId = cbSupplier.SelectedIndex.ToString();
+
+            ProductStockIn productStock = new ProductStockIn(inStock);
             productStock.ShowDialog();
+            LoadStockIn();
         }
 
         private void btnEntry_Click(object sender, EventArgs e)
@@ -199,6 +223,16 @@ namespace POSales
             }
             dr.Close();
             cn.Close();
+        }
+
+        private void StockIn_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

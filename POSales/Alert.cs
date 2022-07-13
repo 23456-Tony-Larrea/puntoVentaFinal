@@ -107,11 +107,11 @@ namespace POSales
 
         private void btnReorder_Click(object sender, EventArgs e)
         {
-            StockIn stock = new StockIn(main);
-            main.openChildForm(stock);
-            ProductStockIn stockIn = new ProductStockIn(stock);
-            stock.ProductForSupplier(lblPcode.Text);
-            stockIn.addStockIn(lblPcode.Text);
+            //StockIn stock = new StockIn(main);
+            //main.openChildForm(stock);
+            //ProductStockIn stockIn = new ProductStockIn(stock);
+            //stock.ProductForSupplier(lblPcode.Text);
+            //stockIn.addStockIn(lblPcode.Text);
         }
 
         private Color SelectThemeColor()

@@ -586,6 +586,7 @@
     <Content Include="Image\Image\user_secured_30px.png" />
     <Content Include="Image\Image\user_secured_50px.png" />
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\delete_20px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
