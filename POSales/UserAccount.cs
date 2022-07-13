@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using POSalesDB;
+using POSalesDb;
 namespace POSales
 {
     public partial class UserAccount : Form
@@ -22,6 +23,8 @@ namespace POSales
         string name;
         string role;
         string accstatus;
+        Usuarios usuario = new Usuarios();
+        List<Usuarios> usuarios = new List<Usuarios>();
         public UserAccount(MainForm mn)
         {
             InitializeComponent();
@@ -32,18 +35,8 @@ namespace POSales
 
         public void LoadUser()
         {
-            int i = 0;
-            dgvUser.Rows.Clear();
-            cm = new SqlCommand("SELECT * FROM Usuarios", cn);
-            cn.Open();
-            dr = cm.ExecuteReader();
-            while (dr.Read())
-            {
-                i++;
-                dgvUser.Rows.Add(i, dr[0].ToString(), dr[3].ToString(), dr[4].ToString(), dr[2].ToString());
-            }
-            dr.Close();
-            cn.Close();
+            usuarios = dbcon.selectTodosLosUsuarios();
+            dgvUser.DataSource = usuarios;
         }
 
         public void Clear()
@@ -58,30 +51,31 @@ namespace POSales
 
         private void btnAccSave_Click(object sender, EventArgs e)
         {
-            try
+            if (txtPass.Text != txtRePass.Text)
             {
-                if (txtPass.Text != txtRePass.Text)
-                {
-                    MessageBox.Show("No conciden las contraseñas!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                cn.Open();
-                cm = new SqlCommand("Insert into Usuarios(username, contraseña, role, nombre) Values (@username, @contraseña, @role, @nombre)", cn);
-                cm.Parameters.AddWithValue("@username", txtUsername.Text);
-                cm.Parameters.AddWithValue("@contraseña", txtPass.Text);
-                cm.Parameters.AddWithValue("@role", cbRole.Text);
-                cm.Parameters.AddWithValue("@nombre", txtName.Text);
-                cm.ExecuteNonQuery();
-                cn.Close();
-                MessageBox.Show("Nueva cuenta creada con exito!", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Clear();
-                LoadUser();
+                MessageBox.Show("No conciden las contraseñas!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            catch (Exception ex)
-            {
+          
+            usuario.username = txtUsername.Text;
+            usuario.contraseña = txtPass.Text;
+            usuario.role = cbRole.Text;
+            usuario.nombre = txtName.Text;
+            string Error = string.Empty;
+            
+            Error = dbcon.insertUsuarios(usuario);
 
-                MessageBox.Show(ex.Message, "Warning");
+            if (string.IsNullOrEmpty(Error))
+            {
+                MessageBox.Show("Agregado satisfactoriamente");
+
             }
+            else
+            {
+                MessageBox.Show(Error, "Warning");
+            }
+           
+
         }
 
         private void btnAccCancel_Click(object sender, EventArgs e)
