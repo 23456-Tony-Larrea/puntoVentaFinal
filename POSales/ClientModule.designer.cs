@@ -70,6 +70,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
+            this.cboTipoCliente = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
@@ -80,10 +82,10 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 568);
+            this.panel1.Location = new System.Drawing.Point(0, 646);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(807, 82);
+            this.panel1.Size = new System.Drawing.Size(877, 82);
             this.panel1.TabIndex = 4;
             // 
             // label1
@@ -108,7 +110,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(807, 45);
+            this.panel2.Size = new System.Drawing.Size(877, 45);
             this.panel2.TabIndex = 8;
             // 
             // picClose
@@ -116,7 +118,7 @@
             this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picClose.Image = ((System.Drawing.Image)(resources.GetObject("picClose.Image")));
             this.picClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.picClose.Location = new System.Drawing.Point(751, 0);
+            this.picClose.Location = new System.Drawing.Point(821, 0);
             this.picClose.Margin = new System.Windows.Forms.Padding(5);
             this.picClose.Name = "picClose";
             this.picClose.Size = new System.Drawing.Size(56, 45);
@@ -402,7 +404,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(694, 524);
+            this.btnCancel.Location = new System.Drawing.Point(764, 602);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 35);
             this.btnCancel.TabIndex = 43;
@@ -417,7 +419,7 @@
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(570, 524);
+            this.btnUpdate.Location = new System.Drawing.Point(640, 602);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(121, 35);
             this.btnUpdate.TabIndex = 42;
@@ -432,7 +434,7 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(449, 524);
+            this.btnSave.Location = new System.Drawing.Point(519, 602);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(115, 35);
             this.btnSave.TabIndex = 41;
@@ -458,11 +460,35 @@
             this.txtId.Size = new System.Drawing.Size(114, 24);
             this.txtId.TabIndex = 45;
             // 
+            // cboTipoCliente
+            // 
+            this.cboTipoCliente.FormattingEnabled = true;
+            this.cboTipoCliente.Items.AddRange(new object[] {
+            "Precio A",
+            "Precio B",
+            "Precio C",
+            "Precio D"});
+            this.cboTipoCliente.Location = new System.Drawing.Point(447, 523);
+            this.cboTipoCliente.Name = "cboTipoCliente";
+            this.cboTipoCliente.Size = new System.Drawing.Size(220, 29);
+            this.cboTipoCliente.TabIndex = 47;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(310, 526);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(135, 21);
+            this.label19.TabIndex = 46;
+            this.label19.Text = "Tipo de cliente";
+            // 
             // ClientModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 650);
+            this.ClientSize = new System.Drawing.Size(877, 728);
+            this.Controls.Add(this.cboTipoCliente);
+            this.Controls.Add(this.label19);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.btnCancel);
@@ -558,5 +584,7 @@
         public System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.ComboBox cboTipoCliente;
+        private System.Windows.Forms.Label label19;
     }
 }

@@ -691,6 +691,145 @@ namespace POSalesDB
                 cn.Close();
             }
         }
+         //obtener bodega id 
+        public Bodega selectBodegaId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Bodega bodegas = new Bodega();
+            try
+            {
+                cm = new SqlCommand($"Select * from Bodega Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    bodegas.Id = (int)dt.Rows[0]["Id"];
+                    bodegas.Nombre = dt.Rows[0]["nombre"].ToString();
+                }
+                cm.ExecuteNonQuery();
+                return bodegas;
+
+            }
+            catch (Exception ex)
+            {
+                return bodegas;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //obtener bodega
+        public List<Bodega> selectTodosLosBodegas()
+        {
+            cn.ConnectionString = myConnection();
+            List<Bodega> bodega = new List<Bodega>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Bodega");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Bodega bodegas = new Bodega();
+                        bodegas.Id = (int)r["Id"];
+                        bodegas.Nombre = r["nombre"].ToString();
+                         bodega.Add(bodegas);
+                    }
+
+                }
+                cm.ExecuteNonQuery();
+                return bodega;
+            }
+
+            catch (Exception ex)
+            {
+                return bodega;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar bodega
+        public string insertBodega(Bodega bodega)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Bodega (nombre values(@Bodega))");
+                cm.Parameters.AddWithValue("@nombre", bodega.Nombre);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        
+        public string actualizarBodega(Bodega bodega)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Bodega SET nombre=@nombre WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", bodega.Id);
+                cm.Parameters.AddWithValue("@nombre", bodega.Nombre);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar usuarios
+        public string deleteBodegas(int idBodegas)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM Bodega WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", idBodegas);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
 
     }
 }
