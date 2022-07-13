@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using POSalesDB;
+using POSalesDb;
 namespace POSales
 {
     public partial class UserProperties : Form
@@ -17,9 +18,9 @@ namespace POSales
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
 
-        UserAccount account;
+        Usuarios account;
         public string username;
-        public UserProperties(UserAccount user)
+        public UserProperties(Usuarios user)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.myConnection());
@@ -34,27 +35,35 @@ namespace POSales
   
         private void btnApply_Click(object sender, EventArgs e)
         {
-            try
-            {
+            string Error = string.Empty;
+
                 if ((MessageBox.Show("Está seguro de que desea cambiar las propiedades de esta cuenta?", "Cambiar propiedades", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes))
                  {
                     cn.Open();
                     cm = new SqlCommand("UPDATE Usuarios SET nombre=@nombre, role=@role, isactive=@isactive WHERE username='" + username + "'",cn);
-                    cm.Parameters.AddWithValue("@nombre", txtName.Text);
-                    cm.Parameters.AddWithValue("@role", cbRole.Text);
-                    cm.Parameters.AddWithValue("@isactive", cbActivate.Text);
-                    cm.ExecuteNonQuery();
-                    cn.Close();
-                    MessageBox.Show("Las propiedades de la cuenta se han cambiado correctamente!", "Actualizar propiedades", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    account.LoadUser();
-                    this.Dispose();
-                }
-            }
-            catch (Exception ex)
-            {
+                    account.nombre= txtName.Text;
+                    account.role = cbRole.Text;
+                    if (cbActivate.SelectedIndex == 0)
+                    {
+                        account.isactive = true;
+                    }
+                    else
+                    {
+                        account.isactive = false;
+                    }
 
-                MessageBox.Show(ex.Message);
-            }
+
+                    Error = dbcon.actualizarUsuario(account);
+                    if (string.IsNullOrEmpty(Error))
+                    {
+                        MessageBox.Show("Actualizado satisfactoriamente");
+                    }
+                    else 
+                    {
+                        MessageBox.Show(Error);
+                    }
+                    this.Dispose();;
+                }
         }
 
         private void UserProperties_KeyDown(object sender, KeyEventArgs e)

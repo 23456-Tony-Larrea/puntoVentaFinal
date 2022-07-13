@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using POSalesDB;
+using POSalesDb;
 
 namespace POSales
 {
@@ -18,9 +19,10 @@ namespace POSales
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
         SqlDataReader dr;
-        public string _pass;
-        public MainForm()
+        int userId;
+        public MainForm(int idUser)
         {
+            userId = idUser;
             InitializeComponent();
             customizeDesing();
             cn = new SqlConnection(dbcon.myConnection());            
@@ -151,7 +153,7 @@ namespace POSales
 
         private void btnUser_Click(object sender, EventArgs e)
         {
-            openChildForm(new UserAccount(this));
+            openChildForm(new UserAccount(userId));
             hideSubmenu();
         }
 
