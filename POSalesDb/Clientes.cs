@@ -25,7 +25,7 @@ namespace POSalesDb
         public string fax { get; set; }
         public string cargo { get; set; }
         public string email { get; set; }
-
+        public string tipoCliente { get; set; }
 
     }
 }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using POSalesDB;
+using POSalesDb;
 namespace POSales
 {
     public partial class ResetPassword : Form
@@ -17,8 +18,8 @@ namespace POSales
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
         SqlDataReader dr;
-        UserAccount user;
-        public ResetPassword(UserAccount account)
+        Usuarios user;
+        public ResetPassword(Usuarios account)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.myConnection());
@@ -36,7 +37,8 @@ namespace POSales
             {
                 if (MessageBox.Show("Restablecer la contraseña?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    dbcon.ExecuteQuery("UPDATE Usuarios SET contraseña = '" + txtNpass.Text + "'WHERE username = '" + user.username + "'");
+                    user.contraseña = txtNpass.Text;
+                    dbcon.actualizarUsuario(user);
                     MessageBox.Show("La contraseña se ha restablecido con éxito", "Restablecer la contraseña", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Dispose();
                 }
