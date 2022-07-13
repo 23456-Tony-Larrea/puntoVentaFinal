@@ -1457,6 +1457,7 @@ namespace POSalesDB
                     cn.Close();
                 }
             }
+        }
             //obtener Categoria
             public List<Categorias> selectTodosLasCategorias()
             {
