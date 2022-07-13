@@ -38,7 +38,7 @@ namespace POSales
         public void cargarCliente()
         {
             cboClientes.Items.Clear();
-            clientes  =dbcon.selectTodosLosClientes();
+            clientes  =dbcon.TodosLosClientes();
             cboClientes.DataSource = clientes;
             cboClientes.DisplayMember = "nombre";
             cboClientes.ValueMember = "Id";

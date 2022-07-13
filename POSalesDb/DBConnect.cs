@@ -31,7 +31,7 @@ namespace POSalesDB
             string _username = "", _name = "", _role = "";
             try
             {
-                bool found;     
+                bool found;
                 cn.Open();
                 cm = new SqlCommand("Select * From Usuarios Where username = @username and contraseña = @contraseña", cn);
                 cm.Parameters.AddWithValue("@username", account);
@@ -133,7 +133,7 @@ namespace POSalesDB
             cn = new SqlConnection();
             cn.ConnectionString = myConnection();
             cm = new SqlCommand("BEGIN TRANSACTION;", cn);
-            cn.Open();      
+            cn.Open();
             cm.ExecuteNonQuery();
             cn.Close();
         }
@@ -237,14 +237,14 @@ namespace POSalesDB
             }
         }
         public List<Items> selectTodosLosItems()
-         {
+        {
             cn.ConnectionString = myConnection();
             List<Items> items = new List<Items>();
             decimal precioA = 0, precioB = 0, precioC = 0, precioD = 0, peso = 0, comision = 0, descMax = 0, costo = 0, ice = 0, valorIce = 0, iva = 0, montoTotal = 0;
             int Id = 0, unidadCaja = 0, stockMax = 0, stockMin = 0, bId = 0, cId = 0, gId = 0, mId = 0, unidad = 0;
 
             try
-            {    
+            {
                 cm = new SqlCommand($"Select * from Items ");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
@@ -255,7 +255,7 @@ namespace POSalesDB
                     foreach (DataRow r in dt.Rows)
                     {
                         Items item = new Items();
-                        int.TryParse(r["Id"].ToString(),out Id);
+                        int.TryParse(r["Id"].ToString(), out Id);
                         item.Id = Id;
                         item.nombre = r["nombre"].ToString();
                         item.codigoUno = r["codigoUno"].ToString();
@@ -340,7 +340,7 @@ namespace POSalesDB
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("Insert into Items (nombre,codigoUno,codigoDos,codigoTres,codigoCuatro,codigoBarras,precioA,precioB,precioC,precioD,descripcion,unidadCaja,peso,comision,descMax,stockMin,stockMax,costo,unidad,bId,cId,gId,mId,servicio,aplicaSeries,negativo,combo,gasto,ice,valorIce,imagen,imagenUrl,iva,montoTotal,HasIva,categoriaA,categoriaB,categoriaC,categoriaD,categoriaE values(@nombre,@codigoUno,@codigoDos,@codigoTres,@codigoCuatro,@codigoBarras,@precioA,@precioB,@precioC,@precioD,@descripcion,@unidadCaja,@peso,@comision,@descMax,@stockMin,@stockMax,@costo,@unidad,@bId,@cId,@gId,@mId,@servicio,@aplicaSeries,@negativo,@combo,@gasto,@ice,@valorIce,@imagen,@imagenUrl,@iva,@montoTotal,@HasIva,@categoriaA,@categoriaB,@categoriaC,@categoriaD,@categoriaE))",cn);
+                cm = new SqlCommand("Insert into Items (nombre,codigoUno,codigoDos,codigoTres,codigoCuatro,codigoBarras,precioA,precioB,precioC,precioD,descripcion,unidadCaja,peso,comision,descMax,stockMin,stockMax,costo,unidad,bId,cId,gId,mId,servicio,aplicaSeries,negativo,combo,gasto,ice,valorIce,imagen,imagenUrl,iva,montoTotal,HasIva,categoriaA,categoriaB,categoriaC,categoriaD,categoriaE values(@nombre,@codigoUno,@codigoDos,@codigoTres,@codigoCuatro,@codigoBarras,@precioA,@precioB,@precioC,@precioD,@descripcion,@unidadCaja,@peso,@comision,@descMax,@stockMin,@stockMax,@costo,@unidad,@bId,@cId,@gId,@mId,@servicio,@aplicaSeries,@negativo,@combo,@gasto,@ice,@valorIce,@imagen,@imagenUrl,@iva,@montoTotal,@HasIva,@categoriaA,@categoriaB,@categoriaC,@categoriaD,@categoriaE))", cn);
                 cm.Parameters.AddWithValue("@nombre", item.nombre);
                 cm.Parameters.AddWithValue("@codigoUno", item.codigoUno);
                 cm.Parameters.AddWithValue("@codigoDos", item.codigoDos);
@@ -487,7 +487,7 @@ namespace POSalesDB
             Usuarios usuarios = new Usuarios();
             try
             {
-                cm = new SqlCommand($"Select * from Usuarios Where Id = {Id}",cn);
+                cm = new SqlCommand($"Select * from Usuarios Where Id = {Id}", cn);
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();
@@ -690,8 +690,8 @@ namespace POSalesDB
                         ajustamiento.Id = (int)r["Id"];
                         ajustamiento.referenceno = r["referenceno"].ToString();
                         ajustamiento.pcode = r["pcode"].ToString();
-                        ajustamiento.qty =Convert.ToInt32(r["qty"]);
-                        ajustamiento.action=r["action"].ToString();
+                        ajustamiento.qty = Convert.ToInt32(r["qty"]);
+                        ajustamiento.action = r["action"].ToString();
                         ajustamiento.remarks = r["remarks"].ToString();
                         ajustamiento.sdate = Convert.ToDateTime(r["sdate"]);
                         ajustamiento.user = r["[user]"].ToString();
@@ -714,7 +714,7 @@ namespace POSalesDB
             }
         }
         //insertar ajustamientos 
-        public string Ajustamiento (Ajustamiento ajustamiento)
+        public string Ajustamiento(Ajustamiento ajustamiento)
         {
             cn.ConnectionString = myConnection();
             string Error = String.Empty;
@@ -848,7 +848,7 @@ namespace POSalesDB
                         Bodega bodegas = new Bodega();
                         bodegas.Id = (int)r["Id"];
                         bodegas.Nombre = r["nombre"].ToString();
-                         bodega.Add(bodegas);
+                        bodega.Add(bodegas);
                     }
 
                 }
@@ -952,7 +952,7 @@ namespace POSalesDB
                 {
                     cancel.Id = (int)dt.Rows[0]["Id"];
                     cancel.transno = dt.Rows[0]["nombre"].ToString();
-                    cancel.pcode= dt.Rows[0]["pcode"].ToString();
+                    cancel.pcode = dt.Rows[0]["pcode"].ToString();
                     cancel.qty = (int)dt.Rows[0]["qty"];
                     cancel.total = (decimal)dt.Rows[0]["total"];
                     cancel.sdate = (DateTime)dt.Rows[0]["sdate"];
@@ -1134,7 +1134,7 @@ namespace POSalesDB
                     carrito.sdate = Convert.ToDateTime(dt.Rows[0]["sdate"].ToString());
                     carrito.status = dt.Rows[0]["status"].ToString();
                     carrito.cashier = dt.Rows[0]["cashier"].ToString();
-                    
+
                 }
                 cm.ExecuteNonQuery();
                 return carrito;
@@ -1302,7 +1302,7 @@ namespace POSalesDB
                 {
                     categoria.Id = (int)dt.Rows[0]["Id"];
                     categoria.Categoria = dt.Rows[0]["Categoria"].ToString();
-        
+
                 }
                 cm.ExecuteNonQuery();
                 return categoria;
@@ -1337,7 +1337,7 @@ namespace POSalesDB
                         Categorias cat = new Categorias();
                         cat.Id = (int)r["Id"];
                         cat.Categoria = r["Categoria"].ToString();
-                      
+
                         categoria.Add(cat);
                     }
 
@@ -1426,85 +1426,94 @@ namespace POSalesDB
             {
                 cn.Close();
             }
-            //obtener id Clientes
-            public Clientes selectClientesId(int Id)
+        }
+        //obtener id descripcionVenta   
+        public DescripcionVenta selectDescripcionVentaId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            DescripcionVenta descripcion = new DescripcionVenta();
+            try
             {
-                cn.ConnectionString = myConnection();
-                Categorias categoria = new Categorias();
-                try
+                cm = new SqlCommand($"Select * from DescripcionVenta Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
                 {
-                    cm = new SqlCommand($"Select * from Categorias Where Id = {Id}");
-                    SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
-                    cn.Open();
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    if (dt.Rows.Count > 0)
-                    {
-                        categoria.Id = (int)dt.Rows[0]["Id"];
-                        categoria.Categoria = dt.Rows[0]["Categoria"].ToString();
+                    descripcion.Id_descripcion_venta = (int)dt.Rows[0][" Id_descripcion_venta"];
+                    descripcion.producto = (int)dt.Rows[0]["producto"];
+                    descripcion.cantidad = (int)dt.Rows[0]["cantidad"];
+                    descripcion.venta = (int)dt.Rows[0]["venta"];
+                    descripcion.precio = Convert.ToDecimal(dt.Rows[0]["precio"].ToString());
+                }
+                cm.ExecuteNonQuery();
+                return descripcion;
 
-                    }
-                    cm.ExecuteNonQuery();
-                    return categoria;
-
-                }
-                catch (Exception ex)
-                {
-                    return categoria;
-                }
-                finally
-                {
-                    cn.Close();
-                }
+            }
+            catch (Exception ex)
+            {
+                return descripcion;
+            }
+            finally
+            {
+                cn.Close();
             }
         }
-            //obtener Categoria
-            public List<Categorias> selectTodosLasCategorias()
-            {
-                cn.ConnectionString = myConnection();
-                List<Categorias> categoria = new List<Categorias>();
 
-                try
+        //obtener descripcion
+        public List<DescripcionVenta> selectTodosLaDescripcionVenta()
+        {
+            cn.ConnectionString = myConnection();
+            List<DescripcionVenta> descripcion = new List<DescripcionVenta>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from DescripcionVenta");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
                 {
-                    cm = new SqlCommand($"Select * from Categorias");
-                    SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
-                    cn.Open();
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    if (dt.Rows.Count > 0)
+                    foreach (DataRow r in dt.Rows)
                     {
-                        foreach (DataRow r in dt.Rows)
-                        {
-                            Categorias cat = new Categorias();
-                            cat.Id = (int)r["Id"];
-                            cat.Categoria = r["Categoria"].ToString();
-
-                            categoria.Add(cat);
-                        }
-
+                        DescripcionVenta des = new DescripcionVenta();
+                        des.Id_descripcion_venta = (int)r[" Id_descripcion_venta"];
+                        des.producto = (int)r["producto"];
+                        des.cantidad = (int)r["cantidad"];
+                        des.producto = (int)r["venta"];
+                        des.venta = (int)r["venta"];
+                        des.precio = Convert.ToDecimal(r["precio"].ToString());
+                        descripcion.Add(des);
                     }
-                    cm.ExecuteNonQuery();
-                    return categoria;
-                }
 
-                catch (Exception ex)
-                {
-                    return categoria;
                 }
-                finally
-                {
-                    cn.Close();
-                }
+                cm.ExecuteNonQuery();
+                return descripcion;
             }
-            //insertar categoria
-            public string insertCategoria(Categorias categoria)
+
+            catch (Exception ex)
+            {
+                return descripcion;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+            //insertar Descripcion
+            public string insertDescripcionVenta(DescripcionVenta descripcionVenta)
             {
                 cn.ConnectionString = myConnection();
                 string Error = String.Empty;
                 try
                 {
-                    cm = new SqlCommand("Insert into Categorias (Categoria values(@Categoria))");
-                    cm.Parameters.AddWithValue("@Categoria", categoria.Categoria);
+                    cm = new SqlCommand("Insert into DescripcipnVenta (producto,cantidad,venta,precio )values(@producto,@cantidad,@venta,@precio)");
+                    cm.Parameters.AddWithValue("@producto", descripcionVenta.producto);
+                    cm.Parameters.AddWithValue("@cantidad", descripcionVenta.cantidad);
+                    cm.Parameters.AddWithValue("@venta", descripcionVenta.venta);
+                    cm.Parameters.AddWithValue("@precio", descripcionVenta.precio);
                     cn.Open();
                     cm.ExecuteNonQuery();
                     return Error;
@@ -1521,17 +1530,20 @@ namespace POSalesDB
                     cn.Close();
                 }
             }
-            //actualizar una Categoria
-            public string actualizarCategoria(Categorias categoria)
+            //actualizar una DescripcionVenta
+            public string actualizarDescripcionVenta(DescripcionVenta descripcion)
             {
                 cn.ConnectionString = myConnection();
                 string Error = String.Empty;
                 try
                 {
-                    cm = new SqlCommand("UPDATE Categorias SET Categorias=@Categorias WHERE Id = @Id  ", cn);
-                    cm.Parameters.AddWithValue("@", categoria.Id);
-                    cm.Parameters.AddWithValue("@categoria", categoria.Categoria);
-                    cn.Open();
+                    cm = new SqlCommand("UPDATE DescripcionVenta SET producto=@producto,cantidad=@cantidad,venta=@venta,precio=@precio WHERE Id_descripcion_venta = @Id  ", cn);
+                    cm.Parameters.AddWithValue("@", descripcion.Id_descripcion_venta);
+                    cm.Parameters.AddWithValue("@producto", descripcion.producto);
+                    cm.Parameters.AddWithValue("@cantidad", descripcion.cantidad);
+                    cm.Parameters.AddWithValue("@venta", descripcion.venta);
+                    cm.Parameters.AddWithValue("@precio", descripcion.precio);
+                cn.Open();
                     cm.ExecuteNonQuery();
                     return Error;
                 }
@@ -1545,15 +1557,15 @@ namespace POSalesDB
                     cn.Close();
                 }
             }
-            //eliminar Categorias
-            public string deleteCategorias(int idCarrito)
+            //eliminar Descripcion
+            public string deleteDescripcionVenta(int idDescripcion)
             {
                 cn.ConnectionString = myConnection();
                 string Error = String.Empty;
                 try
                 {
-                    cm = new SqlCommand("DETELE FROM Categorias WHERE Id = @Id  ", cn);
-                    cm.Parameters.AddWithValue("@", idCarrito);
+                    cm = new SqlCommand("DETELE FROM DescripcionVenta WHERE Id = @Id  ", cn);
+                    cm.Parameters.AddWithValue("@", idDescripcion);
                     cn.Open();
                     cm.ExecuteNonQuery();
                     return Error;
@@ -1568,7 +1580,212 @@ namespace POSalesDB
                     cn.Close();
                 }
 
+            }
+        //obtener id Clientes   
+        public Clientes selectClientesId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Clientes clientes = new Clientes();
+            try
+            {
+                cm = new SqlCommand($"Select * from Clientes Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    clientes.Id = (int)dt.Rows[0]["Id"];
+                    clientes.nombre =Convert.ToString(dt.Rows[0]["nombre"]) ;
+                    clientes.comercio = Convert.ToString(dt.Rows[0]["comercio"]);
+                    clientes.codigo = Convert.ToString(dt.Rows[0]["codigo"]);
+                    clientes.fechaNacimiento = Convert.ToDateTime(dt.Rows[0]["fechaNacimiento"]);
+                    clientes.fechaRegistro = Convert.ToDateTime(dt.Rows[0]["fechaRegistro"]);
+                    clientes.ciudad = Convert.ToString(dt.Rows[0]["ciudad"]);
+                    clientes.tipo = Convert.ToString(dt.Rows[0]["tipo"]);
+                    clientes.ciRuc = Convert.ToString(dt.Rows[0]["ciRuc"]);
+                    clientes.pais = Convert.ToString(dt.Rows[0]["pais"]);
+                    clientes.estado = Convert.ToString(dt.Rows[0]["estado"]);
+                    clientes.direccion = Convert.ToString(dt.Rows[0]["direccion"]);
+                    clientes.telefono = Convert.ToString(dt.Rows[0]["telefono"]);
+                    clientes.celular = Convert.ToString(dt.Rows[0]["celular"]);
+                    clientes.fax = Convert.ToString(dt.Rows[0]["fax"]);
+                    clientes.cargo = Convert.ToString(dt.Rows[0]["cargo"]);
+                    clientes.email = Convert.ToString(dt.Rows[0]["email"]);
+                    clientes.tipoCliente = Convert.ToString(dt.Rows[0]["tipoCliente"]);
+                     }
+                cm.ExecuteNonQuery();
+                return clientes;
+
+            }
+            catch (Exception ex)
+            {
+                return clientes;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //obtener clientes
+        public List<Clientes> TodosLosClientes()
+        {
+            cn.ConnectionString = myConnection();
+            List<Clientes> client = new List<Clientes>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Clientes");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Clientes clientes = new Clientes();
+                        clientes.Id = (int)r["Id"];
+                        clientes.nombre = Convert.ToString(r["nombre"]);
+                        clientes.comercio = Convert.ToString(r["comercio"]);
+                        clientes.codigo = Convert.ToString(r["codigo"]);
+                        clientes.fechaNacimiento = Convert.ToDateTime(r["fechaNacimiento"]);
+                        clientes.fechaRegistro = Convert.ToDateTime(r["fechaRegistro"]);
+                        clientes.ciudad = Convert.ToString(r["ciudad"]);
+                        clientes.tipo = Convert.ToString(r["tipo"]);
+                        clientes.ciRuc = Convert.ToString(r["ciRuc"]);
+                        clientes.pais = Convert.ToString(r["pais"]);
+                        clientes.estado = Convert.ToString(r["estado"]);
+                        clientes.direccion = Convert.ToString(r["direccion"]);
+                        clientes.telefono = Convert.ToString(r["telefono"]);
+                        clientes.celular = Convert.ToString(r["celular"]);
+                        clientes.fax = Convert.ToString(r["fax"]);
+                        clientes.cargo = Convert.ToString(r["cargo"]);
+                        clientes.email = Convert.ToString(r["email"]);
+                        clientes.tipoCliente = Convert.ToString(r["tipoCliente"]);
+                        client.Add(clientes);
+                    }
+
+                }
+                cm.ExecuteNonQuery();
+                return client;
+            }
+
+            catch (Exception ex)
+            {
+                return client;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar Clientes
+        public string insertClientes(Clientes clientes)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Clientes (nombre,comercio,codigo,fechaNacimiento,fechaRegistro,ciudad,tipo,ciRuc,pais,estado,direccion,telefono,celular,fax,cargo,email,tipoCliente )values(@nombre,@comercio,@codigo,@fechaNacimiento,@fechaRegistro,@ciudad,@tipo,@ciRuc,@pais,@estado,@direccion,@telefono,@celular,@fax,@cargo,@email,@tipoCliente)");
+                cm.Parameters.AddWithValue("@nombre", clientes.nombre);
+                cm.Parameters.AddWithValue("@comercio", clientes.comercio);
+                cm.Parameters.AddWithValue("@codigo", clientes.codigo);
+                cm.Parameters.AddWithValue("@fechaNacimiento", clientes.fechaNacimiento);
+                cm.Parameters.AddWithValue("@fechaRegistro", clientes.fechaRegistro);
+                cm.Parameters.AddWithValue("@ciudad", clientes.ciudad);
+                cm.Parameters.AddWithValue("@tipo", clientes.tipo);
+                cm.Parameters.AddWithValue("@ciRuc", clientes.ciRuc);
+                cm.Parameters.AddWithValue("@pais", clientes.pais);
+                cm.Parameters.AddWithValue("@estado", clientes.estado);
+                cm.Parameters.AddWithValue("@direccion", clientes.direccion);
+                cm.Parameters.AddWithValue("@telefono", clientes.telefono);
+                cm.Parameters.AddWithValue("@celular", clientes.celular);
+                cm.Parameters.AddWithValue("@fax", clientes.fax);
+                cm.Parameters.AddWithValue("@cargo", clientes.cargo);
+                cm.Parameters.AddWithValue("@email", clientes.email);
+                cm.Parameters.AddWithValue("@tipoCliente", clientes.tipoCliente);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar una Clientes
+        public string actualizarClientes(Clientes clientes)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Clientes SET nombre=@nombre,comercio=@comercio,codigo=@codigo,fechaNacimiento=@fechaNacimiento,fechaRegistro=@fechaRegistro,ciudad=@ciudad,tipo=@tipo,ciRuc=@ciRuc,pais=@pais,estado=@estado,direccion=@direccion,telefono=@telefono,celular=@celular,fax=@fax,cargo=@cargo, email=@email,tipoCLiente=@tipoCliente WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", clientes.Id);
+                cm.Parameters.AddWithValue("@nombre", clientes.nombre);
+                cm.Parameters.AddWithValue("@comercio", clientes.comercio);
+                cm.Parameters.AddWithValue("@codigo", clientes.codigo);
+                cm.Parameters.AddWithValue("@fechaNacimiento", clientes.fechaNacimiento);
+                cm.Parameters.AddWithValue("@fechaRegistro", clientes.fechaRegistro);
+                cm.Parameters.AddWithValue("@ciudad", clientes.ciudad);
+                cm.Parameters.AddWithValue("@tipo", clientes.tipo);
+                cm.Parameters.AddWithValue("@ciRuc", clientes.ciRuc);
+                cm.Parameters.AddWithValue("@pais", clientes.pais);
+                cm.Parameters.AddWithValue("@estado", clientes.estado);
+                cm.Parameters.AddWithValue("@direccion", clientes.direccion);
+                cm.Parameters.AddWithValue("@telefono", clientes.telefono);
+                cm.Parameters.AddWithValue("@celular", clientes.celular);
+                cm.Parameters.AddWithValue("@fax", clientes.fax);
+                cm.Parameters.AddWithValue("@cargo", clientes.cargo);
+                cm.Parameters.AddWithValue("@email", clientes.email);
+                cm.Parameters.AddWithValue("@tipoCliente", clientes.tipoCliente);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar clientes
+        public string deleteClientes(int idClientes)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM DescripcionVenta WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", idClientes);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
             }
 
         }
+
+    }
 }
