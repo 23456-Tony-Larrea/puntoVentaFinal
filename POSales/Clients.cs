@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using POSalesDb;
 using POSalesDB;
 namespace POSales
 {
@@ -27,25 +28,50 @@ namespace POSales
 
         public void cargarClientes()
         {
-            int i = 0;
-            dgvClients.Rows.Clear();
-            cn.Open();
-            cm = new SqlCommand("SELECT * FROM Clientes ORDER BY nombre", cn);
-            dr = cm.ExecuteReader();
-            while (dr.Read())
+            using (var repo = new Repository(new SqlConnection(dbcon.myConnection())))
             {
-                i++;
-                dgvClients.Rows.Add(i,dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(),dr[8].ToString(), dr[9].ToString(), dr[10].ToString(),dr[11].ToString(), dr[12].ToString(), dr[13].ToString(), dr[14].ToString(), dr[15].ToString(), dr[16].ToString());
+                dgvClients.DataSource = "";
+                dgvClients.DataSource = dbcon.TodosLosClientes();
+
 
             }
-            dr.Close();
-            cn.Close();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            ClientModule clientModule = new ClientModule(this);
+            Clientes cliente = new Clientes();
+            ClientModule clientModule = new ClientModule(cliente);
             clientModule.ShowDialog();
+        }
+
+        private void dgvClients_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colName = dgvClients.Columns[e.ColumnIndex].Name;
+            if (colName == "Edit")
+            {
+                Clientes cliente = new Clientes();
+                cliente.Id = Convert.ToInt32(dgvClients.Rows[e.RowIndex].Cells["Id"].Value);
+                cliente.nombre= dgvClients.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
+                cliente.codigo = dgvClients.Rows[e.RowIndex].Cells["codigo"].Value.ToString();
+                cliente.comercio = dgvClients.Rows[e.RowIndex].Cells["comercio"].Value.ToString();
+                cliente.codigo = dgvClients.Rows[e.RowIndex].Cells["codigo"].Value.ToString();
+                cliente.fechaNacimiento= Convert.ToDateTime(dgvClients.Rows[e.RowIndex].Cells["fechaNacimiento"].Value.ToString());
+                cliente.fechaRegistro = Convert.ToDateTime(dgvClients.Rows[e.RowIndex].Cells["fechaRegistro"].Value.ToString());
+                cliente.ciudad = dgvClients.Rows[e.RowIndex].Cells["ciudad"].Value.ToString();
+                cliente.tipo= dgvClients.Rows[e.RowIndex].Cells["tipo"].Value.ToString();
+                cliente.ciRuc = dgvClients.Rows[e.RowIndex].Cells["ciRuc"].Value.ToString();
+                cliente.pais = dgvClients.Rows[e.RowIndex].Cells["pais"].Value.ToString();
+                cliente.estado = dgvClients.Rows[e.RowIndex].Cells["estado"].Value.ToString();
+                cliente.direccion = dgvClients.Rows[e.RowIndex].Cells["direccion"].Value.ToString();
+                cliente.telefono = dgvClients.Rows[e.RowIndex].Cells["telefono"].Value.ToString();
+                cliente.celular = dgvClients.Rows[e.RowIndex].Cells["celular"].Value.ToString();
+                cliente.fax = dgvClients.Rows[e.RowIndex].Cells["fax"].Value.ToString();
+                cliente.cargo = dgvClients.Rows[e.RowIndex].Cells["cargo"].Value.ToString();
+                cliente.email= dgvClients.Rows[e.RowIndex].Cells["eail"].Value.ToString();
+                cliente.tipoCliente = dgvClients.Rows[e.RowIndex].Cells["tipoCliente"].Value.ToString();
+                Form clienteModule = new ClientModule(cliente);
+                clienteModule.Show();
+            }
         }
     }
 }

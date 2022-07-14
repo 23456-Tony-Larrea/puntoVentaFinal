@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,32 @@ namespace POSalesDB
             return con;
         }
 
+        public static void CrearEvento(string cmd)
+        {
+            string MyLogName = DateTime.Now.ToString("ddMMyyyHHmmssfff");
+            string sourceName = DateTime.Now.ToString("yyyy-MM-dd") + ".txt";
+            string subPath = @"Errores";
+            bool exists = System.IO.Directory.Exists(subPath);
+            if (!exists)
+            {
+                System.IO.Directory.CreateDirectory(subPath);
+            }
 
+            if (!exists)
+            {
+                using (StreamWriter outputFile = new StreamWriter(Path.Combine(subPath, sourceName)))
+                {
+                    outputFile.WriteLine(cmd, Environment.NewLine);
+                }
+            }
+            else
+            {
+                using (StreamWriter outputFile = File.AppendText(Path.Combine(subPath, sourceName)))
+                {
+                    outputFile.WriteLine(cmd, Environment.NewLine);
+                }
+            }
+        }
         public Usuarios loginAction(string account, string password)
         {
             Usuarios usuario = new Usuarios();
@@ -55,12 +81,17 @@ namespace POSalesDB
                 cn.Close();
 
                 return usuario;
+            
             }
+
             catch (SqlException ex)
             {
+                CrearEvento(ex.ToString());
                 return usuario;
                 cn.Close();
+
             }
+
         }
         public DataTable getTable(string qury)
         {
@@ -87,6 +118,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -168,6 +200,7 @@ namespace POSalesDB
         /// 
         ///   CRUD PARA CLASE ITEM
         ///------ SECCION PARA SELECT ITEMS --------------
+        ///
         public Items selectItemPorId(int Id)
         {
             Items item = new Items();
@@ -183,21 +216,11 @@ namespace POSalesDB
                 {
                     item.Id = (int)dt.Rows[0]["Id"];
                     item.nombre = dt.Rows[0]["nombre"].ToString();
-                    item.codigoUno = dt.Rows[0]["codigoUno"].ToString();
-                    item.codigoDos = dt.Rows[0]["codigoDos"].ToString();
-                    item.codigoTres = dt.Rows[0]["codigoTres"].ToString();
-                    item.codigoCuatro = dt.Rows[0]["codigoCuatro"].ToString();
-                    item.codigoBarras = dt.Rows[0]["codigoBarras"].ToString();
                     item.precioA = (decimal)dt.Rows[0]["precioA"];
                     item.precioB = (decimal)dt.Rows[0]["precioB"];
                     item.precioC = (decimal)dt.Rows[0]["precioC"];
                     item.precioD = (decimal)dt.Rows[0]["precioD"];
                     item.descripcion = dt.Rows[0]["descripcion"].ToString();
-                    item.unidadCaja = (int)dt.Rows[0]["unidadCaja"];
-                    item.peso = (decimal)dt.Rows[0]["peso"];
-                    item.comision = (decimal)dt.Rows[0]["comision"];
-                    item.descMax = (decimal)dt.Rows[0]["descMax"];
-                    item.stockMax = (int)dt.Rows[0]["stockMax"];
                     item.stockMin = (int)dt.Rows[0]["stockMin"];
                     item.costo = (decimal)dt.Rows[0]["costo"];
                     item.unidad = (int)dt.Rows[0]["unidad"];
@@ -209,7 +232,6 @@ namespace POSalesDB
                     item.aplicaSeries = (bool)dt.Rows[0]["aplicaSeries"];
                     item.negativo = (bool)dt.Rows[0]["negativo"];
                     item.combo = (bool)dt.Rows[0]["combo"];
-                    item.gasto = (bool)dt.Rows[0]["gasto"];
                     item.ice = (decimal)dt.Rows[0]["ice"];
                     item.valorIce = (decimal)dt.Rows[0]["valorIce"];
                     item.HasIva = (bool)dt.Rows[0]["HasIva"];
@@ -217,19 +239,38 @@ namespace POSalesDB
                     item.imagen = dt.Rows[0]["imagen"].ToString();
                     item.descripcion = dt.Rows[0]["imagenUrl"].ToString();
                     item.montoTotal = (decimal)dt.Rows[0]["montoTotal"];
-                    item.categoriaA = dt.Rows[0]["categoriaA"].ToString();
-                    item.categoriaB = dt.Rows[0]["categoriaB"].ToString();
-                    item.categoriaC = dt.Rows[0]["categoriaC"].ToString();
-                    item.categoriaD = dt.Rows[0]["categoriaD"].ToString();
-                    item.categoriaE = dt.Rows[0]["categoriaE"].ToString();
-                }
+                    }
                 cm.ExecuteNonQuery();
                 return item;
 
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return item;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public DataTable selectPendientesEnStock(string txtRefNo)
+        {
+            cn.ConnectionString = myConnection();
+            List<Enstock> enstocks = new List<Enstock>();
+            DataTable dt = new DataTable();
+            try
+            {
+                cm = new SqlCommand($"SELECT * FROM vwEnStock WHERE refno = '{txtRefNo}' AND status = 'Pending'", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return dt;
             }
             finally
             {
@@ -258,10 +299,6 @@ namespace POSalesDB
                         int.TryParse(r["Id"].ToString(), out Id);
                         item.Id = Id;
                         item.nombre = r["nombre"].ToString();
-                        item.codigoUno = r["codigoUno"].ToString();
-                        item.codigoDos = r["codigoDos"].ToString();
-                        item.codigoTres = r["codigoTres"].ToString();
-                        item.codigoCuatro = r["codigoCuatro"].ToString();
                         item.codigoBarras = r["codigoBarras"].ToString();
                         decimal.TryParse(r["precioA"].ToString(), out precioA);
                         item.precioA = precioA;
@@ -272,16 +309,6 @@ namespace POSalesDB
                         decimal.TryParse(r["precioD"].ToString(), out precioD);
                         item.precioD = precioD;
                         item.descripcion = r["descripcion"].ToString();
-                        int.TryParse(r["unidadCaja"].ToString(), out unidadCaja);
-                        item.unidadCaja = unidadCaja;
-                        decimal.TryParse(r["peso"].ToString(), out peso);
-                        item.peso = peso;
-                        decimal.TryParse(r["comision"].ToString(), out comision);
-                        item.comision = comision;
-                        decimal.TryParse(r["descMax"].ToString(), out descMax);
-                        item.descMax = descMax;
-                        int.TryParse(r["stockMax"].ToString(), out stockMax);
-                        item.stockMax = stockMax;
                         int.TryParse(r["stockMin"].ToString(), out stockMin);
                         item.stockMin = stockMin;
                         item.costo = (decimal)r["costo"];
@@ -299,7 +326,6 @@ namespace POSalesDB
                         item.aplicaSeries = (bool)r["aplicaSeries"];
                         item.negativo = (bool)r["negativo"];
                         item.combo = (bool)r["combo"];
-                        item.gasto = (bool)r["gasto"];
                         decimal.TryParse(r["ice"].ToString(), out ice);
                         item.ice = ice;
                         decimal.TryParse(r["valorIce"].ToString(), out valorIce);
@@ -311,11 +337,6 @@ namespace POSalesDB
                         item.descripcion = r["imagenUrl"].ToString();
                         decimal.TryParse(r["montoTotal"].ToString(), out montoTotal);
                         item.montoTotal = montoTotal;
-                        item.categoriaA = r["categoriaA"].ToString();
-                        item.categoriaB = r["categoriaB"].ToString();
-                        item.categoriaC = r["categoriaC"].ToString();
-                        item.categoriaD = r["categoriaD"].ToString();
-                        item.categoriaE = r["categoriaE"].ToString();
                         items.Add(item);
                     }
 
@@ -326,6 +347,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return items;
             }
             finally
@@ -342,21 +364,13 @@ namespace POSalesDB
             {
                 cm = new SqlCommand("Insert into Items (nombre,codigoUno,codigoDos,codigoTres,codigoCuatro,codigoBarras,precioA,precioB,precioC,precioD,descripcion,unidadCaja,peso,comision,descMax,stockMin,stockMax,costo,unidad,bId,cId,gId,mId,servicio,aplicaSeries,negativo,combo,gasto,ice,valorIce,imagen,imagenUrl,iva,montoTotal,HasIva,categoriaA,categoriaB,categoriaC,categoriaD,categoriaE values(@nombre,@codigoUno,@codigoDos,@codigoTres,@codigoCuatro,@codigoBarras,@precioA,@precioB,@precioC,@precioD,@descripcion,@unidadCaja,@peso,@comision,@descMax,@stockMin,@stockMax,@costo,@unidad,@bId,@cId,@gId,@mId,@servicio,@aplicaSeries,@negativo,@combo,@gasto,@ice,@valorIce,@imagen,@imagenUrl,@iva,@montoTotal,@HasIva,@categoriaA,@categoriaB,@categoriaC,@categoriaD,@categoriaE))", cn);
                 cm.Parameters.AddWithValue("@nombre", item.nombre);
-                cm.Parameters.AddWithValue("@codigoUno", item.codigoUno);
-                cm.Parameters.AddWithValue("@codigoDos", item.codigoDos);
-                cm.Parameters.AddWithValue("@codigoTres", item.codigoTres);
-                cm.Parameters.AddWithValue("@codigoCuatro", item.codigoCuatro);
                 cm.Parameters.AddWithValue("@codigoBarras", item.codigoBarras);
                 cm.Parameters.AddWithValue("@precioA", item.precioA);
                 cm.Parameters.AddWithValue("@precioB", item.precioB);
                 cm.Parameters.AddWithValue("@precioC", item.precioC);
                 cm.Parameters.AddWithValue("@precioD", item.precioD);
                 cm.Parameters.AddWithValue("@descripcion", item.descripcion);
-                cm.Parameters.AddWithValue("@unidadCaja", item.unidadCaja);
-                cm.Parameters.AddWithValue("@peso", item.peso);
-                cm.Parameters.AddWithValue("@comision", item.comision);
                 cm.Parameters.AddWithValue("@descMax", item.descMax);
-                cm.Parameters.AddWithValue("@stockMax", item.stockMax);
                 cm.Parameters.AddWithValue("@stockMin", item.stockMin);
                 cm.Parameters.AddWithValue("@costo", item.costo);
                 cm.Parameters.AddWithValue("@unidad", item.unidad);
@@ -368,7 +382,6 @@ namespace POSalesDB
                 cm.Parameters.AddWithValue("@aplicaSeries", item.aplicaSeries);
                 cm.Parameters.AddWithValue("@negativo", item.negativo);
                 cm.Parameters.AddWithValue("@combo", item.combo);
-                cm.Parameters.AddWithValue("@gasto", item.gasto);
                 cm.Parameters.AddWithValue("@ice", item.ice);
                 cm.Parameters.AddWithValue("@valorIce", item.valorIce);
                 cm.Parameters.AddWithValue("@HasIva", item.HasIva);
@@ -376,11 +389,6 @@ namespace POSalesDB
                 cm.Parameters.AddWithValue("@imagen", item.imagen);
                 cm.Parameters.AddWithValue("@imagenUrl", item.descripcion);
                 cm.Parameters.AddWithValue("@montoTotal", item.precioA * item.precioB);
-                cm.Parameters.AddWithValue("@categoriaA", item.categoriaA);
-                cm.Parameters.AddWithValue("@categoriaB", item.categoriaB);
-                cm.Parameters.AddWithValue("@categoriaC", item.categoriaC);
-                cm.Parameters.AddWithValue("@categoriaD", item.categoriaD);
-                cm.Parameters.AddWithValue("@categoriaE", item.categoriaE);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
@@ -388,6 +396,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -406,21 +415,13 @@ namespace POSalesDB
                 cm = new SqlCommand("UPDATE Items SET nombre=@nombre,codigoUno=@codigoUno,codigoDos=@codigoDos,codigoTres=@codigoTres,codigoCuatro=@codigoCuatro,precioA=@precioA,precioB=@precioB,precioC=@precioC,precioD=@precioD,descripcion=@descripcion,unidadCaja=@unidadCaja,peso=@peso,comision=@comision,descMax=@descMax,stockMin=@stockMin,stockMax=@stockMax,costo=@costo,unidad=@unidad,bId=@bId,cId=@cId ,gId=@gId,mId=@mId,servicio=@servicio,aplicaSeries=@aplicaSeries,negativo=@negativo,combo=@combo,gasto=@gasto,ice=@ice,valorIce=@valorIce,imagen=@imagen,imagenUrl=@imagenUrl,iva=@iva,montoTotal=@montoTotal,HasIva=HasIva,categoriaA=@categoriaA,categoriaB=@categoriaB,categoriaC=@categoriaC,categoriaD=@categoriaD,categoriaE=@categoriaE  WHERE Id = @Id  ", cn);
                 cm.Parameters.AddWithValue("@Id", item.Id);
                 cm.Parameters.AddWithValue("@nombre", item.nombre);
-                cm.Parameters.AddWithValue("@codigoUno", item.codigoUno);
-                cm.Parameters.AddWithValue("@codigoDos", item.codigoDos);
-                cm.Parameters.AddWithValue("@codigoTres", item.codigoTres);
-                cm.Parameters.AddWithValue("@codigoCuatro", item.codigoCuatro);
                 cm.Parameters.AddWithValue("@codigoBarras", item.codigoBarras);
                 cm.Parameters.AddWithValue("@precioA", item.precioA);
                 cm.Parameters.AddWithValue("@precioB", item.precioB);
                 cm.Parameters.AddWithValue("@precioC", item.precioC);
                 cm.Parameters.AddWithValue("@precioD", item.precioD);
                 cm.Parameters.AddWithValue("@descripcion", item.descripcion);
-                cm.Parameters.AddWithValue("@unidadCaja", item.unidadCaja);
-                cm.Parameters.AddWithValue("@peso", item.peso);
-                cm.Parameters.AddWithValue("@comision", item.comision);
                 cm.Parameters.AddWithValue("@descMax", item.descMax);
-                cm.Parameters.AddWithValue("@stockMax", item.stockMax);
                 cm.Parameters.AddWithValue("@stockMin", item.stockMin);
                 cm.Parameters.AddWithValue("@costo", item.costo);
                 cm.Parameters.AddWithValue("@unidad", item.unidad);
@@ -432,7 +433,6 @@ namespace POSalesDB
                 cm.Parameters.AddWithValue("@aplicaSeries", item.aplicaSeries);
                 cm.Parameters.AddWithValue("@negativo", item.negativo);
                 cm.Parameters.AddWithValue("@combo", item.combo);
-                cm.Parameters.AddWithValue("@gasto", item.gasto);
                 cm.Parameters.AddWithValue("@ice", item.ice);
                 cm.Parameters.AddWithValue("@valorIce", item.valorIce);
                 cm.Parameters.AddWithValue("@HasIva", item.HasIva);
@@ -440,17 +440,13 @@ namespace POSalesDB
                 cm.Parameters.AddWithValue("@imagen", item.imagen);
                 cm.Parameters.AddWithValue("@imagenUrl", item.descripcion);
                 cm.Parameters.AddWithValue("@montoTotal", item.precioA * item.precioB);
-                cm.Parameters.AddWithValue("@categoriaA", item.categoriaA);
-                cm.Parameters.AddWithValue("@categoriaB", item.categoriaB);
-                cm.Parameters.AddWithValue("@categoriaC", item.categoriaC);
-                cm.Parameters.AddWithValue("@categoriaD", item.categoriaD);
-                cm.Parameters.AddWithValue("@categoriaE", item.categoriaE);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -472,6 +468,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -506,6 +503,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return usuarios;
             }
             finally
@@ -545,6 +543,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return usuarios;
             }
             finally
@@ -573,6 +572,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -601,6 +601,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -624,6 +625,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -662,6 +664,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return ajustamiento;
             }
             finally
@@ -706,6 +709,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return ajustamientos;
             }
             finally
@@ -737,6 +741,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -766,6 +771,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -789,6 +795,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -821,6 +828,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return bodegas;
             }
             finally
@@ -858,6 +866,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return bodega;
             }
             finally
@@ -882,6 +891,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -905,6 +915,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -928,6 +939,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -967,6 +979,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return cancel;
             }
             finally
@@ -1012,6 +1025,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return cancel;
             }
             finally
@@ -1045,6 +1059,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -1078,6 +1093,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -1101,6 +1117,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -1142,6 +1159,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return carrito;
             }
             finally
@@ -1189,6 +1207,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return carrito;
             }
             finally
@@ -1222,6 +1241,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -1255,6 +1275,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -1278,6 +1299,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -1310,6 +1332,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return categoria;
             }
             finally
@@ -1348,6 +1371,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return categoria;
             }
             finally
@@ -1372,6 +1396,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -1396,6 +1421,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -1419,6 +1445,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -1453,6 +1480,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return descripcion;
             }
             finally
@@ -1495,6 +1523,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return descripcion;
             }
             finally
@@ -1522,7 +1551,8 @@ namespace POSalesDB
 
                 catch (Exception ex)
                 {
-                    Error = ex.ToString();
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
                     return Error;
                 }
                 finally
@@ -1549,7 +1579,8 @@ namespace POSalesDB
                 }
                 catch (Exception ex)
                 {
-                    Error = ex.ToString();
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
                     return Error;
                 }
                 finally
@@ -1572,7 +1603,8 @@ namespace POSalesDB
                 }
                 catch (Exception ex)
                 {
-                    Error = ex.ToString();
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
                     return Error;
                 }
                 finally
@@ -1610,6 +1642,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return enstock;
             }
             finally
@@ -1654,6 +1687,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return enstocks;
             }
             finally
@@ -1684,6 +1718,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -1714,6 +1749,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -1785,6 +1821,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return clientes;
             }
             finally
@@ -1826,19 +1863,19 @@ namespace POSalesDB
                         clientes.telefono = Convert.ToString(r["telefono"]);
                         clientes.celular = Convert.ToString(r["celular"]);
                         clientes.fax = Convert.ToString(r["fax"]);
-                        clientes.cargo = Convert.ToString(r["cargo"]);
+                        clientes.cargo = Convert.ToString(r[15] );
                         clientes.email = Convert.ToString(r["email"]);
                         clientes.tipoCliente = Convert.ToString(r["tipoCliente"]);
                         client.Add(clientes);
                     }
 
                 }
-                cm.ExecuteNonQuery();
                 return client;
             }
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return client;
             }
             finally
@@ -1849,16 +1886,18 @@ namespace POSalesDB
         //insertar Clientes
         public string insertClientes(Clientes clientes)
         {
+
             cn.ConnectionString = myConnection();
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("Insert into Clientes (nombre,comercio,codigo,fechaNacimiento,fechaRegistro,ciudad,tipo,ciRuc,pais,estado,direccion,telefono,celular,fax,cargo,email,tipoCliente )values(@nombre,@comercio,@codigo,@fechaNacimiento,@fechaRegistro,@ciudad,@tipo,@ciRuc,@pais,@estado,@direccion,@telefono,@celular,@fax,@cargo,@email,@tipoCliente)");
+                cm = new SqlCommand("Insert into Clientes (nombre,comercio,codigo,fechaNacimiento,fechaRegistro,ciudad,tipo,ciRuc,pais,estado,direccion,telefono,celular,fax,cargo,email,tipoCliente )values(@nombre,@comercio,@codigo,@fechaNacimiento,@fechaRegistro,@ciudad,@tipo,@ciRuc,@pais,@estado,@direccion,@telefono,@celular,@fax,@cargo,@email,@tipoCliente)",cn);
+                
                 cm.Parameters.AddWithValue("@nombre", clientes.nombre);
                 cm.Parameters.AddWithValue("@comercio", clientes.comercio);
                 cm.Parameters.AddWithValue("@codigo", clientes.codigo);
-                cm.Parameters.AddWithValue("@fechaNacimiento", clientes.fechaNacimiento);
-                cm.Parameters.AddWithValue("@fechaRegistro", clientes.fechaRegistro);
+                cm.Parameters.AddWithValue("@fechaNacimiento", clientes.fechaNacimiento.ToString("yyyy/MM/dd"));
+                cm.Parameters.AddWithValue("@fechaRegistro", clientes.fechaRegistro.ToString("yyyy/MM/dd"));
                 cm.Parameters.AddWithValue("@ciudad", clientes.ciudad);
                 cm.Parameters.AddWithValue("@tipo", clientes.tipo);
                 cm.Parameters.AddWithValue("@ciRuc", clientes.ciRuc);
@@ -1879,6 +1918,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -1899,8 +1939,8 @@ namespace POSalesDB
                 cm.Parameters.AddWithValue("@nombre", clientes.nombre);
                 cm.Parameters.AddWithValue("@comercio", clientes.comercio);
                 cm.Parameters.AddWithValue("@codigo", clientes.codigo);
-                cm.Parameters.AddWithValue("@fechaNacimiento", clientes.fechaNacimiento);
-                cm.Parameters.AddWithValue("@fechaRegistro", clientes.fechaRegistro);
+                cm.Parameters.AddWithValue("@fechaNacimiento", clientes.fechaNacimiento.ToString("yyyy/MM/dd"));
+                cm.Parameters.AddWithValue("@fechaRegistro", clientes.fechaRegistro.ToString("yyyy/MM/dd"));
                 cm.Parameters.AddWithValue("@ciudad", clientes.ciudad);
                 cm.Parameters.AddWithValue("@tipo", clientes.tipo);
                 cm.Parameters.AddWithValue("@ciRuc", clientes.ciRuc);
@@ -1919,6 +1959,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -1942,6 +1983,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -1983,6 +2025,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return factura;
             }
             finally
@@ -2030,6 +2073,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return fac;
             }
             finally
@@ -2048,7 +2092,7 @@ namespace POSalesDB
                 cm.Parameters.AddWithValue("@numero", factura.numero);
                 cm.Parameters.AddWithValue("@clienteId", factura.clienteId);
                 cm.Parameters.AddWithValue("@usuario", factura.usuario);
-                cm.Parameters.AddWithValue("@fecha_venta", factura.fecha_venta);
+                cm.Parameters.AddWithValue("@fecha_venta", factura.fecha_venta.ToString("yyyy/MM/dd"));
                 cm.Parameters.AddWithValue("@total", factura.total);
                 cm.Parameters.AddWithValue("@iva", factura.iva);
                 cm.Parameters.AddWithValue("@subtotal", factura.subtotal);
@@ -2062,6 +2106,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -2082,7 +2127,7 @@ namespace POSalesDB
                 cm.Parameters.AddWithValue("@numero", factura.numero);
                 cm.Parameters.AddWithValue("@clienteId", factura.clienteId);
                 cm.Parameters.AddWithValue("@usuario", factura.usuario);
-                cm.Parameters.AddWithValue("@fecha_venta", factura.fecha_venta);
+                cm.Parameters.AddWithValue("@fecha_venta", factura.fecha_venta.ToString("yyyy/MM/dd"));
                 cm.Parameters.AddWithValue("@total", factura.total);
                 cm.Parameters.AddWithValue("@iva", factura.iva);
                 cm.Parameters.AddWithValue("@subtotal", factura.subtotal);
@@ -2094,6 +2139,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -2117,6 +2163,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -2151,6 +2198,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return grupo;
             }
             finally
@@ -2190,6 +2238,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return grup;
             }
             finally
@@ -2214,6 +2263,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -2238,6 +2288,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -2261,6 +2312,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -2297,6 +2349,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return inventario;
             }
             finally
@@ -2338,6 +2391,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return inv;
             }
             finally
@@ -2356,7 +2410,7 @@ namespace POSalesDB
                 cm.Parameters.AddWithValue("@producto", inventario.producto);
                 cm.Parameters.AddWithValue("@cantidad", inventario.cantidad);
                 cm.Parameters.AddWithValue("@tipo", inventario.tipo);
-                cm.Parameters.AddWithValue("@fecha_inventario", inventario.fecha_inventario);
+                cm.Parameters.AddWithValue("@fecha_inventario", inventario.fecha_inventario.ToString("yyyy/MM/dd"));
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
@@ -2365,6 +2419,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -2385,13 +2440,14 @@ namespace POSalesDB
                 cm.Parameters.AddWithValue("@producto", inventario.producto);
                 cm.Parameters.AddWithValue("@cantidad", inventario.cantidad);
                 cm.Parameters.AddWithValue("@tipo", inventario.tipo);
-                cm.Parameters.AddWithValue("@fecha_inventario", inventario.fecha_inventario);
+                cm.Parameters.AddWithValue("@fecha_inventario", inventario.fecha_inventario.ToString("yyyy/MM/dd"));
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -2415,6 +2471,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -2448,6 +2505,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return marca;
             }
             finally
@@ -2487,6 +2545,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return marca;
             }
             finally
@@ -2511,6 +2570,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -2535,6 +2595,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -2558,6 +2619,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -2606,6 +2668,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return provedeedores;
             }
             finally
@@ -2658,6 +2721,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return prov;
             }
             finally
@@ -2697,6 +2761,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -2735,6 +2800,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -2758,6 +2824,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -2791,6 +2858,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return tienda;
             }
             finally
@@ -2830,6 +2898,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return tiendas;
             }
             finally
@@ -2855,6 +2924,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -2880,6 +2950,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -2903,6 +2974,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -2944,6 +3016,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return venta;
             }
             finally
@@ -2990,6 +3063,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 return ventas;
             }
             finally
@@ -3009,7 +3083,7 @@ namespace POSalesDB
                 cm.Parameters.AddWithValue("@numero", venta.numero);
                 cm.Parameters.AddWithValue("@cliente", venta.cliente);
                 cm.Parameters.AddWithValue("@usuario", venta.usuario);
-                cm.Parameters.AddWithValue("@fecha_venta", venta.fecha_venta);
+                cm.Parameters.AddWithValue("@fecha_venta", venta.fecha_venta.ToString("yyyy/MM/dd"));
                 cm.Parameters.AddWithValue("@total", venta.total);
                 cm.Parameters.AddWithValue("@iva", venta.iva);
                 cm.Parameters.AddWithValue("@subtotal", venta.subtotal);
@@ -3027,6 +3101,7 @@ namespace POSalesDB
 
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -3047,7 +3122,7 @@ namespace POSalesDB
                 cm.Parameters.AddWithValue("@numero", venta.numero);
                 cm.Parameters.AddWithValue("@cliente", venta.cliente);
                 cm.Parameters.AddWithValue("@usuario", venta.usuario);
-                cm.Parameters.AddWithValue("@fecha_venta", venta.fecha_venta);
+                cm.Parameters.AddWithValue("@fecha_venta", venta.fecha_venta.ToString("yyyy/MM/dd"));
                 cm.Parameters.AddWithValue("@total", venta.total);
                 cm.Parameters.AddWithValue("@iva", venta.iva);
                 cm.Parameters.AddWithValue("@subtotal", venta.subtotal);
@@ -3060,6 +3135,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }
@@ -3083,6 +3159,7 @@ namespace POSalesDB
             }
             catch (Exception ex)
             {
+                CrearEvento(ex.ToString());
                 Error = ex.ToString();
                 return Error;
             }

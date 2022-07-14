@@ -47,20 +47,14 @@ namespace POSales
         {
             txtIdProd.Text = product.Id.ToString();
             txtNameProdcut.Text = product.nombre;
-            txtCodUno.Text = product.codigoUno;
-            txtCodDos.Text = product.codigoDos;
-            txtCod3.Text = product.codigoTres;
-            txtCod4.Text = product.codigoCuatro;
             txtBarcode.Text = product.codigoBarras;
             txtPriceA.Text = product.precioA.ToString();
             txtPriceB.Text = product.precioB.ToString();
             txtPriceC.Text = product.precioC.ToString();
             txtPriceD.Text = product.precioD.ToString();
             txtReason.Text = product.descripcion;
-            txtPesoItem.Text = product.peso.ToString();
-            txtComision.Text = product.comision.ToString();
             txtDescMax.Text = product.descMax.ToString();
-            txtStockMax.Text = product.stockMax.ToString();
+            
             txtStockMin.Text = product.stockMin.ToString();
             txtCosto.Text = product.costo.ToString();
             txtUnidad.Text = product.unidad.ToString();
@@ -72,16 +66,10 @@ namespace POSales
             chckAplicaSeries.Checked = product.aplicaSeries;
             chckNegativo.Checked = product.negativo;
             chckCombo.Checked = product.combo;
-            chkGasto.Checked = product.gasto;
             txtIce.Text = product.ice.ToString();
             txtValorIce.Text = product.valorIce.ToString();
             txtIva.Text = product.iva.ToString();
             HasIva.Checked = product.HasIva;
-            txtCatA.Text = product.categoriaA;
-            txtCatB.Text = product.categoriaB;
-            txtCatC.Text = product.categoriaC;
-            txtCatD.Text = product.categoriaD;
-            txtCatE.Text = product.categoriaE;
             picItem.ImageLocation = product.imagen;
 
 
@@ -161,12 +149,6 @@ namespace POSales
 
                         decimal PrecioA = 0, PrecioB = 0, PrecioC = 0, PrecioD = 0;
                         item.nombre = txtNameProdcut.Text;
-                         item.codigoUno = txtCodUno.Text;
-                        item.codigoDos = txtCodDos.Text;
-                        item.codigoTres = txtCod3.Text;
-                        item.codigoCuatro = txtCod4.Text;
-                        item.codigoBarras = txtCod3.Text;
-                        item.codigoCuatro = txtCod4.Text;
                         decimal.TryParse(txtPriceA.Text, out PrecioA);
                         item.precioA = PrecioA;
                         decimal.TryParse(txtPriceB.Text, out PrecioB);
@@ -176,12 +158,8 @@ namespace POSales
                         decimal.TryParse(txtPriceD.Text, out PrecioD);
                         item.precioD = PrecioD;
                         item.descripcion = txtReason.Text;
-                        item.unidadCaja = int.Parse(txtUnidadCaja.Text);
-                        item.peso = decimal.Parse(txtPesoItem.Text);
-                        item.comision = decimal.Parse(txtComision.Text);
                         item.descMax = decimal.Parse(txtDescMax.Text);
-                        item.stockMax = int.Parse(txtStockMax.Text);
-                        item.stockMin = int.Parse(txtStockMin.Text);
+                          item.stockMin = int.Parse(txtStockMin.Text);
                         item.costo = decimal.Parse(txtCosto.Text);
                         item.unidad = int.Parse(txtUnidad.Text);
                         item.bId = cboBodega.SelectedIndex;
@@ -192,7 +170,6 @@ namespace POSales
                         item.aplicaSeries = chckAplicaSeries.Checked;
                         item.negativo = chckNegativo.Checked;
                         item.combo = chckCombo.Checked;
-                        item.gasto = chkGasto.Checked;
                         item.ice = decimal.Parse(txtIce.Text);
                         item.valorIce = decimal.Parse(txtValorIce.Text);
                         item.HasIva = HasIva.Checked;
@@ -200,11 +177,6 @@ namespace POSales
                         item.imagen = imageLocation;
                         item.imagenUrl = txtReason.Text;
                         item.montoTotal = decimal.Parse(txtPriceA.Text) * decimal.Parse(txtIva.Text);
-                        item.categoriaA = txtCatA.Text;
-                        item.categoriaB = txtCatB.Text;
-                        item.categoriaC = txtCatC.Text;
-                        item.categoriaD = txtCatD.Text;
-                        item.categoriaE = txtCatE.Text;
                         MessageBox.Show("Item ingresado  con exito.", stitle);
                         DBConnect db = new DBConnect();
                         string Error = db.insertItem(item);
@@ -240,12 +212,6 @@ namespace POSales
                 {
                     decimal PrecioA = 0, PrecioB = 0, PrecioC = 0, PrecioD = 0;
                     item.nombre = txtNameProdcut.Text;
-                    item.codigoUno = txtCodUno.Text;
-                    item.codigoDos = txtCodDos.Text;
-                    item.codigoTres = txtCod3.Text;
-                    item.codigoCuatro = txtCod4.Text;
-                    item.codigoBarras = txtCod3.Text;
-                    item.codigoCuatro = txtCod4.Text;
                     decimal.TryParse(txtPriceA.Text, out PrecioA);
                     item.precioA = PrecioA;
                     decimal.TryParse(txtPriceB.Text, out PrecioB);
@@ -255,11 +221,7 @@ namespace POSales
                     decimal.TryParse(txtPriceD.Text, out PrecioD);
                     item.precioD = PrecioD;
                     item.descripcion= txtReason.Text;
-                    item.unidadCaja= int.Parse(txtUnidadCaja.Text);
-                    item.peso= decimal.Parse(txtPesoItem.Text);
-                    item.comision= decimal.Parse(txtComision.Text);
                     item.descMax= decimal.Parse(txtDescMax.Text);
-                    item.stockMax= int.Parse(txtStockMax.Text);
                     item.stockMin= int.Parse(txtStockMin.Text);
                     item.costo= decimal.Parse(txtCosto.Text);
                     item.unidad= int.Parse(txtUnidad.Text);
@@ -271,7 +233,6 @@ namespace POSales
                     item.aplicaSeries= chckAplicaSeries.Checked;
                     item.negativo= chckNegativo.Checked;
                     item.combo= chckCombo.Checked;
-                    item.gasto= chkGasto.Checked;
                     item.ice= decimal.Parse(txtIce.Text);
                     item.valorIce= decimal.Parse(txtValorIce.Text);
                     item.HasIva= HasIva.Checked;
@@ -279,11 +240,6 @@ namespace POSales
                     item.imagen= imageLocation;
                     item.imagenUrl= txtReason.Text;
                     item.montoTotal= decimal.Parse(txtPriceA.Text) * decimal.Parse(txtIva.Text);
-                    item.categoriaA= txtCatA.Text;
-                    item.categoriaB = txtCatB.Text;
-                    item.categoriaC = txtCatC.Text;
-                    item.categoriaD = txtCatD.Text;
-                    item.categoriaE = txtCatE.Text;
                     DBConnect db = new DBConnect();
                    string Error = db.actualizarItem(item);
                     if (string.IsNullOrEmpty(Error))
@@ -294,12 +250,7 @@ namespace POSales
                     {
                         MessageBox.Show(Error);
                     }
-                }
-                else
-                {
-
-                }
-               
+                }     
             }
             catch (Exception ex)
             {

@@ -13,8 +13,9 @@ namespace POSales
    
     public partial class MenuPrincipalFactura : Form
     {
+        
         int idUser;
-        public MenuPrincipalFactura(int _idUser)
+        public MenuPrincipalFactura(int _idUser, int _idCliente)
         {
             idUser = _idUser;
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace POSales
 
         private void picClientes_Click(object sender, EventArgs e)
         {
-            ClientModule clientModule = new ClientModule(new Clients());
+            Clients clientModule = new Clients();
             clientModule.ShowDialog();
            
         }
