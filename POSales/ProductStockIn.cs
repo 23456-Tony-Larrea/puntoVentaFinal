@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using POSalesDB;
+using POSalesDb;
 namespace POSales
 {
     public partial class ProductStockIn : Form
@@ -47,7 +47,10 @@ namespace POSales
             dr.Close();
             cn.Close();
         }
-
+        private async Task TareasNoSecuenciales()
+        {
+            
+        }
         private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string colName = dgvProduct.Columns[e.ColumnIndex].Name;
@@ -102,6 +105,11 @@ namespace POSales
             {
                 this.Dispose();
             }
+        }
+
+        private void ProductStockIn_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

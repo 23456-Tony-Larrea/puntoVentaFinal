@@ -30,6 +30,7 @@ namespace POSales
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemModule));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSave = new System.Windows.Forms.Button();
             this.picClose = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -87,6 +88,13 @@ namespace POSales
             this.textBox26 = new System.Windows.Forms.TextBox();
             this.txtIce = new System.Windows.Forms.TextBox();
             this.txtIva = new System.Windows.Forms.TextBox();
+            this.dgvCombo = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnAgregarCombos = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -95,6 +103,7 @@ namespace POSales
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBrowse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCombo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSave
@@ -104,7 +113,7 @@ namespace POSales
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(775, 519);
+            this.btnSave.Location = new System.Drawing.Point(775, 643);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(106, 35);
             this.btnSave.TabIndex = 9;
@@ -141,7 +150,7 @@ namespace POSales
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(1034, 519);
+            this.btnCancel.Location = new System.Drawing.Point(1034, 643);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(117, 35);
             this.btnCancel.TabIndex = 12;
@@ -156,7 +165,7 @@ namespace POSales
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(903, 519);
+            this.btnUpdate.Location = new System.Drawing.Point(903, 643);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(113, 35);
             this.btnUpdate.TabIndex = 11;
@@ -176,7 +185,7 @@ namespace POSales
             // txtIdProd
             // 
             this.txtIdProd.Enabled = false;
-            this.txtIdProd.Location = new System.Drawing.Point(162, 59);
+            this.txtIdProd.Location = new System.Drawing.Point(134, 59);
             this.txtIdProd.Name = "txtIdProd";
             this.txtIdProd.Size = new System.Drawing.Size(194, 26);
             this.txtIdProd.TabIndex = 8;
@@ -205,7 +214,7 @@ namespace POSales
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 397);
+            this.label4.Location = new System.Drawing.Point(24, 335);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 20);
             this.label4.TabIndex = 10;
@@ -454,10 +463,10 @@ namespace POSales
             // 
             // txtReason
             // 
-            this.txtReason.Location = new System.Drawing.Point(27, 420);
+            this.txtReason.Location = new System.Drawing.Point(23, 358);
             this.txtReason.Multiline = true;
             this.txtReason.Name = "txtReason";
-            this.txtReason.Size = new System.Drawing.Size(633, 134);
+            this.txtReason.Size = new System.Drawing.Size(633, 167);
             this.txtReason.TabIndex = 56;
             // 
             // txtDescMax
@@ -524,7 +533,7 @@ namespace POSales
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(480, 235);
+            this.label8.Location = new System.Drawing.Point(479, 227);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 17);
             this.label8.TabIndex = 69;
@@ -532,7 +541,7 @@ namespace POSales
             // 
             // txtValorIce
             // 
-            this.txtValorIce.Location = new System.Drawing.Point(538, 276);
+            this.txtValorIce.Location = new System.Drawing.Point(537, 254);
             this.txtValorIce.Name = "txtValorIce";
             this.txtValorIce.Size = new System.Drawing.Size(122, 26);
             this.txtValorIce.TabIndex = 72;
@@ -544,7 +553,7 @@ namespace POSales
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(451, 281);
+            this.label27.Location = new System.Drawing.Point(450, 259);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(64, 17);
             this.label27.TabIndex = 71;
@@ -573,7 +582,7 @@ namespace POSales
             // chckServicio
             // 
             this.chckServicio.AutoSize = true;
-            this.chckServicio.Location = new System.Drawing.Point(108, 337);
+            this.chckServicio.Location = new System.Drawing.Point(253, 295);
             this.chckServicio.Name = "chckServicio";
             this.chckServicio.Size = new System.Drawing.Size(86, 24);
             this.chckServicio.TabIndex = 92;
@@ -583,7 +592,7 @@ namespace POSales
             // chckAplicaSeries
             // 
             this.chckAplicaSeries.AutoSize = true;
-            this.chckAplicaSeries.Location = new System.Drawing.Point(308, 337);
+            this.chckAplicaSeries.Location = new System.Drawing.Point(453, 295);
             this.chckAplicaSeries.Name = "chckAplicaSeries";
             this.chckAplicaSeries.Size = new System.Drawing.Size(119, 24);
             this.chckAplicaSeries.TabIndex = 93;
@@ -593,17 +602,18 @@ namespace POSales
             // chckCombo
             // 
             this.chckCombo.AutoSize = true;
-            this.chckCombo.Location = new System.Drawing.Point(448, 337);
+            this.chckCombo.Location = new System.Drawing.Point(677, 318);
             this.chckCombo.Name = "chckCombo";
-            this.chckCombo.Size = new System.Drawing.Size(81, 24);
+            this.chckCombo.Size = new System.Drawing.Size(83, 24);
             this.chckCombo.TabIndex = 94;
-            this.chckCombo.Text = "combo";
+            this.chckCombo.Text = "Combo";
             this.chckCombo.UseVisualStyleBackColor = true;
+            this.chckCombo.CheckedChanged += new System.EventHandler(this.chckCombo_CheckedChanged);
             // 
             // chckNegativo
             // 
             this.chckNegativo.AutoSize = true;
-            this.chckNegativo.Location = new System.Drawing.Point(205, 337);
+            this.chckNegativo.Location = new System.Drawing.Point(350, 295);
             this.chckNegativo.Name = "chckNegativo";
             this.chckNegativo.Size = new System.Drawing.Size(97, 24);
             this.chckNegativo.TabIndex = 95;
@@ -652,7 +662,7 @@ namespace POSales
             // 
             // txtIce
             // 
-            this.txtIce.Location = new System.Drawing.Point(538, 230);
+            this.txtIce.Location = new System.Drawing.Point(537, 222);
             this.txtIce.Name = "txtIce";
             this.txtIce.Size = new System.Drawing.Size(122, 26);
             this.txtIce.TabIndex = 70;
@@ -671,11 +681,104 @@ namespace POSales
             this.txtIva.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtIva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIva_KeyPress);
             // 
+            // dgvCombo
+            // 
+            this.dgvCombo.AllowUserToAddRows = false;
+            this.dgvCombo.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCombo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCombo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCombo.ColumnHeadersHeight = 30;
+            this.dgvCombo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvCombo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Id,
+            this.Nombre,
+            this.Edit,
+            this.Delete});
+            this.dgvCombo.Enabled = false;
+            this.dgvCombo.EnableHeadersVisualStyles = false;
+            this.dgvCombo.Location = new System.Drawing.Point(669, 358);
+            this.dgvCombo.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvCombo.Name = "dgvCombo";
+            this.dgvCombo.RowHeadersVisible = false;
+            this.dgvCombo.RowHeadersWidth = 51;
+            this.dgvCombo.Size = new System.Drawing.Size(474, 167);
+            this.dgvCombo.TabIndex = 102;
+            this.dgvCombo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCombo_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "No";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 53;
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            this.Id.Width = 49;
+            // 
+            // Nombre
+            // 
+            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.MinimumWidth = 6;
+            this.Nombre.Name = "Nombre";
+            // 
+            // Edit
+            // 
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Edit.HeaderText = "";
+            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.Width = 6;
+            // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Delete.HeaderText = "";
+            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Width = 6;
+            // 
+            // btnAgregarCombos
+            // 
+            this.btnAgregarCombos.Enabled = false;
+            this.btnAgregarCombos.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
+            this.btnAgregarCombos.IconColor = System.Drawing.Color.RoyalBlue;
+            this.btnAgregarCombos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgregarCombos.IconSize = 25;
+            this.btnAgregarCombos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarCombos.Location = new System.Drawing.Point(764, 313);
+            this.btnAgregarCombos.Name = "btnAgregarCombos";
+            this.btnAgregarCombos.Size = new System.Drawing.Size(214, 32);
+            this.btnAgregarCombos.TabIndex = 104;
+            this.btnAgregarCombos.Text = "Agregar o Eliminar items";
+            this.btnAgregarCombos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarCombos.UseVisualStyleBackColor = true;
+            this.btnAgregarCombos.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
             // ItemModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1163, 582);
+            this.ClientSize = new System.Drawing.Size(1163, 706);
+            this.Controls.Add(this.btnAgregarCombos);
+            this.Controls.Add(this.dgvCombo);
             this.Controls.Add(this.txtIva);
             this.Controls.Add(this.valA);
             this.Controls.Add(this.textBox24);
@@ -749,6 +852,7 @@ namespace POSales
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBrowse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCombo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -813,5 +917,12 @@ namespace POSales
         public System.Windows.Forms.PictureBox picItem;
         public System.Windows.Forms.CheckBox HasIva;
         public System.Windows.Forms.PictureBox picBrowse;
+        private System.Windows.Forms.DataGridView dgvCombo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewImageColumn Edit;
+        private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private FontAwesome.Sharp.IconButton btnAgregarCombos;
     }
 }

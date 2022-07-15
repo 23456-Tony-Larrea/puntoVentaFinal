@@ -102,7 +102,7 @@
             this.txtCodigo.Location = new System.Drawing.Point(205, 100);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(158, 28);
+            this.txtCodigo.Size = new System.Drawing.Size(158, 24);
             this.txtCodigo.TabIndex = 6;
             // 
             // label2
@@ -111,7 +111,7 @@
             this.label2.Location = new System.Drawing.Point(13, 108);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(179, 19);
+            this.label2.Size = new System.Drawing.Size(149, 17);
             this.label2.TabIndex = 7;
             this.label2.Text = "Codigo de la factura";
             // 
@@ -121,7 +121,7 @@
             this.LinFac.LinkColor = System.Drawing.Color.Silver;
             this.LinFac.Location = new System.Drawing.Point(370, 108);
             this.LinFac.Name = "LinFac";
-            this.LinFac.Size = new System.Drawing.Size(86, 19);
+            this.LinFac.Size = new System.Drawing.Size(71, 17);
             this.LinFac.TabIndex = 8;
             this.LinFac.TabStop = true;
             this.LinFac.Text = "[Generar]";
@@ -132,7 +132,7 @@
             this.label3.Location = new System.Drawing.Point(13, 161);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 19);
+            this.label3.Size = new System.Drawing.Size(57, 17);
             this.label3.TabIndex = 10;
             this.label3.Text = "Cliente";
             // 
@@ -141,7 +141,7 @@
             this.cboClientes.FormattingEnabled = true;
             this.cboClientes.Location = new System.Drawing.Point(110, 158);
             this.cboClientes.Name = "cboClientes";
-            this.cboClientes.Size = new System.Drawing.Size(395, 27);
+            this.cboClientes.Size = new System.Drawing.Size(395, 25);
             this.cboClientes.TabIndex = 11;
             // 
             // label4
@@ -150,7 +150,7 @@
             this.label4.Location = new System.Drawing.Point(13, 214);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(127, 19);
+            this.label4.Size = new System.Drawing.Size(105, 17);
             this.label4.TabIndex = 12;
             this.label4.Text = "Registrado por";
             // 
@@ -159,7 +159,7 @@
             this.cboProductos.FormattingEnabled = true;
             this.cboProductos.Location = new System.Drawing.Point(159, 274);
             this.cboProductos.Name = "cboProductos";
-            this.cboProductos.Size = new System.Drawing.Size(346, 27);
+            this.cboProductos.Size = new System.Drawing.Size(346, 25);
             this.cboProductos.TabIndex = 15;
             // 
             // label5
@@ -168,7 +168,7 @@
             this.label5.Location = new System.Drawing.Point(13, 274);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 19);
+            this.label5.Size = new System.Drawing.Size(74, 17);
             this.label5.TabIndex = 14;
             this.label5.Text = "Productos";
             // 
@@ -178,7 +178,7 @@
             this.label6.Location = new System.Drawing.Point(13, 337);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 19);
+            this.label6.Size = new System.Drawing.Size(51, 17);
             this.label6.TabIndex = 16;
             this.label6.Text = "Precio";
             // 
@@ -188,7 +188,7 @@
             this.label7.Location = new System.Drawing.Point(155, 337);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 19);
+            this.label7.Size = new System.Drawing.Size(71, 17);
             this.label7.TabIndex = 17;
             this.label7.Text = "Cantidad";
             // 
@@ -198,7 +198,7 @@
             this.label8.Location = new System.Drawing.Point(332, 337);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 19);
+            this.label8.Size = new System.Drawing.Size(38, 17);
             this.label8.TabIndex = 18;
             this.label8.Text = "total";
             // 
@@ -206,21 +206,21 @@
             // 
             this.txtPrice.Location = new System.Drawing.Point(3, 368);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(100, 28);
+            this.txtPrice.Size = new System.Drawing.Size(100, 24);
             this.txtPrice.TabIndex = 19;
             // 
             // txtCant
             // 
             this.txtCant.Location = new System.Drawing.Point(148, 368);
             this.txtCant.Name = "txtCant";
-            this.txtCant.Size = new System.Drawing.Size(100, 28);
+            this.txtCant.Size = new System.Drawing.Size(100, 24);
             this.txtCant.TabIndex = 20;
             // 
             // txtTotal
             // 
             this.txtTotal.Location = new System.Drawing.Point(311, 368);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(100, 28);
+            this.txtTotal.Size = new System.Drawing.Size(100, 24);
             this.txtTotal.TabIndex = 21;
             // 
             // btnAgregar
@@ -307,7 +307,7 @@
             this.label9.Location = new System.Drawing.Point(13, 679);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 19);
+            this.label9.Size = new System.Drawing.Size(64, 17);
             this.label9.TabIndex = 25;
             this.label9.Text = "SubTotal";
             // 
@@ -315,7 +315,7 @@
             // 
             this.txtSubtotal.Location = new System.Drawing.Point(96, 676);
             this.txtSubtotal.Name = "txtSubtotal";
-            this.txtSubtotal.Size = new System.Drawing.Size(100, 28);
+            this.txtSubtotal.Size = new System.Drawing.Size(100, 24);
             this.txtSubtotal.TabIndex = 26;
             // 
             // label10
@@ -324,7 +324,7 @@
             this.label10.Location = new System.Drawing.Point(203, 679);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(97, 19);
+            this.label10.Size = new System.Drawing.Size(80, 17);
             this.label10.TabIndex = 27;
             this.label10.Text = "Descuento";
             // 
@@ -332,7 +332,7 @@
             // 
             this.txtDescuento.Location = new System.Drawing.Point(307, 676);
             this.txtDescuento.Name = "txtDescuento";
-            this.txtDescuento.Size = new System.Drawing.Size(100, 28);
+            this.txtDescuento.Size = new System.Drawing.Size(100, 24);
             this.txtDescuento.TabIndex = 28;
             // 
             // label11
@@ -341,7 +341,7 @@
             this.label11.Location = new System.Drawing.Point(440, 679);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(125, 19);
+            this.label11.Size = new System.Drawing.Size(106, 17);
             this.label11.TabIndex = 29;
             this.label11.Text = "Precio Unitario";
             // 
@@ -351,7 +351,7 @@
             this.label12.Location = new System.Drawing.Point(429, 734);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(136, 19);
+            this.label12.Size = new System.Drawing.Size(113, 17);
             this.label12.TabIndex = 30;
             this.label12.Text = "Monto de pago";
             // 
@@ -359,14 +359,14 @@
             // 
             this.txtUnit.Location = new System.Drawing.Point(572, 670);
             this.txtUnit.Name = "txtUnit";
-            this.txtUnit.Size = new System.Drawing.Size(100, 28);
+            this.txtUnit.Size = new System.Drawing.Size(100, 24);
             this.txtUnit.TabIndex = 31;
             // 
             // txtMontoPago
             // 
             this.txtMontoPago.Location = new System.Drawing.Point(572, 731);
             this.txtMontoPago.Name = "txtMontoPago";
-            this.txtMontoPago.Size = new System.Drawing.Size(100, 28);
+            this.txtMontoPago.Size = new System.Drawing.Size(100, 24);
             this.txtMontoPago.TabIndex = 32;
             // 
             // label13
@@ -375,7 +375,7 @@
             this.label13.Location = new System.Drawing.Point(429, 796);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(77, 19);
+            this.label13.Size = new System.Drawing.Size(64, 17);
             this.label13.TabIndex = 33;
             this.label13.Text = "Balance";
             // 
@@ -383,7 +383,7 @@
             // 
             this.balance.Location = new System.Drawing.Point(572, 793);
             this.balance.Name = "balance";
-            this.balance.Size = new System.Drawing.Size(100, 28);
+            this.balance.Size = new System.Drawing.Size(100, 24);
             this.balance.TabIndex = 34;
             // 
             // btnClear
@@ -418,12 +418,12 @@
             this.cboRegistrado.FormattingEnabled = true;
             this.cboRegistrado.Location = new System.Drawing.Point(159, 211);
             this.cboRegistrado.Name = "cboRegistrado";
-            this.cboRegistrado.Size = new System.Drawing.Size(346, 27);
+            this.cboRegistrado.Size = new System.Drawing.Size(346, 25);
             this.cboRegistrado.TabIndex = 38;
             // 
             // FacturaClientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 884);
             this.Controls.Add(this.cboRegistrado);
@@ -462,6 +462,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FacturaClientes";
             this.Text = "FacturaClientes";
+            this.Load += new System.EventHandler(this.FacturaClientes_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ggvProductos)).EndInit();
             this.ResumeLayout(false);

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using POSalesDB;
+using POSalesDb;
 namespace POSales
 {
     public partial class FacturaClientes : Form
@@ -58,6 +58,11 @@ namespace POSales
             Random rnd= new Random();
             txtCodigo.Clear();
             txtCodigo.Text += rnd.Next();
+
+        }
+
+        private void FacturaClientes_Load(object sender, EventArgs e)
+        {
 
         }
     }

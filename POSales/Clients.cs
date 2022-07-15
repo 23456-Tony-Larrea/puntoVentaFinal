@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using POSalesDB;
+using POSalesDb;
 namespace POSales
 {
     public partial class Clients : Form
@@ -46,6 +46,11 @@ namespace POSales
         {
             ClientModule clientModule = new ClientModule(this);
             clientModule.ShowDialog();
+        }
+
+        private void dgvClients_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

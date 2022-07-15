@@ -229,3 +229,5 @@ C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\bin\Debug\ru\Microsof
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.csproj.CopyComplete
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.combo.resources

@@ -1,6 +1,6 @@
 ﻿
 using POSalesDb;
-using POSalesDB;
+using POSalesDb;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,6 +45,7 @@ namespace POSales
         }
         private void CargarItem()
         {
+            int Categoria = 0, grupo = 0, brand = 0, bogeda = 0;
             txtIdProd.Text = product.Id.ToString();
             txtNameProdcut.Text = product.nombre;
             txtBarcode.Text = product.codigoBarras;
@@ -56,22 +57,55 @@ namespace POSales
             txtDescMax.Text = product.descMax.ToString();
             txtStockMax.Text = product.stock.ToString();
             txtStockMin.Text = product.stockMin.ToString();
-            cboBodega.SelectedIndex =product.bId -1;
-            cboCategory.SelectedIndex = product.cId -1;
-            cboGroup.SelectedIndex = product.gId -1;
-            cboBrand.SelectedIndex = product.mId -1;
+            int.TryParse(product.bId.ToString(),out  bogeda);
+            int.TryParse(product.cId.ToString(), out Categoria);
+            int.TryParse(product.gId.ToString(), out grupo);
+            int.TryParse(product.bId.ToString(), out brand);
+            if (bogeda > 0)
+            {
+                cboBodega.SelectedIndex = bogeda - 1;
+            }
+            if (Categoria > 0)
+            {
+                cboCategory.SelectedIndex = Categoria - 1;
+            }
+            if(grupo > 0)
+            {
+                cboGroup.SelectedIndex = grupo - 1;
+            }
+
+
+            if (brand > 0)
+            {
+                cboBrand.SelectedIndex = brand - 1;
+            }
+        
             chckServicio.Checked = product.servicio;
             chckAplicaSeries.Checked = product.aplicaSeries;
             chckNegativo.Checked = product.negativo;
-            chckCombo.Checked = product.combo;
+            chckCombo.Checked = product.hascombo;
             txtIce.Text = product.ice.ToString();
             txtValorIce.Text = product.valorIce.ToString();
             txtIva.Text = product.iva.ToString();
             HasIva.Checked = product.HasIva;
-            picItem.ImageLocation = product.imagen;
+            picItem.Image = product.imagen;
 
+            if (product.hascombo)
+            {
+                product.Combo = dbcon.selectCombo(product.Id);
+                dgvCombo.DataSource = product.Combo;
+            }
 
         }
+        public void LoadCombos()
+        {
+            //CARGAR COMBOS
+            cboCategory.Items.Clear();
+            cboCategory.DataSource = dbcon.getTable("SELECT * FROM Categorias");
+            cboCategory.DisplayMember = "categoria";
+            cboCategory.ValueMember = "id";
+        }
+
 
         public void LoadCategory()
         {
@@ -140,11 +174,6 @@ namespace POSales
                     if (MessageBox.Show("Estas seguro de guardar este Item?", "Item Guardado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         Items item = new Items();
-                        MemoryStream ms = new MemoryStream();
-                        byte[] data = System.IO.File.ReadAllBytes(Url);
-                        picItem.Image.Save(ms, picItem.Image.RawFormat);
-                        byte[] bytes = data;
-
                         decimal PrecioA = 0, PrecioB = 0, PrecioC = 0, PrecioD = 0;
                         item.nombre = txtNameProdcut.Text;
                         decimal.TryParse(txtPriceA.Text, out PrecioA);
@@ -154,6 +183,7 @@ namespace POSales
                         decimal.TryParse(txtPriceC.Text, out PrecioC);
                         item.precioC = PrecioC;
                         decimal.TryParse(txtPriceD.Text, out PrecioD);
+                        item.codigoBarras = txtBarcode.Text;
                         item.precioD = PrecioD;
                         item.descripcion = txtReason.Text;
                         item.descMax = decimal.Parse(txtDescMax.Text);
@@ -166,12 +196,19 @@ namespace POSales
                         item.servicio = chckServicio.Checked;
                         item.aplicaSeries = chckAplicaSeries.Checked;
                         item.negativo = chckNegativo.Checked;
-                        item.combo = chckCombo.Checked;
+                        item.hascombo = chckCombo.Checked;
                         item.ice = decimal.Parse(txtIce.Text);
                         item.valorIce = decimal.Parse(txtValorIce.Text);
                         item.HasIva = HasIva.Checked;
                         item.iva = decimal.Parse(txtIva.Text);
-                        item.imagen = imageLocation;
+                        if (File.Exists(imageLocation))
+                        {
+                            item.imagen = (Bitmap)Image.FromFile(imageLocation);
+                        }
+                        else
+                        {
+                            item.imagen = (Bitmap)Image.FromFile($@"{Directory.GetCurrentDirectory()}\Image\cancel_30px.png");
+                        }
                         item.imagenUrl = txtReason.Text;
                         item.montoTotal = decimal.Parse(txtPriceA.Text) * decimal.Parse(txtIva.Text);
                         MessageBox.Show("Item ingresado  con exito.", stitle);
@@ -187,8 +224,7 @@ namespace POSales
                     MessageBox.Show(ex.Message);
                 }
             }
-          
-            Clear();    
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -198,7 +234,6 @@ namespace POSales
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            Items item = new Items();
             picBrowse.Visible = false;
             picItem.Enabled = false;
             MemoryStream ms = new MemoryStream();
@@ -208,36 +243,45 @@ namespace POSales
                 if (MessageBox.Show("Estas seguro de actualizar este Item?", "Actualizar producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     decimal PrecioA = 0, PrecioB = 0, PrecioC = 0, PrecioD = 0;
-                    item.nombre = txtNameProdcut.Text;
+                    product.nombre = txtNameProdcut.Text;
                     decimal.TryParse(txtPriceA.Text, out PrecioA);
-                    item.precioA = PrecioA;
+                    product.precioA = PrecioA;
                     decimal.TryParse(txtPriceB.Text, out PrecioB);
-                    item.precioB = PrecioB;
+                    product.precioB = PrecioB;
                     decimal.TryParse(txtPriceC.Text, out PrecioC);
-                    item.precioC = PrecioC;
+                    product.precioC = PrecioC;
                     decimal.TryParse(txtPriceD.Text, out PrecioD);
-                    item.precioD = PrecioD;
-                    item.descripcion= txtReason.Text;
-                    item.descMax= decimal.Parse(txtDescMax.Text);
-                    item.stock= int.Parse(txtStockMax.Text);
-                    item.stockMin= int.Parse(txtStockMin.Text);
-                    item.bId= cboBodega.SelectedIndex;
-                    item.cId= cboCategory.SelectedIndex;
-                    item.gId= cboGroup.SelectedIndex;
-                    item.mId= cboBrand.SelectedIndex;
-                    item.servicio= chckServicio.Checked;
-                    item.aplicaSeries= chckAplicaSeries.Checked;
-                    item.negativo= chckNegativo.Checked;
-                    item.combo= chckCombo.Checked;
-                    item.ice= decimal.Parse(txtIce.Text);
-                    item.valorIce= decimal.Parse(txtValorIce.Text);
-                    item.HasIva= HasIva.Checked;
-                    item.iva= decimal.Parse(txtIva.Text);
-                    item.imagen= imageLocation;
-                    item.imagenUrl= txtReason.Text;
-                    item.montoTotal= decimal.Parse(txtPriceA.Text) * decimal.Parse(txtIva.Text);
+                    product.codigoBarras = txtBarcode.Text;
+                    product.precioD = PrecioD;
+                    product.descripcion= txtReason.Text;
+                    product.descMax= decimal.Parse(txtDescMax.Text);
+                    product.stock= int.Parse(txtStockMax.Text);
+                    product.stockMin= int.Parse(txtStockMin.Text);
+                    product.bId= cboBodega.SelectedIndex;
+                    product.cId= cboCategory.SelectedIndex;
+                    product.gId= cboGroup.SelectedIndex;
+                    product.mId= cboBrand.SelectedIndex;
+                    product.servicio= chckServicio.Checked;
+                    product.aplicaSeries= chckAplicaSeries.Checked;
+                    product.negativo= chckNegativo.Checked;
+                    product.hascombo= chckCombo.Checked;
+                    product.ice= decimal.Parse(txtIce.Text);
+                    product.valorIce= decimal.Parse(txtValorIce.Text);
+                    product.HasIva= HasIva.Checked;
+                    product.iva= decimal.Parse(txtIva.Text);
+                    product.imagenUrl = imageLocation;
+                    if (File.Exists(imageLocation))
+                    {
+                        product.imagen = (Bitmap)Image.FromFile(imageLocation);
+                    }
+                    else
+                    {
+                        product.imagen = (Bitmap)Image.FromFile($@"{Directory.GetCurrentDirectory()}\Image\cancel_30px.png");
+                    }
+
+                    product.montoTotal= decimal.Parse(txtPriceA.Text) * decimal.Parse(txtIva.Text);
                     DBConnect db = new DBConnect();
-                   string Error = db.actualizarItem(item);
+                   string Error = db.actualizarItem(product);
                     if (string.IsNullOrEmpty(Error))
                     {
                         MessageBox.Show("Item actualizado con exito.", stitle);
@@ -329,13 +373,12 @@ namespace POSales
         string Url;
         private void picBrowse_Click(object sender, EventArgs e)
         {
-            Url = string.Empty;
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "seleciona la imagen (*.jpg;*.png;*.jpeg)|*.jpg;*.png;*.jpeg";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 picItem.Image = Image.FromFile(openFileDialog.FileName);
-                Url = openFileDialog.FileName;
+                imageLocation = openFileDialog.FileName;
             }
         }
 
@@ -538,6 +581,67 @@ namespace POSales
                         textBox26.Text = calculo.ToString();
                     }
                 }
+            }
+        }
+
+        private void iconPictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            Form Combo = new combo(product.Id);
+            Combo.ShowDialog();
+            LoadCombos();
+        }
+
+        private void chckCombo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chckCombo.Checked)
+            {
+                btnAgregarCombos.Enabled = true;
+                dgvCombo.Enabled = true;
+            }
+            
+        }
+
+        private void dgvCombo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string Error = string.Empty;
+            int IdProductoRelacionado = 0;
+            string colName = dgvCombo.Columns[e.ColumnIndex].Name;
+            if (colName == "Delete")
+            {
+                if (int.TryParse(dgvCombo.Rows[e.RowIndex].Cells["Id"].Value.ToString(), out IdProductoRelacionado))
+                {
+                    Error = dbcon.deleteCombo(product.Id, IdProductoRelacionado);
+                    if (string.IsNullOrEmpty(Error))
+                    {
+                        MessageBox.Show("Borrado Satisfactoriamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show(Error);
+                    }
+                }
+
+            }
+            if (colName == "Add")
+            {
+                if (int.TryParse(dgvCombo.Rows[e.RowIndex].Cells["Id"].Value.ToString(), out IdProductoRelacionado))
+                {
+                    Error = dbcon.insertCombo(product.Id, IdProductoRelacionado);
+                    if (string.IsNullOrEmpty(Error))
+                    {
+                        MessageBox.Show("Agregado Satisfactoriamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show(Error);
+                    }
+                }
+
             }
         }
     }
