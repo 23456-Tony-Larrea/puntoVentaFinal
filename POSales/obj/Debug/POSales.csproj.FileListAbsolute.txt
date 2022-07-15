@@ -229,4 +229,3 @@ C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\bin\Debug\ru\Microsof
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.csproj.CopyComplete
-D:\punto de venta x arreglar\POSales\POSales\obj\Debug\POSales.ItemModule2.resources

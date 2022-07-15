@@ -12,15 +12,22 @@ namespace POSalesDb
 		//agrega este campo ala base 
 		public bool HasIva { get; set; }
 		public string nombre { get; set; }
+		public string codigoUno { get; set; }
+		public string codigoDos { get; set; }
+		public string codigoTres { get; set; }
+		public string codigoCuatro { get; set; }
 		public string codigoBarras { get; set; }
 		public decimal precioA { get; set; }
 		public decimal precioB { get; set; }
 		public decimal precioC { get; set; }
 		public decimal precioD { get; set; }
 		public string descripcion { get; set; }
+		public int unidadCaja { get; set; }
+		public decimal peso { get; set; }
+		public decimal comision { get; set; }
 		public decimal descMax { get; set; }
 		public int stockMin { get; set; }
-		public int stock { get; set; }
+		public int stockMax { get; set; }
 		public decimal costo { get; set; }
 		public int unidad { get; set; }
 		public int bId { get; set; }
@@ -31,12 +38,18 @@ namespace POSalesDb
 		public bool aplicaSeries { get; set; }
 		public bool negativo { get; set; }
 		public bool combo { get; set; }
+		public bool gasto { get; set; }
 		public decimal ice { get; set; }
 		public decimal valorIce { get; set; }
 		public string imagen { get; set; }
 		public string imagenUrl { get; set; }
 		public decimal iva { get; set; }
 		public decimal montoTotal { get; set; }
+		public string categoriaA { get; set; }
+		public string categoriaB { get; set; }
+		public string categoriaC { get; set; }
+		public string categoriaD { get; set; }
+		public string categoriaE { get; set; }
 		[DisplayName("Precio total")]
 		public decimal CostoTotal => (HasIva) ? montoTotal * iva * ice : montoTotal;
 

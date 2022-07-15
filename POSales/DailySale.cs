@@ -18,13 +18,13 @@ namespace POSales
         DBConnect dbcon = new DBConnect();
         SqlDataReader dr;
         public string solduser;
-        string _username;
-        public DailySale(string username)
+        MainForm main;
+        public DailySale(MainForm mn)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.myConnection());
+            main = mn;
             LoadCashier();
-            _username = username;
         }
 
         private void picClose_Click(object sender, EventArgs e)
@@ -146,7 +146,7 @@ namespace POSales
                 cancel.txtDisc.Text = dgvSold.Rows[e.RowIndex].Cells[7].Value.ToString();
                 cancel.txtTotal.Text = dgvSold.Rows[e.RowIndex].Cells[8].Value.ToString();
                 if (lblTitle.Visible == false)
-                    cancel.txtCancelBy.Text = _username;
+                    cancel.txtCancelBy.Text = main.lblUsername.Text;
                 else
                     cancel.txtCancelBy.Text = solduser;
                 cancel.ShowDialog();

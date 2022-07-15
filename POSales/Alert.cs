@@ -14,13 +14,14 @@ namespace POSales
     {
         private Random random;
         private int tempIndex;
-
-        public Alert()
+        MainForm main;
+        public Alert(MainForm mn)
         {
             InitializeComponent();
             random = new Random();
             Color color = SelectThemeColor();
             panel1.BackColor = color;
+            main = mn;
         }
 
         public enum enmAction
@@ -106,11 +107,11 @@ namespace POSales
 
         private void btnReorder_Click(object sender, EventArgs e)
         {
-            //StockIn stock = new StockIn(main);
-            //main.openChildForm(stock);
-            //ProductStockIn stockIn = new ProductStockIn(stock);
-            //stock.ProductForSupplier(lblPcode.Text);
-            //stockIn.addStockIn(lblPcode.Text);
+            StockIn stock = new StockIn(main);
+            main.openChildForm(stock);
+            ProductStockIn stockIn = new ProductStockIn(stock);
+            stock.ProductForSupplier(lblPcode.Text);
+            stockIn.addStockIn(lblPcode.Text);
         }
 
         private Color SelectThemeColor()

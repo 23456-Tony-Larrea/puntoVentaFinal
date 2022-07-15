@@ -212,12 +212,6 @@
     <Compile Include="Item.Designer.cs">
       <DependentUpon>Item.cs</DependentUpon>
     </Compile>
-    <Compile Include="ItemModule2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ItemModule2.designer.cs">
-      <DependentUpon>ItemModule2.cs</DependentUpon>
-    </Compile>
     <Compile Include="ItemModule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -420,9 +414,6 @@
     <EmbeddedResource Include="Item.resx">
       <DependentUpon>Item.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ItemModule2.resx">
-      <DependentUpon>ItemModule2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ItemModule.resx">
       <DependentUpon>ItemModule.cs</DependentUpon>
     </EmbeddedResource>
@@ -595,7 +586,6 @@
     <Content Include="Image\Image\user_secured_30px.png" />
     <Content Include="Image\Image\user_secured_50px.png" />
     <Content Include="MetroFramework.txt" />
-    <None Include="Resources\delete_20px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
