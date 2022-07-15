@@ -212,17 +212,17 @@
     <Compile Include="Item.Designer.cs">
       <DependentUpon>Item.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProveedorFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProveedorFactura.designer.cs">
+      <DependentUpon>ProveedorFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="ItemModule2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ItemModule2.designer.cs">
+    <Compile Include="ItemModule2.Designer.cs">
       <DependentUpon>ItemModule2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ItemModule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ItemModule.designer.cs">
-      <DependentUpon>ItemModule.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -420,11 +420,11 @@
     <EmbeddedResource Include="Item.resx">
       <DependentUpon>Item.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProveedorFactura.resx">
+      <DependentUpon>ProveedorFactura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ItemModule2.resx">
       <DependentUpon>ItemModule2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ItemModule.resx">
-      <DependentUpon>ItemModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

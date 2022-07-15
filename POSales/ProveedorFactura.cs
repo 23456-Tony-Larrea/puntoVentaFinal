@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace POSales
 {
-    public partial class ItemModule : Form
+    public partial class ProveedorFactura : Form
     {
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
@@ -24,7 +24,7 @@ namespace POSales
         Items product;
         string imageLocation = string.Empty;
         bool Nuevo = false;
-        public ItemModule(Items pd)
+        public ProveedorFactura(Items pd)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.myConnection());
@@ -532,6 +532,11 @@ namespace POSales
                     }
                 }
             }
+        }
+
+        private void txtPrice_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
