@@ -19,7 +19,7 @@ namespace POSalesDB
         private string con;
         public string myConnection()
         {
-            con = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\avsla\Documents\DBPOSale.mdf;Integrated Security=True;Connect Timeout=30";
+            con = @"Data Source=localhost;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True";
             return con;
         }
 
@@ -222,7 +222,6 @@ namespace POSalesDB
                     item.precioD = (decimal)dt.Rows[0]["precioD"];
                     item.descripcion = dt.Rows[0]["descripcion"].ToString();
                     item.stockMin = (int)dt.Rows[0]["stockMin"];
-                    item.costo = (decimal)dt.Rows[0]["costo"];
                     item.unidad = (int)dt.Rows[0]["unidad"];
                     item.bId = (int)dt.Rows[0]["bId"];
                     item.cId = (int)dt.Rows[0]["cId"];
@@ -311,7 +310,6 @@ namespace POSalesDB
                         item.descripcion = r["descripcion"].ToString();
                         int.TryParse(r["stockMin"].ToString(), out stockMin);
                         item.stockMin = stockMin;
-                        item.costo = (decimal)r["costo"];
                         int.TryParse(r["unidad"].ToString(), out unidad);
                         item.unidad = (int)r["unidad"];
                         int.TryParse(r["bId"].ToString(), out bId);
@@ -372,7 +370,6 @@ namespace POSalesDB
                 cm.Parameters.AddWithValue("@descripcion", item.descripcion);
                 cm.Parameters.AddWithValue("@descMax", item.descMax);
                 cm.Parameters.AddWithValue("@stockMin", item.stockMin);
-                cm.Parameters.AddWithValue("@costo", item.costo);
                 cm.Parameters.AddWithValue("@unidad", item.unidad);
                 cm.Parameters.AddWithValue("@bId", item.bId);
                 cm.Parameters.AddWithValue("@cId", item.cId);
@@ -422,8 +419,7 @@ namespace POSalesDB
                 cm.Parameters.AddWithValue("@precioD", item.precioD);
                 cm.Parameters.AddWithValue("@descripcion", item.descripcion);
                 cm.Parameters.AddWithValue("@descMax", item.descMax);
-                cm.Parameters.AddWithValue("@stockMin", item.stockMin);
-                cm.Parameters.AddWithValue("@costo", item.costo);
+                cm.Parameters.AddWithValue("@stockMin", item.stockMin); 
                 cm.Parameters.AddWithValue("@unidad", item.unidad);
                 cm.Parameters.AddWithValue("@bId", item.bId);
                 cm.Parameters.AddWithValue("@cId", item.cId);
