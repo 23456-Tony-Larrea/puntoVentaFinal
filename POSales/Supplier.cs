@@ -87,5 +87,10 @@ namespace POSales
             }
             LoadSupplier();
         }
+
+        private void Supplier_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

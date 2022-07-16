@@ -29,6 +29,7 @@ namespace POSales
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemModule));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSave = new System.Windows.Forms.Button();
@@ -89,12 +90,37 @@ namespace POSales
             this.txtIce = new System.Windows.Forms.TextBox();
             this.txtIva = new System.Windows.Forms.TextBox();
             this.dgvCombo = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnAgregarCombos = new FontAwesome.Sharp.IconButton();
+            this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hasIvaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoBarrasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descMaxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockMinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.servicioDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.hascomboDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.aplicaSeriesDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.negativoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.iceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorIceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imagenDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.imagenUrlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ivaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.montoTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costoTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -104,6 +130,7 @@ namespace POSales
             ((System.ComponentModel.ISupportInitialize)(this.picItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBrowse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCombo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSave
@@ -684,6 +711,7 @@ namespace POSales
             // dgvCombo
             // 
             this.dgvCombo.AllowUserToAddRows = false;
+            this.dgvCombo.AutoGenerateColumns = false;
             this.dgvCombo.BackgroundColor = System.Drawing.Color.White;
             this.dgvCombo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -697,11 +725,36 @@ namespace POSales
             this.dgvCombo.ColumnHeadersHeight = 30;
             this.dgvCombo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvCombo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Id,
-            this.Nombre,
-            this.Edit,
-            this.Delete});
+            this.Delete,
+            this.id,
+            this.hasIvaDataGridViewCheckBoxColumn,
+            this.nombreDataGridViewTextBoxColumn,
+            this.codigoBarrasDataGridViewTextBoxColumn,
+            this.precioADataGridViewTextBoxColumn,
+            this.precioBDataGridViewTextBoxColumn,
+            this.precioCDataGridViewTextBoxColumn,
+            this.precioDDataGridViewTextBoxColumn,
+            this.descripcionDataGridViewTextBoxColumn,
+            this.descMaxDataGridViewTextBoxColumn,
+            this.stockMinDataGridViewTextBoxColumn,
+            this.stockDataGridViewTextBoxColumn,
+            this.unidadDataGridViewTextBoxColumn,
+            this.bIdDataGridViewTextBoxColumn,
+            this.cIdDataGridViewTextBoxColumn,
+            this.gIdDataGridViewTextBoxColumn,
+            this.mIdDataGridViewTextBoxColumn,
+            this.servicioDataGridViewCheckBoxColumn,
+            this.hascomboDataGridViewCheckBoxColumn,
+            this.aplicaSeriesDataGridViewCheckBoxColumn,
+            this.negativoDataGridViewCheckBoxColumn,
+            this.iceDataGridViewTextBoxColumn,
+            this.valorIceDataGridViewTextBoxColumn,
+            this.imagenDataGridViewImageColumn,
+            this.imagenUrlDataGridViewTextBoxColumn,
+            this.ivaDataGridViewTextBoxColumn,
+            this.montoTotalDataGridViewTextBoxColumn,
+            this.costoTotalDataGridViewTextBoxColumn});
+            this.dgvCombo.DataSource = this.itemsBindingSource;
             this.dgvCombo.Enabled = false;
             this.dgvCombo.EnableHeadersVisualStyles = false;
             this.dgvCombo.Location = new System.Drawing.Point(669, 358);
@@ -712,48 +765,6 @@ namespace POSales
             this.dgvCombo.Size = new System.Drawing.Size(474, 167);
             this.dgvCombo.TabIndex = 102;
             this.dgvCombo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCombo_CellContentClick);
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "No";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 53;
-            // 
-            // Id
-            // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            this.Id.Width = 49;
-            // 
-            // Nombre
-            // 
-            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.MinimumWidth = 6;
-            this.Nombre.Name = "Nombre";
-            // 
-            // Edit
-            // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Edit.HeaderText = "";
-            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.Width = 6;
-            // 
-            // Delete
-            // 
-            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Delete.HeaderText = "";
-            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Width = 6;
             // 
             // btnAgregarCombos
             // 
@@ -771,6 +782,188 @@ namespace POSales
             this.btnAgregarCombos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarCombos.UseVisualStyleBackColor = true;
             this.btnAgregarCombos.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // itemsBindingSource
+            // 
+            this.itemsBindingSource.DataSource = typeof(POSalesDb.Items);
+            // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Delete.HeaderText = "";
+            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Width = 6;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            // 
+            // hasIvaDataGridViewCheckBoxColumn
+            // 
+            this.hasIvaDataGridViewCheckBoxColumn.DataPropertyName = "HasIva";
+            this.hasIvaDataGridViewCheckBoxColumn.HeaderText = "HasIva";
+            this.hasIvaDataGridViewCheckBoxColumn.Name = "hasIvaDataGridViewCheckBoxColumn";
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            // 
+            // codigoBarrasDataGridViewTextBoxColumn
+            // 
+            this.codigoBarrasDataGridViewTextBoxColumn.DataPropertyName = "codigoBarras";
+            this.codigoBarrasDataGridViewTextBoxColumn.HeaderText = "codigoBarras";
+            this.codigoBarrasDataGridViewTextBoxColumn.Name = "codigoBarrasDataGridViewTextBoxColumn";
+            // 
+            // precioADataGridViewTextBoxColumn
+            // 
+            this.precioADataGridViewTextBoxColumn.DataPropertyName = "precioA";
+            this.precioADataGridViewTextBoxColumn.HeaderText = "precioA";
+            this.precioADataGridViewTextBoxColumn.Name = "precioADataGridViewTextBoxColumn";
+            // 
+            // precioBDataGridViewTextBoxColumn
+            // 
+            this.precioBDataGridViewTextBoxColumn.DataPropertyName = "precioB";
+            this.precioBDataGridViewTextBoxColumn.HeaderText = "precioB";
+            this.precioBDataGridViewTextBoxColumn.Name = "precioBDataGridViewTextBoxColumn";
+            // 
+            // precioCDataGridViewTextBoxColumn
+            // 
+            this.precioCDataGridViewTextBoxColumn.DataPropertyName = "precioC";
+            this.precioCDataGridViewTextBoxColumn.HeaderText = "precioC";
+            this.precioCDataGridViewTextBoxColumn.Name = "precioCDataGridViewTextBoxColumn";
+            // 
+            // precioDDataGridViewTextBoxColumn
+            // 
+            this.precioDDataGridViewTextBoxColumn.DataPropertyName = "precioD";
+            this.precioDDataGridViewTextBoxColumn.HeaderText = "precioD";
+            this.precioDDataGridViewTextBoxColumn.Name = "precioDDataGridViewTextBoxColumn";
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            // 
+            // descMaxDataGridViewTextBoxColumn
+            // 
+            this.descMaxDataGridViewTextBoxColumn.DataPropertyName = "descMax";
+            this.descMaxDataGridViewTextBoxColumn.HeaderText = "descMax";
+            this.descMaxDataGridViewTextBoxColumn.Name = "descMaxDataGridViewTextBoxColumn";
+            // 
+            // stockMinDataGridViewTextBoxColumn
+            // 
+            this.stockMinDataGridViewTextBoxColumn.DataPropertyName = "stockMin";
+            this.stockMinDataGridViewTextBoxColumn.HeaderText = "stockMin";
+            this.stockMinDataGridViewTextBoxColumn.Name = "stockMinDataGridViewTextBoxColumn";
+            // 
+            // stockDataGridViewTextBoxColumn
+            // 
+            this.stockDataGridViewTextBoxColumn.DataPropertyName = "stock";
+            this.stockDataGridViewTextBoxColumn.HeaderText = "stock";
+            this.stockDataGridViewTextBoxColumn.Name = "stockDataGridViewTextBoxColumn";
+            // 
+            // unidadDataGridViewTextBoxColumn
+            // 
+            this.unidadDataGridViewTextBoxColumn.DataPropertyName = "unidad";
+            this.unidadDataGridViewTextBoxColumn.HeaderText = "unidad";
+            this.unidadDataGridViewTextBoxColumn.Name = "unidadDataGridViewTextBoxColumn";
+            // 
+            // bIdDataGridViewTextBoxColumn
+            // 
+            this.bIdDataGridViewTextBoxColumn.DataPropertyName = "bId";
+            this.bIdDataGridViewTextBoxColumn.HeaderText = "bId";
+            this.bIdDataGridViewTextBoxColumn.Name = "bIdDataGridViewTextBoxColumn";
+            // 
+            // cIdDataGridViewTextBoxColumn
+            // 
+            this.cIdDataGridViewTextBoxColumn.DataPropertyName = "cId";
+            this.cIdDataGridViewTextBoxColumn.HeaderText = "cId";
+            this.cIdDataGridViewTextBoxColumn.Name = "cIdDataGridViewTextBoxColumn";
+            // 
+            // gIdDataGridViewTextBoxColumn
+            // 
+            this.gIdDataGridViewTextBoxColumn.DataPropertyName = "gId";
+            this.gIdDataGridViewTextBoxColumn.HeaderText = "gId";
+            this.gIdDataGridViewTextBoxColumn.Name = "gIdDataGridViewTextBoxColumn";
+            // 
+            // mIdDataGridViewTextBoxColumn
+            // 
+            this.mIdDataGridViewTextBoxColumn.DataPropertyName = "mId";
+            this.mIdDataGridViewTextBoxColumn.HeaderText = "mId";
+            this.mIdDataGridViewTextBoxColumn.Name = "mIdDataGridViewTextBoxColumn";
+            // 
+            // servicioDataGridViewCheckBoxColumn
+            // 
+            this.servicioDataGridViewCheckBoxColumn.DataPropertyName = "servicio";
+            this.servicioDataGridViewCheckBoxColumn.HeaderText = "servicio";
+            this.servicioDataGridViewCheckBoxColumn.Name = "servicioDataGridViewCheckBoxColumn";
+            // 
+            // hascomboDataGridViewCheckBoxColumn
+            // 
+            this.hascomboDataGridViewCheckBoxColumn.DataPropertyName = "hascombo";
+            this.hascomboDataGridViewCheckBoxColumn.HeaderText = "hascombo";
+            this.hascomboDataGridViewCheckBoxColumn.Name = "hascomboDataGridViewCheckBoxColumn";
+            // 
+            // aplicaSeriesDataGridViewCheckBoxColumn
+            // 
+            this.aplicaSeriesDataGridViewCheckBoxColumn.DataPropertyName = "aplicaSeries";
+            this.aplicaSeriesDataGridViewCheckBoxColumn.HeaderText = "aplicaSeries";
+            this.aplicaSeriesDataGridViewCheckBoxColumn.Name = "aplicaSeriesDataGridViewCheckBoxColumn";
+            // 
+            // negativoDataGridViewCheckBoxColumn
+            // 
+            this.negativoDataGridViewCheckBoxColumn.DataPropertyName = "negativo";
+            this.negativoDataGridViewCheckBoxColumn.HeaderText = "negativo";
+            this.negativoDataGridViewCheckBoxColumn.Name = "negativoDataGridViewCheckBoxColumn";
+            // 
+            // iceDataGridViewTextBoxColumn
+            // 
+            this.iceDataGridViewTextBoxColumn.DataPropertyName = "ice";
+            this.iceDataGridViewTextBoxColumn.HeaderText = "ice";
+            this.iceDataGridViewTextBoxColumn.Name = "iceDataGridViewTextBoxColumn";
+            // 
+            // valorIceDataGridViewTextBoxColumn
+            // 
+            this.valorIceDataGridViewTextBoxColumn.DataPropertyName = "valorIce";
+            this.valorIceDataGridViewTextBoxColumn.HeaderText = "valorIce";
+            this.valorIceDataGridViewTextBoxColumn.Name = "valorIceDataGridViewTextBoxColumn";
+            // 
+            // imagenDataGridViewImageColumn
+            // 
+            this.imagenDataGridViewImageColumn.DataPropertyName = "imagen";
+            this.imagenDataGridViewImageColumn.HeaderText = "imagen";
+            this.imagenDataGridViewImageColumn.Name = "imagenDataGridViewImageColumn";
+            // 
+            // imagenUrlDataGridViewTextBoxColumn
+            // 
+            this.imagenUrlDataGridViewTextBoxColumn.DataPropertyName = "imagenUrl";
+            this.imagenUrlDataGridViewTextBoxColumn.HeaderText = "imagenUrl";
+            this.imagenUrlDataGridViewTextBoxColumn.Name = "imagenUrlDataGridViewTextBoxColumn";
+            // 
+            // ivaDataGridViewTextBoxColumn
+            // 
+            this.ivaDataGridViewTextBoxColumn.DataPropertyName = "iva";
+            this.ivaDataGridViewTextBoxColumn.HeaderText = "iva";
+            this.ivaDataGridViewTextBoxColumn.Name = "ivaDataGridViewTextBoxColumn";
+            // 
+            // montoTotalDataGridViewTextBoxColumn
+            // 
+            this.montoTotalDataGridViewTextBoxColumn.DataPropertyName = "montoTotal";
+            this.montoTotalDataGridViewTextBoxColumn.HeaderText = "montoTotal";
+            this.montoTotalDataGridViewTextBoxColumn.Name = "montoTotalDataGridViewTextBoxColumn";
+            // 
+            // costoTotalDataGridViewTextBoxColumn
+            // 
+            this.costoTotalDataGridViewTextBoxColumn.DataPropertyName = "CostoTotal";
+            this.costoTotalDataGridViewTextBoxColumn.HeaderText = "Precio total";
+            this.costoTotalDataGridViewTextBoxColumn.Name = "costoTotalDataGridViewTextBoxColumn";
+            this.costoTotalDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ItemModule
             // 
@@ -853,6 +1046,7 @@ namespace POSales
             ((System.ComponentModel.ISupportInitialize)(this.picItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBrowse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCombo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -918,11 +1112,36 @@ namespace POSales
         public System.Windows.Forms.CheckBox HasIva;
         public System.Windows.Forms.PictureBox picBrowse;
         private System.Windows.Forms.DataGridView dgvCombo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewImageColumn Edit;
-        private System.Windows.Forms.DataGridViewImageColumn Delete;
         private FontAwesome.Sharp.IconButton btnAgregarCombos;
+        private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn hasIvaDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoBarrasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioADataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioBDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioCDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descMaxDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stockMinDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stockDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unidadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn servicioDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn hascomboDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn aplicaSeriesDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn negativoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorIceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn imagenDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imagenUrlDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ivaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn montoTotalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costoTotalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource itemsBindingSource;
     }
 }

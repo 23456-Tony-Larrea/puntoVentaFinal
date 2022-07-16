@@ -200,5 +200,10 @@ namespace POSales
             dr.Close();
             cn.Close();
         }
+
+        private void StockIn_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

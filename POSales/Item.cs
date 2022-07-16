@@ -80,9 +80,10 @@ namespace POSales
                     item.imagen = (Bitmap)Image.FromFile(@"Image\cancel_30px.png");
                 }
                 Form itemModule = new ItemModule(item); 
-                itemModule.Show();
-            
-            
+                itemModule.ShowDialog();
+                cargarItem();
+
+
             }
             else if (colName == "Delete")
             {
@@ -103,6 +104,7 @@ namespace POSales
             Items item = new Items();
             ItemModule productModule = new ItemModule(item);
             productModule.ShowDialog();
+            cargarItem();
         }
 
         private void Item_Load(object sender, EventArgs e)

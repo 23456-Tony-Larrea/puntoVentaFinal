@@ -45,6 +45,7 @@ namespace POSales
         }
         private void CargarItem()
         {
+           
             int Categoria = 0, grupo = 0, brand = 0, bogeda = 0;
             txtIdProd.Text = product.Id.ToString();
             txtNameProdcut.Text = product.nombre;
@@ -88,8 +89,8 @@ namespace POSales
             txtValorIce.Text = product.valorIce.ToString();
             txtIva.Text = product.iva.ToString();
             HasIva.Checked = product.HasIva;
-            picItem.Image = product.imagen;
-
+            picItem.Image = Image.FromFile(dbcon.selectItemImagenUrl(product.Id));
+            
             if (product.hascombo)
             {
                 product.Combo = dbcon.selectCombo(product.Id);
@@ -100,16 +101,14 @@ namespace POSales
         public void LoadCombos()
         {
             //CARGAR COMBOS
-            cboCategory.Items.Clear();
-            cboCategory.DataSource = dbcon.getTable("SELECT * FROM Categorias");
-            cboCategory.DisplayMember = "categoria";
-            cboCategory.ValueMember = "id";
+            dgvCombo.DataSource = new DataTable();
+            dgvCombo.DataSource = dbcon.selectCombo(product.Id);
         }
 
 
         public void LoadCategory()
         {
-            cboCategory.Items.Clear();
+            cboCategory.DataSource = new DataTable();
             cboCategory.DataSource = dbcon.getTable("SELECT * FROM Categorias");
             cboCategory.DisplayMember = "categoria";
             cboCategory.ValueMember = "id";
@@ -117,7 +116,7 @@ namespace POSales
 
         public void LoadBrand()
         {
-            cboBrand.Items.Clear();
+            cboBrand.DataSource = new DataTable();
             cboBrand.DataSource = dbcon.getTable("SELECT * FROM Marcas");
             cboBrand.DisplayMember = "marca";
             cboBrand.ValueMember = "id";
@@ -125,7 +124,7 @@ namespace POSales
 
         public void LoadBodega()
         {
-            cboBodega.Items.Clear();
+            cboBodega.DataSource = new DataTable();
             cboBodega.DataSource = dbcon.getTable("SELECT * FROM Bodega");
             cboBodega.DisplayMember = "nombre";
             cboBodega.ValueMember = "id";
@@ -133,7 +132,7 @@ namespace POSales
         }
         public void LoadGroup() 
         {
-            cboGroup.Items.Clear();
+            cboGroup.DataSource = new DataTable();
             cboGroup.DataSource = dbcon.getTable("SELECT * FROM Grupo");
             cboGroup.DisplayMember = "nombre";
             cboGroup.ValueMember = "Id";
@@ -173,6 +172,10 @@ namespace POSales
                 {
                     if (MessageBox.Show("Estas seguro de guardar este Item?", "Item Guardado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
+                        if (string.IsNullOrEmpty(txtBarcode.Text))
+                        {
+                            MessageBox.Show("Por favor, ingrese el codigo de barra");
+                        }
                         Items item = new Items();
                         decimal PrecioA = 0, PrecioB = 0, PrecioC = 0, PrecioD = 0;
                         item.nombre = txtNameProdcut.Text;
@@ -211,9 +214,17 @@ namespace POSales
                         }
                         item.imagenUrl = txtReason.Text;
                         item.montoTotal = decimal.Parse(txtPriceA.Text) * decimal.Parse(txtIva.Text);
-                        MessageBox.Show("Item ingresado  con exito.", stitle);
+                     
                         DBConnect db = new DBConnect();
-                        string Error = db.insertItem(item);
+                        int Error = db.insertItem(item);
+                        if (Error > 0)
+                        {
+                            MessageBox.Show("Item ingresado  con exito.", stitle);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ha ocurrido un error al insertar los datos", stitle);
+                        }
                         btnSave.Text = "Nuevo";
                         Nuevo = true;
                         btnUpdate.Visible = true;
@@ -237,11 +248,16 @@ namespace POSales
             picBrowse.Visible = false;
             picItem.Enabled = false;
             MemoryStream ms = new MemoryStream();
+
             picItem.Visible = true;
             try
             {
                 if (MessageBox.Show("Estas seguro de actualizar este Item?", "Actualizar producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    if (string.IsNullOrEmpty(txtBarcode.Text))
+                    {
+                        MessageBox.Show("Por favor, ingrese el codigo de barra");
+                    }
                     decimal PrecioA = 0, PrecioB = 0, PrecioC = 0, PrecioD = 0;
                     product.nombre = txtNameProdcut.Text;
                     decimal.TryParse(txtPriceA.Text, out PrecioA);
@@ -591,9 +607,17 @@ namespace POSales
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            Form Combo = new combo(product.Id);
-            Combo.ShowDialog();
-            LoadCombos();
+            if (product.Id > 0)
+            {
+                Form Combo = new combo(product.Id);
+                Combo.ShowDialog();
+                LoadCombos();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, primero guarde el item antes de asignarle un combo");
+            }
+    
         }
 
         private void chckCombo_CheckedChanged(object sender, EventArgs e)
@@ -613,28 +637,16 @@ namespace POSales
             string colName = dgvCombo.Columns[e.ColumnIndex].Name;
             if (colName == "Delete")
             {
-                if (int.TryParse(dgvCombo.Rows[e.RowIndex].Cells["Id"].Value.ToString(), out IdProductoRelacionado))
+                if (int.TryParse(dgvCombo.Rows[e.RowIndex].Cells["IdData"].Value.ToString(), out IdProductoRelacionado))
                 {
                     Error = dbcon.deleteCombo(product.Id, IdProductoRelacionado);
                     if (string.IsNullOrEmpty(Error))
                     {
-                        MessageBox.Show("Borrado Satisfactoriamente");
-                    }
-                    else
-                    {
-                        MessageBox.Show(Error);
-                    }
-                }
+                        product.Combo.RemoveAt(e.RowIndex);
+                        dgvCombo.DataSource = new List<Items>();
 
-            }
-            if (colName == "Add")
-            {
-                if (int.TryParse(dgvCombo.Rows[e.RowIndex].Cells["Id"].Value.ToString(), out IdProductoRelacionado))
-                {
-                    Error = dbcon.insertCombo(product.Id, IdProductoRelacionado);
-                    if (string.IsNullOrEmpty(Error))
-                    {
-                        MessageBox.Show("Agregado Satisfactoriamente");
+                        dgvCombo.DataSource = product.Combo;
+                        MessageBox.Show("Borrado Satisfactoriamente");
                     }
                     else
                     {
