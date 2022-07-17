@@ -97,10 +97,11 @@
             this.dgvClients.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvClients.EnableHeadersVisualStyles = false;
             this.dgvClients.Location = new System.Drawing.Point(0, 0);
+            this.dgvClients.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvClients.Name = "dgvClients";
             this.dgvClients.RowHeadersVisible = false;
             this.dgvClients.RowHeadersWidth = 51;
-            this.dgvClients.Size = new System.Drawing.Size(969, 377);
+            this.dgvClients.Size = new System.Drawing.Size(727, 306);
             this.dgvClients.TabIndex = 7;
             this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellContentClick);
             // 
@@ -110,7 +111,7 @@
             this.Column1.HeaderText = "No";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 63;
+            this.Column1.Width = 53;
             // 
             // Column2
             // 
@@ -119,7 +120,7 @@
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.Visible = false;
-            this.Column2.Width = 57;
+            this.Column2.Width = 49;
             // 
             // Column3
             // 
@@ -256,9 +257,10 @@
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(930, 26);
+            this.btnAdd.Location = new System.Drawing.Point(698, 21);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(39, 32);
+            this.btnAdd.Size = new System.Drawing.Size(29, 26);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -269,9 +271,10 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(7, 18);
+            this.label1.Location = new System.Drawing.Point(5, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(212, 40);
+            this.label1.Size = new System.Drawing.Size(159, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Manejo Clientes";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -282,18 +285,20 @@
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 377);
+            this.panel1.Location = new System.Drawing.Point(0, 306);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(969, 80);
+            this.panel1.Size = new System.Drawing.Size(727, 65);
             this.panel1.TabIndex = 6;
             // 
             // Clients
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(969, 457);
+            this.ClientSize = new System.Drawing.Size(727, 371);
             this.Controls.Add(this.dgvClients);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Clients";
             this.Text = "Clients";
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();

@@ -83,7 +83,7 @@ namespace POSales
             this.Column1.HeaderText = "No";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 63;
+            this.Column1.Width = 53;
             // 
             // Column2
             // 
@@ -91,7 +91,7 @@ namespace POSales
             this.Column2.HeaderText = "codP";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
-            this.Column2.Width = 85;
+            this.Column2.Width = 71;
             // 
             // Column4
             // 
@@ -99,7 +99,7 @@ namespace POSales
             this.Column4.HeaderText = "Descripcion";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
-            this.Column4.Width = 143;
+            this.Column4.Width = 119;
             // 
             // Column8
             // 
@@ -107,7 +107,7 @@ namespace POSales
             this.Column8.HeaderText = "Cant";
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
-            this.Column8.Width = 84;
+            this.Column8.Width = 68;
             // 
             // Select
             // 
@@ -207,7 +207,7 @@ namespace POSales
             // 
             // ProductStockIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 588);
             this.ControlBox = false;

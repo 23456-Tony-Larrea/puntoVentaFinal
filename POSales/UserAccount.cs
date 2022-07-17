@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using POSalesDB;
+using POSalesDb;
 using POSalesDb;
 namespace POSales
 {
@@ -18,20 +18,23 @@ namespace POSales
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
         SqlDataReader dr;
+        MainForm main;
+        public string username;
+        string name;
+        string role;
+        string accstatus;
         Usuarios usuario = new Usuarios();
-        int Id;
         List<Usuarios> usuarios = new List<Usuarios>();
-        public UserAccount(int idUser)
+        public UserAccount(MainForm mn)
         {
-           InitializeComponent();
+            InitializeComponent();
             cn = new SqlConnection(dbcon.myConnection());
+            main = mn;
             LoadUser();
-            Id = idUser;
         }
 
         public void LoadUser()
         {
-            usuario = dbcon.selectUsuariosPorId(Id);
             usuarios = dbcon.selectTodosLosUsuarios();
             dgvUser.DataSource = usuarios;
         }
@@ -82,41 +85,31 @@ namespace POSales
 
         private void btnPassSave_Click(object sender, EventArgs e)
         {
-
-            string Error = string.Empty;
             try
             {
-                if (txtCurPass.Text != usuario.contraseña)
+                if (txtCurPass.Text != main._pass )
                 {
                     MessageBox.Show("La contraseña actual no conicide!", "Invalido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                if (txtNPass.Text != txtRePass2.Text)
+                if(txtNPass.Text != txtRePass2.Text)
                 {
                     MessageBox.Show("Confirma la nueva contraseña no coincide!", "Invalido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                usuario.contraseña = txtNPass.Text;
-                dbcon.actualizarUsuario(usuario);
-                if (string.IsNullOrEmpty(Error))
-                {
-                    MessageBox.Show("Contraseña cambiada con exito!", "Cambio de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show(Error, "Error");
-                }
-              
+
+                dbcon.ExecuteQuery("UPDATE Usuarios SET  contraseña = '" + txtNPass.Text + "' WHERE username='" + lblUsername.Text + "'");
+                MessageBox.Show("Contraseña cambiada con exito!", "Cambio de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                
+                MessageBox.Show(ex.Message, "Error");
             }
         }
 
         private void UserAccount_Load(object sender, EventArgs e)
         {
-            lblUsername.Text = usuario.username;
+            lblUsername.Text = main.lblUsername.Text;
         }
 
         private void btnPassCancel_Click(object sender, EventArgs e)
@@ -134,15 +127,11 @@ namespace POSales
         private void dgvUser_SelectionChanged(object sender, EventArgs e)
         {
             int i = dgvUser.CurrentRow.Index;
-            usuario.username = dgvUser[1, i].Value.ToString();
-            usuario.nombre = dgvUser[2, i].Value.ToString();
-            usuario.role = dgvUser[4, i].Value.ToString();
-            if (bool.TryParse(dgvUser[3, i].Value.ToString(), out bool parse))
-            {
-                usuario.isactive = parse;
-            }
-
-            if (lblUsername.Text == usuario.username)
+            username = dgvUser[1, i].Value.ToString();
+            name = dgvUser[2, i].Value.ToString(); 
+            role = dgvUser[4, i].Value.ToString();
+            accstatus = dgvUser[3, i].Value.ToString();
+            if (lblUsername.Text == username)
             {
                 btnRemove.Enabled = false;
                 btnResetPass.Enabled = false;
@@ -153,17 +142,17 @@ namespace POSales
             {
                 btnRemove.Enabled = true;
                 btnResetPass.Enabled = true;
-                lblAccNote.Text = "Para cambiar la contraseña de " + usuario.username + ", click Resetear Contraseña.";
+                lblAccNote.Text = "Para cambiar la contraseña de " + username + ", click Resetear Contraseña.";
             }
-            gbUser.Text = "Password For " + usuario.username;
+            gbUser.Text = "Password For " + username;
             
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if ((MessageBox.Show("Eligió eliminar esta cuenta de la lista de usuarios de este sistema de punto de venta. \n\n ¿Está seguro de que desea eliminar? '" + usuario.username + "' \\ '" + usuario.role + "'", "User Account", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes))
+            if ((MessageBox.Show("Eligió eliminar esta cuenta de la lista de usuarios de este sistema de punto de venta. \n\n ¿Está seguro de que desea eliminar? '" + username + "' \\ '" + role + "'", "User Account", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes))
             {
-                dbcon.ExecuteQuery("DELETE FROM Usuarios WHERE username = '" + usuario.username + "'");
+                dbcon.ExecuteQuery("DELETE FROM Usuarios WHERE username = '" + username + "'");
                 MessageBox.Show("Cuenta eliminada con exito ");
                 LoadUser();
             }
@@ -171,14 +160,18 @@ namespace POSales
 
         private void btnResetPass_Click(object sender, EventArgs e)
         {
-            ResetPassword reset = new ResetPassword(usuario);
+            ResetPassword reset = new ResetPassword(this);
             reset.ShowDialog();
         }
 
         private void btnProperties_Click(object sender, EventArgs e)
         {
-
-            UserProperties properties = new UserProperties(usuario);
+            UserProperties properties = new UserProperties(this);
+            properties.Text = name +"\\"+ username +" Properties";
+            properties.txtName.Text = name;
+            properties.cbRole.Text = role;
+            properties.cbActivate.Text = accstatus;
+            properties.username = username;
             properties.ShowDialog();
         }
 

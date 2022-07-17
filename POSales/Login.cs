@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using POSalesDb;
-using POSalesDB;
+using POSalesDb;
 
 namespace POSales
 {
@@ -18,7 +18,6 @@ namespace POSales
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
-        Usuarios usuario = new Usuarios();
         SqlDataReader dr;
         public Login()
         {
@@ -39,7 +38,7 @@ namespace POSales
         {
 
             string _role = string.Empty;
-            
+            Usuarios usuario = new Usuarios();
             usuario = dbcon.loginAction(txtName.Text, txtPass.Text);
             if (usuario.Id > 0)
             {
@@ -68,7 +67,7 @@ namespace POSales
                     txtName.Clear();
                     txtPass.Clear();
                     this.Hide();
-                    MainForm main = new MainForm(usuario.Id);
+                    MainForm main = new MainForm();
                     main.lblUsername.Text = usuario.username;
                     main.lblName.Text = usuario.nombre;
                     main.ShowDialog();
@@ -79,7 +78,7 @@ namespace POSales
                     txtName.Clear();
                     txtPass.Clear();
                     this.Hide();
-                    MenuPrincipalFactura menuPrincipalFactura = new MenuPrincipalFactura(usuario.Id);
+                    MenuPrincipalFactura menuPrincipalFactura = new MenuPrincipalFactura();
                     menuPrincipalFactura.ShowDialog();
 
                 }

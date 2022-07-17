@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using POSalesDB;
 using POSalesDb;
 
 namespace POSales
@@ -19,15 +18,12 @@ namespace POSales
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
         SqlDataReader dr;
-        Usuarios usuarios = new Usuarios();
-        int userId;
-        public MainForm(int idUser)
+        public string _pass;
+        public MainForm()
         {
-            userId = idUser;
             InitializeComponent();
             customizeDesing();
-            cn = new SqlConnection(dbcon.myConnection());
-            usuarios = dbcon.selectUsuariosPorId(userId);
+            cn = new SqlConnection(dbcon.myConnection());            
         }
 
 
@@ -138,7 +134,7 @@ namespace POSales
 
         private void btnSaleHist_Click(object sender, EventArgs e)
         {           
-            openChildForm(new DailySale(usuarios.username));            
+            openChildForm(new DailySale(this));            
             hideSubmenu();
         }
 
@@ -155,7 +151,7 @@ namespace POSales
 
         private void btnUser_Click(object sender, EventArgs e)
         {
-            openChildForm(new UserAccount(userId));
+            openChildForm(new UserAccount(this));
             hideSubmenu();
         }
 
@@ -194,7 +190,7 @@ namespace POSales
             while (dr.Read())
             {
                 i++;
-                Alert alert = new Alert();
+                Alert alert = new Alert(this);
                 alert.lblPcode.Text = dr["codigo"].ToString();
                 alert.btnReorder.Enabled = true;
                 alert.showAlert(i + ". " + dr["pDesc"].ToString() + " - " + dr["cantidad"].ToString());

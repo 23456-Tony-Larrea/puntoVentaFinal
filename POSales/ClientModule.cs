@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using POSalesDB;
 using POSalesDb;
 namespace POSales
 {
@@ -19,46 +18,12 @@ namespace POSales
         DBConnect dbcon = new DBConnect();
         SqlDataReader dr;
         string stitle = "Punto de venta";
-        Clientes cliente;
-        bool Nuevo = false;
-        public ClientModule(Clientes cl)
+        Clients clients;
+        public ClientModule(Clients cl)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.myConnection());
-            cliente = cl;
-            cargarClientes();
-            
-        }
-        private void cargarClientes()
-        {
-            if (cliente.Id > 0)
-            {
-                btnSave.Visible = false;
-                txtId.Text = cliente.Id.ToString();
-                txtName.Text = cliente.nombre.ToString();
-                txtComercio.Text = cliente.comercio.ToString();
-                txtCodigo.Text = cliente.codigo.ToString();
-                dateNacimiento.Value = cliente.fechaNacimiento.Date;
-                dateRegisstro.Value = cliente.fechaRegistro.Date;
-                txtCiudad.Text = cliente.ciudad.ToString();
-                cboTipo.SelectedValue = cliente.codigo.ToString();
-                txtCiRuc.Text = cliente.ciRuc.ToString();
-                txtPais.Text = cliente.pais.ToString();
-                cboEstado.SelectedValue = cliente.estado.ToString();
-                txtDireccion.Text = cliente.direccion.ToString();
-                txtTelf.Text = cliente.telefono.ToString();
-                txtCelular.Text = cliente.celular.ToString();
-                txtFax.Text = cliente.fax.ToString();
-                txtCargo.Text = cliente.cargo.ToString();
-                txtEmail.Text = cliente.email.ToString();
-                cboTipoCliente.SelectedValue = cliente.tipo.ToString();
-            }
-            else
-            {
-                btnUpdate.Visible = false;
-            }
-           
-
+            clients = cl;
         }
 
         private void picClose_Click(object sender, EventArgs e)
@@ -68,48 +33,33 @@ namespace POSales
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            int NoSelect = -1;
-
-            if (cboTipoCliente.SelectedIndex == NoSelect)
-            {
-                MessageBox.Show("Por favor,seleccione un tipo de cliente");
-                return;
-            }
             try
             {
                 if (MessageBox.Show("Estas seguro de guardar este ecliente?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    Clientes cliente = new Clientes();    
-                    
-                    cliente.nombre= txtName.Text;
-                    cliente.comercio= txtComercio.Text;
-                    cliente.codigo= txtCodigo.Text;
-                    cliente.fechaNacimiento= dateNacimiento.Value;
-                    cliente.fechaRegistro= dateRegisstro.Value;
-                    cliente.ciudad= txtCiudad.Text;
-                    cliente.tipo= cboTipo.Text;
-                    cliente.ciRuc= txtCiRuc.Text;
-                    cliente.pais= txtPais.Text;
-                    cliente.estado= cboEstado.SelectedItem.ToString();
-                    cliente.direccion= txtDireccion.Text;
-                    cliente.telefono= txtTelf.Text;
-                    cliente.celular= txtCelular.Text;
-                    cliente.fax= txtFax.Text;
-                    cliente.cargo= txtCargo.Text;
-                    cliente.email= txtEmail.Text;
-                    cliente.tipoCliente=cboTipoCliente.Text;
-                    string error= string.Empty;
-                 error=dbcon.insertClientes(cliente);
-                    if (string.IsNullOrEmpty(error))
-                    {
-                        MessageBox.Show("Existosamente guardado.", "POS");
+                    cn.Open();
+                    cm = new SqlCommand("Insert into Clientes(nombre,comercio,codigo,fechaNacimiento,fechaRegistro,ciudad,tipo,ciRuc,pais,estado,direccion,celular,fax,cargo,email,tipoCliente) values(@nombre,@comercio,@codigo,@fechaNacimiento,@fechaRegistro,@ciudad,@tipo,@ciRuc,@pais,@estado,@direccion,@celular,@fax,@cargo,@email,@tipoCliente)",cn);
+                    cm.Parameters.AddWithValue("@nombre", txtName.Text);
+                    cm.Parameters.AddWithValue("@comercio", txtComercio.Text);
+                    cm.Parameters.AddWithValue("@codigo", txtCodigo.Text);
+                    cm.Parameters.AddWithValue("@fechaNacimiento", dateNacimiento.Value.ToString("dd/MM/yyy"));
+                    cm.Parameters.AddWithValue("@fechaRegistro", dateRegisstro.Value.ToString("dd/MM/yyy"));
+                    cm.Parameters.AddWithValue("@ciudad", txtCiudad.Text);
+                    cm.Parameters.AddWithValue("@tipo", cboTipo.SelectedItem.ToString());
+                    cm.Parameters.AddWithValue("@ciRuc", txtCiRuc.Text);
+                    cm.Parameters.AddWithValue("@pais", txtPais.Text);
+                    cm.Parameters.AddWithValue("@estado", cboEstado.SelectedItem.ToString());
+                    cm.Parameters.AddWithValue("@direccion", txtDireccion.Text);
+                    cm.Parameters.AddWithValue("@telefono", txtTelf.Text);
+                    cm.Parameters.AddWithValue("@celular", txtCelular.Text);
+                    cm.Parameters.AddWithValue("@fax", txtFax.Text);
+                    cm.Parameters.AddWithValue("@cargo", txtCargo.Text);
+                    cm.Parameters.AddWithValue("@email", txtEmail.Text);
+                    cm.Parameters.AddWithValue("@tipoCliente",cboTipoCliente.SelectedValue);
 
-                    }
-                    else
-                    {
-                        MessageBox.Show(error);
-                    }
-                        
+                    cm.ExecuteNonQuery();
+                    cn.Close();
+                    MessageBox.Show("Existosamente guardado.", "POS");
                     Clear();
                 }
             }
@@ -144,50 +94,37 @@ namespace POSales
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            Clientes cliente = new Clientes();
-
-            try
+            //Update brand name
+            if (MessageBox.Show("Estas seguro de actualizar este cliente?", "Actualizado con exito!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (MessageBox.Show("Estas seguro de actualizar este cliente?", "Actualizar cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    cliente.nombre = txtName.Text;
-                    cliente.comercio = txtComercio.Text;
-                    cliente.codigo = txtCodigo.Text;
-                    cliente.fechaNacimiento = dateNacimiento.Value;
-                    cliente.fechaRegistro = dateRegisstro.Value;
-                    cliente.ciudad = txtCiudad.Text;
-                    cliente.tipo = cboTipo.Text;
-                    cliente.ciRuc = txtCiRuc.Text;
-                    cliente.pais = txtPais.Text;
-                    cliente.estado = cboEstado.SelectedItem.ToString();
-                    cliente.direccion = txtDireccion.Text;
-                    cliente.telefono = txtTelf.Text;
-                    cliente.celular = txtCelular.Text;
-                    cliente.fax = txtFax.Text;
-                    cliente.cargo = txtCargo.Text;
-                    cliente.email = txtEmail.Text;
-                    cliente.tipoCliente = cboTipoCliente.Text;
-                    string error = string.Empty;
-                    error = dbcon.actualizarClientes(cliente);
-                    if (string.IsNullOrEmpty(error))
-                    {
-                        MessageBox.Show("Actualizado con exito.", stitle);
-                        this.Dispose();
+                cn.Open();
+                cm = new SqlCommand("UPDATE Clientes SET nombre=@nombre,comercio=@comercio,codigo=@codigo,fechaNacimiento=@fechaNacimiento,fechaRegistro=@fechaRegistro,ciudad=@ciudad,tip=@tipo,ciRuc=@ciRuc,pais=@pais,estado=@estado,direccion=@direccion,celular=@celular,fax=@fax,cargo=cargo,emaiñ=@email,tipoCliente=@tipoCliente  WHERE id LIKE'" + txtId.Text + "'", cn);
+                cm.Parameters.AddWithValue("@nombre", txtName.Text);
+                cm.Parameters.AddWithValue("@comercio", txtComercio.Text);
+                cm.Parameters.AddWithValue("@codigo", txtCodigo.Text);
+                cm.Parameters.AddWithValue("@fechaNacimiento", dateNacimiento.Value.ToString("dd/MM/yyy"));
+                cm.Parameters.AddWithValue("@fechaRegistro", dateRegisstro.Value.ToString("dd/MM/yyy"));
+                cm.Parameters.AddWithValue("@ciudad", txtCiudad.Text);
+                cm.Parameters.AddWithValue("@tipo", cboTipo.SelectedItem.ToString());
+                cm.Parameters.AddWithValue("@ciRuc", txtCiRuc.Text);
+                cm.Parameters.AddWithValue("@pais", txtPais.Text);
+                cm.Parameters.AddWithValue("@estado", cboEstado.SelectedItem.ToString());
+                cm.Parameters.AddWithValue("@direccion", txtDireccion.Text);
+                cm.Parameters.AddWithValue("@telefono", txtTelf.Text);
+                cm.Parameters.AddWithValue("@celular", txtCelular.Text);
+                cm.Parameters.AddWithValue("@fax", txtFax.Text);
+                cm.Parameters.AddWithValue("@cargo", txtCargo.Text);
+                cm.Parameters.AddWithValue("@email", txtEmail.Text);
+                cm.Parameters.AddWithValue("@tipoCliente", cboTipoCliente.SelectedValue);
 
-                    }
-                    else
-                    {
-                        MessageBox.Show(error);
-                    }
-                }
+                cm.ExecuteNonQuery();
+                cn.Close();
+                MessageBox.Show("Existosamente guardado.", "POS");
+                Clear(); cm.ExecuteNonQuery();
+                cn.Close();
+                MessageBox.Show("Cliente actualizado correctamente.", "POS");
+                Clear();
             }
-            catch (Exception ex)
-            { Console.WriteLine(ex.Message); }
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

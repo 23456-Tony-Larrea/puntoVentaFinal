@@ -37,6 +37,9 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=6.1.1.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.1.1\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
     </Reference>
@@ -67,9 +70,12 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -82,6 +88,7 @@
     <Reference Include="WhatsAppApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WhatsAppAPI.15.4.29\lib\net40\WhatsAppApi.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adjustments.cs">
@@ -162,6 +169,12 @@
     <Compile Include="Clients.Designer.cs">
       <DependentUpon>Clients.cs</DependentUpon>
     </Compile>
+    <Compile Include="combo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="combo.Designer.cs">
+      <DependentUpon>combo.cs</DependentUpon>
+    </Compile>
     <Compile Include="DailySale.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,17 +225,11 @@
     <Compile Include="Item.Designer.cs">
       <DependentUpon>Item.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProveedorFactura.cs">
+    <Compile Include="ItemModule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProveedorFactura.designer.cs">
-      <DependentUpon>ProveedorFactura.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ItemModule2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ItemModule2.Designer.cs">
-      <DependentUpon>ItemModule2.cs</DependentUpon>
+    <Compile Include="ItemModule.designer.cs">
+      <DependentUpon>ItemModule.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -399,6 +406,9 @@
     <EmbeddedResource Include="Clients.resx">
       <DependentUpon>Clients.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="combo.resx">
+      <DependentUpon>combo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DailySale.resx">
       <DependentUpon>DailySale.cs</DependentUpon>
     </EmbeddedResource>
@@ -420,11 +430,8 @@
     <EmbeddedResource Include="Item.resx">
       <DependentUpon>Item.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProveedorFactura.resx">
-      <DependentUpon>ProveedorFactura.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ItemModule2.resx">
-      <DependentUpon>ItemModule2.cs</DependentUpon>
+    <EmbeddedResource Include="ItemModule.resx">
+      <DependentUpon>ItemModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -595,7 +602,6 @@
     <Content Include="Image\Image\user_secured_30px.png" />
     <Content Include="Image\Image\user_secured_50px.png" />
     <Content Include="MetroFramework.txt" />
-    <None Include="Resources\delete_20px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

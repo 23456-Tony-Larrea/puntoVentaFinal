@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using POSalesDB;
 using POSalesDb;
 namespace POSales
 {
@@ -18,9 +17,9 @@ namespace POSales
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
 
-        Usuarios account;
+        UserAccount account;
         public string username;
-        public UserProperties(Usuarios user)
+        public UserProperties(UserAccount user)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.myConnection());
@@ -35,35 +34,27 @@ namespace POSales
   
         private void btnApply_Click(object sender, EventArgs e)
         {
-            string Error = string.Empty;
-
+            try
+            {
                 if ((MessageBox.Show("Está seguro de que desea cambiar las propiedades de esta cuenta?", "Cambiar propiedades", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes))
                  {
                     cn.Open();
                     cm = new SqlCommand("UPDATE Usuarios SET nombre=@nombre, role=@role, isactive=@isactive WHERE username='" + username + "'",cn);
-                    account.nombre= txtName.Text;
-                    account.role = cbRole.Text;
-                    if (cbActivate.SelectedIndex == 0)
-                    {
-                        account.isactive = true;
-                    }
-                    else
-                    {
-                        account.isactive = false;
-                    }
-
-
-                    Error = dbcon.actualizarUsuario(account);
-                    if (string.IsNullOrEmpty(Error))
-                    {
-                        MessageBox.Show("Actualizado satisfactoriamente");
-                    }
-                    else 
-                    {
-                        MessageBox.Show(Error);
-                    }
-                    this.Dispose();;
+                    cm.Parameters.AddWithValue("@nombre", txtName.Text);
+                    cm.Parameters.AddWithValue("@role", cbRole.Text);
+                    cm.Parameters.AddWithValue("@isactive", cbActivate.Text);
+                    cm.ExecuteNonQuery();
+                    cn.Close();
+                    MessageBox.Show("Las propiedades de la cuenta se han cambiado correctamente!", "Actualizar propiedades", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    account.LoadUser();
+                    this.Dispose();
                 }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void UserProperties_KeyDown(object sender, KeyEventArgs e)

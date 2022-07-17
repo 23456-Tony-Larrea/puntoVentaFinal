@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using POSalesDB;
+using POSalesDb;
 namespace POSales
 {
     public partial class Cashier : Form
@@ -95,7 +95,7 @@ namespace POSales
         private void btnDSales_Click(object sender, EventArgs e)
         {
             slide(btnDSales);
-            DailySale dailySale = new DailySale(lblUsername.Text);
+            DailySale dailySale = new DailySale(new MainForm());
             dailySale.solduser = lblUsername.Text;
             dailySale.dtFrom.Enabled = false;
             dailySale.dtTo.Enabled = false;
@@ -387,7 +387,7 @@ namespace POSales
             while (dr.Read())
             {
                 i++;
-                Alert alert = new Alert();
+                Alert alert = new Alert(new MainForm());
                 alert.lblPcode.Text = dr["codigo"].ToString();
                 alert.showAlert(i + ". " + dr["pDesc"].ToString() + " - " + dr["cantidad"].ToString());
             }

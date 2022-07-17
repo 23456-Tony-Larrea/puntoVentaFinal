@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using POSalesDB;
+using POSalesDb;
 using System.IO;
 
 namespace POSales
@@ -46,16 +46,18 @@ namespace POSales
                 Items item = new Items();
                 item.Id = Convert.ToInt32(dgvItem.Rows[e.RowIndex].Cells["Id"].Value);
                 item.nombre = dgvItem.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-                item.codigoBarras = dgvItem.Rows[e.RowIndex].Cells["codigoBarras"].Value.ToString();
+                item.codigoBarras = Convert.ToString(dgvItem.Rows[e.RowIndex].Cells["codigoBarras"].Value);
                 item.precioA = Convert.ToDecimal(dgvItem.Rows[e.RowIndex].Cells["precioA"].Value.ToString());
                 item.precioB = Convert.ToDecimal(dgvItem.Rows[e.RowIndex].Cells["precioB"].Value.ToString());
                 item.precioC = Convert.ToDecimal(dgvItem.Rows[e.RowIndex].Cells["precioC"].Value.ToString());
                 item.precioD = Convert.ToDecimal(dgvItem.Rows[e.RowIndex].Cells["precioD"].Value.ToString());
                 item.precioD = Convert.ToDecimal(dgvItem.Rows[e.RowIndex].Cells["precioD"].Value.ToString());
                 item.descripcion = dgvItem.Rows[e.RowIndex].Cells["descripcion"].Value.ToString();
+            
                 item.descMax = Convert.ToDecimal(dgvItem.Rows[e.RowIndex].Cells["descMax"].Value.ToString());
+                item.stock = Convert.ToInt32(dgvItem.Rows[e.RowIndex].Cells["stock"].Value.ToString());
                 item.stockMin = Convert.ToInt32(dgvItem.Rows[e.RowIndex].Cells["stockMin"].Value.ToString());
-                item.costo = Convert.ToDecimal(dgvItem.Rows[e.RowIndex].Cells["costo"].Value.ToString());
+                
                 item.unidad = Convert.ToInt32(dgvItem.Rows[e.RowIndex].Cells["unidad"].Value.ToString());
                 item.bId = Convert.ToInt32(dgvItem.Rows[e.RowIndex].Cells["bId"].Value.ToString());
                 item.cId = Convert.ToInt32(dgvItem.Rows[e.RowIndex].Cells["CId"].Value.ToString());
@@ -64,16 +66,24 @@ namespace POSales
                 item.servicio = Convert.ToBoolean(dgvItem.Rows[e.RowIndex].Cells["servicio"].Value);
                 item.aplicaSeries = Convert.ToBoolean(dgvItem.Rows[e.RowIndex].Cells["aplicaSeries"].Value.ToString());
                 item.negativo = Convert.ToBoolean(dgvItem.Rows[e.RowIndex].Cells["negativo"].Value.ToString());
-                item.combo = Convert.ToBoolean(dgvItem.Rows[e.RowIndex].Cells["Combo"].Value.ToString());
+                item.hascombo = Convert.ToBoolean(dgvItem.Rows[e.RowIndex].Cells["hasCombo"].Value.ToString());
                 item.ice = Convert.ToDecimal(dgvItem.Rows[e.RowIndex].Cells["ice"].Value.ToString());
                 item.valorIce = Convert.ToDecimal(dgvItem.Rows[e.RowIndex].Cells["valorIce"].Value.ToString());
                 item.iva = Convert.ToDecimal(dgvItem.Rows[e.RowIndex].Cells["iva"].Value.ToString());
                 item.HasIva = Convert.ToBoolean(dgvItem.Rows[e.RowIndex].Cells["HasIva"].Value.ToString());
-                item.imagen =dgvItem.Rows[e.RowIndex].Cells["imagen"].Value.ToString();
-                Form itemModule = new ProveedorFactura(item); 
-                itemModule.Show();
-            
-            
+                if (File.Exists(dgvItem.Rows[e.RowIndex].Cells["imagen"].Value.ToString()))
+                {
+                    item.imagen = (Bitmap)Image.FromFile(dgvItem.Rows[e.RowIndex].Cells["imagen"].Value.ToString());
+                }
+                else
+                {
+                    item.imagen = (Bitmap)Image.FromFile(@"Image\cancel_30px.png");
+                }
+                Form itemModule = new ItemModule(item); 
+                itemModule.ShowDialog();
+                cargarItem();
+
+
             }
             else if (colName == "Delete")
             {
@@ -92,8 +102,9 @@ namespace POSales
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Items item = new Items();
-            ProveedorFactura productModule = new ProveedorFactura(item);
+            ItemModule productModule = new ItemModule(item);
             productModule.ShowDialog();
+            cargarItem();
         }
 
         private void Item_Load(object sender, EventArgs e)

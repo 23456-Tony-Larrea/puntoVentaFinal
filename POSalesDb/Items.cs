@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Drawing;
+
 namespace POSalesDb
 {
    public class Items 
@@ -21,21 +23,21 @@ namespace POSalesDb
 		public decimal descMax { get; set; }
 		public int stockMin { get; set; }
 		public int stock { get; set; }
-		public decimal costo { get; set; }
 		public int unidad { get; set; }
 		public int bId { get; set; }
 		public int cId { get; set; }
 		public int gId { get; set; }
 		public int mId { get; set; }
 		public bool servicio { get; set; }
+		public bool hascombo { get; set; }
 		public bool aplicaSeries { get; set; }
 		public bool negativo { get; set; }
-		public bool combo { get; set; }
 		public decimal ice { get; set; }
 		public decimal valorIce { get; set; }
-		public string imagen { get; set; }
+		public Bitmap imagen { get; set; }
 		public string imagenUrl { get; set; }
 		public decimal iva { get; set; }
+		public List<Items> Combo { get; set; } = new List<Items>();
 		public decimal montoTotal { get; set; }
 		[DisplayName("Precio total")]
 		public decimal CostoTotal => (HasIva) ? montoTotal * iva * ice : montoTotal;
