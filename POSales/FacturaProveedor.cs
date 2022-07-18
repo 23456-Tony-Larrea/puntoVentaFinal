@@ -16,5 +16,10 @@ namespace POSales
         {
             InitializeComponent();
         }
+
+        private void FacturaProveedor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
