@@ -207,6 +207,12 @@
     <Compile Include="FacturaClientes.Designer.cs">
       <DependentUpon>FacturaClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FacturaProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacturaProveedor.Designer.cs">
+      <DependentUpon>FacturaProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Group.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -420,6 +426,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FacturaClientes.resx">
       <DependentUpon>FacturaClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacturaProveedor.resx">
+      <DependentUpon>FacturaProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Group.resx">
       <DependentUpon>Group.cs</DependentUpon>

@@ -25,6 +25,23 @@ namespace POSalesDb
             return con;
         }
 
+        public string  actualizarvalorStock(int qty , int idItem)
+        {
+
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand($"Update item set stock = stock + { qty } Where id = { idItem }",cn);
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+
+        }
         public static void CrearEvento(string cmd)
         {
             string MyLogName = DateTime.Now.ToString("ddMMyyyHHmmssfff");

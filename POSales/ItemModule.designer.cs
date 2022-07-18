@@ -31,7 +31,7 @@ namespace POSales
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemModule));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSave = new System.Windows.Forms.Button();
             this.picClose = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -92,7 +92,6 @@ namespace POSales
             this.dgvCombo = new System.Windows.Forms.DataGridView();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAgregarCombos = new FontAwesome.Sharp.IconButton();
             this.hasIvaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoBarrasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -121,6 +120,7 @@ namespace POSales
             this.montoTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costoTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnAgregarCombos = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -446,6 +446,7 @@ namespace POSales
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(935, 204);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(22, 25);
@@ -456,6 +457,7 @@ namespace POSales
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(935, 165);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(22, 25);
@@ -466,6 +468,7 @@ namespace POSales
             // 
             // pictureBox3
             // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(935, 240);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(22, 25);
@@ -476,6 +479,7 @@ namespace POSales
             // 
             // pictureBox5
             // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(935, 271);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(22, 25);
@@ -710,14 +714,14 @@ namespace POSales
             this.dgvCombo.AutoGenerateColumns = false;
             this.dgvCombo.BackgroundColor = System.Drawing.Color.White;
             this.dgvCombo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCombo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCombo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCombo.ColumnHeadersHeight = 30;
             this.dgvCombo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvCombo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -778,23 +782,6 @@ namespace POSales
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.Width = 125;
-            // 
-            // btnAgregarCombos
-            // 
-            this.btnAgregarCombos.Enabled = false;
-            this.btnAgregarCombos.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
-            this.btnAgregarCombos.IconColor = System.Drawing.Color.RoyalBlue;
-            this.btnAgregarCombos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAgregarCombos.IconSize = 25;
-            this.btnAgregarCombos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarCombos.Location = new System.Drawing.Point(811, 312);
-            this.btnAgregarCombos.Name = "btnAgregarCombos";
-            this.btnAgregarCombos.Size = new System.Drawing.Size(214, 32);
-            this.btnAgregarCombos.TabIndex = 104;
-            this.btnAgregarCombos.Text = "Agregar o Eliminar items";
-            this.btnAgregarCombos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregarCombos.UseVisualStyleBackColor = true;
-            this.btnAgregarCombos.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // hasIvaDataGridViewCheckBoxColumn
             // 
@@ -1016,6 +1003,23 @@ namespace POSales
             // itemsBindingSource
             // 
             this.itemsBindingSource.DataSource = typeof(POSalesDb.Items);
+            // 
+            // btnAgregarCombos
+            // 
+            this.btnAgregarCombos.Enabled = false;
+            this.btnAgregarCombos.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
+            this.btnAgregarCombos.IconColor = System.Drawing.Color.RoyalBlue;
+            this.btnAgregarCombos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgregarCombos.IconSize = 25;
+            this.btnAgregarCombos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarCombos.Location = new System.Drawing.Point(811, 312);
+            this.btnAgregarCombos.Name = "btnAgregarCombos";
+            this.btnAgregarCombos.Size = new System.Drawing.Size(214, 32);
+            this.btnAgregarCombos.TabIndex = 104;
+            this.btnAgregarCombos.Text = "Agregar o Eliminar items";
+            this.btnAgregarCombos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarCombos.UseVisualStyleBackColor = true;
+            this.btnAgregarCombos.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // ItemModule
             // 
