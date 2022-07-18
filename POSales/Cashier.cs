@@ -56,7 +56,7 @@ namespace POSales
         private void btnSearch_Click(object sender, EventArgs e)
         {
             slide(btnSearch);
-            LookUpProduct lookUp = new LookUpProduct(this);
+            LookUpProduct lookUp = new LookUpProduct();
             lookUp.LoadProduct();
             lookUp.ShowDialog();
         }

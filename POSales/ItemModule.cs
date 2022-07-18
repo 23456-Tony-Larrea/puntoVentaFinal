@@ -364,12 +364,7 @@ namespace POSales
             LoadBodega();
         }
 
-        private void cboBrand_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void txtPriceA_TextChanged(object sender, EventArgs e)
+        private void CalcularIvaPrecioA()
         {
             decimal iva = 0;
             if (HasIva.Checked == true)
@@ -384,6 +379,15 @@ namespace POSales
                     }
                 }
             }
+        }
+        private void cboBrand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalcularIvaPrecioA();
+        }
+
+        private void txtPriceA_TextChanged(object sender, EventArgs e)
+        {
+            
 
         }
         string Url;
@@ -439,6 +443,11 @@ namespace POSales
         }
 
         private void txtPriceC_TextChanged(object sender, EventArgs e)
+        {
+            CalcularIvaPrecioC();
+        }
+
+        private void CalcularIvaPrecioC()
         {
             decimal iva = 0;
             if (HasIva.Checked == true)
@@ -568,6 +577,11 @@ namespace POSales
 
         private void txtPriceB_TextChanged(object sender, EventArgs e)
         {
+            CalcularIvaPrecioB();
+        }
+
+        private void CalcularIvaPrecioB()
+        {
             decimal iva = 0;
             if (HasIva.Checked == true)
             {
@@ -584,6 +598,11 @@ namespace POSales
         }
 
         private void txtPriceD_TextChanged(object sender, EventArgs e)
+        {
+            CalcularIvaPrecioD();
+        }
+
+        private void CalcularIvaPrecioD()
         {
             decimal iva = 0;
             if (HasIva.Checked == true)
@@ -655,6 +674,14 @@ namespace POSales
                 }
 
             }
+        }
+
+        private void txtIva_TextChanged(object sender, EventArgs e)
+        {
+            CalcularIvaPrecioA();
+            CalcularIvaPrecioB();
+            CalcularIvaPrecioC();
+            CalcularIvaPrecioD();
         }
     }
 }

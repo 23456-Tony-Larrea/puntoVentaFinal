@@ -65,5 +65,15 @@ namespace POSales
         {
 
         }
+
+        private void LinFac_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void cboProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

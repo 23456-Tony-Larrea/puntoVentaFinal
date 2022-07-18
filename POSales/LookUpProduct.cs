@@ -13,17 +13,16 @@ namespace POSales
 {
     public partial class LookUpProduct : Form
     {
+        public Items item = new Items();
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
         SqlDataReader dr;
-        Cashier cashier;
 
-        public LookUpProduct(Cashier cash)
+        public LookUpProduct()
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.myConnection());
-            cashier = cash;
             LoadProduct();
         }
 
@@ -35,27 +34,28 @@ namespace POSales
         public void LoadProduct()
         {
             int i = 0;
-            dgvProduct.Rows.Clear();
-            cm = new SqlCommand("SELECT p.codigo, p.codigoBarras, p.pDesc, b.marca, c.Categoria, p.precio, p.cantidad FROM Productos AS p INNER JOIN Marcas AS b ON b.Id = p.bid INNER JOIN Categorias AS c on c.Id = p.cid WHERE CONCAT(p.pDesc, b.marca, c.Categoria) LIKE '%" + txtSearch.Text + "%'", cn);
-            cn.Open();
-            dr = cm.ExecuteReader();
-            while (dr.Read())
+            DataTable Products = new DataTable();
+            Products = dbcon.LoadProduct(txtSearch.Text);
+            foreach(DataRow dr in Products.Rows)
             {
                 i++;
-                dgvProduct.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
+                dgvProduct.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString());
             }
-            dr.Close();
-            cn.Close();
         }
 
         private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string colName = dgvProduct.Columns[e.ColumnIndex].Name;
+            int Id = 0;
+            int.TryParse(dgvProduct.Rows[e.RowIndex].Cells["Id"].Value.ToString(), out Id);
             if (colName == "Select")
             {
-                Qty qty = new Qty(cashier);
-                qty.ProductDetails(dgvProduct.Rows[e.RowIndex].Cells[1].Value.ToString(), double.Parse(dgvProduct.Rows[e.RowIndex].Cells[6].Value.ToString()), cashier.lblTranNo.Text, int.Parse(dgvProduct.Rows[e.RowIndex].Cells[7].Value.ToString()));
-                qty.ShowDialog();
+                if (MessageBox.Show("Añadir este artículo? ", "Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    item = dbcon.selectItemPorId(Id);
+                    this.Close();
+                }
+         
             }
         }
 
@@ -70,6 +70,11 @@ namespace POSales
             {
                 this.Dispose();
             }
+        }
+
+        private void txtSearch_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

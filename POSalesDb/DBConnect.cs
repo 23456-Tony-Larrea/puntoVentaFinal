@@ -21,7 +21,7 @@ namespace POSalesDb
         private string con;
         public string myConnection()
         {
-            con = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\avsla\Documents\DBPOSale.mdf;Integrated Security=True;Connect Timeout=30";
+            con = @"Data Source=localhost;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True";
             return con;
         }
 
@@ -42,6 +42,29 @@ namespace POSalesDb
             }
 
         }
+
+        public DataTable SelectTodosLosProveedores()
+        {
+            cn.ConnectionString = myConnection();
+            cm = new SqlCommand("SELECT * FROM Proveedores", cn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cm);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            adapter.Dispose();
+            return table;
+        }
+        public DataTable LoadProduct(string txtSearch)
+        {
+            cn.ConnectionString = myConnection();
+            cm = new SqlCommand($"SELECT p.id, p.Nombre, p.codigoBarras, p.descripcion, b.marca, c.Categoria, p.precioA, p.stock,negativo FROM items AS p left JOIN Marcas AS b ON b.Id = p.bid left JOIN Categorias AS c on c.Id = p.cid WHERE CONCAT(p.Nombre, b.marca, c.Categoria) LIKE '%{txtSearch}%' and (Stock > 0 or negativo = 1)", cn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cm);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            adapter.Dispose();
+            return table;
+        }
+
+
         public static void CrearEvento(string cmd)
         {
             string MyLogName = DateTime.Now.ToString("ddMMyyyHHmmssfff");
@@ -255,11 +278,13 @@ namespace POSalesDb
                 {
                     item.Id = (int)dt.Rows[0]["Id"];
                     item.nombre = dt.Rows[0]["nombre"].ToString();
+                    item.codigoBarras = dt.Rows[0]["codigoBarras"].ToString();
                     item.precioA = (decimal)dt.Rows[0]["precioA"];
                     item.precioB = (decimal)dt.Rows[0]["precioB"];
                     item.precioC = (decimal)dt.Rows[0]["precioC"];
                     item.precioD = (decimal)dt.Rows[0]["precioD"];
                     item.descripcion = dt.Rows[0]["descripcion"].ToString();
+                    item.stock = (int)dt.Rows[0]["stock"];
                     item.stockMin = (int)dt.Rows[0]["stockMin"];
                     item.unidad = (int)dt.Rows[0]["unidad"];
                     item.bId = (int)dt.Rows[0]["bId"];
@@ -271,7 +296,7 @@ namespace POSalesDb
                     item.negativo = (bool)dt.Rows[0]["negativo"];
                     item.hascombo = (bool)dt.Rows[0]["combo"];
                     item.ice = (decimal)dt.Rows[0]["ice"];
-                    item.valorIce = (decimal)dt.Rows[0]["valorIce"];
+                 
                     item.HasIva = (bool)dt.Rows[0]["HasIva"];
                     item.iva = (decimal)dt.Rows[0]["iva"];
                     if (File.Exists(dt.Rows[0]["imagen"].ToString()))
@@ -284,6 +309,7 @@ namespace POSalesDb
                     }
                     
                     item.descripcion = dt.Rows[0]["imagenUrl"].ToString();
+                    item.valorIce = (decimal)dt.Rows[0]["valorIce"];
                     item.montoTotal = (decimal)dt.Rows[0]["montoTotal"];
                 }
                 return item;
@@ -365,7 +391,7 @@ namespace POSalesDb
             cn.ConnectionString = myConnection();
             List<Items> items = new List<Items>();
             decimal precioA = 0, precioB = 0, precioC = 0, precioD = 0, peso = 0, comision = 0, descMax = 0, costo = 0, ice = 0, valorIce = 0, iva = 0, montoTotal = 0;
-            int Id = 0, unidadCaja = 0, stockMax = 0, stockMin = 0, bId = 0, cId = 0, gId = 0, mId = 0, unidad = 0;
+            int Id = 0, unidadCaja = 0, stockMax = 0, stockMin = 0, stock = 0, bId = 0, cId = 0, gId = 0, mId = 0, unidad = 0;
 
             try
             {
@@ -394,6 +420,9 @@ namespace POSalesDb
                         item.descripcion = r["descripcion"].ToString();
                         int.TryParse(r["stockMin"].ToString(), out stockMin);
                         item.stockMin = stockMin;
+
+                        int.TryParse(r["stock"].ToString(), out stock);
+                        item.stock = stock;
                         int.TryParse(r["unidad"].ToString(), out unidad);
                         item.unidad = (int)r["unidad"];
                         int.TryParse(r["bId"].ToString(), out bId);
@@ -671,7 +700,7 @@ namespace POSalesDb
                    "combo=@combo," +
                    "ice=@ice," +
                    "valorIce=@valorIce," +
-                   "HasIva=HasIva," +
+                   "HasIva=@HasIva," +
                    "iva=@iva," +
                    "imagen=@imagen," +
                    "imagenUrl=@imagenUrl," +

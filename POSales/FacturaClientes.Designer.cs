@@ -125,6 +125,7 @@
             this.LinFac.TabIndex = 8;
             this.LinFac.TabStop = true;
             this.LinFac.Text = "[Generar]";
+            this.LinFac.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinFac_LinkClicked);
             // 
             // label3
             // 
@@ -161,6 +162,7 @@
             this.cboProductos.Name = "cboProductos";
             this.cboProductos.Size = new System.Drawing.Size(346, 25);
             this.cboProductos.TabIndex = 15;
+            this.cboProductos.SelectedIndexChanged += new System.EventHandler(this.cboProductos_SelectedIndexChanged);
             // 
             // label5
             // 

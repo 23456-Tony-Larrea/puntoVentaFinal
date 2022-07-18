@@ -36,7 +36,7 @@ namespace POSales
         {
             int i = 0;
             dgvProduct.Rows.Clear();
-            cm = new SqlCommand("SELECT codigo, pDesc, cantidad FROM Productos WHERE pDesc LIKE '%" + txtSearch.Text + "%'", cn);
+            cm = new SqlCommand("SELECT codigoBarras, descripcion, stock FROM Items WHERE descripcion LIKE '%" + txtSearch.Text + "%'", cn);
             cn.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())
@@ -46,10 +46,6 @@ namespace POSales
             }
             dr.Close();
             cn.Close();
-        }
-        private async Task TareasNoSecuenciales()
-        {
-            
         }
         private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -108,6 +104,11 @@ namespace POSales
         }
 
         private void ProductStockIn_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroTextBox1_Click(object sender, EventArgs e)
         {
 
         }

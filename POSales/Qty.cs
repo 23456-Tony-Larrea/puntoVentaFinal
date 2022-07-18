@@ -24,6 +24,7 @@ namespace POSales
         private int qty;
         Cashier cashier;
 
+
         public Qty(Cashier cash)
         {
             InitializeComponent();

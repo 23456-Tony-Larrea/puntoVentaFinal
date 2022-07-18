@@ -12,14 +12,16 @@ namespace POSales
 {
     public partial class MenuPrincipalFactura : Form
     {
-        public MenuPrincipalFactura()
+        int _idUsuario;
+        public MenuPrincipalFactura(int idUsuario)
         {
+            _idUsuario =idUsuario;
             InitializeComponent();
         }
 
         private void btnFactura_Click(object sender, EventArgs e)
         {
-            FacturaClientes factura = new FacturaClientes();
+            FacturaProveedor factura = new FacturaProveedor(_idUsuario);
             factura.ShowDialog();
         }
 

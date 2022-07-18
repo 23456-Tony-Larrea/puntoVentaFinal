@@ -17,6 +17,7 @@ namespace POSales
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
         SqlDataReader dr;
+    
         public Supplier()
         {
             InitializeComponent();
