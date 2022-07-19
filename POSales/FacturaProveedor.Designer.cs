@@ -38,9 +38,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.txtTotalItem = new System.Windows.Forms.TextBox();
             this.txtCant = new System.Windows.Forms.TextBox();
-            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.txtStock = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -71,15 +71,15 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtSubTotalItem = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtIvaItem = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txtIva = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -88,11 +88,14 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IvaPorItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotalPorItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ggvProductos)).BeginInit();
             this.panel1.SuspendLayout();
@@ -173,6 +176,7 @@
             this.btnEliminar.TabIndex = 55;
             this.btnEliminar.Text = "Eliminar ";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnAgregar
             // 
@@ -185,13 +189,13 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // txtTotal
+            // txtTotalItem
             // 
-            this.txtTotal.Location = new System.Drawing.Point(997, 378);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(72, 24);
-            this.txtTotal.TabIndex = 53;
+            this.txtTotalItem.Location = new System.Drawing.Point(997, 378);
+            this.txtTotalItem.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotalItem.Name = "txtTotalItem";
+            this.txtTotalItem.Size = new System.Drawing.Size(72, 24);
+            this.txtTotalItem.TabIndex = 53;
             // 
             // txtCant
             // 
@@ -202,14 +206,14 @@
             this.txtCant.TabIndex = 52;
             this.txtCant.TextChanged += new System.EventHandler(this.txtCant_TextChanged);
             // 
-            // txtPrice
+            // txtStock
             // 
-            this.txtPrice.Enabled = false;
-            this.txtPrice.Location = new System.Drawing.Point(240, 374);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(76, 24);
-            this.txtPrice.TabIndex = 51;
+            this.txtStock.Enabled = false;
+            this.txtStock.Location = new System.Drawing.Point(240, 374);
+            this.txtStock.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(76, 24);
+            this.txtStock.TabIndex = 51;
             // 
             // label8
             // 
@@ -258,26 +262,33 @@
             // 
             // ggvProductos
             // 
+            this.ggvProductos.AllowUserToAddRows = false;
+            this.ggvProductos.AllowUserToDeleteRows = false;
             this.ggvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ggvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
             this.No,
             this.Producto,
             this.precio,
             this.cantidad,
+            this.IvaPorItem,
+            this.subtotalPorItem,
             this.total});
             this.ggvProductos.Location = new System.Drawing.Point(13, 431);
             this.ggvProductos.Margin = new System.Windows.Forms.Padding(4);
             this.ggvProductos.Name = "ggvProductos";
+            this.ggvProductos.ReadOnly = true;
             this.ggvProductos.RowHeadersVisible = false;
             this.ggvProductos.RowHeadersWidth = 51;
             this.ggvProductos.RowTemplate.Height = 24;
+            this.ggvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ggvProductos.Size = new System.Drawing.Size(1057, 234);
             this.ggvProductos.TabIndex = 56;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 374);
+            this.label5.Location = new System.Drawing.Point(16, 375);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 19);
@@ -515,13 +526,13 @@
             this.textBox7.Size = new System.Drawing.Size(377, 24);
             this.textBox7.TabIndex = 89;
             // 
-            // textBox9
+            // txtSubTotalItem
             // 
-            this.textBox9.Location = new System.Drawing.Point(614, 375);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(124, 24);
-            this.textBox9.TabIndex = 92;
+            this.txtSubTotalItem.Location = new System.Drawing.Point(614, 375);
+            this.txtSubTotalItem.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSubTotalItem.Name = "txtSubTotalItem";
+            this.txtSubTotalItem.Size = new System.Drawing.Size(124, 24);
+            this.txtSubTotalItem.TabIndex = 92;
             // 
             // label21
             // 
@@ -533,13 +544,13 @@
             this.label21.TabIndex = 91;
             this.label21.Text = "Subtotal";
             // 
-            // textBox10
+            // txtIvaItem
             // 
-            this.textBox10.Location = new System.Drawing.Point(798, 375);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(124, 24);
-            this.textBox10.TabIndex = 94;
+            this.txtIvaItem.Location = new System.Drawing.Point(798, 375);
+            this.txtIvaItem.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIvaItem.Name = "txtIvaItem";
+            this.txtIvaItem.Size = new System.Drawing.Size(124, 24);
+            this.txtIvaItem.TabIndex = 94;
             // 
             // label22
             // 
@@ -569,13 +580,13 @@
             this.label23.TabIndex = 95;
             this.label23.Text = "SubTotal 0%";
             // 
-            // textBox12
+            // txtIva
             // 
-            this.textBox12.Location = new System.Drawing.Point(942, 750);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(124, 24);
-            this.textBox12.TabIndex = 98;
+            this.txtIva.Location = new System.Drawing.Point(942, 750);
+            this.txtIva.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIva.Name = "txtIva";
+            this.txtIva.Size = new System.Drawing.Size(124, 24);
+            this.txtIva.TabIndex = 98;
             // 
             // label10
             // 
@@ -587,13 +598,13 @@
             this.label10.TabIndex = 97;
             this.label10.Text = "Iva";
             // 
-            // textBox13
+            // txtTotal
             // 
-            this.textBox13.Location = new System.Drawing.Point(942, 795);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(124, 24);
-            this.textBox13.TabIndex = 100;
+            this.txtTotal.Location = new System.Drawing.Point(942, 795);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(124, 24);
+            this.txtTotal.TabIndex = 100;
             // 
             // label11
             // 
@@ -669,6 +680,7 @@
             this.button6.TabIndex = 106;
             this.button6.Text = "IMPRIMIR";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -680,15 +692,20 @@
             this.button7.Text = "SALIR";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // txtPrecio
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(75, 371);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(90, 27);
-            this.comboBox2.TabIndex = 108;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.txtPrecio.Location = new System.Drawing.Point(76, 373);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(89, 24);
+            this.txtPrecio.TabIndex = 108;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
             // 
             // No
             // 
@@ -696,6 +713,7 @@
             this.No.HeaderText = "No";
             this.No.MinimumWidth = 6;
             this.No.Name = "No";
+            this.No.ReadOnly = true;
             // 
             // Producto
             // 
@@ -703,6 +721,7 @@
             this.Producto.HeaderText = "Productos";
             this.Producto.MinimumWidth = 6;
             this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
             // 
             // precio
             // 
@@ -710,6 +729,7 @@
             this.precio.HeaderText = "precio";
             this.precio.MinimumWidth = 6;
             this.precio.Name = "precio";
+            this.precio.ReadOnly = true;
             // 
             // cantidad
             // 
@@ -717,6 +737,21 @@
             this.cantidad.HeaderText = "cantidad";
             this.cantidad.MinimumWidth = 6;
             this.cantidad.Name = "cantidad";
+            this.cantidad.ReadOnly = true;
+            // 
+            // IvaPorItem
+            // 
+            this.IvaPorItem.HeaderText = "IvaPorItem";
+            this.IvaPorItem.Name = "IvaPorItem";
+            this.IvaPorItem.ReadOnly = true;
+            this.IvaPorItem.Visible = false;
+            // 
+            // subtotalPorItem
+            // 
+            this.subtotalPorItem.HeaderText = "subtotalPorItem";
+            this.subtotalPorItem.Name = "subtotalPorItem";
+            this.subtotalPorItem.ReadOnly = true;
+            this.subtotalPorItem.Visible = false;
             // 
             // total
             // 
@@ -724,13 +759,14 @@
             this.total.HeaderText = "total";
             this.total.MinimumWidth = 6;
             this.total.Name = "total";
+            this.total.ReadOnly = true;
             // 
             // FacturaProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1206, 825);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -738,15 +774,15 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox13);
+            this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox12);
+            this.Controls.Add(this.txtIva);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox11);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.txtIvaItem);
             this.Controls.Add(this.label22);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.txtSubTotalItem);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label20);
@@ -775,9 +811,9 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.txtTotalItem);
             this.Controls.Add(this.txtCant);
-            this.Controls.Add(this.txtPrice);
+            this.Controls.Add(this.txtStock);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -811,9 +847,9 @@
         public System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.TextBox txtTotalItem;
         private System.Windows.Forms.TextBox txtCant;
-        private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.TextBox txtStock;
         public System.Windows.Forms.Label label8;
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Label label6;
@@ -844,15 +880,15 @@
         private System.Windows.Forms.Button button2;
         public System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtSubTotalItem;
         public System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtIvaItem;
         public System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox textBox11;
         public System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txtIva;
         public System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox txtTotal;
         public System.Windows.Forms.Label label11;
         public System.Windows.Forms.ComboBox comboBox1;
         public System.Windows.Forms.Label label12;
@@ -861,11 +897,14 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IvaPorItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subtotalPorItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
     }
 }

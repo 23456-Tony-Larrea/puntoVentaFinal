@@ -31,6 +31,8 @@ namespace POSales
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Adjustments));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
@@ -52,6 +54,7 @@ namespace POSales
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvAdjustment = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +63,8 @@ namespace POSales
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Select = new System.Windows.Forms.DataGridViewImageColumn();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -146,6 +151,8 @@ namespace POSales
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.txtRemark);
             this.panel2.Controls.Add(this.txtQty);
             this.panel2.Controls.Add(this.cbAction);
@@ -165,13 +172,14 @@ namespace POSales
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1052, 145);
             this.panel2.TabIndex = 5;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // txtRemark
             // 
             this.txtRemark.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtRemark.Location = new System.Drawing.Point(733, 106);
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(307, 30);
+            this.txtRemark.Size = new System.Drawing.Size(307, 26);
             this.txtRemark.TabIndex = 5;
             // 
             // txtQty
@@ -179,7 +187,7 @@ namespace POSales
             this.txtQty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtQty.Location = new System.Drawing.Point(733, 66);
             this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(307, 30);
+            this.txtQty.Size = new System.Drawing.Size(307, 26);
             this.txtQty.TabIndex = 4;
             // 
             // cbAction
@@ -191,7 +199,7 @@ namespace POSales
             "Agregar al inventario"});
             this.cbAction.Location = new System.Drawing.Point(733, 26);
             this.cbAction.Name = "cbAction";
-            this.cbAction.Size = new System.Drawing.Size(307, 30);
+            this.cbAction.Size = new System.Drawing.Size(307, 28);
             this.cbAction.TabIndex = 3;
             // 
             // label3
@@ -199,7 +207,7 @@ namespace POSales
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 22);
+            this.label3.Size = new System.Drawing.Size(104, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Descripcion :";
             // 
@@ -209,7 +217,7 @@ namespace POSales
             this.lblDesc.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDesc.Location = new System.Drawing.Point(138, 106);
             this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(139, 22);
+            this.lblDesc.Size = new System.Drawing.Size(112, 20);
             this.lblDesc.TabIndex = 2;
             this.lblDesc.Text = "Product detail";
             // 
@@ -219,7 +227,7 @@ namespace POSales
             this.lblPcode.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPcode.Location = new System.Drawing.Point(357, 66);
             this.lblPcode.Name = "lblPcode";
-            this.lblPcode.Size = new System.Drawing.Size(137, 22);
+            this.lblPcode.Size = new System.Drawing.Size(111, 20);
             this.lblPcode.TabIndex = 2;
             this.lblPcode.Text = "Product code";
             // 
@@ -229,7 +237,7 @@ namespace POSales
             this.lblRefNo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRefNo.Location = new System.Drawing.Point(165, 69);
             this.lblRefNo.Name = "lblRefNo";
-            this.lblRefNo.Size = new System.Drawing.Size(66, 22);
+            this.lblRefNo.Size = new System.Drawing.Size(54, 20);
             this.lblRefNo.TabIndex = 2;
             this.lblRefNo.Text = "RefNo";
             // 
@@ -239,7 +247,7 @@ namespace POSales
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(599, 109);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(128, 22);
+            this.label7.Size = new System.Drawing.Size(104, 20);
             this.label7.TabIndex = 2;
             this.label7.Text = "comentarios:";
             // 
@@ -249,7 +257,7 @@ namespace POSales
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(633, 69);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(106, 22);
+            this.label6.Size = new System.Drawing.Size(84, 20);
             this.label6.TabIndex = 2;
             this.label6.Text = "cantidad :";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -260,7 +268,7 @@ namespace POSales
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(633, 29);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 22);
+            this.label5.Size = new System.Drawing.Size(86, 20);
             this.label5.TabIndex = 2;
             this.label5.Text = "Acciones :";
             // 
@@ -269,7 +277,7 @@ namespace POSales
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(285, 66);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 22);
+            this.label4.Size = new System.Drawing.Size(52, 20);
             this.label4.TabIndex = 2;
             this.label4.Text = "Pcod:";
             // 
@@ -278,7 +286,7 @@ namespace POSales
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 22);
+            this.label2.Size = new System.Drawing.Size(123, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Referencia No :";
             // 
@@ -287,7 +295,7 @@ namespace POSales
             this.lblUsername.AutoSize = true;
             this.lblUsername.Location = new System.Drawing.Point(56, 26);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(147, 22);
+            this.lblUsername.Size = new System.Drawing.Size(120, 20);
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "nombreUsuario";
             // 
@@ -304,6 +312,7 @@ namespace POSales
             // dgvAdjustment
             // 
             this.dgvAdjustment.AllowUserToAddRows = false;
+            this.dgvAdjustment.AllowUserToDeleteRows = false;
             this.dgvAdjustment.BackgroundColor = System.Drawing.Color.White;
             this.dgvAdjustment.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -318,6 +327,7 @@ namespace POSales
             this.dgvAdjustment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvAdjustment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
+            this.Id,
             this.Column2,
             this.Column3,
             this.Column4,
@@ -326,78 +336,96 @@ namespace POSales
             this.Column7,
             this.Column8,
             this.Select});
-            this.dgvAdjustment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAdjustment.EnableHeadersVisualStyles = false;
-            this.dgvAdjustment.Location = new System.Drawing.Point(0, 145);
+            this.dgvAdjustment.Location = new System.Drawing.Point(0, 138);
             this.dgvAdjustment.Name = "dgvAdjustment";
+            this.dgvAdjustment.ReadOnly = true;
             this.dgvAdjustment.RowHeadersVisible = false;
             this.dgvAdjustment.RowHeadersWidth = 51;
-            this.dgvAdjustment.Size = new System.Drawing.Size(1052, 373);
+            this.dgvAdjustment.Size = new System.Drawing.Size(1052, 378);
             this.dgvAdjustment.TabIndex = 6;
-            this.dgvAdjustment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAdjustment_CellContentClick);
+            this.dgvAdjustment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAdjustment_CellContentClick_1);
             // 
             // Column1
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column1.HeaderText = "No";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 63;
+            this.Column1.ReadOnly = true;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
             // 
             // Column2
             // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column2.HeaderText = "Pcod";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
-            this.Column2.Width = 85;
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column3.HeaderText = "codBarras";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
-            this.Column3.Width = 130;
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.Column4.HeaderText = "Descripcion";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 119;
             // 
             // Column5
             // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.Column5.HeaderText = "Marca";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
-            this.Column5.Width = 98;
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 82;
             // 
             // Column6
             // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.Column6.HeaderText = "Categoria";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
-            this.Column6.Width = 131;
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 107;
             // 
             // Column7
             // 
             this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column7.HeaderText = "Precio";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
-            this.Column7.Width = 93;
+            this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
+            this.Column7.Width = 79;
             // 
             // Column8
             // 
             this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column8.HeaderText = "Stock Disponible";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column8.HeaderText = "Cant";
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
-            this.Column8.Width = 184;
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 68;
             // 
             // Select
             // 
@@ -405,11 +433,31 @@ namespace POSales
             this.Select.Image = ((System.Drawing.Image)(resources.GetObject("Select.Image")));
             this.Select.MinimumWidth = 6;
             this.Select.Name = "Select";
+            this.Select.ReadOnly = true;
             this.Select.Width = 125;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(432, 106);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(140, 20);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Product code bar";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(285, 106);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(141, 20);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Codigo de Barras:";
             // 
             // Adjustments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1052, 575);
@@ -454,6 +502,7 @@ namespace POSales
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dgvAdjustment;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
@@ -462,5 +511,7 @@ namespace POSales
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewImageColumn Select;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -17,6 +17,7 @@ namespace POSalesDb
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         SqlDataReader dr;
+        SqlDataAdapter adapter = new SqlDataAdapter();
         string path = Directory.GetCurrentDirectory();
         private string con;
         public string myConnection()
@@ -32,13 +33,46 @@ namespace POSalesDb
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand($"Update item set stock = stock + { qty } Where id = { idItem }",cn);
+
+                cm = new SqlCommand($"Update items set stock = stock + {qty} Where id = {idItem}", cn);
+                cn.Open();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)
             {
                 Error = ex.ToString();
                 return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+        public string actualizarvalorStock(int qty, string pcode)
+        {
+
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+
+                cm = new SqlCommand($"Update items set stock = stock + {qty} Where codigoBarras = {pcode}", cn);
+                cn.Open();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
             }
 
         }
@@ -53,10 +87,20 @@ namespace POSalesDb
             adapter.Dispose();
             return table;
         }
-        public DataTable LoadProduct(string txtSearch)
+        public DataTable LoadItemsForSuppliers(string txtSearch)
         {
             cn.ConnectionString = myConnection();
-            cm = new SqlCommand($"SELECT p.id, p.Nombre, p.codigoBarras, p.descripcion, b.marca, c.Categoria, p.precioA, p.stock,negativo FROM items AS p left JOIN Marcas AS b ON b.Id = p.bid left JOIN Categorias AS c on c.Id = p.cid WHERE CONCAT(p.Nombre, b.marca, c.Categoria) LIKE '%{txtSearch}%' and (Stock > 0 or negativo = 1)", cn);
+            cm = new SqlCommand($"SELECT p.id, p.Nombre, p.codigoBarras, p.descripcion, b.marca, c.Categoria, p.precioA, p.stock,negativo FROM items AS p left JOIN Marcas AS b ON b.Id = p.bid left JOIN Categorias AS c on c.Id = p.cid WHERE CONCAT(p.Nombre,p.codigoBarras, b.marca, c.Categoria) LIKE '%{txtSearch}%' and (combo = 0)", cn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cm);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            adapter.Dispose();
+            return table;
+        }
+        public DataTable LoadItemsForCashier(string txtSearch)
+        {
+            cn.ConnectionString = myConnection();
+            cm = new SqlCommand($"SELECT p.id, p.Nombre, p.codigoBarras, p.descripcion, b.marca, c.Categoria, p.precioA, p.stock,negativo FROM items AS p left JOIN Marcas AS b ON b.Id = p.bid left JOIN Categorias AS c on c.Id = p.cid WHERE CONCAT(p.Nombre,p.codigoBarras, b.marca, c.Categoria) LIKE '%{txtSearch}%' and (Stock > 0 or Negativo = 1)", cn);
             SqlDataAdapter adapter = new SqlDataAdapter(cm);
             DataTable table = new DataTable();
             adapter.Fill(table);
@@ -226,7 +270,7 @@ namespace POSalesDb
 
             cn = new SqlConnection();
             cn.ConnectionString = myConnection();
-            cm = new SqlCommand("BEGIN TRANSACTION;", cn);
+            cm = new SqlCommand("BEGIN TRANSACTION", cn);
             cn.Open();
             cm.ExecuteNonQuery();
             cn.Close();
@@ -236,7 +280,7 @@ namespace POSalesDb
 
             cn = new SqlConnection();
             cn.ConnectionString = myConnection();
-            cm = new SqlCommand("COMMIT;", cn);
+            cm = new SqlCommand("COMMIT TRANSACTION;", cn);
             cn.Open();
             cm.ExecuteNonQuery();
             cn.Close();
@@ -744,7 +788,8 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@imagenUrl", item.descripcion);
                 cm.Parameters.AddWithValue("@montoTotal", item.precioA * item.precioB);
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)
@@ -897,7 +942,8 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@nombre", usuarios.role);
                 cm.Parameters.AddWithValue("@isactive", usuarios.isactive);
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)
@@ -1033,7 +1079,8 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@[user]", ajustamiento.user);
 
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
                 return Error;
 
             }
@@ -1207,7 +1254,8 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@", bodega.Id);
                 cm.Parameters.AddWithValue("@nombre", bodega.Nombre);
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)
@@ -1384,7 +1432,8 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@reason", cancel.reason);
                 cm.Parameters.AddWithValue("@action", cancel.action);
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)
@@ -1564,7 +1613,8 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@status", carrito.status);
                 cm.Parameters.AddWithValue("@cashier", carrito.cashier);
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();;
                 return Error;
             }
             catch (Exception ex)
@@ -1708,7 +1758,8 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@", categoria.Id);
                 cm.Parameters.AddWithValue("@categoria", categoria.Categoria);
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)
@@ -1864,7 +1915,8 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@venta", descripcion.venta);
                 cm.Parameters.AddWithValue("@precio", descripcion.precio);
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)
@@ -2032,7 +2084,8 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@status", enstock.status);
                 cm.Parameters.AddWithValue("@supplierId", enstock.supplierId);
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)
@@ -2241,7 +2294,8 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@email", clientes.email);
                 cm.Parameters.AddWithValue("@tipoCliente", clientes.tipo);
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)
@@ -2419,7 +2473,8 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@descuento", factura.descuento);
                 cm.Parameters.AddWithValue("@productoId", factura.productoId);
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)
@@ -2566,7 +2621,8 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@", grupo.Id);
                 cm.Parameters.AddWithValue("@nombre", grupo.nombre);
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)
@@ -2723,7 +2779,8 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@tipo", inventario.tipo);
                 cm.Parameters.AddWithValue("@fecha_inventario", inventario.fecha_inventario.ToString("yyyy/MM/dd"));
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)
@@ -2869,7 +2926,8 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@", marca.Id);
                 cm.Parameters.AddWithValue("@marca", marca.Marca);
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)
@@ -3072,7 +3130,8 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@codPostal", provedeedores.codPostal);
                 cm.Parameters.AddWithValue("@paginaWeb", provedeedores.paginaWeb);
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)
@@ -3220,7 +3279,8 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@store", tienda.store);
                 cm.Parameters.AddWithValue("@address", tienda.address);
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)
@@ -3403,7 +3463,8 @@ namespace POSalesDb
 
 
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)

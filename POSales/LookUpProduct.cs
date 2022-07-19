@@ -18,12 +18,22 @@ namespace POSales
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
         SqlDataReader dr;
+        string type = string.Empty;
 
-        public LookUpProduct()
+        public LookUpProduct(string tipo)
         {
+            type = tipo;
             InitializeComponent();
             cn = new SqlConnection(dbcon.myConnection());
-            LoadProduct();
+            if (tipo == "Factura")
+            {
+                LoadItemsForCashier();
+            }
+            else
+            {
+                LoadItemsForSuppliers();
+            }
+      
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -31,17 +41,29 @@ namespace POSales
             this.Dispose();
         }
 
-        public void LoadProduct()
+        public void LoadItemsForSuppliers()
         {
             int i = 0;
             DataTable Products = new DataTable();
-            Products = dbcon.LoadProduct(txtSearch.Text);
+            Products = dbcon.LoadItemsForSuppliers(txtSearch.Text);
             foreach(DataRow dr in Products.Rows)
             {
                 i++;
                 dgvProduct.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString());
             }
         }
+        public void LoadItemsForCashier()
+        {
+            int i = 0;
+            DataTable Products = new DataTable();
+            Products = dbcon.LoadItemsForSuppliers(txtSearch.Text);
+            foreach (DataRow dr in Products.Rows)
+            {
+                i++;
+                dgvProduct.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString());
+            }
+        }
+
 
         private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -61,7 +83,14 @@ namespace POSales
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            LoadProduct();
+            if (type == "Factura")
+            {
+                LoadItemsForCashier();
+            }
+            else
+            {
+                LoadItemsForSuppliers();
+            }
         }
 
         private void LookUpProduct_KeyDown(object sender, KeyEventArgs e)
@@ -73,6 +102,11 @@ namespace POSales
         }
 
         private void txtSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

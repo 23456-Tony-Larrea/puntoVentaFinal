@@ -41,7 +41,7 @@ namespace POSales
         {
             int i = 0;
             dgvAdjustment.Rows.Clear();
-            cm = new SqlCommand("SELECT p.codigo, p.codigoBarras, p.pDesc, b.marca, c.Categoria, p.precio, p.cantidad FROM Productos AS p INNER JOIN Marcas AS b ON b.id = p.bid INNER JOIN Categorias AS c on c.id = p.cid WHERE CONCAT(p.pDesc, b.marca, c.categoria) LIKE '%" + txtSearch.Text + "%'", cn);
+            cm = new SqlCommand($"SELECT p.id, p.Nombre, p.codigoBarras, p.descripcion, b.marca, c.Categoria, p.precioA, p.stock,negativo FROM items AS p left JOIN Marcas AS b ON b.Id = p.bid left JOIN Categorias AS c on c.Id = p.cid WHERE CONCAT(p.Nombre,p.codigoBarras, b.marca, c.Categoria) LIKE '%{txtSearch}%'", cn);
             cn.Open();
             dr = cm.ExecuteReader();
             while (dr.Read())
@@ -58,9 +58,11 @@ namespace POSales
             string colName = dgvAdjustment.Columns[e.ColumnIndex].Name;
             if (colName == "Select")
             {
-                lblPcode.Text = dgvAdjustment.Rows[e.RowIndex].Cells[1].Value.ToString();
-                lblDesc.Text = dgvAdjustment.Rows[e.RowIndex].Cells[3].Value.ToString() + " " + dgvAdjustment.Rows[e.RowIndex].Cells[4].Value.ToString() + " " + dgvAdjustment.Rows[e.RowIndex].Cells[5].Value.ToString();
-                _qty = int.Parse(dgvAdjustment.Rows[e.RowIndex].Cells[7].Value.ToString());
+                lblPcode.Text = dgvAdjustment.Rows[e.RowIndex].Cells[3].Value.ToString();
+                lblDesc.Text = dgvAdjustment.Rows[e.RowIndex].Cells[4].Value.ToString() + " " + dgvAdjustment.Rows[e.RowIndex].Cells[4].Value.ToString() + " " + dgvAdjustment.Rows[e.RowIndex].Cells[5].Value.ToString();
+                label8.Text = dgvAdjustment.Rows[e.RowIndex].Cells[5].Value.ToString();
+                _qty = int.Parse(dgvAdjustment.Rows[e.RowIndex].Cells[8].Value.ToString());
+               
                 btnSave.Enabled = true;
             }
         }
@@ -82,6 +84,7 @@ namespace POSales
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+           
             try
             {
                 //validation for empty field
@@ -114,11 +117,18 @@ namespace POSales
                 }
                 if (cbAction.Text == "Eliminar del inventario")
                 {
-                    dbcon.ExecuteQuery("UPDATE Productos SET cantidad = (cantidad - " + int.Parse(txtQty.Text) + ") WHERE codigo LIKE '" + lblPcode.Text + "'");
+                    int qty = 0;
+                    int idItem = 0;
+                    qty = int.Parse(txtQty.Text) * (-1);
+                    dbcon.actualizarvalorStock(qty, label8.Text);
                 }
                 else if (cbAction.Text == "Agregar al Inventario")
                 {
-                    dbcon.ExecuteQuery("UPDATE Productos SET cantidad = (cantidad + " + int.Parse(txtQty.Text) + ") WHERE codigo LIKE '" + lblPcode.Text + "'");
+                    int qty = 0;
+                    int idItem = 0;
+                    idItem = int.Parse(lblPcode.Text);
+                    qty = int.Parse(txtQty.Text);
+                    dbcon.actualizarvalorStock(qty, label8.Text);
                 }
 
                 dbcon.ExecuteQuery("INSERT INTO Ajustamiento(referenceno, pcode, qty, action, remarks, sdate, [user]) VALUES ('" + lblRefNo.Text + "','" + lblPcode.Text + "','" + int.Parse(txtQty.Text) + "', '" + cbAction.Text + "', '" + txtRemark.Text + "', '" + DateTime.Now.ToShortDateString() + "','" + lblUsername.Text + "')");
@@ -134,6 +144,16 @@ namespace POSales
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgvAdjustment_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }

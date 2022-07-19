@@ -34,17 +34,12 @@ namespace POSales
 
         private void button2_Click(object sender, EventArgs e)
         {
-            comboBox2.Items.Clear();
-            LookUpProduct supplier = new LookUpProduct();
+            LookUpProduct supplier = new LookUpProduct("");
             supplier.ShowDialog();
             Itemseleccionado = supplier.item;
             textBox6.Text = Itemseleccionado.codigoBarras;
             textBox7.Text = Itemseleccionado.nombre;
-            comboBox2.Items.Add(Itemseleccionado.precioA);
-            comboBox2.Items.Add(Itemseleccionado.precioB);
-            comboBox2.Items.Add(Itemseleccionado.precioC);
-            comboBox2.Items.Add(Itemseleccionado.precioD);
-            txtPrice.Text = Itemseleccionado.stock.ToString();
+            txtStock.Text = Itemseleccionado.stock.ToString();
         }
 
         private void LinFac_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -56,7 +51,34 @@ namespace POSales
 
         private void button4_Click(object sender, EventArgs e)
         {
+            string Error = string.Empty;
+            if (ggvProductos.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow r in ggvProductos.Rows)
+                {
+             
+                        try
+                        {
+                            int qty = 0;
+                            int idItem = 0;
 
+                            idItem = int.Parse(r.Cells["id"].Value.ToString());
+                            qty = int.Parse(r.Cells["cantidad"].Value.ToString());
+                            Error = dbcon.actualizarvalorStock(qty, idItem);
+
+                        }
+                        catch(Exception ex)
+                        {
+
+                        }
+                   
+
+                }
+
+            }
+            Factura factura = new Factura();
+
+            dbcon.insertFacturas(factura);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -73,25 +95,24 @@ namespace POSales
 
         private void txtCant_TextChanged(object sender, EventArgs e)
         {
-            int ComboIndex = -1;
             if (!string.IsNullOrEmpty(txtCant.Text))
             {
-                if (comboBox2.SelectedIndex > ComboIndex)
+                if (!string.IsNullOrEmpty(txtPrecio.Text))
                 {
                     int cantidad = 0;
                     int.TryParse(txtCant.Text, out cantidad);
                     decimal Precio = 0,Subtotal = 0,ivaItem = 0;
-                    decimal.TryParse(comboBox2.Text,out Precio);
+                    decimal.TryParse(txtPrecio.Text,out Precio);
                     decimal resultado = Precio * cantidad;
-                    textBox9.Text = resultado.ToString();
+                    txtSubTotalItem.Text = resultado.ToString();
                     if (Itemseleccionado.HasIva)
                     {
                         ivaItem = resultado * Itemseleccionado.iva/100;
-                        textBox10.Text = ivaItem.ToString();
+                        txtIvaItem.Text = ivaItem.ToString();
 
                     }
                     resultado += ivaItem;
-                    txtTotal.Text = resultado.ToString();
+                    txtTotalItem.Text = resultado.ToString();
 
                 }
             }
@@ -103,6 +124,21 @@ namespace POSales
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (Itemseleccionado.Id == 0)
+            {
+                MessageBox.Show("Debe ingresar un producto");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtPrecio.Text) || txtPrecio.Text == "0")
+            {
+                MessageBox.Show("Debe ingresar un precio");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtCant.Text) || txtCant.Text == "0")
+            {
+                MessageBox.Show("Debe ingresar una cantidad del producvto");
+                return;
+            }
             foreach (DataGridViewRow r in ggvProductos.Rows)
             {
                 if (r.Cells["No"].ToString() == Itemseleccionado.codigoBarras)
@@ -112,16 +148,16 @@ namespace POSales
                 }
             }
             decimal subTotalItem, totalItem, totalIvaItem;
-            decimal.TryParse(textBox9.Text, out subTotalItem);
-            decimal.TryParse(textBox10.Text, out totalIvaItem);
-            decimal.TryParse(txtTotal.Text, out totalItem);
+            decimal.TryParse(txtSubTotalItem.Text, out subTotalItem);
+            decimal.TryParse(txtIvaItem.Text, out totalIvaItem);
+            decimal.TryParse(txtTotalItem.Text, out totalItem);
             Subtotal += subTotalItem;
             TotalFactura += totalItem;
             iva += totalIvaItem;
-            ggvProductos.Rows.Add(Itemseleccionado.codigoBarras, Itemseleccionado.nombre, comboBox2.Text, txtCant.Text, txtTotal.Text);
+            ggvProductos.Rows.Add(Itemseleccionado.Id,Itemseleccionado.codigoBarras, Itemseleccionado.nombre, txtPrecio.Text, txtCant.Text,totalIvaItem.ToString(),subTotalItem.ToString(), txtTotalItem.Text);
             txtSubtotal.Text = Subtotal.ToString();
-            textBox13.Text = TotalFactura.ToString();
-            textBox12.Text = iva.ToString();
+            txtTotal.Text = TotalFactura.ToString();
+            txtIva.Text = iva.ToString();
 
         }
 
@@ -130,12 +166,44 @@ namespace POSales
 
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            if (ggvProductos.SelectedRows.Count > (-1))
+            {
+                foreach (DataGridViewRow r in ggvProductos.SelectedRows)
+                {
+                    decimal subTotalItem, totalItem, totalIvaItem;
+                    decimal.TryParse(r.Cells["subtotalPorItem"].Value.ToString(), out subTotalItem);
+                    decimal ivaItem = 0;
+
+                    decimal.TryParse(r.Cells["ivaPorItem"].Value.ToString(), out totalIvaItem);
+                    decimal.TryParse(r.Cells["total"].Value.ToString(), out totalItem);
+                    Subtotal -= subTotalItem;
+                    TotalFactura -= totalItem;
+                    iva -= totalIvaItem;
+                    ggvProductos.Rows.Remove(r);
+                }
+            }
+
+          
+           
+            txtSubtotal.Text = Subtotal.ToString();
+            txtTotal.Text = TotalFactura.ToString();
+            txtIva.Text = iva.ToString();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void ClearPrice()
         {
             txtCant.Text = "";
-            txtTotal.Text = "";
-            textBox9.Text = "";
-            textBox10.Text = "";
+            txtTotalItem.Text = "";
+            txtSubTotalItem.Text = "";
+            txtIvaItem.Text = "";
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
