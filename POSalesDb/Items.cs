@@ -20,7 +20,6 @@ namespace POSalesDb
 		public decimal precioC { get; set; }
 		public decimal precioD { get; set; }
 		public string descripcion { get; set; }
-		public decimal descMax { get; set; }
 		public int stockMin { get; set; }
 		public int stock { get; set; }
 		public int unidad { get; set; }
@@ -38,6 +37,11 @@ namespace POSalesDb
 		public string imagenUrl { get; set; }
 		public decimal iva { get; set; }
 		public List<Items> Combo { get; set; } = new List<Items>();
+		public Categorias categoria { get; set; } = new Categorias();
+		public Grupo grupo { get;set; } = new Grupo();
+		public Marcas marcas { get; set; } = new Marcas();
+		public Bodega Bodega { get; set; } = new Bodega();
+
 		public decimal montoTotal { get; set; }
 		[DisplayName("Precio total")]
 		public decimal CostoTotal => (HasIva) ? montoTotal * iva * ice : montoTotal;

@@ -25,3 +25,12 @@ C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CopyComplete
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.dll
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.pdb
+D:\nuevo la cague\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.dll
+D:\nuevo la cague\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.pdb
+D:\nuevo la cague\puntoVentaFinal\POSalesDb\bin\Debug\Dapper.dll
+D:\nuevo la cague\puntoVentaFinal\POSalesDb\bin\Debug\Dapper.xml
+D:\nuevo la cague\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.AssemblyReference.cache
+D:\nuevo la cague\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CoreCompileInputs.cache
+D:\nuevo la cague\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CopyComplete
+D:\nuevo la cague\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.dll
+D:\nuevo la cague\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.pdb

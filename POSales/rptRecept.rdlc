@@ -137,7 +137,18 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Description</Value>
+                                  <Value>Descripcion</Value>
+                                  <Style>
+                                    <FontFamily>century</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
                                   <Style>
                                     <FontFamily>century</FontFamily>
                                   </Style>
@@ -170,7 +181,18 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Price</Value>
+                                  <Value>Precio</Value>
+                                  <Style>
+                                    <FontFamily>century</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
                                   <Style>
                                     <FontFamily>century</FontFamily>
                                   </Style>
@@ -203,7 +225,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Qty</Value>
+                                  <Value>Cantidad</Value>
                                   <Style>
                                     <FontFamily>century</FontFamily>
                                   </Style>
@@ -445,7 +467,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>0.625in</Top>
+            <Top>1.28333in</Top>
             <Height>0.5in</Height>
             <Width>5.01042in</Width>
             <Style>
@@ -469,6 +491,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>pTransaction</rd:DefaultName>
+            <Top>1.63689cm</Top>
             <Height>0.25in</Height>
             <Width>1.61806in</Width>
             <ZIndex>1</ZIndex>
@@ -499,7 +522,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>pVatable</rd:DefaultName>
-            <Top>1.23833in</Top>
+            <Top>1.94667in</Top>
             <Left>3.39458in</Left>
             <Height>0.25in</Height>
             <Width>1.54167in</Width>
@@ -531,7 +554,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>pVat</rd:DefaultName>
-            <Top>1.55778in</Top>
+            <Top>2.26612in</Top>
             <Left>3.39458in</Left>
             <Height>0.25in</Height>
             <Width>1.54167in</Width>
@@ -563,7 +586,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>pDiscount</rd:DefaultName>
-            <Top>1.87722in</Top>
+            <Top>2.58556in</Top>
             <Left>3.39458in</Left>
             <Height>0.25in</Height>
             <Width>1.54167in</Width>
@@ -595,7 +618,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>pTotal</rd:DefaultName>
-            <Top>2.19667in</Top>
+            <Top>2.905in</Top>
             <Left>3.39458in</Left>
             <Height>0.25in</Height>
             <Width>1.54167in</Width>
@@ -627,7 +650,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>pChange</rd:DefaultName>
-            <Top>2.83556in</Top>
+            <Top>3.54389in</Top>
             <Left>3.39458in</Left>
             <Height>0.25in</Height>
             <Width>1.54167in</Width>
@@ -659,7 +682,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox21</rd:DefaultName>
-            <Top>2.51611in</Top>
+            <Top>3.22445in</Top>
             <Left>3.39458in</Left>
             <Height>0.25in</Height>
             <Width>1.54167in</Width>
@@ -681,7 +704,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Vatable</Value>
+                    <Value>IVA TOTAL</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -689,7 +712,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>1.23833in</Top>
+            <Top>2.00223in</Top>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>8</ZIndex>
@@ -710,7 +733,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Vat</Value>
+                    <Value>IVA</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -718,7 +741,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>1.55778in</Top>
+            <Top>2.29389in</Top>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>9</ZIndex>
@@ -739,7 +762,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Discount</Value>
+                    <Value>Descuento</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -747,7 +770,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>1.87722in</Top>
+            <Top>2.61334in</Top>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>10</ZIndex>
@@ -768,7 +791,16 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Total Due</Value>
+                    <Value>Total</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -776,7 +808,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>2.19667in</Top>
+            <Top>2.93278in</Top>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>11</ZIndex>
@@ -797,7 +829,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Amount Tendered</Value>
+                    <Value>Cantidad de importe</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -805,9 +837,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>2.51611in</Top>
+            <Top>3.22445in</Top>
             <Height>0.25in</Height>
-            <Width>1.22917in</Width>
+            <Width>1.61806in</Width>
             <ZIndex>12</ZIndex>
             <Style>
               <Border>
@@ -826,7 +858,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Change</Value>
+                    <Value>Cambio</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -834,7 +866,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>2.83556in</Top>
+            <Top>3.54389in</Top>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>13</ZIndex>
@@ -855,7 +887,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Thank You !!!</Value>
+                    <Value>Gracias !!!</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -863,8 +895,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox28</rd:DefaultName>
-            <Top>3.18625in</Top>
-            <Left>1.97917in</Left>
+            <Top>3.86958in</Top>
+            <Left>1.85417in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>14</ZIndex>
@@ -893,7 +925,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox29</rd:DefaultName>
-            <Top>0.31111in</Top>
+            <Top>0.96389in</Top>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>15</ZIndex>
@@ -907,11 +939,70 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="Textbox14">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Cliente:</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox13</rd:DefaultName>
+            <Top>0.275in</Top>
+            <Height>0.25in</Height>
+            <Width>0.60417in</Width>
+            <ZIndex>16</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="pCashier2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!pCliente.Value</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>pCashier</rd:DefaultName>
+            <Top>0.275in</Top>
+            <Left>0.67361in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>17</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>3.60417in</Height>
+        <Height>4.27917in</Height>
         <Style />
       </Body>
-      <Width>5.01042in</Width>
+      <Width>5.33542in</Width>
       <Page>
         <PageHeader>
           <Height>1in</Height>

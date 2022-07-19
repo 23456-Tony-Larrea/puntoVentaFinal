@@ -21,7 +21,7 @@ namespace POSales
 
         private void btnFactura_Click(object sender, EventArgs e)
         {
-            FacturaProveedor factura = new FacturaProveedor(_idUsuario);
+            ComprasProveedor factura = new ComprasProveedor(_idUsuario);
             factura.ShowDialog();
         }
 

@@ -78,6 +78,7 @@ namespace POSales
             // 
             // txtBrand
             // 
+            this.txtBrand.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtBrand.Location = new System.Drawing.Point(173, 89);
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.Size = new System.Drawing.Size(531, 30);

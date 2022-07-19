@@ -74,7 +74,7 @@
             this.label1.Location = new System.Drawing.Point(4, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 18);
+            this.label1.Size = new System.Drawing.Size(183, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = " Modulo de grupos";
             // 
@@ -84,7 +84,7 @@
             this.lblId.Location = new System.Drawing.Point(12, 214);
             this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(22, 19);
+            this.lblId.Size = new System.Drawing.Size(25, 21);
             this.lblId.TabIndex = 13;
             this.lblId.Text = "id";
             this.lblId.Visible = false;
@@ -126,7 +126,7 @@
             this.label2.Location = new System.Drawing.Point(12, 135);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 19);
+            this.label2.Size = new System.Drawing.Size(172, 21);
             this.label2.TabIndex = 10;
             this.label2.Text = "Nombre del grupo :";
             // 
@@ -148,15 +148,16 @@
             // 
             // txtGroup
             // 
+            this.txtGroup.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtGroup.Location = new System.Drawing.Point(214, 131);
             this.txtGroup.Margin = new System.Windows.Forms.Padding(4);
             this.txtGroup.Name = "txtGroup";
-            this.txtGroup.Size = new System.Drawing.Size(663, 24);
+            this.txtGroup.Size = new System.Drawing.Size(663, 28);
             this.txtGroup.TabIndex = 8;
             // 
             // GroupModule
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(888, 269);
             this.Controls.Add(this.panel1);

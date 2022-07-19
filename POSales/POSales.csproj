@@ -175,6 +175,12 @@
     <Compile Include="combo.Designer.cs">
       <DependentUpon>combo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras.Designer.cs">
+      <DependentUpon>Compras.cs</DependentUpon>
+    </Compile>
     <Compile Include="DailySale.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,11 +213,11 @@
     <Compile Include="FacturaClientes.Designer.cs">
       <DependentUpon>FacturaClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FacturaProveedor.cs">
+    <Compile Include="ComprasProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FacturaProveedor.Designer.cs">
-      <DependentUpon>FacturaProveedor.cs</DependentUpon>
+    <Compile Include="ComprasProveedor.Designer.cs">
+      <DependentUpon>ComprasProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Group.cs">
       <SubType>Form</SubType>
@@ -421,6 +427,9 @@
     <EmbeddedResource Include="combo.resx">
       <DependentUpon>combo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Compras.resx">
+      <DependentUpon>Compras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DailySale.resx">
       <DependentUpon>DailySale.cs</DependentUpon>
     </EmbeddedResource>
@@ -433,8 +442,8 @@
     <EmbeddedResource Include="FacturaClientes.resx">
       <DependentUpon>FacturaClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FacturaProveedor.resx">
-      <DependentUpon>FacturaProveedor.cs</DependentUpon>
+    <EmbeddedResource Include="ComprasProveedor.resx">
+      <DependentUpon>ComprasProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Group.resx">
       <DependentUpon>Group.cs</DependentUpon>

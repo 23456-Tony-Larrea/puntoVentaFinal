@@ -43,7 +43,6 @@
             this.precioCDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descMaxDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockMinDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unidadDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,7 +74,6 @@
             this.precioC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -141,7 +139,6 @@
             this.precioCDataGridViewTextBoxColumn1,
             this.precioDDataGridViewTextBoxColumn1,
             this.descripcionDataGridViewTextBoxColumn1,
-            this.descMaxDataGridViewTextBoxColumn1,
             this.stockMinDataGridViewTextBoxColumn1,
             this.stockDataGridViewTextBoxColumn1,
             this.unidadDataGridViewTextBoxColumn1,
@@ -252,14 +249,6 @@
             this.descripcionDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.descripcionDataGridViewTextBoxColumn1.Name = "descripcionDataGridViewTextBoxColumn1";
             this.descripcionDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // descMaxDataGridViewTextBoxColumn1
-            // 
-            this.descMaxDataGridViewTextBoxColumn1.DataPropertyName = "descMax";
-            this.descMaxDataGridViewTextBoxColumn1.HeaderText = "descMax";
-            this.descMaxDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.descMaxDataGridViewTextBoxColumn1.Name = "descMaxDataGridViewTextBoxColumn1";
-            this.descMaxDataGridViewTextBoxColumn1.Width = 125;
             // 
             // stockMinDataGridViewTextBoxColumn1
             // 
@@ -415,7 +404,7 @@
             this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picClose.Image = ((System.Drawing.Image)(resources.GetObject("picClose.Image")));
             this.picClose.Location = new System.Drawing.Point(1109, 0);
-            this.picClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picClose.Margin = new System.Windows.Forms.Padding(4);
             this.picClose.Name = "picClose";
             this.picClose.Size = new System.Drawing.Size(40, 43);
             this.picClose.TabIndex = 1;
@@ -449,7 +438,6 @@
             this.precioC,
             this.precioD,
             this.descripcion,
-            this.descMax,
             this.stockMin,
             this.stock,
             this.unidad,
@@ -560,14 +548,6 @@
             this.descripcion.MinimumWidth = 6;
             this.descripcion.Name = "descripcion";
             this.descripcion.Width = 125;
-            // 
-            // descMax
-            // 
-            this.descMax.DataPropertyName = "descMax";
-            this.descMax.HeaderText = "descMax";
-            this.descMax.MinimumWidth = 6;
-            this.descMax.Name = "descMax";
-            this.descMax.Width = 125;
             // 
             // stockMin
             // 
@@ -732,14 +712,15 @@
             // 
             // metroTextBox1
             // 
+            this.metroTextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             // 
             // 
             // 
             this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(488, 2);
-            this.metroTextBox1.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(366, 2);
+            this.metroTextBox1.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(31, 28);
+            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBox1.CustomButton.TabIndex = 1;
             this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -747,7 +728,7 @@
             this.metroTextBox1.CustomButton.Visible = false;
             this.metroTextBox1.Lines = new string[0];
             this.metroTextBox1.Location = new System.Drawing.Point(412, 73);
-            this.metroTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.metroTextBox1.MaxLength = 32767;
             this.metroTextBox1.Name = "metroTextBox1";
             this.metroTextBox1.PasswordChar = '\0';
@@ -773,7 +754,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1149, 123);
             this.panel2.TabIndex = 105;
@@ -809,10 +790,10 @@
             // 
             // 
             this.metroTextBox2.CustomButton.Image = null;
-            this.metroTextBox2.CustomButton.Location = new System.Drawing.Point(180, 2);
-            this.metroTextBox2.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroTextBox2.CustomButton.Location = new System.Drawing.Point(135, 2);
+            this.metroTextBox2.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.metroTextBox2.CustomButton.Name = "";
-            this.metroTextBox2.CustomButton.Size = new System.Drawing.Size(31, 28);
+            this.metroTextBox2.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.metroTextBox2.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBox2.CustomButton.TabIndex = 1;
             this.metroTextBox2.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -820,7 +801,7 @@
             this.metroTextBox2.CustomButton.Visible = false;
             this.metroTextBox2.Lines = new string[0];
             this.metroTextBox2.Location = new System.Drawing.Point(113, 71);
-            this.metroTextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroTextBox2.Margin = new System.Windows.Forms.Padding(4);
             this.metroTextBox2.MaxLength = 32767;
             this.metroTextBox2.Name = "metroTextBox2";
             this.metroTextBox2.PasswordChar = '\0';
@@ -854,7 +835,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgvListaDeCombo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "combo";
             this.Text = "combo";
             this.Load += new System.EventHandler(this.combo_Load);
