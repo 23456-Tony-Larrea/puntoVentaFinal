@@ -1,6 +1,5 @@
 ﻿
 using POSalesDb;
-using POSalesDb;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +14,9 @@ using System.Windows.Forms;
 
 namespace POSales
 {
+   
     public partial class ItemModule : Form
-    {
+    {     
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
@@ -55,7 +55,7 @@ namespace POSales
             txtPriceC.Text = product.precioC.ToString();
             txtPriceD.Text = product.precioD.ToString();
             txtReason.Text = product.descripcion;
-            txtDescMax.Text = product.descMax.ToString();
+           
             txtStockMax.Text = product.stock.ToString();
             txtStockMin.Text = product.stockMin.ToString();
             int.TryParse(product.bId.ToString(),out  bogeda);
@@ -189,7 +189,7 @@ namespace POSales
                         item.codigoBarras = txtBarcode.Text;
                         item.precioD = PrecioD;
                         item.descripcion = txtReason.Text;
-                        item.descMax = decimal.Parse(txtDescMax.Text);
+                     
                         item.stock = int.Parse(txtStockMax.Text);
                         item.stockMin = int.Parse(txtStockMin.Text);
                         item.bId = cboBodega.SelectedIndex;
@@ -270,7 +270,7 @@ namespace POSales
                     product.codigoBarras = txtBarcode.Text;
                     product.precioD = PrecioD;
                     product.descripcion= txtReason.Text;
-                    product.descMax= decimal.Parse(txtDescMax.Text);
+             
                     product.stock= int.Parse(txtStockMax.Text);
                     product.stockMin= int.Parse(txtStockMin.Text);
                     product.bId= cboBodega.SelectedIndex;
@@ -330,7 +330,8 @@ namespace POSales
 
         private void ProductModule_Load(object sender, EventArgs e)
         {
-
+  
+    
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -651,6 +652,15 @@ namespace POSales
 
         private void dgvCombo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            Items items = new Items();
+
+            foreach (var combo in items.Combo)
+            {
+                dgvCombo.Rows.Add(combo.Id, combo.nombre, combo.categoria.nombre, combo.marcas.Nombre, combo.grupo.nombre, combo.Bodega.Nombre);
+
+            }
+            id.Visible = true;
+
             string Error = string.Empty;
             int IdProductoRelacionado = 0;
             string colName = dgvCombo.Columns[e.ColumnIndex].Name;
@@ -683,5 +693,6 @@ namespace POSales
             CalcularIvaPrecioC();
             CalcularIvaPrecioD();
         }
+
     }
 }

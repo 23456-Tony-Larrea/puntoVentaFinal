@@ -111,6 +111,7 @@ namespace POSales
             // 
             // txtId
             // 
+            this.txtId.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(177, 105);
             this.txtId.Name = "txtId";
@@ -119,6 +120,7 @@ namespace POSales
             // 
             // txtPcode
             // 
+            this.txtPcode.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtPcode.Enabled = false;
             this.txtPcode.Location = new System.Drawing.Point(177, 145);
             this.txtPcode.Name = "txtPcode";
@@ -127,6 +129,7 @@ namespace POSales
             // 
             // txtDesc
             // 
+            this.txtDesc.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtDesc.Enabled = false;
             this.txtDesc.Location = new System.Drawing.Point(177, 185);
             this.txtDesc.Multiline = true;
@@ -181,6 +184,7 @@ namespace POSales
             // 
             // txtTransno
             // 
+            this.txtTransno.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtTransno.Enabled = false;
             this.txtTransno.Location = new System.Drawing.Point(531, 105);
             this.txtTransno.Name = "txtTransno";
@@ -189,6 +193,7 @@ namespace POSales
             // 
             // txtPrice
             // 
+            this.txtPrice.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtPrice.Enabled = false;
             this.txtPrice.Location = new System.Drawing.Point(531, 145);
             this.txtPrice.Name = "txtPrice";
@@ -197,6 +202,7 @@ namespace POSales
             // 
             // txtQty
             // 
+            this.txtQty.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtQty.Enabled = false;
             this.txtQty.Location = new System.Drawing.Point(531, 185);
             this.txtQty.Name = "txtQty";
@@ -205,6 +211,7 @@ namespace POSales
             // 
             // txtDisc
             // 
+            this.txtDisc.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtDisc.Enabled = false;
             this.txtDisc.Location = new System.Drawing.Point(692, 185);
             this.txtDisc.Name = "txtDisc";
@@ -253,6 +260,7 @@ namespace POSales
             // 
             // txtCancelBy
             // 
+            this.txtCancelBy.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtCancelBy.Enabled = false;
             this.txtCancelBy.Location = new System.Drawing.Point(177, 351);
             this.txtCancelBy.Name = "txtCancelBy";
@@ -261,6 +269,7 @@ namespace POSales
             // 
             // txtVoidBy
             // 
+            this.txtVoidBy.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtVoidBy.Location = new System.Drawing.Point(177, 311);
             this.txtVoidBy.Name = "txtVoidBy";
             this.txtVoidBy.Size = new System.Drawing.Size(181, 30);
@@ -307,6 +316,7 @@ namespace POSales
             // 
             // txtReason
             // 
+            this.txtReason.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtReason.Location = new System.Drawing.Point(531, 348);
             this.txtReason.Multiline = true;
             this.txtReason.Name = "txtReason";

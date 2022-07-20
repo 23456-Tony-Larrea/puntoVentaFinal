@@ -53,11 +53,8 @@ namespace POSales
                 item.precioD = Convert.ToDecimal(dgvItem.Rows[e.RowIndex].Cells["precioD"].Value.ToString());
                 item.precioD = Convert.ToDecimal(dgvItem.Rows[e.RowIndex].Cells["precioD"].Value.ToString());
                 item.descripcion = dgvItem.Rows[e.RowIndex].Cells["descripcion"].Value.ToString();
-            
-                item.descMax = Convert.ToDecimal(dgvItem.Rows[e.RowIndex].Cells["descMax"].Value.ToString());
                 item.stock = Convert.ToInt32(dgvItem.Rows[e.RowIndex].Cells["stock"].Value.ToString());
                 item.stockMin = Convert.ToInt32(dgvItem.Rows[e.RowIndex].Cells["stockMin"].Value.ToString());
-                
                 item.unidad = Convert.ToInt32(dgvItem.Rows[e.RowIndex].Cells["unidad"].Value.ToString());
                 item.bId = Convert.ToInt32(dgvItem.Rows[e.RowIndex].Cells["bId"].Value.ToString());
                 item.cId = Convert.ToInt32(dgvItem.Rows[e.RowIndex].Cells["CId"].Value.ToString());

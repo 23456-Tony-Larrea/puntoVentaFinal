@@ -85,6 +85,7 @@ namespace POSales
             // 
             // txtStName
             // 
+            this.txtStName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtStName.Location = new System.Drawing.Point(169, 35);
             this.txtStName.Name = "txtStName";
             this.txtStName.Size = new System.Drawing.Size(473, 30);
@@ -92,6 +93,7 @@ namespace POSales
             // 
             // txtAddress
             // 
+            this.txtAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAddress.Location = new System.Drawing.Point(169, 74);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(473, 30);

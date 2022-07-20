@@ -74,7 +74,7 @@
             this.label1.Location = new System.Drawing.Point(4, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 18);
+            this.label1.Size = new System.Drawing.Size(204, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = " Modulo de bodegas";
             // 
@@ -84,7 +84,7 @@
             this.lblId.Location = new System.Drawing.Point(3, 174);
             this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(22, 19);
+            this.lblId.Size = new System.Drawing.Size(25, 21);
             this.lblId.TabIndex = 20;
             this.lblId.Text = "id";
             this.lblId.Visible = false;
@@ -126,7 +126,7 @@
             this.label2.Location = new System.Drawing.Point(3, 95);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 19);
+            this.label2.Size = new System.Drawing.Size(209, 21);
             this.label2.TabIndex = 17;
             this.label2.Text = "Nombre de la bodega :";
             // 
@@ -148,16 +148,16 @@
             // 
             // txtBodega
             // 
+            this.txtBodega.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtBodega.Location = new System.Drawing.Point(215, 92);
             this.txtBodega.Margin = new System.Windows.Forms.Padding(4);
             this.txtBodega.Name = "txtBodega";
-            this.txtBodega.Size = new System.Drawing.Size(663, 24);
+            this.txtBodega.Size = new System.Drawing.Size(663, 28);
             this.txtBodega.TabIndex = 15;
-           
             // 
             // BodegaModule
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(878, 238);

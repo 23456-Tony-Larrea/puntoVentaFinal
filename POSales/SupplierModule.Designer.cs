@@ -37,7 +37,6 @@ namespace POSales
             this.picClose = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.txtSupplier = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -69,6 +68,7 @@ namespace POSales
             this.label16 = new System.Windows.Forms.Label();
             this.txtCountry = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.txtSupplier = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.SuspendLayout();
@@ -160,13 +160,6 @@ namespace POSales
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // txtSupplier
-            // 
-            this.txtSupplier.Location = new System.Drawing.Point(200, 85);
-            this.txtSupplier.Name = "txtSupplier";
-            this.txtSupplier.Size = new System.Drawing.Size(565, 30);
-            this.txtSupplier.TabIndex = 31;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -214,6 +207,7 @@ namespace POSales
             // 
             // txtAddress
             // 
+            this.txtAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAddress.Location = new System.Drawing.Point(205, 420);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(565, 30);
@@ -221,6 +215,7 @@ namespace POSales
             // 
             // txtConPerson
             // 
+            this.txtConPerson.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtConPerson.Location = new System.Drawing.Point(198, 157);
             this.txtConPerson.Name = "txtConPerson";
             this.txtConPerson.Size = new System.Drawing.Size(565, 30);
@@ -228,6 +223,7 @@ namespace POSales
             // 
             // txtPhone
             // 
+            this.txtPhone.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPhone.Location = new System.Drawing.Point(207, 456);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(217, 30);
@@ -235,6 +231,7 @@ namespace POSales
             // 
             // txtFaxNo
             // 
+            this.txtFaxNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtFaxNo.Location = new System.Drawing.Point(544, 456);
             this.txtFaxNo.Name = "txtFaxNo";
             this.txtFaxNo.Size = new System.Drawing.Size(225, 30);
@@ -242,6 +239,7 @@ namespace POSales
             // 
             // txtEmail
             // 
+            this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEmail.Location = new System.Drawing.Point(196, 511);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(565, 30);
@@ -260,6 +258,7 @@ namespace POSales
             // 
             // txtReasonS
             // 
+            this.txtReasonS.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtReasonS.Location = new System.Drawing.Point(200, 121);
             this.txtReasonS.Name = "txtReasonS";
             this.txtReasonS.Size = new System.Drawing.Size(565, 30);
@@ -306,6 +305,7 @@ namespace POSales
             // 
             // txtCiRuc
             // 
+            this.txtCiRuc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCiRuc.Location = new System.Drawing.Point(97, 234);
             this.txtCiRuc.Name = "txtCiRuc";
             this.txtCiRuc.Size = new System.Drawing.Size(197, 30);
@@ -322,6 +322,7 @@ namespace POSales
             // 
             // txtProvince
             // 
+            this.txtProvince.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtProvince.Location = new System.Drawing.Point(200, 387);
             this.txtProvince.Name = "txtProvince";
             this.txtProvince.Size = new System.Drawing.Size(226, 30);
@@ -338,6 +339,7 @@ namespace POSales
             // 
             // txtCPostal
             // 
+            this.txtCPostal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCPostal.Location = new System.Drawing.Point(544, 387);
             this.txtCPostal.Name = "txtCPostal";
             this.txtCPostal.Size = new System.Drawing.Size(225, 30);
@@ -383,6 +385,7 @@ namespace POSales
             // 
             // txtPageWeb
             // 
+            this.txtPageWeb.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPageWeb.Location = new System.Drawing.Point(198, 562);
             this.txtPageWeb.Name = "txtPageWeb";
             this.txtPageWeb.Size = new System.Drawing.Size(565, 30);
@@ -399,6 +402,7 @@ namespace POSales
             // 
             // txtCity
             // 
+            this.txtCity.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCity.Location = new System.Drawing.Point(200, 278);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(561, 30);
@@ -415,6 +419,7 @@ namespace POSales
             // 
             // txtCountry
             // 
+            this.txtCountry.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCountry.Location = new System.Drawing.Point(200, 324);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(563, 30);
@@ -428,6 +433,14 @@ namespace POSales
             this.label17.Size = new System.Drawing.Size(54, 22);
             this.label17.TabIndex = 51;
             this.label17.Text = "Pais :";
+            // 
+            // txtSupplier
+            // 
+            this.txtSupplier.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSupplier.Location = new System.Drawing.Point(200, 85);
+            this.txtSupplier.Name = "txtSupplier";
+            this.txtSupplier.Size = new System.Drawing.Size(565, 30);
+            this.txtSupplier.TabIndex = 31;
             // 
             // SupplierModule
             // 
@@ -496,7 +509,6 @@ namespace POSales
         private System.Windows.Forms.PictureBox picClose;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button btnUpdate;
-        public System.Windows.Forms.TextBox txtSupplier;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -528,5 +540,6 @@ namespace POSales
         public System.Windows.Forms.TextBox txtCountry;
         private System.Windows.Forms.Label label17;
         public System.Windows.Forms.ComboBox cboState;
+        public System.Windows.Forms.TextBox txtSupplier;
     }
 }

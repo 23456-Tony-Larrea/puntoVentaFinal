@@ -86,7 +86,7 @@ namespace POSales
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(67, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 36);
+            this.label1.Size = new System.Drawing.Size(236, 44);
             this.label1.TabIndex = 0;
             this.label1.Text = "Punto Venta";
             // 
@@ -101,6 +101,7 @@ namespace POSales
             // 
             // txtName
             // 
+            this.txtName.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             // 
             // 
             // 
@@ -118,7 +119,6 @@ namespace POSales
             this.txtName.Lines = new string[0];
             this.txtName.Location = new System.Drawing.Point(270, 298);
             this.txtName.MaxLength = 32767;
-            this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.PasswordChar = '\0';
             this.txtName.PromptText = "Username";
@@ -141,7 +141,7 @@ namespace POSales
             this.label2.Font = new System.Drawing.Font("Century Schoolbook", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(265, 247);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(280, 25);
+            this.label2.Size = new System.Drawing.Size(363, 32);
             this.label2.TabIndex = 11;
             this.label2.Text = "Por favor Login primero";
             // 
@@ -214,7 +214,7 @@ namespace POSales
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(795, 548);

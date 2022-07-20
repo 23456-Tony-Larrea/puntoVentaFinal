@@ -82,6 +82,7 @@
             // 
             // txtMessage
             // 
+            this.txtMessage.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             resources.ApplyResources(this.txtMessage, "txtMessage");
             this.txtMessage.Name = "txtMessage";
             // 

@@ -9,6 +9,6 @@ namespace POSalesDb
     public class Categorias
     {
         public int Id { get; set; }
-        public string Categoria { get; set; }
+        public string nombre { get; set; }
     }
 }

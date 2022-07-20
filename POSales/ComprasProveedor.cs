@@ -11,7 +11,7 @@ using POSalesDb;
 
 namespace POSales
 {
-    public partial class FacturaProveedor : Form
+    public partial class ComprasProveedor : Form
     {
         Provedeedores proveedor = new Provedeedores();
         List<Items> ItemsPorfactura = new List<Items>();
@@ -20,7 +20,7 @@ namespace POSales
         DBConnect dbcon = new DBConnect();
         decimal Subtotal = 0, iva = 0, TotalFactura = 0;
         int _idUsuario = 0;
-        public FacturaProveedor(int IdUsuario)
+        public ComprasProveedor(int IdUsuario)
         {
             _idUsuario = IdUsuario;
             InitializeComponent();
@@ -45,8 +45,8 @@ namespace POSales
         private void LinFac_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Random rnd = new Random();
-            textBox6.Clear();
-            textBox6.Text += rnd.Next();
+            txtCodigo.Clear();
+            txtCodigo.Text += rnd.Next();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -195,7 +195,14 @@ namespace POSales
 
         private void button6_Click(object sender, EventArgs e)
         {
+            //Recept recept = new Recept();
+            //recept.LoadRecept(label12.Text, .Text);
+            //recept.ShowDialog();
+        }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+           
         }
 
         private void ClearPrice()

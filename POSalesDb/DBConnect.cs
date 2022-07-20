@@ -22,11 +22,244 @@ namespace POSalesDb
         private string con;
         public string myConnection()
         {
-            con = @"Data Source=localhost;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True";
+            con = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\avsla\Documents\DBPOSale.mdf;Integrated Security=True;Connect Timeout=30";
             return con;
         }
 
-        public string  actualizarvalorStock(int qty , int idItem)
+
+
+        //get Compras Id
+        public Compras selectComprasPorId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Compras compras = new Compras();
+            try
+            {
+                cm = new SqlCommand($"Select * from Compras Where Id = {Id}", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    compras.Id = (int)dt.Rows[0]["Id"];
+                    compras.tipoCompra = dt.Rows[0]["tipoCompra"].ToString();
+                    compras.codigoCompra = dt.Rows[0]["codigoCompra"].ToString();
+                    compras.idProducto = (int)dt.Rows[0]["idProducto"];
+                    compras.stock = (int)dt.Rows[0]["stock"];
+                    compras.formaPago = dt.Rows[0]["formaPago"].ToString();
+                    compras.subtotal = Convert.ToDecimal(dt.Rows[0]["subtotal"].ToString());
+                    compras.Iva = Convert.ToDecimal(dt.Rows[0]["Iva"].ToString());
+                    compras.total = Convert.ToDecimal(dt.Rows[0]["total"].ToString());
+
+                }
+                return compras;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return compras;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        // get compras
+        public List<Compras> selectTodosLasCompras()
+        {
+            cn.ConnectionString = myConnection();
+            List<Compras> compras = new List<Compras>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Compras");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Compras compra = new Compras();
+                        compra.Id = (int)dt.Rows[0]["Id"];
+                        compra.tipoCompra = dt.Rows[0]["tipoCompra"].ToString();
+                        compra.codigoCompra = dt.Rows[0]["codigoCompra"].ToString();
+                        compra.idProveedor = (int)dt.Rows[0]["idProveedor"];
+                        compra.fecha = Convert.ToDateTime(dt.Rows[0]["fecha"].ToString());
+                        compra.idProducto = (int)dt.Rows[0]["idProducto"];
+                        compra.stock = (int)dt.Rows[0]["stock"];
+                        compra.formaPago = dt.Rows[0]["formaPago"].ToString();
+                        compra.subtotal = Convert.ToDecimal(dt.Rows[0]["subtotal"].ToString());
+                        compra.Iva = Convert.ToDecimal(dt.Rows[0]["Iva"].ToString());
+                        compra.total = Convert.ToDecimal(dt.Rows[0]["total"].ToString());
+                        compras.Add(compra);
+                    }
+
+                }
+                return compras;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return compras;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //insertar compras
+        public string insertCompras(Compras compras)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Compras (tipoCompra,codigoCompra,idProveedor,fecha,idProducto,stock,Iva,subtotal,total) values(@tipoCompra,@codigoCompra,@idProveedor,@fecha,@idProducto,@stock,@Iva,@total)", cn);
+                cm.Parameters.AddWithValue("@tipoCompra", compras.tipoCompra);
+                cm.Parameters.AddWithValue("@codigoCompra", compras.codigoCompra);
+                cm.Parameters.AddWithValue("@idProveedor", compras.idProveedor);
+                cm.Parameters.AddWithValue("@fecha", compras.fecha);
+                cm.Parameters.AddWithValue("@idProducto", compras.idProducto);
+                cm.Parameters.AddWithValue("@stock", compras.stock);
+                cm.Parameters.AddWithValue("@iva", compras.Iva);
+                cm.Parameters.AddWithValue("@subtotal", compras.subtotal);
+                cm.Parameters.AddWithValue("@total", compras.total);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar compras
+        public string actualizarCompras(Compras compras)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Compras SET tipoCompra=@tipoCompra,codigoCompra=@codigoCompra,idProveedor=@idProveedor,fecha=@fecha,idProducto=@idProducto,stock=@stock,formaPago=@formaPago,subtotal=@subtotal,Iva=@Iva ,total=@total WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", compras.Id);
+                cm.Parameters.AddWithValue("@tipoCompra", compras.tipoCompra);
+                cm.Parameters.AddWithValue("@codigoCompra", compras.codigoCompra);
+                cm.Parameters.AddWithValue("@idProveedor", compras.idProveedor);
+                cm.Parameters.AddWithValue("@fecha", compras.fecha);
+                cm.Parameters.AddWithValue("@idProducto", compras.idProducto);
+                cm.Parameters.AddWithValue("@stock", compras.stock);
+                cm.Parameters.AddWithValue("@formaPago", compras.formaPago);
+                cm.Parameters.AddWithValue("@subtotal", compras.subtotal);
+                cm.Parameters.AddWithValue("@Iva", compras.Iva);
+                cm.Parameters.AddWithValue("@total", compras.total);
+                cn.Open();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar Compras
+        public string deleteCompras(int idCompras)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM Compras WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@Id", idCompras);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+
+        public string restarValorStock(int qty, int idItem)
+        {
+
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+
+                cm = new SqlCommand($"Update items set stock = stock - {qty} Where id = {idItem}", cn);
+                cn.Open();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+        public string restarValorStock(int qty, string pcode)
+        {
+
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+
+                cm = new SqlCommand($"Update items set stock = stock - {qty} Where codigoBarras = {pcode}", cn);
+                cn.Open();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+
+        public string actualizarvalorStock(int qty, int idItem)
         {
 
             cn.ConnectionString = myConnection();
@@ -35,6 +268,28 @@ namespace POSalesDb
             {
 
                 cm = new SqlCommand($"Update items set stock = stock + {qty} Where id = {idItem}", cn);
+                cn.Open();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+        public string generarReporte() {
+            cn.ConnectionString=myConnection();
+            string Error= String.Empty;
+            try
+            {
+                cm= new SqlCommand("SELECT c.id, c.codigoCompra, c.tipoCompra, c.subtotal, c.estock, c.descuento, c.total, c.fecha, i.descipcion FROM Compras AS c INNER JOIN Items AS p ON i.Id=c.idItems WHERE c.trasnno LIKE '", cn);
                 cn.Open();
                 adapter.UpdateCommand = cm;
                 adapter.UpdateCommand.ExecuteNonQuery();
@@ -414,7 +669,7 @@ namespace POSalesDb
             DataTable dt = new DataTable();
             try
             {
-                cm = new SqlCommand($"SELECT * FROM vwEnStock WHERE refno = '{txtRefNo}' AND status = 'Pending'", cn);
+                cm = new SqlCommand($"SELECT * FROM vwEnStock WHERE refno = '{txtRefNo}' AND status = 'Pendiente'", cn);
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 da.Fill(dt);
@@ -642,7 +897,7 @@ namespace POSalesDb
                     "@precioC," +
                     "@precioD," +
                     "@descripcion," +
-                    "@descMax," +
+                  
                     "@stockMin," +
                     "@stock," +
                     "@unidad," +
@@ -668,7 +923,7 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@precioC", item.precioC);
                 cm.Parameters.AddWithValue("@precioD", item.precioD);
                 cm.Parameters.AddWithValue("@descripcion", item.descripcion);
-                cm.Parameters.AddWithValue("@descMax", item.descMax);
+        
                 cm.Parameters.AddWithValue("@stockMin", item.stockMin);
                 cm.Parameters.AddWithValue("@stock", item.stock);
                 cm.Parameters.AddWithValue("@unidad", item.unidad);
@@ -758,7 +1013,7 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@precioC", item.precioC);
                 cm.Parameters.AddWithValue("@precioD", item.precioD);
                 cm.Parameters.AddWithValue("@descripcion", item.descripcion);
-                cm.Parameters.AddWithValue("@descMax", item.descMax);
+            
                 cm.Parameters.AddWithValue("@stockMax", item.stock);
                 cm.Parameters.AddWithValue("@stockMin", item.stockMin); 
                 cm.Parameters.AddWithValue("@unidad", item.unidad);
@@ -1667,7 +1922,7 @@ namespace POSalesDb
                 if (dt.Rows.Count > 0)
                 {
                     categoria.Id = (int)dt.Rows[0]["Id"];
-                    categoria.Categoria = dt.Rows[0]["Categoria"].ToString();
+                    categoria.nombre = dt.Rows[0]["Categoria"].ToString();
 
                 }
                 return categoria;
@@ -1702,7 +1957,7 @@ namespace POSalesDb
                     {
                         Categorias cat = new Categorias();
                         cat.Id = (int)dt.Rows[0]["Id"];
-                        cat.Categoria = dt.Rows[0]["Categoria"].ToString();
+                        cat.nombre = dt.Rows[0]["Categoria"].ToString();
 
                         categoria.Add(cat);
                     }
@@ -1729,7 +1984,7 @@ namespace POSalesDb
             try
             {
                 cm = new SqlCommand("Insert into Categorias (Categoria values(@Categoria))");
-                cm.Parameters.AddWithValue("@Categoria", categoria.Categoria);
+                cm.Parameters.AddWithValue("@Categoria", categoria.nombre);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
@@ -1756,7 +2011,7 @@ namespace POSalesDb
             {
                 cm = new SqlCommand("UPDATE Categorias SET Categorias=@Categorias WHERE Id = @Id  ", cn);
                 cm.Parameters.AddWithValue("@", categoria.Id);
-                cm.Parameters.AddWithValue("@categoria", categoria.Categoria);
+                cm.Parameters.AddWithValue("@categoria", categoria.nombre);
                 cn.Open();
                 adapter.UpdateCommand = cm;
                 adapter.UpdateCommand.ExecuteNonQuery();
@@ -2835,7 +3090,7 @@ namespace POSalesDb
                 if (dt.Rows.Count > 0)
                 {
                     marca.Id = (int)dt.Rows[0]["Id"];
-                    marca.Marca = Convert.ToString(dt.Rows[0]["marca"]);
+                    marca.Nombre = Convert.ToString(dt.Rows[0]["marca"]);
                 }
                 return marca;
 
@@ -2870,7 +3125,7 @@ namespace POSalesDb
                     {
                         Marcas marcas = new Marcas();
                         marcas.Id = (int)dt.Rows[0]["Id"];
-                        marcas.Marca = Convert.ToString(dt.Rows[0]["marca"]);
+                        marcas.Nombre = Convert.ToString(dt.Rows[0]["marca"]);
 
                         marca.Add(marcas);
                     }
@@ -2897,7 +3152,7 @@ namespace POSalesDb
             try
             {
                 cm = new SqlCommand("Insert into Marcas (marca)values(@marca)");
-                cm.Parameters.AddWithValue("@marca", marca.Marca);
+                cm.Parameters.AddWithValue("@marca", marca.Nombre);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
@@ -2924,7 +3179,7 @@ namespace POSalesDb
             {
                 cm = new SqlCommand("UPDATE Marcas SET marca=@marca WHERE Id = @Id  ", cn);
                 cm.Parameters.AddWithValue("@", marca.Id);
-                cm.Parameters.AddWithValue("@marca", marca.Marca);
+                cm.Parameters.AddWithValue("@marca", marca.Nombre);
                 cn.Open();
                 adapter.UpdateCommand = cm;
                 adapter.UpdateCommand.ExecuteNonQuery();
@@ -3638,10 +3893,17 @@ namespace POSalesDb
                     Items itemCombo = new Items();
                     int.TryParse(r["IdProductosRelacionados"].ToString(), out idCombo);
                     itemCombo = selectItemPorId(idCombo);
+                    itemCombo.categoria=selectCategoriasId(itemCombo.cId);
+                    itemCombo.marcas = selectMarcasId(itemCombo.mId);
+                    itemCombo.Bodega= selectBodegaId(itemCombo.bId);
+                    itemCombo.grupo = selectGrupoId(itemCombo.gId);       
                     items.Add(itemCombo);
+             
                 }
 
+
             }
+
             item.Combo = items;
             return items;
         }
