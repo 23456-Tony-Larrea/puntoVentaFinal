@@ -17,9 +17,7 @@ namespace POSales
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            POSalesDb.Compras compras = new POSalesDb.Compras();
-            compras.Id = 10;
-            Application.Run(new ReporteFactura(compras));
+            Application.Run(new Login());
         }
     }
 }
