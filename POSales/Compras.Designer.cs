@@ -36,40 +36,17 @@
             this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.itemsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.dgvItem = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hasIva = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoBarras = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.servicio = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.hascombo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.aplicaSeries = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.negativo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorIce = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imagen = new System.Windows.Forms.DataGridViewImageColumn();
-            this.imagenUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.montoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dBPOSaleDataSet = new POSales.DBPOSaleDataSet();
+            this.comprasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.comprasTableAdapter = new POSales.DBPOSaleDataSetTableAdapters.ComprasTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).BeginInit();
@@ -77,6 +54,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBPOSaleDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // itemsBindingSource1
@@ -114,36 +93,10 @@
             this.dgvItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.hasIva,
-            this.nombre,
-            this.codigoBarras,
-            this.precioA,
-            this.precioB,
-            this.precioC,
-            this.precioD,
-            this.descripcion,
-            this.descMax,
-            this.stockMin,
             this.stock,
-            this.unidad,
-            this.bId,
-            this.cId,
-            this.gId,
-            this.mId,
-            this.servicio,
-            this.hascombo,
-            this.aplicaSeries,
-            this.negativo,
-            this.ice,
-            this.valorIce,
-            this.imagen,
-            this.imagenUrl,
-            this.iva,
-            this.montoTotal,
-            this.costoTotal,
             this.Edit,
             this.Delete});
-            this.dgvItem.DataSource = this.itemsBindingSource3;
+            this.dgvItem.DataSource = this.comprasBindingSource;
             this.dgvItem.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvItem.EnableHeadersVisualStyles = false;
             this.dgvItem.Location = new System.Drawing.Point(0, 0);
@@ -154,6 +107,44 @@
             this.dgvItem.RowHeadersWidth = 51;
             this.dgvItem.Size = new System.Drawing.Size(800, 372);
             this.dgvItem.TabIndex = 9;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.HeaderText = "Id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 125;
+            // 
+            // stock
+            // 
+            this.stock.DataPropertyName = "stock";
+            this.stock.HeaderText = "stock";
+            this.stock.MinimumWidth = 6;
+            this.stock.Name = "stock";
+            this.stock.ReadOnly = true;
+            this.stock.Width = 125;
+            // 
+            // Edit
+            // 
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Edit.HeaderText = "";
+            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Width = 6;
+            // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Delete.HeaderText = "";
+            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Width = 6;
             // 
             // btnAdd
             // 
@@ -197,281 +188,19 @@
             this.comboBindingSource.DataMember = "Combo";
             this.comboBindingSource.DataSource = this.itemsBindingSource;
             // 
-            // id
+            // dBPOSaleDataSet
             // 
-            this.id.DataPropertyName = "Id";
-            this.id.HeaderText = "Id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 125;
+            this.dBPOSaleDataSet.DataSetName = "DBPOSaleDataSet";
+            this.dBPOSaleDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // hasIva
+            // comprasBindingSource
             // 
-            this.hasIva.DataPropertyName = "HasIva";
-            this.hasIva.HeaderText = "tipoCompra";
-            this.hasIva.MinimumWidth = 6;
-            this.hasIva.Name = "hasIva";
-            this.hasIva.ReadOnly = true;
-            this.hasIva.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.hasIva.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.hasIva.Width = 125;
+            this.comprasBindingSource.DataMember = "Compras";
+            this.comprasBindingSource.DataSource = this.dBPOSaleDataSet;
             // 
-            // nombre
+            // comprasTableAdapter
             // 
-            this.nombre.DataPropertyName = "nombre";
-            this.nombre.HeaderText = "nombre";
-            this.nombre.MinimumWidth = 6;
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 125;
-            // 
-            // codigoBarras
-            // 
-            this.codigoBarras.DataPropertyName = "codigoBarras";
-            this.codigoBarras.HeaderText = "codigoBarras";
-            this.codigoBarras.MinimumWidth = 6;
-            this.codigoBarras.Name = "codigoBarras";
-            this.codigoBarras.ReadOnly = true;
-            this.codigoBarras.Width = 125;
-            // 
-            // precioA
-            // 
-            this.precioA.DataPropertyName = "precioA";
-            this.precioA.HeaderText = "precioA";
-            this.precioA.MinimumWidth = 6;
-            this.precioA.Name = "precioA";
-            this.precioA.ReadOnly = true;
-            this.precioA.Width = 125;
-            // 
-            // precioB
-            // 
-            this.precioB.DataPropertyName = "precioB";
-            this.precioB.HeaderText = "precioB";
-            this.precioB.MinimumWidth = 6;
-            this.precioB.Name = "precioB";
-            this.precioB.ReadOnly = true;
-            this.precioB.Width = 125;
-            // 
-            // precioC
-            // 
-            this.precioC.DataPropertyName = "precioC";
-            this.precioC.HeaderText = "precioC";
-            this.precioC.MinimumWidth = 6;
-            this.precioC.Name = "precioC";
-            this.precioC.ReadOnly = true;
-            this.precioC.Width = 125;
-            // 
-            // precioD
-            // 
-            this.precioD.DataPropertyName = "precioD";
-            this.precioD.HeaderText = "precioD";
-            this.precioD.MinimumWidth = 6;
-            this.precioD.Name = "precioD";
-            this.precioD.ReadOnly = true;
-            this.precioD.Width = 125;
-            // 
-            // descripcion
-            // 
-            this.descripcion.DataPropertyName = "descripcion";
-            this.descripcion.HeaderText = "descripcion";
-            this.descripcion.MinimumWidth = 6;
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            this.descripcion.Width = 125;
-            // 
-            // descMax
-            // 
-            this.descMax.DataPropertyName = "descMax";
-            this.descMax.HeaderText = "descMax";
-            this.descMax.MinimumWidth = 6;
-            this.descMax.Name = "descMax";
-            this.descMax.ReadOnly = true;
-            this.descMax.Width = 125;
-            // 
-            // stockMin
-            // 
-            this.stockMin.DataPropertyName = "stockMin";
-            this.stockMin.HeaderText = "stockMin";
-            this.stockMin.MinimumWidth = 6;
-            this.stockMin.Name = "stockMin";
-            this.stockMin.ReadOnly = true;
-            this.stockMin.Width = 125;
-            // 
-            // stock
-            // 
-            this.stock.DataPropertyName = "stock";
-            this.stock.HeaderText = "stock";
-            this.stock.MinimumWidth = 6;
-            this.stock.Name = "stock";
-            this.stock.ReadOnly = true;
-            this.stock.Width = 125;
-            // 
-            // unidad
-            // 
-            this.unidad.DataPropertyName = "unidad";
-            this.unidad.HeaderText = "unidad";
-            this.unidad.MinimumWidth = 6;
-            this.unidad.Name = "unidad";
-            this.unidad.ReadOnly = true;
-            this.unidad.Width = 125;
-            // 
-            // bId
-            // 
-            this.bId.DataPropertyName = "bId";
-            this.bId.HeaderText = "bId";
-            this.bId.MinimumWidth = 6;
-            this.bId.Name = "bId";
-            this.bId.ReadOnly = true;
-            this.bId.Width = 125;
-            // 
-            // cId
-            // 
-            this.cId.DataPropertyName = "cId";
-            this.cId.HeaderText = "cId";
-            this.cId.MinimumWidth = 6;
-            this.cId.Name = "cId";
-            this.cId.ReadOnly = true;
-            this.cId.Width = 125;
-            // 
-            // gId
-            // 
-            this.gId.DataPropertyName = "gId";
-            this.gId.HeaderText = "gId";
-            this.gId.MinimumWidth = 6;
-            this.gId.Name = "gId";
-            this.gId.ReadOnly = true;
-            this.gId.Width = 125;
-            // 
-            // mId
-            // 
-            this.mId.DataPropertyName = "mId";
-            this.mId.HeaderText = "mId";
-            this.mId.MinimumWidth = 6;
-            this.mId.Name = "mId";
-            this.mId.ReadOnly = true;
-            this.mId.Width = 125;
-            // 
-            // servicio
-            // 
-            this.servicio.DataPropertyName = "servicio";
-            this.servicio.HeaderText = "servicio";
-            this.servicio.MinimumWidth = 6;
-            this.servicio.Name = "servicio";
-            this.servicio.ReadOnly = true;
-            this.servicio.Width = 125;
-            // 
-            // hascombo
-            // 
-            this.hascombo.DataPropertyName = "hascombo";
-            this.hascombo.HeaderText = "hascombo";
-            this.hascombo.MinimumWidth = 6;
-            this.hascombo.Name = "hascombo";
-            this.hascombo.ReadOnly = true;
-            this.hascombo.Width = 125;
-            // 
-            // aplicaSeries
-            // 
-            this.aplicaSeries.DataPropertyName = "aplicaSeries";
-            this.aplicaSeries.HeaderText = "aplicaSeries";
-            this.aplicaSeries.MinimumWidth = 6;
-            this.aplicaSeries.Name = "aplicaSeries";
-            this.aplicaSeries.ReadOnly = true;
-            this.aplicaSeries.Width = 125;
-            // 
-            // negativo
-            // 
-            this.negativo.DataPropertyName = "negativo";
-            this.negativo.HeaderText = "negativo";
-            this.negativo.MinimumWidth = 6;
-            this.negativo.Name = "negativo";
-            this.negativo.ReadOnly = true;
-            this.negativo.Width = 125;
-            // 
-            // ice
-            // 
-            this.ice.DataPropertyName = "ice";
-            this.ice.HeaderText = "ice";
-            this.ice.MinimumWidth = 6;
-            this.ice.Name = "ice";
-            this.ice.ReadOnly = true;
-            this.ice.Width = 125;
-            // 
-            // valorIce
-            // 
-            this.valorIce.DataPropertyName = "valorIce";
-            this.valorIce.HeaderText = "valorIce";
-            this.valorIce.MinimumWidth = 6;
-            this.valorIce.Name = "valorIce";
-            this.valorIce.ReadOnly = true;
-            this.valorIce.Width = 125;
-            // 
-            // imagen
-            // 
-            this.imagen.DataPropertyName = "imagen";
-            this.imagen.HeaderText = "imagen";
-            this.imagen.MinimumWidth = 6;
-            this.imagen.Name = "imagen";
-            this.imagen.ReadOnly = true;
-            this.imagen.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.imagen.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.imagen.Width = 125;
-            // 
-            // imagenUrl
-            // 
-            this.imagenUrl.DataPropertyName = "imagenUrl";
-            this.imagenUrl.HeaderText = "imagenUrl";
-            this.imagenUrl.MinimumWidth = 6;
-            this.imagenUrl.Name = "imagenUrl";
-            this.imagenUrl.ReadOnly = true;
-            this.imagenUrl.Width = 125;
-            // 
-            // iva
-            // 
-            this.iva.DataPropertyName = "iva";
-            this.iva.HeaderText = "iva";
-            this.iva.MinimumWidth = 6;
-            this.iva.Name = "iva";
-            this.iva.ReadOnly = true;
-            this.iva.Width = 125;
-            // 
-            // montoTotal
-            // 
-            this.montoTotal.DataPropertyName = "montoTotal";
-            this.montoTotal.HeaderText = "montoTotal";
-            this.montoTotal.MinimumWidth = 6;
-            this.montoTotal.Name = "montoTotal";
-            this.montoTotal.ReadOnly = true;
-            this.montoTotal.Width = 125;
-            // 
-            // costoTotal
-            // 
-            this.costoTotal.DataPropertyName = "CostoTotal";
-            this.costoTotal.HeaderText = "Precio total";
-            this.costoTotal.MinimumWidth = 6;
-            this.costoTotal.Name = "costoTotal";
-            this.costoTotal.ReadOnly = true;
-            this.costoTotal.Width = 125;
-            // 
-            // Edit
-            // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Edit.HeaderText = "";
-            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Width = 6;
-            // 
-            // Delete
-            // 
-            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Delete.HeaderText = "";
-            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Width = 6;
+            this.comprasTableAdapter.ClearBeforeFill = true;
             // 
             // Compras
             // 
@@ -482,6 +211,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Compras";
             this.Text = "Compras";
+            this.Load += new System.EventHandler(this.Compras_Load);
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).EndInit();
@@ -489,6 +219,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.comboBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBPOSaleDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -505,34 +237,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.BindingSource comboBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hasIva;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoBarras;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn descMax;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stockMin;
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mId;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn servicio;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn hascombo;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn aplicaSeries;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn negativo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorIce;
-        private System.Windows.Forms.DataGridViewImageColumn imagen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn imagenUrl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iva;
-        private System.Windows.Forms.DataGridViewTextBoxColumn montoTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costoTotal;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private DBPOSaleDataSet dBPOSaleDataSet;
+        private System.Windows.Forms.BindingSource comprasBindingSource;
+        private DBPOSaleDataSetTableAdapters.ComprasTableAdapter comprasTableAdapter;
     }
 }

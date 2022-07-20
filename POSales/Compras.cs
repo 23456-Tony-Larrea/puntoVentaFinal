@@ -16,5 +16,12 @@ namespace POSales
         {
             InitializeComponent();
         }
+
+        private void Compras_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'dBPOSaleDataSet.Compras' Puede moverla o quitarla según sea necesario.
+            this.comprasTableAdapter.Fill(this.dBPOSaleDataSet.Compras);
+
+        }
     }
 }

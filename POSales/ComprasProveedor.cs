@@ -195,7 +195,9 @@ namespace POSales
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            //Recept recept = new Recept();
+            //recept.LoadRecept(label12.Text, .Text);
+            //recept.ShowDialog();
         }
 
         private void button7_Click(object sender, EventArgs e)

@@ -26,6 +26,8 @@ namespace POSalesDb
             return con;
         }
 
+
+
         //get Compras Id
         public Compras selectComprasPorId(int Id)
         {
@@ -46,11 +48,11 @@ namespace POSalesDb
                     compras.idProducto = (int)dt.Rows[0]["idProducto"];
                     compras.stock = (int)dt.Rows[0]["stock"];
                     compras.formaPago = dt.Rows[0]["formaPago"].ToString();
-                    compras.subtotal = Convert.ToDecimal( dt.Rows[0]["subtotal"].ToString());
-                    compras.Iva =Convert.ToDecimal(dt.Rows[0]["Iva"].ToString());
+                    compras.subtotal = Convert.ToDecimal(dt.Rows[0]["subtotal"].ToString());
+                    compras.Iva = Convert.ToDecimal(dt.Rows[0]["Iva"].ToString());
                     compras.total = Convert.ToDecimal(dt.Rows[0]["total"].ToString());
 
-                     }
+                }
                 return compras;
 
             }
@@ -85,12 +87,12 @@ namespace POSalesDb
                         compra.Id = (int)dt.Rows[0]["Id"];
                         compra.tipoCompra = dt.Rows[0]["tipoCompra"].ToString();
                         compra.codigoCompra = dt.Rows[0]["codigoCompra"].ToString();
-                        compra.idProveedor =(int) dt.Rows[0]["idProveedor"];
+                        compra.idProveedor = (int)dt.Rows[0]["idProveedor"];
                         compra.fecha = Convert.ToDateTime(dt.Rows[0]["fecha"].ToString());
-                        compra.idProducto = (int) dt.Rows[0]["idProducto"];
+                        compra.idProducto = (int)dt.Rows[0]["idProducto"];
                         compra.stock = (int)dt.Rows[0]["stock"];
                         compra.formaPago = dt.Rows[0]["formaPago"].ToString();
-                        compra.subtotal = Convert.ToDecimal( dt.Rows[0]["subtotal"].ToString());
+                        compra.subtotal = Convert.ToDecimal(dt.Rows[0]["subtotal"].ToString());
                         compra.Iva = Convert.ToDecimal(dt.Rows[0]["Iva"].ToString());
                         compra.total = Convert.ToDecimal(dt.Rows[0]["total"].ToString());
                         compras.Add(compra);
@@ -156,7 +158,7 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@", compras.Id);
                 cm.Parameters.AddWithValue("@tipoCompra", compras.tipoCompra);
                 cm.Parameters.AddWithValue("@codigoCompra", compras.codigoCompra);
-                cm.Parameters.AddWithValue("@idProveedor",compras.idProveedor);
+                cm.Parameters.AddWithValue("@idProveedor", compras.idProveedor);
                 cm.Parameters.AddWithValue("@fecha", compras.fecha);
                 cm.Parameters.AddWithValue("@idProducto", compras.idProducto);
                 cm.Parameters.AddWithValue("@stock", compras.stock);
@@ -257,7 +259,7 @@ namespace POSalesDb
 
         }
 
-        public string  actualizarvalorStock(int qty , int idItem)
+        public string actualizarvalorStock(int qty, int idItem)
         {
 
             cn.ConnectionString = myConnection();
@@ -266,6 +268,28 @@ namespace POSalesDb
             {
 
                 cm = new SqlCommand($"Update items set stock = stock + {qty} Where id = {idItem}", cn);
+                cn.Open();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+        public string generarReporte() {
+            cn.ConnectionString=myConnection();
+            string Error= String.Empty;
+            try
+            {
+                cm= new SqlCommand("SELECT c.id, c.codigoCompra, c.tipoCompra, c.subtotal, c.estock, c.descuento, c.total, c.fecha, i.descipcion FROM Compras AS c INNER JOIN Items AS p ON i.Id=c.idItems WHERE c.trasnno LIKE '", cn);
                 cn.Open();
                 adapter.UpdateCommand = cm;
                 adapter.UpdateCommand.ExecuteNonQuery();
