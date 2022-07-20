@@ -28,7 +28,7 @@ namespace POSales
         public void LoadRecept()
         {
             ReportDataSource rptDataSourece;
-                this.reportViewer1.LocalReport.ReportPath = @"C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\Report1.rdlc";
+                this.reportViewer1.LocalReport.ReportPath = Application.StartupPath + @"\Reports\Report1.rdlc";
                 this.reportViewer1.LocalReport.DataSources.Clear(); 
 
                 DataSet ds1 = new DataSet();
