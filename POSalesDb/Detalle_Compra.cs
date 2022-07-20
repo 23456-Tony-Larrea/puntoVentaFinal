@@ -14,6 +14,7 @@ namespace POSalesDb
         public decimal precioCompra { get; set; }
         public decimal precioVenta { get; set; }
         public int cantidad { get; set; }
+        public decimal iva { get; set; }
         public decimal montoTotal { get; set; }
         public DateTime fechaRegistro { get; set; }
         public string tipoDocumento { get; set; }

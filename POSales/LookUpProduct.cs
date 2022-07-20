@@ -69,6 +69,12 @@ namespace POSales
         {
             string colName = dgvProduct.Columns[e.ColumnIndex].Name;
             int Id = 0;
+            if (e.RowIndex < 0)
+            {
+                return;
+
+            }
+
             int.TryParse(dgvProduct.Rows[e.RowIndex].Cells["Id"].Value.ToString(), out Id);
             if (colName == "Select")
             {

@@ -136,7 +136,6 @@ C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Dai
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Dashboard.resources
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Discount.resources
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.FacturaClientes.resources
-C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.FacturaProveedor.resources
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Group.resources
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.GroupModule.resources
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Item.resources
@@ -358,3 +357,4 @@ D:\nuevo la cague\puntoVentaFinal\POSales\obj\Debug\POSales.ComprasProveedor.res
 D:\nuevo la cague\puntoVentaFinal\POSales\obj\Debug\POSales.Compras.resources
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Compras.resources
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.ComprasProveedor.resources
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\bin\Debug\POSalesDb.dll.config

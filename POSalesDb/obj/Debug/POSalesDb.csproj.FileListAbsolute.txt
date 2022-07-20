@@ -34,3 +34,4 @@ D:\nuevo la cague\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CoreCompi
 D:\nuevo la cague\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CopyComplete
 D:\nuevo la cague\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.dll
 D:\nuevo la cague\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.pdb
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.dll.config

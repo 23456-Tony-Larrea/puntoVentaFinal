@@ -51,34 +51,57 @@ namespace POSales
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string Error = string.Empty;
-            if (ggvProductos.Rows.Count > 0)
+            POSalesDb.Compras factura = new POSalesDb.Compras();
+            factura.codigoCompra = txtCodigo.Text;
+            factura.idUsuario = _idUsuario;
+            factura.total = Convert.ToDecimal(txtTotal.Text);
+            factura.subtotal = Convert.ToDecimal(txtSubtotal.Text);
+            factura.IvaPrecio = Convert.ToDecimal(txtIvaItem.Text);
+            factura.tipoCompra = comboBox1.Text;
+            factura.idProveedor = proveedor.Id;
+            int idFactura = dbcon.insertCompras(factura);
+            if (idFactura > 0)
             {
-                foreach (DataGridViewRow r in ggvProductos.Rows)
+                factura.Id = idFactura;
+                string Error = string.Empty;
+                if (ggvProductos.Rows.Count > 0)
                 {
-             
-                        try
-                        {
-                            int qty = 0;
-                            int idItem = 0;
+                    foreach (DataGridViewRow r in ggvProductos.Rows)
+                    {
 
-                            idItem = int.Parse(r.Cells["id"].Value.ToString());
-                            qty = int.Parse(r.Cells["cantidad"].Value.ToString());
-                            Error = dbcon.actualizarvalorStock(qty, idItem);
+                        int qty = 0;
+                        int idItem = 0;
+                        Detalle_Compra detalle_Compra = new Detalle_Compra();
+                        detalle_Compra.IdCompra = idFactura;
+                        detalle_Compra.IdItem = int.Parse(r.Cells["id"].Value.ToString());
+                        detalle_Compra.cantidad = int.Parse(r.Cells["cantidad"].Value.ToString());
+                        detalle_Compra.precioCompra = decimal.Parse(r.Cells["precio"].Value.ToString());
+                        detalle_Compra.montoTotal = decimal.Parse(r.Cells["total"].Value.ToString());
+                        idItem = int.Parse(r.Cells["id"].Value.ToString());
+                        qty = int.Parse(r.Cells["cantidad"].Value.ToString());
+                        dbcon.insertDetallesCompras(detalle_Compra);
+                        dbcon.actualizarvalorStock(qty, idItem);
 
-                        }
-                        catch(Exception ex)
-                        {
+                    }
 
-                        }
-                   
+                }
+                if (string.IsNullOrEmpty(Error))
+                {
 
                 }
 
             }
-            Factura factura = new Factura();
+            else
+            {
+                MessageBox.Show("Error al insertar factura");
+                return;
+            }
 
-            dbcon.insertFacturas(factura);
+            ReporteFactura reporte = new ReporteFactura(factura);
+            reporte.Show();
+
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)

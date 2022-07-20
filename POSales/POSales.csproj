@@ -13,6 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,7 +26,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -196,6 +196,14 @@
     <Compile Include="Compras.Designer.cs">
       <DependentUpon>Compras.cs</DependentUpon>
     </Compile>
+    <Compile Include="CompraSet.cs">
+      <DependentUpon>CompraSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CompraSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompraSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DailySale.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +223,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DeallesDeCompra.cs">
+      <DependentUpon>DeallesDeCompra.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DeallesDeCompra.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeallesDeCompra.xsd</DependentUpon>
     </Compile>
     <Compile Include="Discount.cs">
       <SubType>Form</SubType>
@@ -400,6 +416,26 @@
     <Compile Include="WhatsappModule.designer.cs">
       <DependentUpon>WhatsappModule.cs</DependentUpon>
     </Compile>
+    <Compile Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet4.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Adjustments.resx">
       <DependentUpon>Adjustments.cs</DependentUpon>
     </EmbeddedResource>
@@ -502,11 +538,13 @@
     <EmbeddedResource Include="Record.resx">
       <DependentUpon>Record.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="ReporteFactura.resx">
       <DependentUpon>ReporteFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rptCancelled.rdlc" />
     <EmbeddedResource Include="rptInventory.rdlc" />
+    <EmbeddedResource Include="rptReceptSuppliers.rdlc" />
     <EmbeddedResource Include="rptSoldItems.rdlc" />
     <EmbeddedResource Include="rptStockInHist.rdlc" />
     <EmbeddedResource Include="rptTopSell.rdlc" />
@@ -558,6 +596,17 @@
     <EmbeddedResource Include="WhatsappModule.resx">
       <DependentUpon>WhatsappModule.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CompraSet.xsc">
+      <DependentUpon>CompraSet.xsd</DependentUpon>
+    </None>
+    <None Include="CompraSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CompraSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CompraSet.xss">
+      <DependentUpon>CompraSet.xsd</DependentUpon>
+    </None>
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -569,7 +618,20 @@
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
+    <None Include="DeallesDeCompra.xsc">
+      <DependentUpon>DeallesDeCompra.xsd</DependentUpon>
+    </None>
+    <None Include="DeallesDeCompra.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DeallesDeCompra.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DeallesDeCompra.xss">
+      <DependentUpon>DeallesDeCompra.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\POSalesDb.Compras.datasource" />
+    <None Include="Properties\DataSources\POSalesDb.Detalle_Compra.datasource" />
     <None Include="Properties\DataSources\POSalesDb.Items.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -580,6 +642,50 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet1.xsc">
+      <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet1.xss">
+      <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet2.xsc">
+      <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet2.xss">
+      <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet3.xsc">
+      <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet3.xss">
+      <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet4.xsc">
+      <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet4.xss">
+      <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet4.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -669,6 +775,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

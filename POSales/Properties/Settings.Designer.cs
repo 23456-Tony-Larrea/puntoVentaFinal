@@ -12,7 +12,7 @@ namespace POSales.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.1.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.2.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -31,6 +31,17 @@ namespace POSales.Properties {
         public string DBPOSaleConnectionString {
             get {
                 return ((string)(this["DBPOSaleConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=C:\\USERS\\AVSLA\\DOCUMENTS\\DBPOSALE.MDF;Integ" +
+            "rated Security=True")]
+        public string C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFConnectionString {
+            get {
+                return ((string)(this["C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFConnectionString"]));
             }
         }
     }

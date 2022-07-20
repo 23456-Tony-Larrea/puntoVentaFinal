@@ -22,7 +22,7 @@ namespace POSalesDb
         private string con;
         public string myConnection()
         {
-            con = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\avsla\Documents\DBPOSale.mdf;Integrated Security=True;Connect Timeout=30";
+            con = @"Data Source=localhost;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True";
             return con;
         }
 
@@ -43,8 +43,10 @@ namespace POSalesDb
                 if (dt.Rows.Count > 0)
                 {
                     compras.Id = (int)dt.Rows[0]["Id"];
-                    compras.tipoCompra = dt.Rows[0]["tipoCompra"].ToString();
+                    compras.tipoCompra = dt.Rows[0]["tipoDeCompra"].ToString();
                     compras.codigoCompra = dt.Rows[0]["codigoCompra"].ToString();
+                    compras.idProveedor = (int)dt.Rows[0]["IdProveedor"];
+                    compras.idUsuario = (int)dt.Rows[0]["IdUsuario"];
                     compras.formaPago = dt.Rows[0]["formaPago"].ToString();
                     compras.subtotal = Convert.ToDecimal(dt.Rows[0]["subtotal"].ToString());
                     compras.Iva = Convert.ToDecimal(dt.Rows[0]["Iva"].ToString());
@@ -108,22 +110,98 @@ namespace POSalesDb
                 cn.Close();
             }
         }
-
-        //insertar compras
-        public string insertCompras(Compras compras)
+        public DataSet selectComprasDataPorId(int Id)
         {
             cn.ConnectionString = myConnection();
-            string Error = String.Empty;
+            DataSet dt = new DataSet();
             try
             {
-                cm = new SqlCommand("Insert into Compras (tipoCompra,codigoCompra,idProveedor,fecha,idProducto,stock,Iva,subtotal,total) values(@tipoCompra,@codigoCompra,@idProveedor,@fecha,@idProducto,@stock,@Iva,@total)", cn);
+                cm = new SqlCommand($"Select * from Compras where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                da.Fill(dt);
+                return dt;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return dt;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //insertar compras
+        public int insertCompras(Compras compras)
+        {
+            cn.ConnectionString = myConnection();
+            int Error = 0;
+            try
+            {
+                cm = new SqlCommand(@"Insert into Compras 
+                (tipoDeCompra,codigoCompra,idProveedor,fecha,Iva,IvaPrecio,subtotal,total,idUsuario) 
+                values
+                (@tipoCompra,@codigoCompra,@idProveedor,@fecha,@Iva,@IvaPrecio,@subtotal,@total,@idUsuario) SET @ID = SCOPE_IDENTITY();", cn);
                 cm.Parameters.AddWithValue("@tipoCompra", compras.tipoCompra);
+                cm.Parameters.AddWithValue("@idUsuario", compras.idUsuario);
                 cm.Parameters.AddWithValue("@codigoCompra", compras.codigoCompra);
                 cm.Parameters.AddWithValue("@idProveedor", compras.idProveedor);
-                cm.Parameters.AddWithValue("@fecha", compras.fecha);
+                cm.Parameters.AddWithValue("@fecha", DateTime.Now);
                 cm.Parameters.AddWithValue("@iva", compras.Iva);
+                cm.Parameters.AddWithValue("@IvaPrecio", compras.IvaPrecio);
                 cm.Parameters.AddWithValue("@subtotal", compras.subtotal);
                 cm.Parameters.AddWithValue("@total", compras.total);
+                SqlParameter param = new SqlParameter("@ID", SqlDbType.Int, 4);
+                param.Direction = ParameterDirection.Output;
+                cm.Parameters.Add(param);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                int.TryParse(param.Value.ToString(), out Error);
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public int insertDetallesCompras(Detalle_Compra compras)
+        {
+            cn.ConnectionString = myConnection();
+            int Error = 0;
+            try
+            {
+                cm = new SqlCommand(@"
+                INSERT INTO [dbo].[Detalle_Compra]
+                ([idCompra]
+               ,[IdItem]
+               ,[PrecioCompra]
+               ,[Cantidad]
+               ,[Total]
+               ,[FechaRegistro])
+                 VALUES
+                (@idCompra
+                ,@IdItem
+                ,@PrecioCompra
+                ,@Cantidad
+                ,@Total
+                ,@FechaRegistro);", cn);
+                cm.Parameters.AddWithValue("@idCompra", compras.IdCompra);
+                cm.Parameters.AddWithValue("@IdItem", compras.IdItem);
+                cm.Parameters.AddWithValue("@PrecioCompra", compras.precioCompra);
+                cm.Parameters.AddWithValue("@Cantidad", compras.cantidad);
+                cm.Parameters.AddWithValue("@iva", compras.iva);
+                cm.Parameters.AddWithValue("@Total", compras.montoTotal);
+                cm.Parameters.AddWithValue("@FechaRegistro", DateTime.Now);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
@@ -133,7 +211,6 @@ namespace POSalesDb
             catch (Exception ex)
             {
                 CrearEvento(ex.ToString());
-                Error = ex.ToString();
                 return Error;
             }
             finally
@@ -276,27 +353,17 @@ namespace POSalesDb
             }
 
         }
-        public string generarReporte() {
-            cn.ConnectionString=myConnection();
-            string Error= String.Empty;
-            try
-            {
-                cm= new SqlCommand("SELECT c.id, c.codigoCompra, c.tipoCompra, c.subtotal, c.estock, c.descuento, c.total, c.fecha, i.descipcion FROM Compras AS c INNER JOIN Items AS p ON i.Id=c.idItems WHERE c.trasnno LIKE '", cn);
-                cn.Open();
-                adapter.UpdateCommand = cm;
-                adapter.UpdateCommand.ExecuteNonQuery();
-                return Error;
-            }
-            catch (Exception ex)
-            {
-                Error = ex.ToString();
-                return Error;
-            }
-            finally
-            {
-                cn.Close();
-            }
-
+        public DataSet generarReporte(int IdCompra) 
+        {
+            cn.ConnectionString = myConnection();
+            cm = new SqlCommand($"SELECT [items].[nombre],[PrecioCompra],[Cantidad],[Total] FROM [dbo].[Detalle_Compra] inner join items on Items.Id =  [Detalle_Compra].IdItem where [idCompra] = {IdCompra}", cn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cm);
+            DataSet table = new DataSet();
+            cn.Open();
+            adapter.Fill(table);
+            adapter.Dispose();
+            cn.Close();
+            return table;
         }
         public string actualizarvalorStock(int qty, string pcode)
         {
@@ -330,8 +397,10 @@ namespace POSalesDb
             cm = new SqlCommand("SELECT * FROM Proveedores", cn);
             SqlDataAdapter adapter = new SqlDataAdapter(cm);
             DataTable table = new DataTable();
+            cn.Open();
             adapter.Fill(table);
             adapter.Dispose();
+            cn.Close();
             return table;
         }
         public DataTable LoadItemsForSuppliers(string txtSearch)
@@ -1099,6 +1168,32 @@ namespace POSalesDb
             {
                 CrearEvento(ex.ToString());
                 return usuarios;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public DataSet selectUsuariosDataPorId(int Id)
+        {
+            DataSet dt = new DataSet();
+            cn.ConnectionString = myConnection();
+            Usuarios usuarios = new Usuarios();
+            try
+            {
+                cm = new SqlCommand($"Select * from Usuarios Where Id = {Id}", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+           
+                da.Fill(dt);
+
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return dt;
             }
             finally
             {
@@ -3164,7 +3259,7 @@ namespace POSalesDb
             Provedeedores provedeedores = new Provedeedores();
             try
             {
-                cm = new SqlCommand($"Select * from Inventario Where Id_inventario = {Id}", cn);
+                cm = new SqlCommand($"Select * from [Proveedores] Where id = {Id}", cn);
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();
@@ -3196,6 +3291,32 @@ namespace POSalesDb
             {
                 CrearEvento(ex.ToString());
                 return provedeedores;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public DataSet selectProveedorDataPorId(int Id)
+        {
+            DataSet dt = new DataSet();
+            cn.ConnectionString = myConnection();
+            Usuarios usuarios = new Usuarios();
+            try
+            {
+                cm = new SqlCommand($"Select * from [Proveedores] Where Id = {Id}", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+
+                da.Fill(dt);
+
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return dt;
             }
             finally
             {
@@ -3379,6 +3500,30 @@ namespace POSalesDb
                     tienda.address = Convert.ToString(dt.Rows[0]["address"]);
                 }
                 return tienda;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return tienda;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public DataSet selectTiendasDataId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            DataSet tienda = new DataSet();
+            try
+            {
+                cm = new SqlCommand($"Select * from Tiendas Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataSet dt = new DataSet();
+                da.Fill(dt);
+                return dt;
 
             }
             catch (Exception ex)

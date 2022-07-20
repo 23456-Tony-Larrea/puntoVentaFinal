@@ -17,6 +17,8 @@ namespace POSalesDb
         public string formaPago { get; set; }
         public decimal subtotal { get; set; }
         public decimal Iva { get; set; }
+        public decimal IvaPrecio { get; set; }
         public decimal total { get; set; }
+        public Usuarios usuarios { get; set; } = new Usuarios();
     }
 }
