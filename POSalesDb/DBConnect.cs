@@ -45,8 +45,6 @@ namespace POSalesDb
                     compras.Id = (int)dt.Rows[0]["Id"];
                     compras.tipoCompra = dt.Rows[0]["tipoCompra"].ToString();
                     compras.codigoCompra = dt.Rows[0]["codigoCompra"].ToString();
-                    compras.idProducto = (int)dt.Rows[0]["idProducto"];
-                    compras.stock = (int)dt.Rows[0]["stock"];
                     compras.formaPago = dt.Rows[0]["formaPago"].ToString();
                     compras.subtotal = Convert.ToDecimal(dt.Rows[0]["subtotal"].ToString());
                     compras.Iva = Convert.ToDecimal(dt.Rows[0]["Iva"].ToString());
@@ -89,8 +87,6 @@ namespace POSalesDb
                         compra.codigoCompra = dt.Rows[0]["codigoCompra"].ToString();
                         compra.idProveedor = (int)dt.Rows[0]["idProveedor"];
                         compra.fecha = Convert.ToDateTime(dt.Rows[0]["fecha"].ToString());
-                        compra.idProducto = (int)dt.Rows[0]["idProducto"];
-                        compra.stock = (int)dt.Rows[0]["stock"];
                         compra.formaPago = dt.Rows[0]["formaPago"].ToString();
                         compra.subtotal = Convert.ToDecimal(dt.Rows[0]["subtotal"].ToString());
                         compra.Iva = Convert.ToDecimal(dt.Rows[0]["Iva"].ToString());
@@ -125,8 +121,6 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@codigoCompra", compras.codigoCompra);
                 cm.Parameters.AddWithValue("@idProveedor", compras.idProveedor);
                 cm.Parameters.AddWithValue("@fecha", compras.fecha);
-                cm.Parameters.AddWithValue("@idProducto", compras.idProducto);
-                cm.Parameters.AddWithValue("@stock", compras.stock);
                 cm.Parameters.AddWithValue("@iva", compras.Iva);
                 cm.Parameters.AddWithValue("@subtotal", compras.subtotal);
                 cm.Parameters.AddWithValue("@total", compras.total);
@@ -160,8 +154,6 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@codigoCompra", compras.codigoCompra);
                 cm.Parameters.AddWithValue("@idProveedor", compras.idProveedor);
                 cm.Parameters.AddWithValue("@fecha", compras.fecha);
-                cm.Parameters.AddWithValue("@idProducto", compras.idProducto);
-                cm.Parameters.AddWithValue("@stock", compras.stock);
                 cm.Parameters.AddWithValue("@formaPago", compras.formaPago);
                 cm.Parameters.AddWithValue("@subtotal", compras.subtotal);
                 cm.Parameters.AddWithValue("@Iva", compras.Iva);
@@ -2066,11 +2058,11 @@ namespace POSalesDb
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
-                    descripcion.id_descripcion_venta = (int)dt.Rows[0][" Id_descripcion_venta"];
-                    descripcion.producto = (int)dt.Rows[0]["producto"];
+                    descripcion.IdVenta = (int)dt.Rows[0][" Id_descripcion_venta"];
+                    descripcion.IdItem = (int)dt.Rows[0]["producto"];
                     descripcion.cantidad = (int)dt.Rows[0]["cantidad"];
-                    descripcion.venta = (int)dt.Rows[0]["venta"];
-                    descripcion.precio = Convert.ToDecimal(dt.Rows[0]["precio"].ToString());
+                    descripcion.cantidad = (int)dt.Rows[0]["venta"];
+                    descripcion.precioCompra = Convert.ToDecimal(dt.Rows[0]["precio"].ToString());
                 }
                 return descripcion;
 
@@ -2104,12 +2096,11 @@ namespace POSalesDb
                     foreach (DataRow r in dt.Rows)
                     {
                         DescripcionVenta des = new DescripcionVenta();
-                        des.id_descripcion_venta = (int)dt.Rows[0][" Id_descripcion_venta"];
-                        des.producto = (int)dt.Rows[0]["producto"];
+                        des.IdVenta = (int)dt.Rows[0][" Id_descripcion_venta"];
+                        des.IdItem = (int)dt.Rows[0]["producto"];
                         des.cantidad = (int)dt.Rows[0]["cantidad"];
-                        des.producto = (int)dt.Rows[0]["venta"];
-                        des.venta = (int)dt.Rows[0]["venta"];
-                        des.precio = Convert.ToDecimal(dt.Rows[0]["precio"].ToString());
+                        des.cantidad = (int)dt.Rows[0]["venta"];
+                        des.precioCompra = Convert.ToDecimal(dt.Rows[0]["precio"].ToString());
                         descripcion.Add(des);
                     }
 
@@ -2128,63 +2119,7 @@ namespace POSalesDb
             }
         }
         //insertar Descripcion
-        public string insertDescripcionVenta(DescripcionVenta descripcionVenta)
-        {
-            cn.ConnectionString = myConnection();
-            string Error = String.Empty;
-            try
-            {
-                cm = new SqlCommand("Insert into DescripcipnVenta (producto,cantidad,venta,precio )values(@producto,@cantidad,@venta,@precio)");
-                cm.Parameters.AddWithValue("@producto", descripcionVenta.producto);
-                cm.Parameters.AddWithValue("@cantidad", descripcionVenta.cantidad);
-                cm.Parameters.AddWithValue("@venta", descripcionVenta.venta);
-                cm.Parameters.AddWithValue("@precio", descripcionVenta.precio);
-                cn.Open();
-                cm.ExecuteNonQuery();
-                return Error;
 
-            }
-
-            catch (Exception ex)
-            {
-                CrearEvento(ex.ToString());
-                Error = ex.ToString();
-                return Error;
-            }
-            finally
-            {
-                cn.Close();
-            }
-        }
-        //actualizar una DescripcionVenta
-        public string actualizarDescripcionVenta(DescripcionVenta descripcion)
-        {
-            cn.ConnectionString = myConnection();
-            string Error = String.Empty;
-            try
-            {
-                cm = new SqlCommand("UPDATE DescripcionVenta SET producto=@producto,cantidad=@cantidad,venta=@venta,precio=@precio WHERE Id_descripcion_venta = @Id  ", cn);
-                cm.Parameters.AddWithValue("@", descripcion.id_descripcion_venta);
-                cm.Parameters.AddWithValue("@producto", descripcion.producto);
-                cm.Parameters.AddWithValue("@cantidad", descripcion.cantidad);
-                cm.Parameters.AddWithValue("@venta", descripcion.venta);
-                cm.Parameters.AddWithValue("@precio", descripcion.precio);
-                cn.Open();
-                adapter.UpdateCommand = cm;
-                adapter.UpdateCommand.ExecuteNonQuery();
-                return Error;
-            }
-            catch (Exception ex)
-            {
-                CrearEvento(ex.ToString());
-                Error = ex.ToString();
-                return Error;
-            }
-            finally
-            {
-                cn.Close();
-            }
-        }
         //eliminar Descripcion
         public string deleteDescripcionVenta(int idDescripcion)
         {
@@ -3591,8 +3526,8 @@ namespace POSalesDb
                 {
                     venta.Id_venta = (int)dt.Rows[0]["Id"];
                     venta.numero = (int)dt.Rows[0]["numero"];
-                    venta.cliente = (int)dt.Rows[0]["cliente"];
-                    venta.usuario = (int)dt.Rows[0]["usuario"];
+                    venta.Idcliente = (int)dt.Rows[0]["cliente"];
+                    venta.Idusuario = (int)dt.Rows[0]["usuario"];
                     venta.fecha_venta = Convert.ToDateTime(dt.Rows[0]["fecha_venta"]);
                     venta.total = Convert.ToDecimal(dt.Rows[0]["total"]);
                     venta.iva = Convert.ToDecimal(dt.Rows[0]["iva"]);
@@ -3632,15 +3567,15 @@ namespace POSalesDb
                     foreach (DataRow r in dt.Rows)
                     {
                         Venta venta = new Venta();
-                        venta.Id_venta = (int)dt.Rows[0]["Id_venta"];
+                        venta.Id_venta = (int)dt.Rows[0]["Id"];
                         venta.numero = (int)dt.Rows[0]["numero"];
-                        venta.cliente = (int)dt.Rows[0]["cliente"];
-                        venta.usuario = (int)dt.Rows[0]["usuario"];
+                        venta.Idcliente = (int)dt.Rows[0]["cliente"];
+                        venta.Idusuario = (int)dt.Rows[0]["usuario"];
                         venta.fecha_venta = Convert.ToDateTime(dt.Rows[0]["fecha_venta"]);
                         venta.total = Convert.ToDecimal(dt.Rows[0]["total"]);
                         venta.iva = Convert.ToDecimal(dt.Rows[0]["iva"]);
                         venta.subtotal = Convert.ToDecimal(dt.Rows[0]["subtotal"]);
-                        venta.descuento = Convert.ToDecimal(dt.Rows[0]["descuento"]);
+                        venta.descuento = Convert.ToDecimal(dt.Rows[0]["total"]);
 
                         ventas.Add(venta);
                     }
@@ -3669,18 +3604,13 @@ namespace POSalesDb
             {
                 cm = new SqlCommand("Insert into Venta (numero,cliente,usuario,fecha_venta,total,iva,subtotal,descuento)values(@numero,@cliente,@usuario,@fecha_venta,@total,@iva,@subtotal,@descuento)", cn);
                 cm.Parameters.AddWithValue("@numero", venta.numero);
-                cm.Parameters.AddWithValue("@cliente", venta.cliente);
-                cm.Parameters.AddWithValue("@usuario", venta.usuario);
+                cm.Parameters.AddWithValue("@cliente", venta.Idcliente);
+                cm.Parameters.AddWithValue("@usuario", venta.Idusuario);
                 cm.Parameters.AddWithValue("@fecha_venta", venta.fecha_venta.ToString("yyyy/MM/dd"));
                 cm.Parameters.AddWithValue("@total", venta.total);
                 cm.Parameters.AddWithValue("@iva", venta.iva);
                 cm.Parameters.AddWithValue("@subtotal", venta.subtotal);
                 cm.Parameters.AddWithValue("@descuento", venta.descuento);
-
-
-
-
-
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
@@ -3708,8 +3638,8 @@ namespace POSalesDb
                 cm = new SqlCommand("UPDATE Venta SET numero=@numero,cliente=@cliente,usuario=@usuario,fecha_venta=@fecha_venta,total=@total,iva=@iva,subtotal=@subtotal,descuento=@descuento WHERE Id_venta = @Id  ", cn);
                 cm.Parameters.AddWithValue("@", venta.Id_venta);
                 cm.Parameters.AddWithValue("@numero", venta.numero);
-                cm.Parameters.AddWithValue("@cliente", venta.cliente);
-                cm.Parameters.AddWithValue("@usuario", venta.usuario);
+                cm.Parameters.AddWithValue("@cliente", venta.Idcliente);
+                cm.Parameters.AddWithValue("@usuario", venta.Idusuario);
                 cm.Parameters.AddWithValue("@fecha_venta", venta.fecha_venta.ToString("yyyy/MM/dd"));
                 cm.Parameters.AddWithValue("@total", venta.total);
                 cm.Parameters.AddWithValue("@iva", venta.iva);

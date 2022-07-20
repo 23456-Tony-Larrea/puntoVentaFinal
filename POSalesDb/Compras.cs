@@ -11,10 +11,9 @@ namespace POSalesDb
         public int Id { get; set; }
         public string tipoCompra { get; set; }
         public string codigoCompra { get; set; }
+        public int idUsuario { get; set; }
         public int idProveedor { get; set; }
         public DateTime fecha { get; set; }
-        public int idProducto { get; set; }
-        public int stock { get; set; }
         public string formaPago { get; set; }
         public decimal subtotal { get; set; }
         public decimal Iva { get; set; }

@@ -44,9 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dBPOSaleDataSet = new POSales.DBPOSaleDataSet();
             this.comprasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comprasTableAdapter = new POSales.DBPOSaleDataSetTableAdapters.ComprasTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).BeginInit();
@@ -54,7 +52,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBPOSaleDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -190,17 +187,8 @@
             // 
             // dBPOSaleDataSet
             // 
-            this.dBPOSaleDataSet.DataSetName = "DBPOSaleDataSet";
-            this.dBPOSaleDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+        
             // 
-            // comprasBindingSource
-            // 
-            this.comprasBindingSource.DataMember = "Compras";
-            this.comprasBindingSource.DataSource = this.dBPOSaleDataSet;
-            // 
-            // comprasTableAdapter
-            // 
-            this.comprasTableAdapter.ClearBeforeFill = true;
             // 
             // Compras
             // 
@@ -219,7 +207,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.comboBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBPOSaleDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comprasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -241,8 +228,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
-        private DBPOSaleDataSet dBPOSaleDataSet;
         private System.Windows.Forms.BindingSource comprasBindingSource;
-        private DBPOSaleDataSetTableAdapters.ComprasTableAdapter comprasTableAdapter;
     }
 }
