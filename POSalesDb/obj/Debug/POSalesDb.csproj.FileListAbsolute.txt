@@ -35,3 +35,13 @@ D:\nuevo la cague\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CopyCompl
 D:\nuevo la cague\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.dll
 D:\nuevo la cague\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.pdb
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.dll.config
+D:\nuevo pull\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.dll.config
+D:\nuevo pull\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.dll
+D:\nuevo pull\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.pdb
+D:\nuevo pull\puntoVentaFinal\POSalesDb\bin\Debug\Dapper.dll
+D:\nuevo pull\puntoVentaFinal\POSalesDb\bin\Debug\Dapper.xml
+D:\nuevo pull\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.AssemblyReference.cache
+D:\nuevo pull\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CoreCompileInputs.cache
+D:\nuevo pull\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CopyComplete
+D:\nuevo pull\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.dll
+D:\nuevo pull\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.pdb

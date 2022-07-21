@@ -22,11 +22,35 @@ namespace POSalesDb
         private string con;
         public string myConnection()
         {
-            con = @"Data Source=localhost;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True";
+            con = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True;Connect Timeout=30";
             return con;
         }
 
 
+
+        //public  Provedeedores buscarPorCi(string ci)
+        //{
+
+        //    cn.ConnectionString = myConnection();
+        //    Provedeedores proveedores = new Provedeedores();
+        //    try
+        //    {
+        //        cm = new SqlCommand($"Select ci from Proveedores Where ci= {ci} ", cn);
+        //        SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+        //        cn.Open();
+        //        DataTable dt = new DataTable();
+        //        da.Fill(dt);
+        //        if (dt.Rows.Count > 0)
+        //        {
+        //            pro
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        CrearEvento(ex.ToString());
+
+        //    }
+        //    }
 
         //get Compras Id
         public Compras selectComprasPorId(int Id)
@@ -43,7 +67,7 @@ namespace POSalesDb
                 if (dt.Rows.Count > 0)
                 {
                     compras.Id = (int)dt.Rows[0]["Id"];
-                    compras.tipoCompra = dt.Rows[0]["tipoDeCompra"].ToString();
+                    compras.tipoCompra = dt.Rows[0]["tipoCompra"].ToString();
                     compras.codigoCompra = dt.Rows[0]["codigoCompra"].ToString();
                     compras.idProveedor = (int)dt.Rows[0]["IdProveedor"];
                     compras.idUsuario = (int)dt.Rows[0]["IdUsuario"];
@@ -142,7 +166,7 @@ namespace POSalesDb
             try
             {
                 cm = new SqlCommand(@"Insert into Compras 
-                (tipoDeCompra,codigoCompra,idProveedor,fecha,Iva,IvaPrecio,subtotal,total,idUsuario) 
+                (tipoCompra,codigoCompra,idProveedor,fecha,Iva,IvaPrecio,subtotal,total,idUsuario) 
                 values
                 (@tipoCompra,@codigoCompra,@idProveedor,@fecha,@Iva,@IvaPrecio,@subtotal,@total,@idUsuario) SET @ID = SCOPE_IDENTITY();", cn);
                 cm.Parameters.AddWithValue("@tipoCompra", compras.tipoCompra);
@@ -183,7 +207,7 @@ namespace POSalesDb
                 cm = new SqlCommand(@"
                 INSERT INTO [dbo].[Detalle_Compra]
                 ([idCompra]
-               ,[IdItem]
+               ,[IdItems]
                ,[PrecioCompra]
                ,[Cantidad]
                ,[Total]
@@ -199,7 +223,6 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@IdItem", compras.IdItem);
                 cm.Parameters.AddWithValue("@PrecioCompra", compras.precioCompra);
                 cm.Parameters.AddWithValue("@Cantidad", compras.cantidad);
-                cm.Parameters.AddWithValue("@iva", compras.iva);
                 cm.Parameters.AddWithValue("@Total", compras.montoTotal);
                 cm.Parameters.AddWithValue("@FechaRegistro", DateTime.Now);
                 cn.Open();
@@ -356,7 +379,7 @@ namespace POSalesDb
         public DataSet generarReporte(int IdCompra) 
         {
             cn.ConnectionString = myConnection();
-            cm = new SqlCommand($"SELECT [items].[nombre],[PrecioCompra],[Cantidad],[Total] FROM [dbo].[Detalle_Compra] inner join items on Items.Id =  [Detalle_Compra].IdItem where [idCompra] = {IdCompra}", cn);
+            cm = new SqlCommand($"SELECT [items].[nombre],[PrecioCompra],[Cantidad],[Total] FROM [dbo].[Detalle_Compra] inner join items on Items.Id =  [Detalle_Compra].IdItems where [idCompra] = {IdCompra}", cn);
             SqlDataAdapter adapter = new SqlDataAdapter(cm);
             DataSet table = new DataSet();
             cn.Open();

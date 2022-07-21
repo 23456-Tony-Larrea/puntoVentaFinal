@@ -56,7 +56,9 @@ namespace POSales
             factura.idUsuario = _idUsuario;
             factura.total = Convert.ToDecimal(txtTotal.Text);
             factura.subtotal = Convert.ToDecimal(txtSubtotal.Text);
-            factura.IvaPrecio = Convert.ToDecimal(txtIvaItem.Text);
+            decimal iva=0;
+            decimal.TryParse(txtIvaItem.Text, out iva);
+            factura.IvaPrecio = iva;
             factura.tipoCompra = comboBox1.Text;
             factura.idProveedor = proveedor.Id;
             int idFactura = dbcon.insertCompras(factura);

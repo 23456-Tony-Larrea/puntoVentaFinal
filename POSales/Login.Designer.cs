@@ -101,7 +101,6 @@ namespace POSales
             // 
             // txtName
             // 
-            this.txtName.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             // 
             // 
             // 
