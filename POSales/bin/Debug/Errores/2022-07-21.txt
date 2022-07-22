@@ -265,3 +265,7 @@ System.Data.SqlClient.SqlException (0x80131904): Implicit conversion from data t
    en POSalesDb.DBConnect.insertDetallesCompras(Detalle_Compra compras) en D:\nuevo pull\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 229
 ClientConnectionId:8b83f7fa-5f04-40d0-a3e3-3d7fb3b194dd
 Error Number:257,State:3,Class:16
+System.InvalidCastException: La conversión especificada no es válida.
+   en POSalesDb.DBConnect.selectItemPorId(Int32 Id) en D:\nuevo pull\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 695
+System.InvalidCastException: La conversión especificada no es válida.
+   en POSalesDb.DBConnect.selectItemPorId(Int32 Id) en D:\nuevo pull\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 695

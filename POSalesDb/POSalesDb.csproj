@@ -62,10 +62,13 @@
     <Compile Include="Detalle_Compra.cs" />
     <Compile Include="dtoDetallesDeCompra.cs" />
     <Compile Include="Enstock.cs" />
+    <Compile Include="Equipo.cs" />
+    <Compile Include="estadoUsuario.cs" />
     <Compile Include="Factura.cs" />
     <Compile Include="Grupo.cs" />
     <Compile Include="Inventario.cs" />
     <Compile Include="Items.cs" />
+    <Compile Include="Mantenimiento.cs" />
     <Compile Include="Marcas.cs" />
     <Compile Include="Productos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +79,8 @@
     </Compile>
     <Compile Include="Provedeedores.cs" />
     <Compile Include="Repository.cs" />
+    <Compile Include="Reserva.cs" />
+    <Compile Include="Tecnicos.cs" />
     <Compile Include="Tiendas.cs" />
     <Compile Include="Usuarios.cs" />
     <Compile Include="Venta.cs" />

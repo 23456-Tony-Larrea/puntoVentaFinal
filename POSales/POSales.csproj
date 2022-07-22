@@ -292,6 +292,12 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuMantenimiento.Designer.cs">
+      <DependentUpon>MenuMantenimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuPrincipalFactura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -516,6 +522,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuMantenimiento.resx">
+      <DependentUpon>MenuMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipalFactura.resx">
       <DependentUpon>MenuPrincipalFactura.cs</DependentUpon>

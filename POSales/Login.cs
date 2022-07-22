@@ -82,6 +82,16 @@ namespace POSales
                     menuPrincipalFactura.ShowDialog();
 
                 }
+                if (usuario.role == "tecnico")
+                {
+                    MessageBox.Show("Bienvenido " + usuario.nombre + " |", "ACCESSO CONCEBIDO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtName.Clear();
+                    txtPass.Clear();
+                    this.Hide();
+                   MenuMantenimiento  menuMantenimiento = new MenuMantenimiento();
+                    menuMantenimiento.ShowDialog() ;
+
+                }
 
             }
             else

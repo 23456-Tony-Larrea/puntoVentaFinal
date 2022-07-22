@@ -41,7 +41,7 @@ namespace POSalesDb
 		public Grupo grupo { get;set; } = new Grupo();
 		public Marcas marcas { get; set; } = new Marcas();
 		public Bodega Bodega { get; set; } = new Bodega();
-
+		public Reserva reserva { get; set; }= new Reserva();
 		public decimal montoTotal { get; set; }
 		[DisplayName("Precio total")]
 		public decimal CostoTotal => (HasIva) ? montoTotal * iva * ice : montoTotal;
