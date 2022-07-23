@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace POSalesDb
 {
-    public class Reserva
+    public class EstadoMantenimiento
     {
         public int Id { get; set; }
-        public string estadoReserva { get; set; }
-        public int idItem { get; set; }
-        public Items items { get; set; }
+        public string descripcion { get; set; }
     }
 }

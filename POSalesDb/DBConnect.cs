@@ -27,31 +27,929 @@ namespace POSalesDb
         }
 
 
+        //get ordenServicio id
+        public OrdenServicio selectOrdenServicioPorId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            OrdenServicio orden = new OrdenServicio();
+            try
+            {
+                cm = new SqlCommand($"Select * from ordenServicio Where Id = {Id}", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    orden.Id = (int)dt.Rows[0]["Id"];
+                    orden.Descripcion = dt.Rows[0]["descripcion"].ToString();
+                    orden.idCliente = (int)dt.Rows[0]["idCliente"];
+                    orden.idUsuarios = (int)dt.Rows[0]["idUsuarios"];
+                   
+                }
+                return orden;
 
-        //public  Provedeedores buscarPorCi(string ci)
-        //{
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return orden;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        // get ordenServicio
+        public List<OrdenServicio> selectTodosLasOrdenServicio()
+        {
+            cn.ConnectionString = myConnection();
+            List<OrdenServicio> ordens = new List<OrdenServicio>();
 
-        //    cn.ConnectionString = myConnection();
-        //    Provedeedores proveedores = new Provedeedores();
-        //    try
-        //    {
-        //        cm = new SqlCommand($"Select ci from Proveedores Where ci= {ci} ", cn);
-        //        SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
-        //        cn.Open();
-        //        DataTable dt = new DataTable();
-        //        da.Fill(dt);
-        //        if (dt.Rows.Count > 0)
-        //        {
-        //            pro
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        CrearEvento(ex.ToString());
+            try
+            {
+                cm = new SqlCommand($"Select * from ordenServicio ");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        OrdenServicio orden = new OrdenServicio();
+                        orden.Id = (int)dt.Rows[0]["Id"];
+                        orden.Descripcion = dt.Rows[0]["descripcion"].ToString();
+                        orden.idCliente =(int) dt.Rows[0]["idCliente"];
+                        orden.idUsuarios = (int)dt.Rows[0]["idUsuarios"];
+                        
+                        ordens.Add(orden);
+                    }
 
-        //    }
-        //    }
+                }
+                return ordens;
+            }
 
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return ordens;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar ordenServicio 
+        public string insertOrdenServicio(OrdenServicio orden)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into ordenServicio (descripcion,idCliente,idUsuarios) values(@descripcion,@idCliente,@idUsuarios)",cn);
+                cm.Parameters.AddWithValue("@descripcion", orden.Descripcion);
+                cm.Parameters.AddWithValue("@idCliente", orden.idCliente);
+                cm.Parameters.AddWithValue("@idUsuarios", orden.idUsuarios);
+                cn.Open();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
+                return Error;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar ordenServicio 
+        public string actualizarOrdenServicio(OrdenServicio orden)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE ordenServicio SET descripcion=@descripcion,idCliente=@idCliente,idUsuarios=@idUsuarios WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", orden.Id);
+                cm.Parameters.AddWithValue("@descripcion",orden.Descripcion);
+                cm.Parameters.AddWithValue("@idCliente", orden.idCliente);
+                cm.Parameters.AddWithValue("@idUsuarios", orden.idUsuarios);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //eliminar OrdenServicio
+        public string deleteOrdenServicio(int idOrdenServicio)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM ordenServicio WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@Id", idOrdenServicio);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        
+        //get Mantenimiento id
+        public Mantenimiento selectMantenimientoPorId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Mantenimiento mantenimiento = new Mantenimiento();
+            try
+            {
+                cm = new SqlCommand($"Select * from Mantenimiento Where Id = {Id}", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    mantenimiento.Id = (int)dt.Rows[0]["Id"];
+                    mantenimiento.fechaMantenimiento =Convert.ToDateTime( dt.Rows[0]["fechaMantenimiento"].ToString());
+                    mantenimiento.fechaEntregaEquipo = Convert.ToDateTime(dt.Rows[0]["fechaEntregaEquipo"].ToString());
+                    mantenimiento.solucion = dt.Rows[0]["solucion"].ToString();
+                    mantenimiento.idEstadoMantenimiento =(int)dt.Rows[0]["idEstadoMantenimiento"];
+                    mantenimiento.idUsuarios=(int)dt.Rows[0]["idUsuarios"];
+                    mantenimiento.idOrdenServicio = (int)dt.Rows[0]["idOrdenServicio"];
+                    mantenimiento.estadoAplicarCorreccion = Convert.ToBoolean(dt.Rows[0]["estadoAplicarCorreccion"]);
+                
+                }
+                return mantenimiento;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return mantenimiento;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        // get Mantenimiento
+        public List<Mantenimiento> selectTodosLosMantenimientos()
+        {
+            cn.ConnectionString = myConnection();
+            List<Mantenimiento> mantenimientos = new List<Mantenimiento>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Mantenimiento ");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Mantenimiento mantenimiento = new Mantenimiento();
+                        mantenimiento.Id = (int)dt.Rows[0]["Id"];
+                        mantenimiento.fechaMantenimiento = Convert.ToDateTime( dt.Rows[0]["fechaMantenimiento"].ToString());
+                        mantenimiento.fechaEntregaEquipo = Convert.ToDateTime(dt.Rows[0]["fechaEntregaEquipo"].ToString());
+                        mantenimiento.descripcionFalla = dt.Rows[0]["descripcionFalla"].ToString();
+                        mantenimiento.solucion = dt.Rows[0]["solucion"].ToString();
+                        mantenimiento.idEstadoMantenimiento= (int)dt.Rows[0]["idEstadoMantenimiento"];
+                        mantenimiento.idUsuarios = (int)dt.Rows[0]["idUsuarios"];
+                        mantenimiento.idOrdenServicio = (int)dt.Rows[0]["idOrdenServicio"];
+                        mantenimiento.estadoAplicarCorreccion= Convert.ToBoolean( dt.Rows[0]["estadoAplicarCorreccion"].ToString());
+                        mantenimientos.Add(mantenimiento);
+                    }
+
+                }
+                return mantenimientos;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return mantenimientos;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar Mantenimientos 
+        public string insertMantenimientos(Mantenimiento mantenimiento)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Mantenimiento (fechaMantenimiento,fechaEntregaEquipo,descripcionFalla,solucion,idEstadoMantenimiento,idUsuarios,idOrdenServicio,estadoAplicarCorreccion) values(@fechaMantenimiento,@fechaEntregaEquipo,@descripcionFalla,@solucion,@idEstadoMantenimiento,@idUsuarios,@idOrdenServicio,@estadoAplicarCorreccion)",cn);
+                cm.Parameters.AddWithValue("@fechaMantenimiento", mantenimiento.fechaMantenimiento);
+                cm.Parameters.AddWithValue("@fechaEntregaEquipo", mantenimiento.fechaEntregaEquipo);
+                cm.Parameters.AddWithValue("@descripcionFalla", mantenimiento.descripcionFalla);
+                cm.Parameters.AddWithValue("@solucion", mantenimiento.solucion);
+                cm.Parameters.AddWithValue("@idEstadoMantenimiento", mantenimiento.idEstadoMantenimiento);
+                cm.Parameters.AddWithValue("@idUsuarios", mantenimiento.idUsuarios);
+                cm.Parameters.AddWithValue("@idOrdenServicio", mantenimiento.idOrdenServicio);
+                cm.Parameters.AddWithValue("@estadoAplicarCorreccion", mantenimiento.estadoAplicarCorreccion);
+                cn.Open();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
+                return Error;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar Mantenimiento 
+        public string actualizarMantenimiento(Mantenimiento mantenimiento)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Mantenimiento SET fechaMantenimiento=@fechaMantenimiento,fechaEntregaEquipo=@fechaEntregaEquipo,descripcionFalla=@descripcionFalla,solucion=@solucion,idEstadoMantenimiento=@idEstadoMantenimiento,idUsuarios=@idUsuarios,idOrdenServicio=@idOrdenServicio,estadoAplicarCorreccion=@estadoAplicarCorreccion WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", mantenimiento.Id);
+                cm.Parameters.AddWithValue("@fechaMantenimiento", mantenimiento.fechaMantenimiento);
+                cm.Parameters.AddWithValue("@fechaEntregaEquipo", mantenimiento.fechaEntregaEquipo);
+                cm.Parameters.AddWithValue("@descripcionFalla", mantenimiento.descripcionFalla);
+                cm.Parameters.AddWithValue("@solucion", mantenimiento.solucion);
+                cm.Parameters.AddWithValue("@idEstadoMantenimiento", mantenimiento.idEstadoMantenimiento);
+                cm.Parameters.AddWithValue("@idUsuarios", mantenimiento.idUsuarios);
+                cm.Parameters.AddWithValue("@idOrdenServicio", mantenimiento.idOrdenServicio);
+                cm.Parameters.AddWithValue("@estadoAplicarCorreccion", mantenimiento.estadoAplicarCorreccion);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //eliminar Mantenimientos
+        public string deleteMantenimientos(int idMantenimientos)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM Mantenimiento WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@Id", idMantenimientos);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        
+        //get estadoMantenimiento id
+        public EstadoMantenimiento selectEstadoMantenimientoPorId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            EstadoMantenimiento estadoMantenimiento = new EstadoMantenimiento();
+            try
+            {
+                cm = new SqlCommand($"Select * from estadoMantenimiento Where Id = {Id}", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    estadoMantenimiento.Id = (int)dt.Rows[0]["Id"];
+                    estadoMantenimiento.descripcion = dt.Rows[0]["descripcion"].ToString();
+                   
+                }
+                return estadoMantenimiento;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return estadoMantenimiento;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        // get Mantenimiento
+        public List<EstadoMantenimiento> selectTodosLosEstadosMantenimientos()
+        {
+            cn.ConnectionString = myConnection();
+            List<EstadoMantenimiento> estadosMantenimientos = new List<EstadoMantenimiento>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from estadoMantenimiento ");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        EstadoMantenimiento estadoMantenimiento = new EstadoMantenimiento();
+                        estadoMantenimiento.Id = (int)dt.Rows[0]["Id"];
+                        estadoMantenimiento.descripcion = dt.Rows[0]["descripcion"].ToString();
+                       
+                        estadosMantenimientos.Add(estadoMantenimiento);
+                    }
+
+                }
+                return estadosMantenimientos;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return estadosMantenimientos;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar EstadosMantenimientos 
+        public string insertEstadosMantenimientos(EstadoMantenimiento estadoMantenimiento)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into estadoMantenimiento (descripcion) values (@descripcion)", cn);
+                cm.Parameters.AddWithValue("@descripcionFalla", estadoMantenimiento.descripcion);
+                cn.Open();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
+                return Error;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar estadoMantenimiento 
+        public string actualizarEstadoMantenimiento(EstadoMantenimiento estadoMantenimiento)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE estadoMantenimiento SET descripcion=@descripcion WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", estadoMantenimiento.Id);
+                cm.Parameters.AddWithValue("@descripcion", estadoMantenimiento.descripcion);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //eliminar estadoMantenimientos
+        public string deleteEstadoMantenimientos(int idEstadosMantenimientos)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM estadoMantenimiento WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@Id", idEstadosMantenimientos);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //get accesorios id
+        public Accesorios selectAccesoriosPorId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Accesorios accesorios = new Accesorios();
+            try
+            {
+                cm = new SqlCommand($"Select * from Accesorios Where Id = {Id}", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    accesorios.Id = (int)dt.Rows[0]["Id"];
+                    accesorios.accesoriosEquipo = dt.Rows[0]["accesoriosEquipo"].ToString();
+                    accesorios.idEquipo = (int)dt.Rows[0]["idEquipo"];
+                     
+                }
+                return accesorios;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return accesorios;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        // get Accesorios
+        public List<Accesorios> selectTodosLosAccesorios()
+        {
+            cn.ConnectionString = myConnection();
+            List<Accesorios> accesorios = new List<Accesorios>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Accesorios ");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Accesorios accesorio = new Accesorios();
+                        accesorio.Id = (int)dt.Rows[0]["Id"];
+                        accesorio.accesoriosEquipo = dt.Rows[0]["accesoriosEquipo"].ToString();
+                        accesorio.idEquipo =(int) dt.Rows[0]["idEquipo"];
+                        
+                        accesorios.Add(accesorio);
+                    }
+
+                }
+                return accesorios;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return accesorios;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar Equipos 
+        public string insertEquipos(Accesorios accesorios)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Accesorios (accesoriosEquipo,idEquipo) values (@accesoriosEquipo,@idEquipo)", cn);
+                cm.Parameters.AddWithValue("@accesoriosEquipo", accesorios.accesoriosEquipo);
+                cm.Parameters.AddWithValue("@descripcionEquipo", accesorios.idEquipo);
+                cn.Open();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
+                return Error;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar Accesorios 
+        public string actualizarAccesorios(Accesorios accesorios)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Accesorios SET accesoriosEquipo=@accesoriosEquipo,idEquipo=@idEquipo WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", accesorios.Id);
+                cm.Parameters.AddWithValue("@accesoriosEquipo",accesorios.accesoriosEquipo);
+                cm.Parameters.AddWithValue("@idEquipo", accesorios.idEquipo);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //eliminar Accesorios
+        public string deleteAccesorios(int idAccesorios)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM equipo WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@Id", idAccesorios);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //get equipo id
+        public Equipo selectEquipoPorId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Equipo equipo = new Equipo();
+            try
+            {
+                cm = new SqlCommand($"Select * from Equipo Where Id = {Id}", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    equipo.Id = (int)dt.Rows[0]["Id"];
+                    equipo.descripcionFallo = dt.Rows[0]["descripcionFallo"].ToString();
+                    equipo.descripcionEquipo = dt.Rows[0]["descripcionEquipo"].ToString();
+                    equipo.codigo = dt.Rows[0]["codigo"].ToString();
+                    equipo.series = dt.Rows[0]["series"].ToString();
+                }
+                return equipo;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return equipo;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        // get Equipo
+        public List<Equipo> selectTodosLosEquipos()
+        {
+            cn.ConnectionString = myConnection();
+            List<Equipo> equipos = new List<Equipo>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Equipo ");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Equipo equipo = new Equipo();
+                        equipo.Id = (int)dt.Rows[0]["Id"];
+                        equipo.descripcionFallo = dt.Rows[0]["descripcionFallo"].ToString();
+                        equipo.descripcionEquipo = dt.Rows[0]["descripcionEquipo"].ToString();
+                        equipo.codigo = dt.Rows[0]["codigo"].ToString();
+                        equipo.series = dt.Rows[0]["series"].ToString();
+                        equipos.Add(equipo);
+                    }
+
+                }
+                return equipos;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return equipos;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar Equipos 
+        public string insertEquipos(Equipo equipo)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Equipo (descripcionFallo,descripcionEquipo,codigo,series) values (@descripcionFalla,@descripcionEquipo,@codigo,@series)", cn);
+                cm.Parameters.AddWithValue("@descripcionFallo", equipo.descripcionFallo);
+                cm.Parameters.AddWithValue("@descripcionEquipo", equipo.descripcionEquipo);
+                cm.Parameters.AddWithValue("@codigo", equipo.codigo);
+                cm.Parameters.AddWithValue("@series", equipo.codigo);
+                cn.Open();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
+                return Error;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar Equipo 
+        public string actualizarEquipos(Equipo equipo)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Equipo SET descripcionFallo=@descripcionFallo,descripcionEquipo=@descripcionEquipo,codigo=@codigo,series=@series WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", equipo.Id);
+                cm.Parameters.AddWithValue("@descripcionFallo", equipo.descripcionFallo);
+                cm.Parameters.AddWithValue("@descripcionEquipo", equipo.descripcionEquipo);
+                cm.Parameters.AddWithValue("@codigo", equipo.codigo);
+                cm.Parameters.AddWithValue("@series", equipo.series);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //eliminar Equipo
+        public string deleteEquipo(int idEquipo)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM equipo WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@Id", idEquipo);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //get reserva id
+        public Reserva selectReservaPorId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            Reserva reserva = new Reserva();
+            try
+            {
+                cm = new SqlCommand($"Select * from Reserva Where Id = {Id}", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    reserva.Id = (int)dt.Rows[0]["Id"];
+                    reserva.estadoReserva = dt.Rows[0]["estadoReserva"].ToString();
+                    reserva.idItem =(int) dt.Rows[0]["IdItem"];
+                    }
+                return reserva;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return reserva;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        // get Reserva
+        public List<Reserva> selectTodosLasReservas()
+        {
+            cn.ConnectionString = myConnection();
+            List<Reserva> reservas = new List<Reserva>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Reserva ");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Reserva reserva = new Reserva();
+                        reserva.Id = (int)dt.Rows[0]["Id"];
+                        reserva.estadoReserva = dt.Rows[0]["estadoReserva"].ToString();
+                        reserva.idItem =(int)dt.Rows[0]["idItem"];
+                        reservas.Add(reserva);
+                    }
+
+                }
+                return reservas;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return reservas;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar Reservas 
+        public string insertReservas(Reserva reserva)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into Reserva (estadoReserva,idItem) values (@estadoReserva,@idItem)", cn);
+                cm.Parameters.AddWithValue("@estadoReserva", reserva.estadoReserva);
+                cm.Parameters.AddWithValue("@idItem", reserva.idItem);
+                cn.Open();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
+                return Error;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar Reserva 
+        public string actualizarReserva(Reserva reserva)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE Reserva SET estadoReserva=@estadoReserva,idItem=@idItem WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", reserva.Id);
+                cm.Parameters.AddWithValue("@estadoReserva", reserva.estadoReserva);
+                cm.Parameters.AddWithValue("@idItem", reserva.idItem);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //eliminar Reserva
+        public string deleteReserva(int idReserva)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM Reserva WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@Id", idReserva);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
         //get Compras Id
         public Compras selectComprasPorId(int Id)
         {
@@ -1515,7 +2413,7 @@ namespace POSalesDb
                 cn.Close();
             }
         }
-
+         
         //obtener bodega id 
         public Bodega selectBodegaId(int Id)
         {

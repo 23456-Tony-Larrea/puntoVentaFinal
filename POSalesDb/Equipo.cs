@@ -9,10 +9,9 @@ namespace POSalesDb
     public class Equipo
     {
         public int Id { get; set; }
-        public string codigo { get; set; }
         public string descripcionEquipo { get; set; }
-        public string estado { get; set; }
-        public string  accesoriosEquipo { get; set; }
-        public int IdTecnico { get; set; }
+        public string descripcionFallo { get; set; }
+        public string codigo { get; set; }
+        public string  series { get; set; }
     }
 }

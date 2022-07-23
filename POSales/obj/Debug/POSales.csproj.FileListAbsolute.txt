@@ -480,3 +480,4 @@ D:\nuevo pull\puntoVentaFinal\POSales\obj\Debug\POSales.csproj.CoreCompileInputs
 D:\nuevo pull\puntoVentaFinal\POSales\obj\Debug\POSales.csproj.CopyComplete
 D:\nuevo pull\puntoVentaFinal\POSales\obj\Debug\POSales.exe
 D:\nuevo pull\puntoVentaFinal\POSales\obj\Debug\POSales.pdb
+D:\nuevo pull\puntoVentaFinal\POSales\obj\Debug\POSales.MenuMantenimiento.resources

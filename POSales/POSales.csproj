@@ -292,6 +292,78 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\Accesorios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Accesorios.Designer.cs">
+      <DependentUpon>Accesorios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\AccesoriosModulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\AccesoriosModulo.Designer.cs">
+      <DependentUpon>AccesoriosModulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Equipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Equipo.Designer.cs">
+      <DependentUpon>Equipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\EquipoModulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\EquipoModulo.Designer.cs">
+      <DependentUpon>EquipoModulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\EstadoMantenimientoModulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\EstadoMantenimientoModulo.Designer.cs">
+      <DependentUpon>EstadoMantenimientoModulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\EstadoMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\EstadoMantenimiento.Designer.cs">
+      <DependentUpon>EstadoMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Mantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Mantenimiento.Designer.cs">
+      <DependentUpon>Mantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\MantenimientoModulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\MantenimientoModulo.Designer.cs">
+      <DependentUpon>MantenimientoModulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\OrdenServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\OrdenServicio.Designer.cs">
+      <DependentUpon>OrdenServicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\OrdenServicioModulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\OrdenServicioModulo.Designer.cs">
+      <DependentUpon>OrdenServicioModulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Reserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Reserva.Designer.cs">
+      <DependentUpon>Reserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\ReservasModulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\ReservasModulo.Designer.cs">
+      <DependentUpon>ReservasModulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuMantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -522,6 +594,42 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\Accesorios.resx">
+      <DependentUpon>Accesorios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\AccesoriosModulo.resx">
+      <DependentUpon>AccesoriosModulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\Equipo.resx">
+      <DependentUpon>Equipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\EquipoModulo.resx">
+      <DependentUpon>EquipoModulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\EstadoMantenimientoModulo.resx">
+      <DependentUpon>EstadoMantenimientoModulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\EstadoMantenimiento.resx">
+      <DependentUpon>EstadoMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\Mantenimiento.resx">
+      <DependentUpon>Mantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\MantenimientoModulo.resx">
+      <DependentUpon>MantenimientoModulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\OrdenServicio.resx">
+      <DependentUpon>OrdenServicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\OrdenServicioModulo.resx">
+      <DependentUpon>OrdenServicioModulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\Reserva.resx">
+      <DependentUpon>Reserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\ReservasModulo.resx">
+      <DependentUpon>ReservasModulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuMantenimiento.resx">
       <DependentUpon>MenuMantenimiento.cs</DependentUpon>

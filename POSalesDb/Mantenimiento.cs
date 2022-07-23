@@ -9,17 +9,16 @@ namespace POSalesDb
     public class Mantenimiento
     {
         public int Id { get; set; }
-        public string caracteristicas { get; set; }
-        public int descripcionEquipo { get; set; }
-        public string marca { get; set; }
-        public string serie { get; set; }
-        public string descripcionFalla { get; set; }
-        public decimal precioReferencial { get; set; }
         public DateTime fechaMantenimiento { get; set; }
         public DateTime fechaEntregaEquipo { get; set; }
-        public string historial { get; set; }
-        public int IdCliente { get; set; }
-        public int IdUsuarios { get; set; }
-
+        public int idEstadoMantenimiento { get; set; }
+        public int idUsuarios { get; set; }
+        public int idOrdenServicio { get; set; }
+        public Usuarios usuarios { get; set; }
+        public EstadoMantenimiento estadoMantenimiento { get; set; }
+        public OrdenServicio OrdenServicio { get; set; }
+        public string descripcionFalla { get; set; }
+        public string solucion { get; set; }
+        public bool estadoAplicarCorreccion { get; set; }
     }
 }
