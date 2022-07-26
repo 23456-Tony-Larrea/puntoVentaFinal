@@ -33,17 +33,17 @@
             this.label10 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtIdReserva = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.picClose = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDescripcionItem = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtCodBarrasItem = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboEstadoReserva = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel2.SuspendLayout();
@@ -101,14 +101,14 @@
             this.btnUpdate.Text = "Actualizar";
             this.btnUpdate.UseVisualStyleBackColor = false;
             // 
-            // txtId
+            // txtIdReserva
             // 
-            this.txtId.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(42, 67);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(114, 28);
-            this.txtId.TabIndex = 187;
+            this.txtIdReserva.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtIdReserva.Enabled = false;
+            this.txtIdReserva.Location = new System.Drawing.Point(42, 67);
+            this.txtIdReserva.Name = "txtIdReserva";
+            this.txtIdReserva.Size = new System.Drawing.Size(114, 28);
+            this.txtIdReserva.TabIndex = 187;
             // 
             // panel1
             // 
@@ -147,12 +147,14 @@
             this.picClose.TabIndex = 1;
             this.picClose.TabStop = false;
             // 
-            // textBox1
+            // txtDescripcionItem
             // 
-            this.textBox1.Location = new System.Drawing.Point(216, 217);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(569, 28);
-            this.textBox1.TabIndex = 196;
+            this.txtDescripcionItem.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescripcionItem.Enabled = false;
+            this.txtDescripcionItem.Location = new System.Drawing.Point(216, 217);
+            this.txtDescripcionItem.Name = "txtDescripcionItem";
+            this.txtDescripcionItem.Size = new System.Drawing.Size(569, 28);
+            this.txtDescripcionItem.TabIndex = 196;
             // 
             // label2
             // 
@@ -185,12 +187,14 @@
             this.panel2.Size = new System.Drawing.Size(792, 45);
             this.panel2.TabIndex = 185;
             // 
-            // textBox4
+            // txtCodBarrasItem
             // 
-            this.textBox4.Location = new System.Drawing.Point(216, 162);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(569, 28);
-            this.textBox4.TabIndex = 194;
+            this.txtCodBarrasItem.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodBarrasItem.Enabled = false;
+            this.txtCodBarrasItem.Location = new System.Drawing.Point(216, 162);
+            this.txtCodBarrasItem.Name = "txtCodBarrasItem";
+            this.txtCodBarrasItem.Size = new System.Drawing.Size(569, 28);
+            this.txtCodBarrasItem.TabIndex = 194;
             // 
             // label11
             // 
@@ -202,35 +206,35 @@
             this.label11.TabIndex = 193;
             this.label11.Text = "codigo barras del Item";
             // 
-            // comboBox1
+            // cboEstadoReserva
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(216, 109);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(567, 29);
-            this.comboBox1.TabIndex = 197;
+            this.cboEstadoReserva.FormattingEnabled = true;
+            this.cboEstadoReserva.Location = new System.Drawing.Point(216, 109);
+            this.cboEstadoReserva.Name = "cboEstadoReserva";
+            this.cboEstadoReserva.Size = new System.Drawing.Size(567, 29);
+            this.cboEstadoReserva.TabIndex = 197;
             // 
             // ReservasModulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 397);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboEstadoReserva);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtIdReserva);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDescripcionItem);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtCodBarrasItem);
             this.Controls.Add(this.label11);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReservasModulo";
             this.Text = "ReservasModulo";
             this.panel1.ResumeLayout(false);
@@ -247,16 +251,16 @@
         private System.Windows.Forms.Label label10;
         public System.Windows.Forms.Button btnCancel;
         public System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtIdReserva;
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.PictureBox picClose;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDescripcionItem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtCodBarrasItem;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboEstadoReserva;
     }
 }

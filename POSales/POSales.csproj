@@ -292,11 +292,11 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mantenimientos\Accesorios.cs">
+    <Compile Include="Mantenimientos\VerAccesorios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mantenimientos\Accesorios.Designer.cs">
-      <DependentUpon>Accesorios.cs</DependentUpon>
+    <Compile Include="Mantenimientos\VerAccesorios.Designer.cs">
+      <DependentUpon>VerAccesorios.cs</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\AccesoriosModulo.cs">
       <SubType>Form</SubType>
@@ -304,11 +304,11 @@
     <Compile Include="Mantenimientos\AccesoriosModulo.Designer.cs">
       <DependentUpon>AccesoriosModulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mantenimientos\Equipo.cs">
+    <Compile Include="Mantenimientos\VerEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mantenimientos\Equipo.Designer.cs">
-      <DependentUpon>Equipo.cs</DependentUpon>
+    <Compile Include="Mantenimientos\VerEquipo.Designer.cs">
+      <DependentUpon>VerEquipo.cs</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\EquipoModulo.cs">
       <SubType>Form</SubType>
@@ -595,14 +595,14 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mantenimientos\Accesorios.resx">
-      <DependentUpon>Accesorios.cs</DependentUpon>
+    <EmbeddedResource Include="Mantenimientos\VerAccesorios.resx">
+      <DependentUpon>VerAccesorios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\AccesoriosModulo.resx">
       <DependentUpon>AccesoriosModulo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mantenimientos\Equipo.resx">
-      <DependentUpon>Equipo.cs</DependentUpon>
+    <EmbeddedResource Include="Mantenimientos\VerEquipo.resx">
+      <DependentUpon>VerEquipo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\EquipoModulo.resx">
       <DependentUpon>EquipoModulo.cs</DependentUpon>

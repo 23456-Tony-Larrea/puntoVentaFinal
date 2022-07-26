@@ -1,6 +1,6 @@
 ﻿namespace POSales.Mantenimientos
 {
-    partial class Equipo
+    partial class VerEquipo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Equipo));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerEquipo));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvClients = new System.Windows.Forms.DataGridView();
+            this.dgvEquipo = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,7 +43,7 @@
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEquipo)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -83,11 +83,11 @@
             this.label1.Text = "Manejo de Estados Mantenimiento";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // dgvClients
+            // dgvEquipo
             // 
-            this.dgvClients.AllowUserToAddRows = false;
-            this.dgvClients.BackgroundColor = System.Drawing.Color.White;
-            this.dgvClients.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvEquipo.AllowUserToAddRows = false;
+            this.dgvEquipo.BackgroundColor = System.Drawing.Color.White;
+            this.dgvEquipo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -95,10 +95,10 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvClients.ColumnHeadersHeight = 30;
-            this.dgvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvClients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvEquipo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvEquipo.ColumnHeadersHeight = 30;
+            this.dgvEquipo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvEquipo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
@@ -107,15 +107,16 @@
             this.Column6,
             this.Edit,
             this.Delete});
-            this.dgvClients.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvClients.EnableHeadersVisualStyles = false;
-            this.dgvClients.Location = new System.Drawing.Point(0, 0);
-            this.dgvClients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvClients.Name = "dgvClients";
-            this.dgvClients.RowHeadersVisible = false;
-            this.dgvClients.RowHeadersWidth = 51;
-            this.dgvClients.Size = new System.Drawing.Size(1168, 676);
-            this.dgvClients.TabIndex = 13;
+            this.dgvEquipo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvEquipo.EnableHeadersVisualStyles = false;
+            this.dgvEquipo.Location = new System.Drawing.Point(0, 0);
+            this.dgvEquipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvEquipo.Name = "dgvEquipo";
+            this.dgvEquipo.RowHeadersVisible = false;
+            this.dgvEquipo.RowHeadersWidth = 51;
+            this.dgvEquipo.Size = new System.Drawing.Size(1168, 676);
+            this.dgvEquipo.TabIndex = 13;
+            this.dgvEquipo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEquipo_CellContentClick);
             // 
             // Column1
             // 
@@ -132,7 +133,7 @@
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.Visible = false;
-            this.Column2.Width = 55;
+            this.Column2.Width = 57;
             // 
             // Column3
             // 
@@ -186,12 +187,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1168, 676);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dgvClients);
+            this.Controls.Add(this.dgvEquipo);
             this.Name = "Equipo";
             this.Text = "Equipo";
-            this.Load += new System.EventHandler(this.Equipo_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEquipo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -201,7 +201,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvClients;
+        private System.Windows.Forms.DataGridView dgvEquipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;

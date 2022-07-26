@@ -571,10 +571,11 @@ namespace POSalesDb
             }
         }
         //insertar Equipos 
-        public string insertEquipos(Accesorios accesorios)
+        public int insertAccesorios(Accesorios accesorios)
         {
             cn.ConnectionString = myConnection();
-            string Error = String.Empty;
+            int Error =0;   
+                
             try
             {
                 cm = new SqlCommand("Insert into Accesorios (accesoriosEquipo,idEquipo) values (@accesoriosEquipo,@idEquipo)", cn);
@@ -589,7 +590,6 @@ namespace POSalesDb
             catch (Exception ex)
             {
                 CrearEvento(ex.ToString());
-                Error = ex.ToString();
                 return Error;
             }
             finally

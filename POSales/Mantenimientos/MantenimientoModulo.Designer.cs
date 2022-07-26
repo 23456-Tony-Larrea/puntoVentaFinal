@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MantenimientoModulo));
-            this.txtReason = new System.Windows.Forms.TextBox();
+            this.txtOrdenServicio = new System.Windows.Forms.TextBox();
             this.lblTecnico = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtIdMantenimiento = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.picClose = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,37 +43,37 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtFechaMantenimiento = new System.Windows.Forms.DateTimePicker();
+            this.dtEntregaFechaMantenimiento = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDescripcionFallo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtSolucion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboEstadoAplicarMantenimiento = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cboEstadoMantenimiento = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtDescripcionEquipo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtCodigoEquipo = new System.Windows.Forms.TextBox();
+            this.txtSeriesEquipo = new System.Windows.Forms.TextBox();
+            this.btnAggEquipo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtReason
+            // txtOrdenServicio
             // 
-            this.txtReason.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.txtReason.Location = new System.Drawing.Point(178, 168);
-            this.txtReason.Multiline = true;
-            this.txtReason.Name = "txtReason";
-            this.txtReason.Size = new System.Drawing.Size(569, 120);
-            this.txtReason.TabIndex = 119;
+            this.txtOrdenServicio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtOrdenServicio.Location = new System.Drawing.Point(178, 168);
+            this.txtOrdenServicio.Multiline = true;
+            this.txtOrdenServicio.Name = "txtOrdenServicio";
+            this.txtOrdenServicio.Size = new System.Drawing.Size(569, 120);
+            this.txtOrdenServicio.TabIndex = 119;
             // 
             // lblTecnico
             // 
@@ -135,14 +135,14 @@
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             // 
-            // txtId
+            // txtIdMantenimiento
             // 
-            this.txtId.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(42, 67);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(114, 28);
-            this.txtId.TabIndex = 108;
+            this.txtIdMantenimiento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtIdMantenimiento.Enabled = false;
+            this.txtIdMantenimiento.Location = new System.Drawing.Point(42, 67);
+            this.txtIdMantenimiento.Name = "txtIdMantenimiento";
+            this.txtIdMantenimiento.Size = new System.Drawing.Size(114, 28);
+            this.txtIdMantenimiento.TabIndex = 108;
             // 
             // label2
             // 
@@ -221,21 +221,21 @@
             this.label7.TabIndex = 120;
             this.label7.Text = "fecha Mantenimiento";
             // 
-            // dateTimePicker1
+            // dtFechaMantenimiento
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(206, 114);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(125, 28);
-            this.dateTimePicker1.TabIndex = 121;
+            this.dtFechaMantenimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaMantenimiento.Location = new System.Drawing.Point(206, 114);
+            this.dtFechaMantenimiento.Name = "dtFechaMantenimiento";
+            this.dtFechaMantenimiento.Size = new System.Drawing.Size(125, 28);
+            this.dtFechaMantenimiento.TabIndex = 121;
             // 
-            // dateTimePicker2
+            // dtEntregaFechaMantenimiento
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(622, 108);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(125, 28);
-            this.dateTimePicker2.TabIndex = 123;
+            this.dtEntregaFechaMantenimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtEntregaFechaMantenimiento.Location = new System.Drawing.Point(622, 108);
+            this.dtEntregaFechaMantenimiento.Name = "dtEntregaFechaMantenimiento";
+            this.dtEntregaFechaMantenimiento.Size = new System.Drawing.Size(125, 28);
+            this.dtEntregaFechaMantenimiento.TabIndex = 123;
             // 
             // label8
             // 
@@ -246,14 +246,14 @@
             this.label8.TabIndex = 122;
             this.label8.Text = "Entrega fecha Mantenimiento";
             // 
-            // textBox1
+            // txtDescripcionFallo
             // 
-            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.textBox1.Location = new System.Drawing.Point(178, 310);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(569, 120);
-            this.textBox1.TabIndex = 125;
+            this.txtDescripcionFallo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescripcionFallo.Location = new System.Drawing.Point(178, 310);
+            this.txtDescripcionFallo.Multiline = true;
+            this.txtDescripcionFallo.Name = "txtDescripcionFallo";
+            this.txtDescripcionFallo.Size = new System.Drawing.Size(569, 120);
+            this.txtDescripcionFallo.TabIndex = 125;
             // 
             // label3
             // 
@@ -265,14 +265,14 @@
             this.label3.TabIndex = 124;
             this.label3.Text = "Descripcion del fallo";
             // 
-            // textBox2
+            // txtSolucion
             // 
-            this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.textBox2.Location = new System.Drawing.Point(178, 445);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(569, 120);
-            this.textBox2.TabIndex = 127;
+            this.txtSolucion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSolucion.Location = new System.Drawing.Point(178, 445);
+            this.txtSolucion.Multiline = true;
+            this.txtSolucion.Name = "txtSolucion";
+            this.txtSolucion.Size = new System.Drawing.Size(569, 120);
+            this.txtSolucion.TabIndex = 127;
             // 
             // label4
             // 
@@ -284,13 +284,13 @@
             this.label4.TabIndex = 126;
             this.label4.Text = "Solucion";
             // 
-            // comboBox1
+            // cboEstadoAplicarMantenimiento
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(333, 617);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(412, 29);
-            this.comboBox1.TabIndex = 128;
+            this.cboEstadoAplicarMantenimiento.FormattingEnabled = true;
+            this.cboEstadoAplicarMantenimiento.Location = new System.Drawing.Point(333, 617);
+            this.cboEstadoAplicarMantenimiento.Name = "cboEstadoAplicarMantenimiento";
+            this.cboEstadoAplicarMantenimiento.Size = new System.Drawing.Size(412, 29);
+            this.cboEstadoAplicarMantenimiento.TabIndex = 128;
             // 
             // label5
             // 
@@ -302,13 +302,13 @@
             this.label5.TabIndex = 129;
             this.label5.Text = "Estado aplicar mantenimiento";
             // 
-            // comboBox2
+            // cboEstadoMantenimiento
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(341, 687);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(404, 29);
-            this.comboBox2.TabIndex = 131;
+            this.cboEstadoMantenimiento.FormattingEnabled = true;
+            this.cboEstadoMantenimiento.Location = new System.Drawing.Point(341, 687);
+            this.cboEstadoMantenimiento.Name = "cboEstadoMantenimiento";
+            this.cboEstadoMantenimiento.Size = new System.Drawing.Size(404, 29);
+            this.cboEstadoMantenimiento.TabIndex = 131;
             // 
             // label9
             // 
@@ -320,14 +320,14 @@
             this.label9.TabIndex = 130;
             this.label9.Text = "Estado del mantenimiento";
             // 
-            // textBox3
+            // txtDescripcionEquipo
             // 
-            this.textBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.textBox3.Location = new System.Drawing.Point(925, 168);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(569, 120);
-            this.textBox3.TabIndex = 133;
+            this.txtDescripcionEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescripcionEquipo.Location = new System.Drawing.Point(925, 168);
+            this.txtDescripcionEquipo.Multiline = true;
+            this.txtDescripcionEquipo.Name = "txtDescripcionEquipo";
+            this.txtDescripcionEquipo.Size = new System.Drawing.Size(569, 120);
+            this.txtDescripcionEquipo.TabIndex = 133;
             // 
             // label10
             // 
@@ -359,60 +359,60 @@
             this.label12.TabIndex = 135;
             this.label12.Text = "series equipo";
             // 
-            // textBox4
+            // txtCodigoEquipo
             // 
-            this.textBox4.Location = new System.Drawing.Point(925, 316);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(569, 28);
-            this.textBox4.TabIndex = 136;
+            this.txtCodigoEquipo.Location = new System.Drawing.Point(925, 316);
+            this.txtCodigoEquipo.Name = "txtCodigoEquipo";
+            this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 28);
+            this.txtCodigoEquipo.TabIndex = 136;
             // 
-            // textBox5
+            // txtSeriesEquipo
             // 
-            this.textBox5.Location = new System.Drawing.Point(925, 445);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(569, 28);
-            this.textBox5.TabIndex = 137;
+            this.txtSeriesEquipo.Location = new System.Drawing.Point(925, 445);
+            this.txtSeriesEquipo.Name = "txtSeriesEquipo";
+            this.txtSeriesEquipo.Size = new System.Drawing.Size(569, 28);
+            this.txtSeriesEquipo.TabIndex = 137;
             // 
-            // button1
+            // btnAggEquipo
             // 
-            this.button1.Location = new System.Drawing.Point(925, 136);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(34, 26);
-            this.button1.TabIndex = 138;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAggEquipo.Location = new System.Drawing.Point(925, 136);
+            this.btnAggEquipo.Name = "btnAggEquipo";
+            this.btnAggEquipo.Size = new System.Drawing.Size(34, 26);
+            this.btnAggEquipo.TabIndex = 138;
+            this.btnAggEquipo.Text = "...";
+            this.btnAggEquipo.UseVisualStyleBackColor = true;
             // 
             // MantenimientoModulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1503, 801);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.btnAggEquipo);
+            this.Controls.Add(this.txtSeriesEquipo);
+            this.Controls.Add(this.txtCodigoEquipo);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtDescripcionEquipo);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cboEstadoMantenimiento);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.cboEstadoAplicarMantenimiento);
+            this.Controls.Add(this.txtSolucion);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDescripcionFallo);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dtEntregaFechaMantenimiento);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtFechaMantenimiento);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtReason);
+            this.Controls.Add(this.txtOrdenServicio);
             this.Controls.Add(this.lblTecnico);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtIdMantenimiento);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.panel2);
@@ -433,13 +433,13 @@
 
         #endregion
 
-        public System.Windows.Forms.TextBox txtReason;
+        public System.Windows.Forms.TextBox txtOrdenServicio;
         private System.Windows.Forms.Label lblTecnico;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.Button btnCancel;
         public System.Windows.Forms.Button btnUpdate;
         public System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtIdMantenimiento;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox picClose;
         private System.Windows.Forms.Label label1;
@@ -447,23 +447,23 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtFechaMantenimiento;
+        private System.Windows.Forms.DateTimePicker dtEntregaFechaMantenimiento;
         private System.Windows.Forms.Label label8;
-        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox txtDescripcionFallo;
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox txtSolucion;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboEstadoAplicarMantenimiento;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboEstadoMantenimiento;
         private System.Windows.Forms.Label label9;
-        public System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.TextBox txtDescripcionEquipo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtCodigoEquipo;
+        private System.Windows.Forms.TextBox txtSeriesEquipo;
+        private System.Windows.Forms.Button btnAggEquipo;
     }
 }

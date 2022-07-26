@@ -29,34 +29,34 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccesoriosModulo));
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtAccesoriosEquipo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtIdAccesorios = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.picClose = new System.Windows.Forms.PictureBox();
             this.label18 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtCodigoEquipo = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSeriesEquipo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox3
+            // txtAccesoriosEquipo
             // 
-            this.textBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.textBox3.Location = new System.Drawing.Point(216, 106);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(569, 120);
-            this.textBox3.TabIndex = 178;
+            this.txtAccesoriosEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtAccesoriosEquipo.Location = new System.Drawing.Point(216, 106);
+            this.txtAccesoriosEquipo.Multiline = true;
+            this.txtAccesoriosEquipo.Name = "txtAccesoriosEquipo";
+            this.txtAccesoriosEquipo.Size = new System.Drawing.Size(569, 120);
+            this.txtAccesoriosEquipo.TabIndex = 178;
             // 
             // label10
             // 
@@ -81,6 +81,7 @@
             this.btnCancel.TabIndex = 174;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnUpdate
             // 
@@ -95,15 +96,15 @@
             this.btnUpdate.TabIndex = 173;
             this.btnUpdate.Text = "Actualizar";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // txtId
+            // txtIdAccesorios
             // 
-            this.txtId.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(42, 67);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(114, 30);
-            this.txtId.TabIndex = 171;
+            this.txtIdAccesorios.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtIdAccesorios.Location = new System.Drawing.Point(42, 67);
+            this.txtIdAccesorios.Name = "txtIdAccesorios";
+            this.txtIdAccesorios.Size = new System.Drawing.Size(114, 30);
+            this.txtIdAccesorios.TabIndex = 171;
             // 
             // label1
             // 
@@ -143,6 +144,7 @@
             this.btnSave.TabIndex = 172;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // picClose
             // 
@@ -155,6 +157,7 @@
             this.picClose.Size = new System.Drawing.Size(56, 45);
             this.picClose.TabIndex = 1;
             this.picClose.TabStop = false;
+            this.picClose.Click += new System.EventHandler(this.picClose_Click);
             // 
             // label18
             // 
@@ -177,12 +180,14 @@
             this.panel2.Size = new System.Drawing.Size(792, 45);
             this.panel2.TabIndex = 169;
             // 
-            // textBox4
+            // txtCodigoEquipo
             // 
-            this.textBox4.Location = new System.Drawing.Point(216, 244);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(569, 30);
-            this.textBox4.TabIndex = 181;
+            this.txtCodigoEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodigoEquipo.Enabled = false;
+            this.txtCodigoEquipo.Location = new System.Drawing.Point(216, 244);
+            this.txtCodigoEquipo.Name = "txtCodigoEquipo";
+            this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 30);
+            this.txtCodigoEquipo.TabIndex = 181;
             // 
             // label11
             // 
@@ -194,12 +199,14 @@
             this.label11.TabIndex = 179;
             this.label11.Text = "codigo equipo";
             // 
-            // textBox1
+            // txtSeriesEquipo
             // 
-            this.textBox1.Location = new System.Drawing.Point(216, 293);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(569, 30);
-            this.textBox1.TabIndex = 183;
+            this.txtSeriesEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSeriesEquipo.Enabled = false;
+            this.txtSeriesEquipo.Location = new System.Drawing.Point(216, 293);
+            this.txtSeriesEquipo.Name = "txtSeriesEquipo";
+            this.txtSeriesEquipo.Size = new System.Drawing.Size(569, 30);
+            this.txtSeriesEquipo.TabIndex = 183;
             // 
             // label2
             // 
@@ -211,28 +218,28 @@
             this.label2.TabIndex = 182;
             this.label2.Text = "series de equipo";
             // 
-            // Accesorios
+            // AccesoriosModulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 482);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSeriesEquipo);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtAccesoriosEquipo);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtIdAccesorios);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtCodigoEquipo);
             this.Controls.Add(this.label11);
             this.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Accesorios";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "AccesoriosModulo";
             this.Text = "Accesorios";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
@@ -244,20 +251,20 @@
 
         #endregion
 
-        public System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.TextBox txtAccesoriosEquipo;
         private System.Windows.Forms.Label label10;
         public System.Windows.Forms.Button btnCancel;
         public System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtIdAccesorios;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.PictureBox picClose;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtCodigoEquipo;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSeriesEquipo;
         private System.Windows.Forms.Label label2;
     }
 }

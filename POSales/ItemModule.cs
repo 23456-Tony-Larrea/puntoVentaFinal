@@ -366,7 +366,7 @@ namespace POSales
         }
 
         private void CalcularIvaPrecioA()
-        {
+        { 
             decimal iva = 0;
             if (HasIva.Checked == true)
             {
