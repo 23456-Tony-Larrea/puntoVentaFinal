@@ -6,11 +6,11 @@ using POSalesDb;
 
 namespace POSales.Mantenimientos
 {
-    public partial class OrdenServicio : Form
+    public partial class SeleccionarCliente : Form
     {
         List<OrdenServicioModel> ordenes = new List<OrdenServicioModel>();
         DBConnect dbcon = new DBConnect();
-        public OrdenServicio()
+        public SeleccionarCliente()
         {
             InitializeComponent();
         }

@@ -26,7 +26,98 @@ namespace POSalesDb
             return con;
         }
 
-        
+        //get fechaMantenimiento
+      public MantenimientoModel FechaMantenimientoModel(int Id,DateTime fechaMantenimiento , DateTime fechaEntrega)
+        {
+            cn.ConnectionString = myConnection();
+            MantenimientoModel MantenimientoModel = new MantenimientoModel();
+            try
+            {
+                cm = new SqlCommand($"Select * from Mantenimiento Where fechaEntregaEquipo = {fechaEntrega} between fechaEntregaEquipo = {fechaEntrega} and fechaMantenimiento={fechaMantenimiento} ", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    MantenimientoModel.Id = (int)dt.Rows[0]["Id"];
+                    MantenimientoModel.IdEquipo = (int)dt.Rows[0]["IdEquipo"];
+                    MantenimientoModel.fechaMantenimiento = Convert.ToDateTime(dt.Rows[0]["fechaMantenimiento"].ToString());
+                    DateTime.TryParse(dt.Rows[0]["fechaEntregaEquipo"].ToString(), out fechaEntrega);
+                    MantenimientoModel.fechaEntregaEquipo = fechaEntrega;
+                    MantenimientoModel.descripcionFalla = dt.Rows[0]["descripcionFalla"].ToString();
+                    MantenimientoModel.solucion = dt.Rows[0]["solucion"].ToString();
+                    MantenimientoModel.idEstadoMantenimiento = (int)dt.Rows[0]["idEstadoMantenimiento"];
+                    MantenimientoModel.idUsuarios = (int)dt.Rows[0]["idUsuarios"];
+                    MantenimientoModel.idOrdenServicio = (int)dt.Rows[0]["idOrdenServicio"];
+                    MantenimientoModel.estadoAplicarCorreccion = Convert.ToBoolean(dt.Rows[0]["estadoAplicarCorreccion"]);
+
+                }
+                return MantenimientoModel;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return MantenimientoModel;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+
+        //get buscarCliente
+        public Clientes BuscarCliente(int id,string buscarNombre,string buscarCi )
+        {
+            cn.ConnectionString = myConnection();
+            Clientes clientes = new Clientes();
+            try
+            {
+                cm = new SqlCommand($"Select * from Clientes Where Id={id} and nombre  like %{buscarNombre} and ciRuc like %{buscarCi}", cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                using (SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn))
+                {
+                    da.Fill(dt);
+                }
+
+                if (dt.Rows.Count > 0)
+                {
+                    clientes.Id = (int)dt.Rows[0]["Id"];
+                    clientes.nombre = Convert.ToString(dt.Rows[0]["nombre"]);
+                    clientes.comercio = Convert.ToString(dt.Rows[0]["comercio"]);
+                    clientes.codigo = Convert.ToString(dt.Rows[0]["codigo"]);
+                    clientes.fechaNacimiento = Convert.ToDateTime(dt.Rows[0]["fechaNacimiento"]);
+                    clientes.fechaRegistro = Convert.ToDateTime(dt.Rows[0]["fechaRegistro"]);
+                    clientes.ciudad = Convert.ToString(dt.Rows[0]["ciudad"]);
+                    clientes.tipo = Convert.ToString(dt.Rows[0]["tipo"]);
+                    clientes.ciRuc = Convert.ToString(dt.Rows[0]["ciRuc"]);
+                    clientes.pais = Convert.ToString(dt.Rows[0]["pais"]);
+                    clientes.estado = Convert.ToString(dt.Rows[0]["estado"]);
+                    clientes.direccion = Convert.ToString(dt.Rows[0]["direccion"]);
+                    clientes.telefono = Convert.ToString(dt.Rows[0]["telefono"]);
+                    clientes.celular = Convert.ToString(dt.Rows[0]["celular"]);
+                    clientes.fax = Convert.ToString(dt.Rows[0]["fax"]);
+                    clientes.cargo = Convert.ToString(dt.Rows[0]["cargo"]);
+                    clientes.email = Convert.ToString(dt.Rows[0]["email"]);
+                    clientes.tipo = Convert.ToString(dt.Rows[0]["tipoCliente"]);
+                }
+                return clientes;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return clientes;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
 
         //get OrdenServicioModel id
         public OrdenServicioModel selectOrdenServicioModelPorId(int Id)
