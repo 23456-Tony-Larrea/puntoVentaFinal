@@ -35,7 +35,7 @@ namespace POSalesDb
             OrdenServicioModel orden = new OrdenServicioModel();
             try
             {
-                cm = new SqlCommand($"Select * from OrdenServicioModel Where Id = {Id}", cn);
+                cm = new SqlCommand($"Select * from OrdenServicio Where Id = {Id}", cn);
             
                 cn.Open();
                 DataTable dt = new DataTable();
@@ -177,7 +177,7 @@ namespace POSalesDb
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("DETELE FROM OrdenServicioModel WHERE Id = @Id  ", cn);
+                cm = new SqlCommand("DETELE FROM OrdenServicio WHERE Id = @Id  ", cn);
                 cm.Parameters.AddWithValue("@Id", idOrdenServicioModel);
                 cn.Open();
                 cm.ExecuteNonQuery();
@@ -261,7 +261,7 @@ namespace POSalesDb
                         MantenimientoModel.solucion = dt.Rows[0]["solucion"].ToString();
                         MantenimientoModel.idEstadoMantenimiento= (int)dt.Rows[0]["idEstadoMantenimiento"];
                         MantenimientoModel.idUsuarios = (int)dt.Rows[0]["idUsuarios"];
-                        MantenimientoModel.idOrdenServicio = (int)dt.Rows[0]["idOrdenServicioModel"];
+                        MantenimientoModel.idOrdenServicio = (int)dt.Rows[0]["idOrdenServicio"];
                         MantenimientoModel.estadoAplicarCorreccion= Convert.ToBoolean( dt.Rows[0]["estadoAplicarCorreccion"].ToString());
                         MantenimientoModels.Add(MantenimientoModel);
                     }
