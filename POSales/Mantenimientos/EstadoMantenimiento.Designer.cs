@@ -49,10 +49,10 @@
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 489);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(0, 397);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(987, 80);
+            this.panel1.Size = new System.Drawing.Size(740, 65);
             this.panel1.TabIndex = 10;
             // 
             // btnAdd
@@ -60,10 +60,10 @@
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(931, 26);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdd.Location = new System.Drawing.Point(698, 21);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(39, 32);
+            this.btnAdd.Size = new System.Drawing.Size(29, 26);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
@@ -73,9 +73,10 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(7, 18);
+            this.label1.Location = new System.Drawing.Point(5, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(390, 39);
+            this.label1.Size = new System.Drawing.Size(292, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Manejo de Estados Mantenimiento";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -104,11 +105,11 @@
             this.dgvClients.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvClients.EnableHeadersVisualStyles = false;
             this.dgvClients.Location = new System.Drawing.Point(0, 0);
-            this.dgvClients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvClients.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvClients.Name = "dgvClients";
             this.dgvClients.RowHeadersVisible = false;
             this.dgvClients.RowHeadersWidth = 51;
-            this.dgvClients.Size = new System.Drawing.Size(987, 569);
+            this.dgvClients.Size = new System.Drawing.Size(740, 462);
             this.dgvClients.TabIndex = 11;
             // 
             // Column1
@@ -117,7 +118,7 @@
             this.Column1.HeaderText = "No";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 63;
+            this.Column1.Width = 53;
             // 
             // Column2
             // 
@@ -126,7 +127,7 @@
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.Visible = false;
-            this.Column2.Width = 55;
+            this.Column2.Width = 49;
             // 
             // Column3
             // 
@@ -153,15 +154,17 @@
             this.Delete.Name = "Delete";
             this.Delete.Width = 6;
             // 
-            // EstadoMantenimineto
+            // EstadoMantenimiento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(987, 569);
+            this.ClientSize = new System.Drawing.Size(740, 462);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvClients);
-            this.Name = "EstadoMantenimineto";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "EstadoMantenimiento";
             this.Text = "EstadoMantenimineto";
+            this.Load += new System.EventHandler(this.EstadoMantenimiento_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
             this.ResumeLayout(false);

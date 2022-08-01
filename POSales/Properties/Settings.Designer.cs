@@ -44,5 +44,16 @@ namespace POSales.Properties {
                 return ((string)(this["C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=C:\\USERS\\AVSLA\\DOCUMENTS\\DBPOSALE.MDF;Integrated Se" +
+            "curity=True")]
+        public string C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFConnectionString1 {
+            get {
+                return ((string)(this["C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFConnectionString1"]));
+            }
+        }
     }
 }

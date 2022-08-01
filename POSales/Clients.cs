@@ -16,6 +16,8 @@ namespace POSales
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
+        List<Clientes> clientes = new List<Clientes>();
+        public Clientes cliente = new Clientes();
         SqlDataReader dr;
 
         public Clients()
@@ -28,34 +30,37 @@ namespace POSales
         public void cargarClientes()
         {
             int i = 0;
-            dgvClients.Rows.Clear();
-            cn.Open();
-            cm = new SqlCommand("SELECT * FROM Clientes ORDER BY nombre", cn);
-            dr = cm.ExecuteReader();
-            while (dr.Read())
-            {
-                i++;
-                dgvClients.Rows.Add(i,dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(),dr[8].ToString(), dr[9].ToString(), dr[10].ToString(),dr[11].ToString(), dr[12].ToString(), dr[13].ToString(), dr[14].ToString(), dr[15].ToString(), dr[16].ToString());
-
-            }
-            dr.Close();
-            cn.Close();
+            clientes = dbcon.TodosLosClientes();
+            dgvClients.DataSource = clientes;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            ClientModule clientModule = new ClientModule(this);
+            ClientModule clientModule = new ClientModule(cliente);
             clientModule.ShowDialog();
         }
 
         private void dgvClients_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            string colName = dgvClients.Columns[e.ColumnIndex].Name;
+            if (colName == "Edit")
+            {
+                cliente = clientes.ElementAt(e.RowIndex);
+                ClientModule clientModule = new ClientModule(cliente);
+                clientModule.ShowDialog();
+            }
+            else
+            {
+                cliente = clientes.ElementAt(e.RowIndex);
+                MessageBox.Show($"Ha seleccionado al cliente {cliente.nombre}");
+                this.Close();
+            }
 
         }
 
         private void Clients_Load(object sender, EventArgs e)
         {
-
+        
         }
     }
 }

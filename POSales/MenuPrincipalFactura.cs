@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using POSalesDb;
 
 namespace POSales
 {
@@ -32,7 +33,7 @@ namespace POSales
 
         private void picClientes_Click(object sender, EventArgs e)
         {
-            ClientModule clientModule = new ClientModule(new Clients());
+            ClientModule clientModule = new ClientModule(new Clientes());
             clientModule.ShowDialog();
            
         }

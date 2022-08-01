@@ -17,6 +17,7 @@ namespace POSales.Mantenimientos
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
+        List<Accesorios> accesorios1 = new List<Accesorios>();
         SqlDataReader dr;
         public VerAccesorios()
         {
@@ -26,10 +27,12 @@ namespace POSales.Mantenimientos
         }
         public void cargarAccesorios()
         {
-            using (var repo = new Repository(new SqlConnection(dbcon.myConnection())))
+            int i = 1;
+            accesorios1 = dbcon.selectTodosLosAccesorios();
+            foreach (var accesorio in accesorios1)
             {
-                dgvAccesorios.DataSource = "";
-                dgvAccesorios.DataSource = dbcon.selectTodosLosAccesorios();
+                dgvAccesorios.Rows.Add(i,accesorio.Id,accesorio.accesoriosEquipo);
+                i++;
             }
         }
 
@@ -43,7 +46,7 @@ namespace POSales.Mantenimientos
                 accesorios.codigoEquipo = Convert.ToString(dgvAccesorios.Rows[e.RowIndex].Cells["codigoEquipo"].Value);
                 accesorios.codigoEquipo = Convert.ToString(dgvAccesorios.Rows[e.RowIndex].Cells["accesoriosEquipo"].Value);
                 accesorios.idEquipo = Convert.ToInt32(dgvAccesorios.Rows[e.RowIndex].Cells["idEquipo"].Value);
-                Form accesoriosModulo = new AccesoriosModulo(accesorios);
+                Form accesoriosModulo = new AccesoriosModulo(accesorios,accesorios.idEquipo);
                 accesoriosModulo.ShowDialog();
                 cargarAccesorios();
             }
@@ -66,9 +69,14 @@ namespace POSales.Mantenimientos
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Accesorios accesorios = new Accesorios();
-            AccesoriosModulo accesoriosModulo = new AccesoriosModulo(accesorios);
+            AccesoriosModulo accesoriosModulo = new AccesoriosModulo(accesorios, accesorios.idEquipo);
             accesoriosModulo.ShowDialog();
             cargarAccesorios();
+        }
+
+        private void VerAccesorios_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

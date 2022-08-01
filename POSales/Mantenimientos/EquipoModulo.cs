@@ -18,7 +18,7 @@ namespace POSales.Mantenimientos
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
         string stitle = "Punto de venta";
-        Equipo equipo;
+        Equipo equipo = new Equipo();
         bool Nuevo = false;
 
         public EquipoModulo(Equipo eqp)
@@ -42,8 +42,8 @@ namespace POSales.Mantenimientos
             txtIdEquipo.Text = equipo.Id.ToString();
             txtCodigoEquipo.Text = equipo.codigo;
             txtDescripcionEquipo.Text = equipo.descripcionEquipo;
-            txtDescripcionFallo.Text = equipo.descripcionFallo;
             txtSeriesEquipo.Text = equipo.series;
+            advancedDataGridView1.DataSource = equipo.accesorios;
         }
 
         private void picClose_Click(object sender, EventArgs e)
@@ -63,6 +63,47 @@ namespace POSales.Mantenimientos
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            advancedDataGridView1.DataSource = new Accesorios();
+            AccesoriosModulo accesorio = new AccesoriosModulo(new Accesorios(),equipo.Id);
+            accesorio.ShowDialog();
+            if (!string.IsNullOrEmpty(accesorio.accesorio.codigoEquipo))
+            {
+                equipo.accesorios.Add(accesorio.accesorio);
+                advancedDataGridView1.DataSource = equipo.accesorios;
+            }
+           
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void EquipoModulo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            equipo.codigo= txtCodigoEquipo.Text;
+            equipo.descripcionEquipo=  txtDescripcionEquipo.Text ;
+            equipo.series=txtSeriesEquipo.Text;
+            equipo.Id = dbcon.insertEquipos(equipo);
+            foreach (var accesorio in equipo.accesorios)
+            {
+                dbcon.insertAccesorios(accesorio);
+            }
+               
+        }
+
+        private void label10_Click(object sender, EventArgs e)
         {
 
         }

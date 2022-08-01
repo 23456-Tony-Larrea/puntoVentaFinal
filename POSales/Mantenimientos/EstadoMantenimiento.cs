@@ -16,5 +16,10 @@ namespace POSales.Mantenimientos
         {
             InitializeComponent();
         }
+
+        private void EstadoMantenimiento_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

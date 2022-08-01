@@ -12,8 +12,10 @@ namespace POSales
 {
     public partial class MenuMantenimiento : Form
     {
-        public MenuMantenimiento()
+        int idUsuarioFacturador = 0;
+        public MenuMantenimiento(int idUsuarioFacturador)
         {
+            this.idUsuarioFacturador = idUsuarioFacturador;
             InitializeComponent();
         }
         private Form activeForm = null;
@@ -31,5 +33,20 @@ namespace POSales
             childForm.Show();
         }
 
+        private void MenuMantenimiento_Load(object sender, EventArgs e)
+        {
+            Form OrdendeServicio = new Mantenimientos.Mantenimiento(idUsuarioFacturador);
+            openChildForm(OrdendeServicio);
+        }
+
+        private void btnOrdenProductos_Click(object sender, EventArgs e)
+        {
+            Mantenimientos.OrdenServicioModulo NuevaOrden = new Mantenimientos.OrdenServicioModulo(idUsuarioFacturador);
+        }
+
+        private void panelMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -18,13 +18,14 @@ namespace POSales.Mantenimientos
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
         string stitle = "Punto de venta";
-        Accesorios accesorio;
+        public Accesorios accesorio = new Accesorios();
         bool Nuevo = false;
-        public AccesoriosModulo(Accesorios acc)
+        public AccesoriosModulo(Accesorios acc,int idequipo)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.myConnection());
             accesorio = acc;
+            accesorio.idEquipo = idequipo;
             if (accesorio.Id > 0)
             {
                 CargarAccesorios();
@@ -41,7 +42,6 @@ namespace POSales.Mantenimientos
             txtIdAccesorios.Text = accesorio.Id.ToString();
             txtAccesoriosEquipo.Text = accesorio.accesoriosEquipo;
             txtCodigoEquipo.Text = accesorio.codigoEquipo;
-            txtSeriesEquipo.Text = accesorio.accesoriosEquipo;
         }
 
         private void picClose_Click(object sender, EventArgs e)
@@ -52,55 +52,14 @@ namespace POSales.Mantenimientos
         public void Clear()
         {
             txtCodigoEquipo.Clear();
-            txtSeriesEquipo.Clear();
             txtAccesoriosEquipo.Clear();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (Nuevo)
-            {
-                accesorio = new Accesorios();
-                CargarAccesorios();
-                Nuevo = false;
-            }
-            else
-            {
-                try
-                {
-                    if (MessageBox.Show("Estas seguro de guardar este Accesorio?", "Accesorio Guardado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        if (string.IsNullOrEmpty(txtAccesoriosEquipo.Text))
-                        {
-                            MessageBox.Show("Por favor, ingrese los accesorios");
-                        }
-                        Accesorios accesorios = new Accesorios();
-                        accesorios.accesoriosEquipo = txtAccesoriosEquipo.Text;
-                        accesorios.codigoEquipo = txtAccesoriosEquipo.Text;
-                        DBConnect db = new DBConnect();
-                        int Error = db.insertAccesorios(accesorios);
-                        if (Error > 0)
-                        {
-                            MessageBox.Show("Accesorios ingresado  con exito.", stitle);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Ha ocurrido un error al insertar los datos", stitle);
-                        }
-                        btnSave.Text = "Nuevo";
-                        Nuevo = true;
-                        btnUpdate.Visible = true;
-                    }
-                    
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-
-
-
-            }
+            accesorio.accesoriosEquipo = txtAccesoriosEquipo.Text;
+            accesorio.codigoEquipo = txtCodigoEquipo.Text ;
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -137,6 +96,19 @@ namespace POSales.Mantenimientos
             {
                 MessageBox.Show(ex.Message);
 
+            }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void AccesoriosModulo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (string.IsNullOrEmpty(accesorio.codigoEquipo))
+            {
+                MessageBox.Show("debe asignar un codigo de accesorio para poder ingresarlo a un equipo");
             }
         }
     }

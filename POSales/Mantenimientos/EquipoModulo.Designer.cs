@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EquipoModulo));
-            this.txtDescripcionFallo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.picClose = new System.Windows.Forms.PictureBox();
@@ -46,29 +45,20 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtIdEquipo = new System.Windows.Forms.TextBox();
+            this.advancedDataGridView1 = new Zuby.ADGV.AdvancedDataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accesoriosEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accesoriosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accesoriosBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtDescripcionFallo
-            // 
-            this.txtDescripcionFallo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescripcionFallo.Location = new System.Drawing.Point(185, 242);
-            this.txtDescripcionFallo.Multiline = true;
-            this.txtDescripcionFallo.Name = "txtDescripcionFallo";
-            this.txtDescripcionFallo.Size = new System.Drawing.Size(569, 120);
-            this.txtDescripcionFallo.TabIndex = 155;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 255);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(185, 21);
-            this.label3.TabIndex = 154;
-            this.label3.Text = "Descripcion del fallo";
             // 
             // label18
             // 
@@ -76,9 +66,10 @@
             this.label18.Location = new System.Drawing.Point(9, 70);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(27, 21);
+            this.label18.Size = new System.Drawing.Size(24, 20);
             this.label18.TabIndex = 142;
             this.label18.Text = "Id";
+            this.label18.Visible = false;
             // 
             // panel2
             // 
@@ -88,15 +79,16 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(769, 45);
+            this.panel2.Size = new System.Drawing.Size(817, 45);
             this.panel2.TabIndex = 140;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // picClose
             // 
             this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picClose.Image = ((System.Drawing.Image)(resources.GetObject("picClose.Image")));
             this.picClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.picClose.Location = new System.Drawing.Point(713, 0);
+            this.picClose.Location = new System.Drawing.Point(761, 0);
             this.picClose.Margin = new System.Windows.Forms.Padding(5);
             this.picClose.Name = "picClose";
             this.picClose.Size = new System.Drawing.Size(56, 45);
@@ -109,10 +101,10 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 528);
+            this.panel1.Location = new System.Drawing.Point(0, 506);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(769, 82);
+            this.panel1.Size = new System.Drawing.Size(817, 82);
             this.panel1.TabIndex = 139;
             // 
             // label1
@@ -132,43 +124,43 @@
             // txtSeriesEquipo
             // 
             this.txtSeriesEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.txtSeriesEquipo.Location = new System.Drawing.Point(185, 428);
+            this.txtSeriesEquipo.Location = new System.Drawing.Point(185, 258);
             this.txtSeriesEquipo.Name = "txtSeriesEquipo";
-            this.txtSeriesEquipo.Size = new System.Drawing.Size(569, 30);
+            this.txtSeriesEquipo.Size = new System.Drawing.Size(569, 25);
             this.txtSeriesEquipo.TabIndex = 167;
             // 
             // txtCodigoEquipo
             // 
             this.txtCodigoEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodigoEquipo.Location = new System.Drawing.Point(185, 377);
+            this.txtCodigoEquipo.Location = new System.Drawing.Point(185, 101);
             this.txtCodigoEquipo.Name = "txtCodigoEquipo";
-            this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 30);
+            this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 25);
             this.txtCodigoEquipo.TabIndex = 166;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 437);
+            this.label12.Location = new System.Drawing.Point(51, 258);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(123, 21);
+            this.label12.Size = new System.Drawing.Size(105, 20);
             this.label12.TabIndex = 165;
             this.label12.Text = "series equipo";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 374);
+            this.label11.Location = new System.Drawing.Point(43, 104);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(140, 21);
+            this.label11.Size = new System.Drawing.Size(118, 20);
             this.label11.TabIndex = 164;
             this.label11.Text = "codigo equipo";
             // 
             // txtDescripcionEquipo
             // 
             this.txtDescripcionEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescripcionEquipo.Location = new System.Drawing.Point(185, 106);
+            this.txtDescripcionEquipo.Location = new System.Drawing.Point(185, 132);
             this.txtDescripcionEquipo.Multiline = true;
             this.txtDescripcionEquipo.Name = "txtDescripcionEquipo";
             this.txtDescripcionEquipo.Size = new System.Drawing.Size(569, 120);
@@ -177,12 +169,13 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 109);
+            this.label10.Location = new System.Drawing.Point(9, 132);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(179, 21);
+            this.label10.Size = new System.Drawing.Size(152, 20);
             this.label10.TabIndex = 162;
             this.label10.Text = "Descripcion equipo";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // btnCancel
             // 
@@ -191,7 +184,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(646, 486);
+            this.btnCancel.Location = new System.Drawing.Point(694, 464);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 35);
             this.btnCancel.TabIndex = 146;
@@ -206,7 +199,7 @@
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(522, 486);
+            this.btnUpdate.Location = new System.Drawing.Point(570, 464);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(121, 35);
             this.btnUpdate.TabIndex = 145;
@@ -221,12 +214,13 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(401, 486);
+            this.btnSave.Location = new System.Drawing.Point(449, 464);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(115, 35);
             this.btnSave.TabIndex = 144;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtIdEquipo
             // 
@@ -234,16 +228,109 @@
             this.txtIdEquipo.Enabled = false;
             this.txtIdEquipo.Location = new System.Drawing.Point(42, 67);
             this.txtIdEquipo.Name = "txtIdEquipo";
-            this.txtIdEquipo.Size = new System.Drawing.Size(114, 30);
+            this.txtIdEquipo.Size = new System.Drawing.Size(114, 25);
             this.txtIdEquipo.TabIndex = 143;
+            this.txtIdEquipo.Visible = false;
+            // 
+            // advancedDataGridView1
+            // 
+            this.advancedDataGridView1.AllowUserToAddRows = false;
+            this.advancedDataGridView1.AllowUserToDeleteRows = false;
+            this.advancedDataGridView1.AutoGenerateColumns = false;
+            this.advancedDataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.advancedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.advancedDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.codigoEquipoDataGridViewTextBoxColumn,
+            this.accesoriosEquipoDataGridViewTextBoxColumn,
+            this.idEquipoDataGridViewTextBoxColumn});
+            this.advancedDataGridView1.DataSource = this.accesoriosBindingSource;
+            this.advancedDataGridView1.FilterAndSortEnabled = true;
+            this.advancedDataGridView1.FilterStringChangedInvokeBeforeDatasourceUpdate = true;
+            this.advancedDataGridView1.Location = new System.Drawing.Point(185, 289);
+            this.advancedDataGridView1.Name = "advancedDataGridView1";
+            this.advancedDataGridView1.ReadOnly = true;
+            this.advancedDataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.advancedDataGridView1.RowHeadersVisible = false;
+            this.advancedDataGridView1.Size = new System.Drawing.Size(569, 150);
+            this.advancedDataGridView1.SortStringChangedInvokeBeforeDatasourceUpdate = true;
+            this.advancedDataGridView1.TabIndex = 168;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // codigoEquipoDataGridViewTextBoxColumn
+            // 
+            this.codigoEquipoDataGridViewTextBoxColumn.DataPropertyName = "codigoEquipo";
+            this.codigoEquipoDataGridViewTextBoxColumn.HeaderText = "codigo";
+            this.codigoEquipoDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.codigoEquipoDataGridViewTextBoxColumn.Name = "codigoEquipoDataGridViewTextBoxColumn";
+            this.codigoEquipoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codigoEquipoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // accesoriosEquipoDataGridViewTextBoxColumn
+            // 
+            this.accesoriosEquipoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.accesoriosEquipoDataGridViewTextBoxColumn.DataPropertyName = "accesoriosEquipo";
+            this.accesoriosEquipoDataGridViewTextBoxColumn.HeaderText = "Descripcion";
+            this.accesoriosEquipoDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.accesoriosEquipoDataGridViewTextBoxColumn.Name = "accesoriosEquipoDataGridViewTextBoxColumn";
+            this.accesoriosEquipoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.accesoriosEquipoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // idEquipoDataGridViewTextBoxColumn
+            // 
+            this.idEquipoDataGridViewTextBoxColumn.DataPropertyName = "idEquipo";
+            this.idEquipoDataGridViewTextBoxColumn.HeaderText = "idEquipo";
+            this.idEquipoDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.idEquipoDataGridViewTextBoxColumn.Name = "idEquipoDataGridViewTextBoxColumn";
+            this.idEquipoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idEquipoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.idEquipoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // accesoriosBindingSource
+            // 
+            this.accesoriosBindingSource.DataSource = typeof(POSalesDb.Accesorios);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(71, 298);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 20);
+            this.label2.TabIndex = 169;
+            this.label2.Text = "Accesorios";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.Location = new System.Drawing.Point(759, 404);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(41, 35);
+            this.btnAdd.TabIndex = 170;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // EquipoModulo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(769, 610);
-            this.Controls.Add(this.txtDescripcionFallo);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(817, 588);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.advancedDataGridView1);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -262,17 +349,18 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EquipoModulo";
             this.Text = "EquipoModulo";
+            this.Load += new System.EventHandler(this.EquipoModulo_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accesoriosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        public System.Windows.Forms.TextBox txtDescripcionFallo;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox picClose;
@@ -288,5 +376,13 @@
         public System.Windows.Forms.Button btnUpdate;
         public System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtIdEquipo;
+        private Zuby.ADGV.AdvancedDataGridView advancedDataGridView1;
+        private System.Windows.Forms.BindingSource accesoriosBindingSource;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoEquipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn accesoriosEquipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEquipoDataGridViewTextBoxColumn;
     }
 }

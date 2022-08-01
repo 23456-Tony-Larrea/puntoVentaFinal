@@ -88,7 +88,7 @@ namespace POSales
                     txtName.Clear();
                     txtPass.Clear();
                     this.Hide();
-                   MenuMantenimiento  menuMantenimiento = new MenuMantenimiento();
+                   MenuMantenimiento  menuMantenimiento = new MenuMantenimiento(usuario.Id);
                     menuMantenimiento.ShowDialog() ;
 
                 }

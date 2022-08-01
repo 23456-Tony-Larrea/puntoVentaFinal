@@ -50,7 +50,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(762, 179);
+            this.btnCancel.Location = new System.Drawing.Point(762, 317);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(135, 46);
@@ -65,7 +65,7 @@
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(608, 179);
+            this.btnUpdate.Location = new System.Drawing.Point(608, 317);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(151, 46);
@@ -80,7 +80,7 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(456, 179);
+            this.btnSave.Location = new System.Drawing.Point(456, 317);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(144, 46);
@@ -91,10 +91,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 96);
+            this.label2.Location = new System.Drawing.Point(14, 181);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 21);
+            this.label2.Size = new System.Drawing.Size(84, 19);
             this.label2.TabIndex = 102;
             this.label2.Text = "Decripcion";
             // 
@@ -134,31 +134,32 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(910, 59);
             this.panel2.TabIndex = 101;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 234);
+            this.panel1.Location = new System.Drawing.Point(0, 405);
             this.panel1.Margin = new System.Windows.Forms.Padding(5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(910, 108);
+            this.panel1.Size = new System.Drawing.Size(910, 75);
             this.panel1.TabIndex = 100;
             // 
             // cboDescripcionMantenimiento
             // 
             this.cboDescripcionMantenimiento.FormattingEnabled = true;
-            this.cboDescripcionMantenimiento.Location = new System.Drawing.Point(122, 93);
+            this.cboDescripcionMantenimiento.Location = new System.Drawing.Point(122, 178);
             this.cboDescripcionMantenimiento.Name = "cboDescripcionMantenimiento";
-            this.cboDescripcionMantenimiento.Size = new System.Drawing.Size(776, 29);
+            this.cboDescripcionMantenimiento.Size = new System.Drawing.Size(776, 27);
             this.cboDescripcionMantenimiento.TabIndex = 120;
             // 
             // EstadoMantenimientoModulo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 342);
+            this.ClientSize = new System.Drawing.Size(910, 480);
             this.Controls.Add(this.cboDescripcionMantenimiento);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpdate);

@@ -43,9 +43,10 @@
             // picClientes
             // 
             this.picClientes.Image = ((System.Drawing.Image)(resources.GetObject("picClientes.Image")));
-            this.picClientes.Location = new System.Drawing.Point(31, 137);
+            this.picClientes.Location = new System.Drawing.Point(23, 111);
+            this.picClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.picClientes.Name = "picClientes";
-            this.picClientes.Size = new System.Drawing.Size(142, 98);
+            this.picClientes.Size = new System.Drawing.Size(106, 80);
             this.picClientes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picClientes.TabIndex = 0;
             this.picClientes.TabStop = false;
@@ -55,18 +56,20 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(42, 251);
+            this.label1.Location = new System.Drawing.Point(32, 204);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 21);
+            this.label1.Size = new System.Drawing.Size(104, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Crear Clientes";
             // 
             // btnFactura
             // 
             this.btnFactura.Image = ((System.Drawing.Image)(resources.GetObject("btnFactura.Image")));
-            this.btnFactura.Location = new System.Drawing.Point(283, 137);
+            this.btnFactura.Location = new System.Drawing.Point(212, 111);
+            this.btnFactura.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnFactura.Name = "btnFactura";
-            this.btnFactura.Size = new System.Drawing.Size(142, 98);
+            this.btnFactura.Size = new System.Drawing.Size(106, 80);
             this.btnFactura.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnFactura.TabIndex = 2;
             this.btnFactura.TabStop = false;
@@ -76,9 +79,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(254, 251);
+            this.label2.Location = new System.Drawing.Point(190, 204);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 21);
+            this.label2.Size = new System.Drawing.Size(138, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Facturar productos";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -89,8 +93,9 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(483, 59);
+            this.panel1.Size = new System.Drawing.Size(557, 48);
             this.panel1.TabIndex = 4;
             // 
             // label3
@@ -99,23 +104,25 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(7, 10);
+            this.label3.Location = new System.Drawing.Point(5, 8);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(206, 43);
+            this.label3.Size = new System.Drawing.Size(154, 35);
             this.label3.TabIndex = 0;
             this.label3.Text = "Modulo Factura";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // MenuPrincipalFactura
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 284);
+            this.ClientSize = new System.Drawing.Size(557, 270);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnFactura);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.picClientes);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MenuPrincipalFactura";
             this.Text = "MenuPrincipalFactura";
             ((System.ComponentModel.ISupportInitialize)(this.picClientes)).EndInit();

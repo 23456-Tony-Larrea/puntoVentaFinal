@@ -22,23 +22,28 @@ namespace POSalesDb
         private string con;
         public string myConnection()
         {
-            con = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True;Connect Timeout=30";
+            con = @"Data Source=.;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True";
             return con;
         }
 
+        
 
-        //get ordenServicio id
-        public OrdenServicio selectOrdenServicioPorId(int Id)
+        //get OrdenServicioModel id
+        public OrdenServicioModel selectOrdenServicioModelPorId(int Id)
         {
             cn.ConnectionString = myConnection();
-            OrdenServicio orden = new OrdenServicio();
+            OrdenServicioModel orden = new OrdenServicioModel();
             try
             {
-                cm = new SqlCommand($"Select * from ordenServicio Where Id = {Id}", cn);
-                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cm = new SqlCommand($"Select * from OrdenServicioModel Where Id = {Id}", cn);
+            
                 cn.Open();
                 DataTable dt = new DataTable();
-                da.Fill(dt);
+                using (SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn))
+                {
+                    da.Fill(dt);
+                }
+                
                 if (dt.Rows.Count > 0)
                 {
                     orden.Id = (int)dt.Rows[0]["Id"];
@@ -60,34 +65,21 @@ namespace POSalesDb
                 cn.Close();
             }
         }
-        // get ordenServicio
-        public List<OrdenServicio> selectTodosLasOrdenServicio()
+        // get OrdenServicioModel
+        public List<OrdenServicioModel> selectTodosLasOrdenServicioModel()
         {
             cn.ConnectionString = myConnection();
-            List<OrdenServicio> ordens = new List<OrdenServicio>();
-
+            List<OrdenServicioModel> ordens = new List<OrdenServicioModel>();
+            DataTable dt = new DataTable();
             try
             {
-                cm = new SqlCommand($"Select * from ordenServicio ");
-                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
-                cn.Open();
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
+                cm = new SqlCommand($"Select * from OrdenServicioModel");
+                using (SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn))
                 {
-                    foreach (DataRow r in dt.Rows)
-                    {
-                        OrdenServicio orden = new OrdenServicio();
-                        orden.Id = (int)dt.Rows[0]["Id"];
-                        orden.Descripcion = dt.Rows[0]["descripcion"].ToString();
-                        orden.idCliente =(int) dt.Rows[0]["idCliente"];
-                        orden.idUsuarios = (int)dt.Rows[0]["idUsuarios"];
-                        
-                        ordens.Add(orden);
-                    }
-
+                    cn.Open();
+                    da.Fill(dt);
                 }
-                return ordens;
+            
             }
 
             catch (Exception ex)
@@ -99,43 +91,65 @@ namespace POSalesDb
             {
                 cn.Close();
             }
+
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow r in dt.Rows)
+                {
+                    OrdenServicioModel orden = new OrdenServicioModel();
+                    orden.Id = (int)dt.Rows[0]["Id"];
+                    orden.Descripcion = dt.Rows[0]["descripcion"].ToString();
+                    orden.idCliente = (int)dt.Rows[0]["idCliente"];
+                    orden.idUsuarios = (int)dt.Rows[0]["idUsuarios"];
+                    orden.cliente = selectClientesId(orden.idCliente);
+                    orden.usuario = selectUsuariosPorId(orden.idUsuarios);
+                    ordens.Add(orden);
+                }
+
+            }
+            return ordens;
         }
-        //insertar ordenServicio 
-        public string insertOrdenServicio(OrdenServicio orden)
+        //insertar OrdenServicioModel 
+        public int insertOrdenServicioModel(OrdenServicioModel orden)
         {
+            
+
+
             cn.ConnectionString = myConnection();
-            string Error = String.Empty;
+            int IdOrden = 0;
             try
             {
-                cm = new SqlCommand("Insert into ordenServicio (descripcion,idCliente,idUsuarios) values(@descripcion,@idCliente,@idUsuarios)",cn);
-                cm.Parameters.AddWithValue("@descripcion", orden.Descripcion);
+                cm = new SqlCommand("Insert into OrdenServicio (idCliente,idUsuarios) values(@idCliente,@idUsuarios) SET @ID = SCOPE_IDENTITY(); ", cn);
                 cm.Parameters.AddWithValue("@idCliente", orden.idCliente);
                 cm.Parameters.AddWithValue("@idUsuarios", orden.idUsuarios);
+                SqlParameter param = new SqlParameter("@ID", SqlDbType.Int, 4);
+                param.Direction = ParameterDirection.Output;
+                cm.Parameters.Add(param);
                 cn.Open();
-                adapter.UpdateCommand = cm;
-                adapter.UpdateCommand.ExecuteNonQuery();
-                return Error;
+                cm.ExecuteNonQuery();
+                int.TryParse(param.Value.ToString(),out IdOrden);
+                return IdOrden;
             }
 
             catch (Exception ex)
             {
                 CrearEvento(ex.ToString());
-                Error = ex.ToString();
-                return Error;
+                return IdOrden;
             }
             finally
             {
                 cn.Close();
             }
+
         }
-        //actualizar ordenServicio 
-        public string actualizarOrdenServicio(OrdenServicio orden)
+        //actualizar OrdenServicioModel 
+        public string actualizarOrdenServicioModel(OrdenServicioModel orden)
         {
             cn.ConnectionString = myConnection();
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("UPDATE ordenServicio SET descripcion=@descripcion,idCliente=@idCliente,idUsuarios=@idUsuarios WHERE Id = @Id  ", cn);
+                cm = new SqlCommand("UPDATE OrdenServicioModel SET descripcion=@descripcion,idCliente=@idCliente,idUsuarios=@idUsuarios WHERE Id = @Id  ", cn);
                 cm.Parameters.AddWithValue("@", orden.Id);
                 cm.Parameters.AddWithValue("@descripcion",orden.Descripcion);
                 cm.Parameters.AddWithValue("@idCliente", orden.idCliente);
@@ -156,15 +170,15 @@ namespace POSalesDb
             }
         }
 
-        //eliminar OrdenServicio
-        public string deleteOrdenServicio(int idOrdenServicio)
+        //eliminar OrdenServicioModel
+        public string deleteOrdenServicioModel(int idOrdenServicioModel)
         {
             cn.ConnectionString = myConnection();
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("DETELE FROM ordenServicio WHERE Id = @Id  ", cn);
-                cm.Parameters.AddWithValue("@Id", idOrdenServicio);
+                cm = new SqlCommand("DETELE FROM OrdenServicioModel WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@Id", idOrdenServicioModel);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
@@ -181,11 +195,12 @@ namespace POSalesDb
             }
         }
         
-        //get Mantenimiento id
-        public Mantenimiento selectMantenimientoPorId(int Id)
+        //get MantenimientoModel id
+        public MantenimientoModel selectMantenimientoModelPorId(int Id)
         {
+            DateTime fechaEntrega;
             cn.ConnectionString = myConnection();
-            Mantenimiento mantenimiento = new Mantenimiento();
+            MantenimientoModel MantenimientoModel = new MantenimientoModel();
             try
             {
                 cm = new SqlCommand($"Select * from Mantenimiento Where Id = {Id}", cn);
@@ -195,38 +210,41 @@ namespace POSalesDb
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
-                    mantenimiento.Id = (int)dt.Rows[0]["Id"];
-                    mantenimiento.fechaMantenimiento =Convert.ToDateTime( dt.Rows[0]["fechaMantenimiento"].ToString());
-                    mantenimiento.fechaEntregaEquipo = Convert.ToDateTime(dt.Rows[0]["fechaEntregaEquipo"].ToString());
-                    mantenimiento.solucion = dt.Rows[0]["solucion"].ToString();
-                    mantenimiento.idEstadoMantenimiento =(int)dt.Rows[0]["idEstadoMantenimiento"];
-                    mantenimiento.idUsuarios=(int)dt.Rows[0]["idUsuarios"];
-                    mantenimiento.idOrdenServicio = (int)dt.Rows[0]["idOrdenServicio"];
-                    mantenimiento.estadoAplicarCorreccion = Convert.ToBoolean(dt.Rows[0]["estadoAplicarCorreccion"]);
+                    MantenimientoModel.Id = (int)dt.Rows[0]["Id"];
+                    MantenimientoModel.IdEquipo = (int)dt.Rows[0]["IdEquipo"];
+                    MantenimientoModel.fechaMantenimiento =Convert.ToDateTime( dt.Rows[0]["fechaMantenimiento"].ToString());
+                    DateTime.TryParse(dt.Rows[0]["fechaEntregaEquipo"].ToString(), out fechaEntrega);
+                    MantenimientoModel.fechaEntregaEquipo = fechaEntrega;
+                    MantenimientoModel.descripcionFalla = dt.Rows[0]["descripcionFalla"].ToString();
+                    MantenimientoModel.solucion = dt.Rows[0]["solucion"].ToString();
+                    MantenimientoModel.idEstadoMantenimiento =(int)dt.Rows[0]["idEstadoMantenimiento"];
+                    MantenimientoModel.idUsuarios=(int)dt.Rows[0]["idUsuarios"];
+                    MantenimientoModel.idOrdenServicio = (int)dt.Rows[0]["idOrdenServicio"];
+                    MantenimientoModel.estadoAplicarCorreccion = Convert.ToBoolean(dt.Rows[0]["estadoAplicarCorreccion"]);
                 
                 }
-                return mantenimiento;
+                return MantenimientoModel;
 
             }
             catch (Exception ex)
             {
                 CrearEvento(ex.ToString());
-                return mantenimiento;
+                return MantenimientoModel;
             }
             finally
             {
                 cn.Close();
             }
         }
-        // get Mantenimiento
-        public List<Mantenimiento> selectTodosLosMantenimientos()
+        // get MantenimientoModel
+        public List<MantenimientoModel> selectTodosLosMantenimientoModels()
         {
             cn.ConnectionString = myConnection();
-            List<Mantenimiento> mantenimientos = new List<Mantenimiento>();
+            List<MantenimientoModel> MantenimientoModels = new List<MantenimientoModel>();
 
             try
             {
-                cm = new SqlCommand($"Select * from Mantenimiento ");
+                cm = new SqlCommand($"Select * from MantenimientoModel ");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();
@@ -235,87 +253,132 @@ namespace POSalesDb
                 {
                     foreach (DataRow r in dt.Rows)
                     {
-                        Mantenimiento mantenimiento = new Mantenimiento();
-                        mantenimiento.Id = (int)dt.Rows[0]["Id"];
-                        mantenimiento.fechaMantenimiento = Convert.ToDateTime( dt.Rows[0]["fechaMantenimiento"].ToString());
-                        mantenimiento.fechaEntregaEquipo = Convert.ToDateTime(dt.Rows[0]["fechaEntregaEquipo"].ToString());
-                        mantenimiento.descripcionFalla = dt.Rows[0]["descripcionFalla"].ToString();
-                        mantenimiento.solucion = dt.Rows[0]["solucion"].ToString();
-                        mantenimiento.idEstadoMantenimiento= (int)dt.Rows[0]["idEstadoMantenimiento"];
-                        mantenimiento.idUsuarios = (int)dt.Rows[0]["idUsuarios"];
-                        mantenimiento.idOrdenServicio = (int)dt.Rows[0]["idOrdenServicio"];
-                        mantenimiento.estadoAplicarCorreccion= Convert.ToBoolean( dt.Rows[0]["estadoAplicarCorreccion"].ToString());
-                        mantenimientos.Add(mantenimiento);
+                        MantenimientoModel MantenimientoModel = new MantenimientoModel();
+                        MantenimientoModel.Id = (int)dt.Rows[0]["Id"];
+                        MantenimientoModel.fechaMantenimiento = Convert.ToDateTime( dt.Rows[0]["fechaMantenimientoModel"].ToString());
+                        MantenimientoModel.fechaEntregaEquipo = Convert.ToDateTime(dt.Rows[0]["fechaEntregaEquipo"].ToString());
+                        MantenimientoModel.descripcionFalla = dt.Rows[0]["descripcionFalla"].ToString();
+                        MantenimientoModel.solucion = dt.Rows[0]["solucion"].ToString();
+                        MantenimientoModel.idEstadoMantenimiento= (int)dt.Rows[0]["idEstadoMantenimiento"];
+                        MantenimientoModel.idUsuarios = (int)dt.Rows[0]["idUsuarios"];
+                        MantenimientoModel.idOrdenServicio = (int)dt.Rows[0]["idOrdenServicioModel"];
+                        MantenimientoModel.estadoAplicarCorreccion= Convert.ToBoolean( dt.Rows[0]["estadoAplicarCorreccion"].ToString());
+                        MantenimientoModels.Add(MantenimientoModel);
                     }
 
                 }
-                return mantenimientos;
+                return MantenimientoModels;
             }
 
             catch (Exception ex)
             {
                 CrearEvento(ex.ToString());
-                return mantenimientos;
+                return MantenimientoModels;
             }
             finally
             {
                 cn.Close();
             }
         }
-        //insertar Mantenimientos 
-        public string insertMantenimientos(Mantenimiento mantenimiento)
+        public DataTable selectTodosLosMantenimientoModelsData()
         {
             cn.ConnectionString = myConnection();
-            string Error = String.Empty;
+            List<MantenimientoModel> MantenimientoModels = new List<MantenimientoModel>();
+            cn.Open();
+            DataTable dt = new DataTable();
             try
             {
-                cm = new SqlCommand("Insert into Mantenimiento (fechaMantenimiento,fechaEntregaEquipo,descripcionFalla,solucion,idEstadoMantenimiento,idUsuarios,idOrdenServicio,estadoAplicarCorreccion) values(@fechaMantenimiento,@fechaEntregaEquipo,@descripcionFalla,@solucion,@idEstadoMantenimiento,@idUsuarios,@idOrdenServicio,@estadoAplicarCorreccion)",cn);
-                cm.Parameters.AddWithValue("@fechaMantenimiento", mantenimiento.fechaMantenimiento);
-                cm.Parameters.AddWithValue("@fechaEntregaEquipo", mantenimiento.fechaEntregaEquipo);
-                cm.Parameters.AddWithValue("@descripcionFalla", mantenimiento.descripcionFalla);
-                cm.Parameters.AddWithValue("@solucion", mantenimiento.solucion);
-                cm.Parameters.AddWithValue("@idEstadoMantenimiento", mantenimiento.idEstadoMantenimiento);
-                cm.Parameters.AddWithValue("@idUsuarios", mantenimiento.idUsuarios);
-                cm.Parameters.AddWithValue("@idOrdenServicio", mantenimiento.idOrdenServicio);
-                cm.Parameters.AddWithValue("@estadoAplicarCorreccion", mantenimiento.estadoAplicarCorreccion);
-                cn.Open();
-                adapter.UpdateCommand = cm;
-                adapter.UpdateCommand.ExecuteNonQuery();
-                return Error;
+                cm = new SqlCommand($@"SELECT Mantenimiento.Id,Mantenimiento.fechaMantenimiento , Mantenimiento.fechaEntregaEquipo, Mantenimiento.descripcionFalla, Mantenimiento.solucion, Mantenimiento.IdEstadoMantenimiento, 
+                         Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
+                         Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
+FROM                     Mantenimiento LEFT JOIN
+                         Equipo ON Mantenimiento.IdEquipo = Equipo.Id LEFT JOIN
+                         estadoMantenimiento ON Mantenimiento.[IdEstadoMantenimiento] = estadoMantenimiento.Id Order by Mantenimiento.Id desc");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+
+                da.Fill(dt);
+              
+                return dt;
             }
 
             catch (Exception ex)
             {
                 CrearEvento(ex.ToString());
-                Error = ex.ToString();
-                return Error;
+                return dt;
             }
             finally
             {
                 cn.Close();
             }
         }
-        //actualizar Mantenimiento 
-        public string actualizarMantenimiento(Mantenimiento mantenimiento)
+        //insertar MantenimientoModels 
+        public string insertMantenimientoModels(MantenimientoModel MantenimientoModel)
         {
             cn.ConnectionString = myConnection();
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("UPDATE Mantenimiento SET fechaMantenimiento=@fechaMantenimiento,fechaEntregaEquipo=@fechaEntregaEquipo,descripcionFalla=@descripcionFalla,solucion=@solucion,idEstadoMantenimiento=@idEstadoMantenimiento,idUsuarios=@idUsuarios,idOrdenServicio=@idOrdenServicio,estadoAplicarCorreccion=@estadoAplicarCorreccion WHERE Id = @Id  ", cn);
-                cm.Parameters.AddWithValue("@", mantenimiento.Id);
-                cm.Parameters.AddWithValue("@fechaMantenimiento", mantenimiento.fechaMantenimiento);
-                cm.Parameters.AddWithValue("@fechaEntregaEquipo", mantenimiento.fechaEntregaEquipo);
-                cm.Parameters.AddWithValue("@descripcionFalla", mantenimiento.descripcionFalla);
-                cm.Parameters.AddWithValue("@solucion", mantenimiento.solucion);
-                cm.Parameters.AddWithValue("@idEstadoMantenimiento", mantenimiento.idEstadoMantenimiento);
-                cm.Parameters.AddWithValue("@idUsuarios", mantenimiento.idUsuarios);
-                cm.Parameters.AddWithValue("@idOrdenServicio", mantenimiento.idOrdenServicio);
-                cm.Parameters.AddWithValue("@estadoAplicarCorreccion", mantenimiento.estadoAplicarCorreccion);
+                cm = new SqlCommand("Insert into Mantenimiento (fechaMantenimiento,descripcionFalla,idEstadoMantenimiento,idUsuarios,idOrdenServicio,IdEquipo) values(@fechaMantenimientoModel,@descripcionFalla,@idEstadoMantenimiento,@idUsuarios,@idOrdenServicio,@IdEquipo)", cn);
+                cm.Parameters.AddWithValue("@fechaMantenimientoModel", MantenimientoModel.fechaMantenimiento);
+                cm.Parameters.AddWithValue("@descripcionFalla", MantenimientoModel.descripcionFalla);
+                cm.Parameters.AddWithValue("@idEstadoMantenimiento", MantenimientoModel.idEstadoMantenimiento);
+                cm.Parameters.AddWithValue("@idUsuarios", MantenimientoModel.idUsuarios);
+                cm.Parameters.AddWithValue("@idOrdenServicio", MantenimientoModel.idOrdenServicio);
+                cm.Parameters.AddWithValue("@IdEquipo", MantenimientoModel.idOrdenServicio); 
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
             }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar MantenimientoModel 
+        public string actualizarMantenimientoModel(MantenimientoModel MantenimientoModel)
+        {
+            
+            int Aplicar = 0, NoAplicar = 0;
+            if (MantenimientoModel.estadoNoAplicarCorreccion)
+            {
+                NoAplicar = 1;
+            }
+            if (MantenimientoModel.estadoAplicarCorreccion)
+            {
+                Aplicar = 1;
+            }
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                string Query = $@"UPDATE Mantenimiento  SET
+                fechaMantenimiento='{MantenimientoModel.fechaMantenimiento.ToString("yyyy-MM-dd hh:mm:ss")}',
+                descripcionFalla='{MantenimientoModel.descripcionFalla}',
+                solucion='{MantenimientoModel.solucion}',
+                idEstadoMantenimiento={MantenimientoModel.idEstadoMantenimiento},
+                idUsuarios={MantenimientoModel.idUsuarios},
+                idOrdenServicio={MantenimientoModel.idOrdenServicio},
+                estadoAplicarCorreccion={Aplicar},
+                estadoNoAplicarCorreccion={NoAplicar} ";
+                DateTime MinimunDate = Convert.ToDateTime("01/01/2000");
+                if (MantenimientoModel.fechaEntregaEquipo > MinimunDate)
+                {
+                    Query += $" fechaEntregaEquipo = '{MantenimientoModel.fechaEntregaEquipo}'";
+                }
+                Query += $" WHERE Id = {MantenimientoModel.Id}";
+                adapter.UpdateCommand = new SqlCommand(Query, cn);
+
+                cn.Open();
+                adapter.UpdateCommand.ExecuteNonQuery();
+                return Error;
+            }
             catch (Exception ex)
             {
                 CrearEvento(ex.ToString());
@@ -328,15 +391,15 @@ namespace POSalesDb
             }
         }
 
-        //eliminar Mantenimientos
-        public string deleteMantenimientos(int idMantenimientos)
+        //eliminar MantenimientoModels
+        public string deleteMantenimientoModels(int idMantenimientoModels)
         {
             cn.ConnectionString = myConnection();
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("DETELE FROM Mantenimiento WHERE Id = @Id  ", cn);
-                cm.Parameters.AddWithValue("@Id", idMantenimientos);
+                cm = new SqlCommand("DETELE FROM MantenimientoModel WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@Id", idMantenimientoModels);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
@@ -353,46 +416,46 @@ namespace POSalesDb
             }
         }
         
-        //get estadoMantenimiento id
+        //get EstadoMantenimiento id
         public EstadoMantenimiento selectEstadoMantenimientoPorId(int Id)
         {
             cn.ConnectionString = myConnection();
-            EstadoMantenimiento estadoMantenimiento = new EstadoMantenimiento();
+            EstadoMantenimiento EstadoMantenimiento = new EstadoMantenimiento();
             try
             {
-                cm = new SqlCommand($"Select * from estadoMantenimiento Where Id = {Id}", cn);
+                cm = new SqlCommand($"Select * from EstadoMantenimiento Where Id = {Id}", cn);
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
-                    estadoMantenimiento.Id = (int)dt.Rows[0]["Id"];
-                    estadoMantenimiento.descripcion = dt.Rows[0]["descripcion"].ToString();
+                    EstadoMantenimiento.Id = (int)dt.Rows[0]["Id"];
+                    EstadoMantenimiento.descripcion = dt.Rows[0]["descripcion"].ToString();
                    
                 }
-                return estadoMantenimiento;
+                return EstadoMantenimiento;
 
             }
             catch (Exception ex)
             {
                 CrearEvento(ex.ToString());
-                return estadoMantenimiento;
+                return EstadoMantenimiento;
             }
             finally
             {
                 cn.Close();
             }
         }
-        // get Mantenimiento
-        public List<EstadoMantenimiento> selectTodosLosEstadosMantenimientos()
+        // get MantenimientoModel
+        public List<EstadoMantenimiento> selectTodosLosEstadosMantenimientoModels()
         {
             cn.ConnectionString = myConnection();
-            List<EstadoMantenimiento> estadosMantenimientos = new List<EstadoMantenimiento>();
+            List<EstadoMantenimiento> estadosMantenimientoModels = new List<EstadoMantenimiento>();
 
             try
             {
-                cm = new SqlCommand($"Select * from estadoMantenimiento ");
+                cm = new SqlCommand($"Select * from EstadoMantenimiento ");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();
@@ -401,36 +464,36 @@ namespace POSalesDb
                 {
                     foreach (DataRow r in dt.Rows)
                     {
-                        EstadoMantenimiento estadoMantenimiento = new EstadoMantenimiento();
-                        estadoMantenimiento.Id = (int)dt.Rows[0]["Id"];
-                        estadoMantenimiento.descripcion = dt.Rows[0]["descripcion"].ToString();
+                        EstadoMantenimiento EstadoMantenimiento = new EstadoMantenimiento();
+                        EstadoMantenimiento.Id = (int)dt.Rows[0]["Id"];
+                        EstadoMantenimiento.descripcion = dt.Rows[0]["descripcion"].ToString();
                        
-                        estadosMantenimientos.Add(estadoMantenimiento);
+                        estadosMantenimientoModels.Add(EstadoMantenimiento);
                     }
 
                 }
-                return estadosMantenimientos;
+                return estadosMantenimientoModels;
             }
 
             catch (Exception ex)
             {
                 CrearEvento(ex.ToString());
-                return estadosMantenimientos;
+                return estadosMantenimientoModels;
             }
             finally
             {
                 cn.Close();
             }
         }
-        //insertar EstadosMantenimientos 
-        public string insertEstadosMantenimientos(EstadoMantenimiento estadoMantenimiento)
+        //insertar EstadosMantenimientoModels 
+        public string insertEstadosMantenimientoModels(EstadoMantenimiento EstadoMantenimiento)
         {
             cn.ConnectionString = myConnection();
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("Insert into estadoMantenimiento (descripcion) values (@descripcion)", cn);
-                cm.Parameters.AddWithValue("@descripcionFalla", estadoMantenimiento.descripcion);
+                cm = new SqlCommand("Insert into EstadoMantenimiento (descripcion) values (@descripcion)", cn);
+                cm.Parameters.AddWithValue("@descripcionFalla", EstadoMantenimiento.descripcion);
                 cn.Open();
                 adapter.UpdateCommand = cm;
                 adapter.UpdateCommand.ExecuteNonQuery();
@@ -448,16 +511,16 @@ namespace POSalesDb
                 cn.Close();
             }
         }
-        //actualizar estadoMantenimiento 
-        public string actualizarEstadoMantenimiento(EstadoMantenimiento estadoMantenimiento)
+        //actualizar EstadoMantenimiento 
+        public string actualizarEstadoMantenimiento(EstadoMantenimiento EstadoMantenimiento)
         {
             cn.ConnectionString = myConnection();
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("UPDATE estadoMantenimiento SET descripcion=@descripcion WHERE Id = @Id  ", cn);
-                cm.Parameters.AddWithValue("@", estadoMantenimiento.Id);
-                cm.Parameters.AddWithValue("@descripcion", estadoMantenimiento.descripcion);
+                cm = new SqlCommand("UPDATE EstadoMantenimiento SET descripcion=@descripcion WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", EstadoMantenimiento.Id);
+                cm.Parameters.AddWithValue("@descripcion", EstadoMantenimiento.descripcion);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
@@ -474,15 +537,15 @@ namespace POSalesDb
             }
         }
 
-        //eliminar estadoMantenimientos
-        public string deleteEstadoMantenimientos(int idEstadosMantenimientos)
+        //eliminar EstadoMantenimientos
+        public string deleteEstadoMantenimientos(int idEstadosMantenimientoModels)
         {
             cn.ConnectionString = myConnection();
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("DETELE FROM estadoMantenimiento WHERE Id = @Id  ", cn);
-                cm.Parameters.AddWithValue("@Id", idEstadosMantenimientos);
+                cm = new SqlCommand("DETELE FROM EstadoMantenimiento WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@Id", idEstadosMantenimientoModels);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
@@ -580,10 +643,9 @@ namespace POSalesDb
             {
                 cm = new SqlCommand("Insert into Accesorios (accesoriosEquipo,idEquipo) values (@accesoriosEquipo,@idEquipo)", cn);
                 cm.Parameters.AddWithValue("@accesoriosEquipo", accesorios.accesoriosEquipo);
-                cm.Parameters.AddWithValue("@descripcionEquipo", accesorios.idEquipo);
+                cm.Parameters.AddWithValue("@idEquipo", accesorios.idEquipo);
                 cn.Open();
-                adapter.UpdateCommand = cm;
-                adapter.UpdateCommand.ExecuteNonQuery();
+                cm.ExecuteNonQuery();
                 return Error;
             }
 
@@ -663,8 +725,7 @@ namespace POSalesDb
                 if (dt.Rows.Count > 0)
                 {
                     equipo.Id = (int)dt.Rows[0]["Id"];
-                    equipo.descripcionFallo = dt.Rows[0]["descripcionFallo"].ToString();
-                    equipo.descripcionEquipo = dt.Rows[0]["descripcionEquipo"].ToString();
+                    equipo.descripcionEquipo = dt.Rows[0]["descirpcionEquipo"].ToString();
                     equipo.codigo = dt.Rows[0]["codigo"].ToString();
                     equipo.series = dt.Rows[0]["series"].ToString();
                 }
@@ -700,8 +761,7 @@ namespace POSalesDb
                     {
                         Equipo equipo = new Equipo();
                         equipo.Id = (int)dt.Rows[0]["Id"];
-                        equipo.descripcionFallo = dt.Rows[0]["descripcionFallo"].ToString();
-                        equipo.descripcionEquipo = dt.Rows[0]["descripcionEquipo"].ToString();
+                        equipo.descripcionEquipo = dt.Rows[0]["descirpcionEquipo"].ToString();
                         equipo.codigo = dt.Rows[0]["codigo"].ToString();
                         equipo.series = dt.Rows[0]["series"].ToString();
                         equipos.Add(equipo);
@@ -721,28 +781,68 @@ namespace POSalesDb
                 cn.Close();
             }
         }
-        //insertar Equipos 
-        public string insertEquipos(Equipo equipo)
+        public List<Equipo> selectTodosLosEquiposPorCliente(int idCliente)
         {
             cn.ConnectionString = myConnection();
-            string Error = String.Empty;
+            List<Equipo> equipos = new List<Equipo>();
+
             try
             {
-                cm = new SqlCommand("Insert into Equipo (descripcionFallo,descripcionEquipo,codigo,series) values (@descripcionFalla,@descripcionEquipo,@codigo,@series)", cn);
-                cm.Parameters.AddWithValue("@descripcionFallo", equipo.descripcionFallo);
+                cm = new SqlCommand($"Select * from Equipo Where IdCliente = {idCliente}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Equipo equipo = new Equipo();
+                        equipo.Id = (int)r["Id"];
+                        equipo.descripcionEquipo = r["descirpcionEquipo"].ToString();
+                        equipo.codigo = r["codigo"].ToString();
+                        equipo.series = r["series"].ToString();
+                        equipos.Add(equipo);
+                    }
+
+                }
+                return equipos;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return equipos;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar Equipos 
+        public int insertEquipos(Equipo equipo)
+        {
+            cn.ConnectionString = myConnection();
+            int Error = 0;
+            try
+            {
+                cm = new SqlCommand("Insert into Equipo (descirpcionEquipo,codigo,series,idcliente) values (@descripcionEquipo,@codigo,@series,@idcliente) SET @ID = SCOPE_IDENTITY();", cn);
                 cm.Parameters.AddWithValue("@descripcionEquipo", equipo.descripcionEquipo);
                 cm.Parameters.AddWithValue("@codigo", equipo.codigo);
-                cm.Parameters.AddWithValue("@series", equipo.codigo);
+                cm.Parameters.AddWithValue("@series", equipo.series);
+                cm.Parameters.AddWithValue("@idcliente", equipo.idCliente);
+                SqlParameter param = new SqlParameter("@ID", SqlDbType.Int, 4);
+                param.Direction = ParameterDirection.Output;
+                cm.Parameters.Add(param);
                 cn.Open();
-                adapter.UpdateCommand = cm;
-                adapter.UpdateCommand.ExecuteNonQuery();
+                cm.ExecuteNonQuery();
+                int.TryParse(param.Value.ToString(), out Error);
                 return Error;
             }
 
             catch (Exception ex)
             {
                 CrearEvento(ex.ToString());
-                Error = ex.ToString();
                 return Error;
             }
             finally
@@ -759,7 +859,6 @@ namespace POSalesDb
             {
                 cm = new SqlCommand("UPDATE Equipo SET descripcionFallo=@descripcionFallo,descripcionEquipo=@descripcionEquipo,codigo=@codigo,series=@series WHERE Id = @Id  ", cn);
                 cm.Parameters.AddWithValue("@", equipo.Id);
-                cm.Parameters.AddWithValue("@descripcionFallo", equipo.descripcionFallo);
                 cm.Parameters.AddWithValue("@descripcionEquipo", equipo.descripcionEquipo);
                 cm.Parameters.AddWithValue("@codigo", equipo.codigo);
                 cm.Parameters.AddWithValue("@series", equipo.series);
@@ -3394,24 +3493,24 @@ namespace POSalesDb
                     foreach (DataRow r in dt.Rows)
                     {
                         Clientes clientes = new Clientes();
-                        clientes.Id = (int)dt.Rows[0]["Id"];
-                        clientes.nombre = Convert.ToString(dt.Rows[0]["nombre"]);
-                        clientes.comercio = Convert.ToString(dt.Rows[0]["comercio"]);
-                        clientes.codigo = Convert.ToString(dt.Rows[0]["codigo"]);
-                        clientes.fechaNacimiento = Convert.ToDateTime(dt.Rows[0]["fechaNacimiento"]);
-                        clientes.fechaRegistro = Convert.ToDateTime(dt.Rows[0]["fechaRegistro"]);
-                        clientes.ciudad = Convert.ToString(dt.Rows[0]["ciudad"]);
-                        clientes.tipo = Convert.ToString(dt.Rows[0]["tipo"]);
-                        clientes.ciRuc = Convert.ToString(dt.Rows[0]["ciRuc"]);
-                        clientes.pais = Convert.ToString(dt.Rows[0]["pais"]);
-                        clientes.estado = Convert.ToString(dt.Rows[0]["estado"]);
-                        clientes.direccion = Convert.ToString(dt.Rows[0]["direccion"]);
-                        clientes.telefono = Convert.ToString(dt.Rows[0]["telefono"]);
-                        clientes.celular = Convert.ToString(dt.Rows[0]["celular"]);
-                        clientes.fax = Convert.ToString(dt.Rows[0]["fax"]);
-                        clientes.cargo = Convert.ToString(dt.Rows[0][15]);
-                        clientes.email = Convert.ToString(dt.Rows[0]["email"]);
-                        clientes.tipo = Convert.ToString(dt.Rows[0]["tipoCliente"]);
+                        clientes.Id = (int)r["Id"];
+                        clientes.nombre = Convert.ToString(r["nombre"]);
+                        clientes.comercio = Convert.ToString(r["comercio"]);
+                        clientes.codigo = Convert.ToString(r["codigo"]);
+                        clientes.fechaNacimiento = Convert.ToDateTime(r["fechaNacimiento"]);
+                        clientes.fechaRegistro = Convert.ToDateTime(r["fechaRegistro"]);
+                        clientes.ciudad = Convert.ToString(r["ciudad"]);
+                        clientes.tipo = Convert.ToString(r["tipo"]);
+                        clientes.ciRuc = Convert.ToString(r["ciRuc"]);
+                        clientes.pais = Convert.ToString(r["pais"]);
+                        clientes.estado = Convert.ToString(r["estado"]);
+                        clientes.direccion = Convert.ToString(r["direccion"]);
+                        clientes.telefono = Convert.ToString(r["telefono"]);
+                        clientes.celular = Convert.ToString(r["celular"]);
+                        clientes.fax = Convert.ToString(r["fax"]);
+                        clientes.cargo = Convert.ToString(r[15]);
+                        clientes.email = Convert.ToString(r["email"]);
+                        clientes.tipo = Convert.ToString(r["tipoCliente"]);
                         client.Add(clientes);
                     }
 

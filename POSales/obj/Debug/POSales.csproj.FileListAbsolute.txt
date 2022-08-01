@@ -493,3 +493,17 @@ D:\nuevo pull\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.OrdenServ
 D:\nuevo pull\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.OrdenServicioModulo.resources
 D:\nuevo pull\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.Reserva.resources
 D:\nuevo pull\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.ReservasModulo.resources
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.VerAccesorios.resources
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.AccesoriosModulo.resources
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.VerEquipo.resources
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.EquipoModulo.resources
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.EstadoMantenimientoModulo.resources
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.EstadoMantenimiento.resources
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.Mantenimiento.resources
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.MantenimientoModulo.resources
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.OrdenServicio.resources
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.OrdenServicioModulo.resources
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.Reserva.resources
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.ReservasModulo.resources
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.MenuMantenimiento.resources
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\bin\Debug\AdvancedDataGridView.dll

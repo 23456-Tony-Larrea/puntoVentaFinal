@@ -42,8 +42,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtCodigoEquipo = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtSeriesEquipo = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel2.SuspendLayout();
@@ -52,7 +50,7 @@
             // txtAccesoriosEquipo
             // 
             this.txtAccesoriosEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtAccesoriosEquipo.Location = new System.Drawing.Point(216, 106);
+            this.txtAccesoriosEquipo.Location = new System.Drawing.Point(190, 135);
             this.txtAccesoriosEquipo.Multiline = true;
             this.txtAccesoriosEquipo.Name = "txtAccesoriosEquipo";
             this.txtAccesoriosEquipo.Size = new System.Drawing.Size(569, 120);
@@ -61,10 +59,10 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 109);
+            this.label10.Location = new System.Drawing.Point(3, 135);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(206, 21);
+            this.label10.Size = new System.Drawing.Size(173, 20);
             this.label10.TabIndex = 177;
             this.label10.Text = "Accesorios del equipo";
             // 
@@ -75,7 +73,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(675, 358);
+            this.btnCancel.Location = new System.Drawing.Point(677, 269);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 35);
             this.btnCancel.TabIndex = 174;
@@ -90,7 +88,7 @@
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(551, 358);
+            this.btnUpdate.Location = new System.Drawing.Point(553, 269);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(121, 35);
             this.btnUpdate.TabIndex = 173;
@@ -101,10 +99,11 @@
             // txtIdAccesorios
             // 
             this.txtIdAccesorios.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtIdAccesorios.Location = new System.Drawing.Point(42, 67);
+            this.txtIdAccesorios.Location = new System.Drawing.Point(62, 53);
             this.txtIdAccesorios.Name = "txtIdAccesorios";
-            this.txtIdAccesorios.Size = new System.Drawing.Size(114, 30);
+            this.txtIdAccesorios.Size = new System.Drawing.Size(114, 25);
             this.txtIdAccesorios.TabIndex = 171;
+            this.txtIdAccesorios.Visible = false;
             // 
             // label1
             // 
@@ -125,10 +124,10 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 400);
+            this.panel1.Location = new System.Drawing.Point(0, 311);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(792, 82);
+            this.panel1.Size = new System.Drawing.Size(792, 63);
             this.panel1.TabIndex = 168;
             // 
             // btnSave
@@ -138,7 +137,7 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(430, 358);
+            this.btnSave.Location = new System.Drawing.Point(432, 269);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(115, 35);
             this.btnSave.TabIndex = 172;
@@ -162,12 +161,13 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(9, 70);
+            this.label18.Location = new System.Drawing.Point(29, 56);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(27, 21);
+            this.label18.Size = new System.Drawing.Size(24, 20);
             this.label18.TabIndex = 170;
             this.label18.Text = "Id";
+            this.label18.Visible = false;
             // 
             // panel2
             // 
@@ -179,52 +179,31 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(792, 45);
             this.panel2.TabIndex = 169;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // txtCodigoEquipo
             // 
             this.txtCodigoEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodigoEquipo.Enabled = false;
-            this.txtCodigoEquipo.Location = new System.Drawing.Point(216, 244);
+            this.txtCodigoEquipo.Location = new System.Drawing.Point(190, 96);
             this.txtCodigoEquipo.Name = "txtCodigoEquipo";
-            this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 30);
+            this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 25);
             this.txtCodigoEquipo.TabIndex = 181;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(34, 241);
+            this.label11.Location = new System.Drawing.Point(58, 96);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(140, 21);
+            this.label11.Size = new System.Drawing.Size(118, 20);
             this.label11.TabIndex = 179;
             this.label11.Text = "codigo equipo";
             // 
-            // txtSeriesEquipo
-            // 
-            this.txtSeriesEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtSeriesEquipo.Enabled = false;
-            this.txtSeriesEquipo.Location = new System.Drawing.Point(216, 293);
-            this.txtSeriesEquipo.Name = "txtSeriesEquipo";
-            this.txtSeriesEquipo.Size = new System.Drawing.Size(569, 30);
-            this.txtSeriesEquipo.TabIndex = 183;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 290);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(152, 21);
-            this.label2.TabIndex = 182;
-            this.label2.Text = "series de equipo";
-            // 
             // AccesoriosModulo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 482);
-            this.Controls.Add(this.txtSeriesEquipo);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(792, 374);
             this.Controls.Add(this.txtAccesoriosEquipo);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnCancel);
@@ -241,6 +220,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AccesoriosModulo";
             this.Text = "Accesorios";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AccesoriosModulo_FormClosing);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -264,7 +244,5 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtCodigoEquipo;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtSeriesEquipo;
-        private System.Windows.Forms.Label label2;
     }
 }

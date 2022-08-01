@@ -40,15 +40,14 @@
             this.btnMatenimientos = new System.Windows.Forms.Button();
             this.btnMantenimiento = new System.Windows.Forms.Button();
             this.panelSubMantenimiento = new System.Windows.Forms.Panel();
+            this.btnAccesorios = new System.Windows.Forms.Button();
+            this.btnEquipo = new System.Windows.Forms.Button();
             this.btnReservas = new System.Windows.Forms.Button();
             this.btnItems = new System.Windows.Forms.Button();
             this.panelSubReserva = new System.Windows.Forms.Panel();
-            this.panelSlide = new System.Windows.Forms.Panel();
-            this.btnEstados = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnEquipo = new System.Windows.Forms.Button();
-            this.btnAccesorios = new System.Windows.Forms.Button();
             this.btnReserva = new System.Windows.Forms.Button();
+            this.panelSlide = new System.Windows.Forms.Panel();
+            this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelLogo.SuspendLayout();
             this.panelSubMantenimiento.SuspendLayout();
@@ -59,12 +58,12 @@
             // panelMain
             // 
             this.panelMain.BackColor = System.Drawing.Color.White;
-            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(241, 0);
+            this.panelMain.Location = new System.Drawing.Point(237, 4);
             this.panelMain.Margin = new System.Windows.Forms.Padding(4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1183, 848);
+            this.panelMain.Size = new System.Drawing.Size(1046, 844);
             this.panelMain.TabIndex = 5;
+            this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
             // lblName
             // 
@@ -73,7 +72,7 @@
             this.lblName.Location = new System.Drawing.Point(7, 127);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(29, 21);
+            this.lblName.Size = new System.Drawing.Size(25, 20);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Ln";
             this.lblName.Visible = false;
@@ -85,7 +84,7 @@
             this.lblUsername.Location = new System.Drawing.Point(72, 151);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(72, 21);
+            this.lblUsername.Size = new System.Drawing.Size(63, 20);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Usuario";
             // 
@@ -96,7 +95,7 @@
             this.lblRole.Location = new System.Drawing.Point(68, 197);
             this.lblRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(80, 21);
+            this.lblRole.Size = new System.Drawing.Size(66, 20);
             this.lblRole.TabIndex = 0;
             this.lblRole.Text = "Tecnico";
             // 
@@ -127,6 +126,7 @@
             this.btnOrdenProductos.Text = "Orden Servicio";
             this.btnOrdenProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOrdenProductos.UseVisualStyleBackColor = false;
+            this.btnOrdenProductos.Click += new System.EventHandler(this.btnOrdenProductos_Click);
             // 
             // btnDashboard
             // 
@@ -196,13 +196,42 @@
             this.panelSubMantenimiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(200)))));
             this.panelSubMantenimiento.Controls.Add(this.btnAccesorios);
             this.panelSubMantenimiento.Controls.Add(this.btnEquipo);
-            this.panelSubMantenimiento.Controls.Add(this.btnEstados);
             this.panelSubMantenimiento.Controls.Add(this.btnMantenimiento);
             this.panelSubMantenimiento.Location = new System.Drawing.Point(0, 399);
             this.panelSubMantenimiento.Margin = new System.Windows.Forms.Padding(4);
             this.panelSubMantenimiento.Name = "panelSubMantenimiento";
             this.panelSubMantenimiento.Size = new System.Drawing.Size(241, 209);
             this.panelSubMantenimiento.TabIndex = 0;
+            // 
+            // btnAccesorios
+            // 
+            this.btnAccesorios.FlatAppearance.BorderSize = 0;
+            this.btnAccesorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccesorios.ForeColor = System.Drawing.Color.White;
+            this.btnAccesorios.Location = new System.Drawing.Point(0, 111);
+            this.btnAccesorios.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAccesorios.Name = "btnAccesorios";
+            this.btnAccesorios.Padding = new System.Windows.Forms.Padding(48, 0, 0, 0);
+            this.btnAccesorios.Size = new System.Drawing.Size(241, 59);
+            this.btnAccesorios.TabIndex = 7;
+            this.btnAccesorios.Text = "Accesorios";
+            this.btnAccesorios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAccesorios.UseVisualStyleBackColor = true;
+            // 
+            // btnEquipo
+            // 
+            this.btnEquipo.FlatAppearance.BorderSize = 0;
+            this.btnEquipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEquipo.ForeColor = System.Drawing.Color.White;
+            this.btnEquipo.Location = new System.Drawing.Point(0, 61);
+            this.btnEquipo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEquipo.Name = "btnEquipo";
+            this.btnEquipo.Padding = new System.Windows.Forms.Padding(48, 0, 0, 0);
+            this.btnEquipo.Size = new System.Drawing.Size(241, 59);
+            this.btnEquipo.TabIndex = 6;
+            this.btnEquipo.Text = "Equipo";
+            this.btnEquipo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEquipo.UseVisualStyleBackColor = true;
             // 
             // btnReservas
             // 
@@ -235,7 +264,6 @@
             this.btnItems.Text = "Items";
             this.btnItems.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnItems.UseVisualStyleBackColor = false;
-         
             // 
             // panelSubReserva
             // 
@@ -247,6 +275,22 @@
             this.panelSubReserva.Name = "panelSubReserva";
             this.panelSubReserva.Size = new System.Drawing.Size(241, 125);
             this.panelSubReserva.TabIndex = 8;
+            // 
+            // btnReserva
+            // 
+            this.btnReserva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(200)))));
+            this.btnReserva.FlatAppearance.BorderSize = 0;
+            this.btnReserva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReserva.ForeColor = System.Drawing.Color.White;
+            this.btnReserva.Location = new System.Drawing.Point(0, 0);
+            this.btnReserva.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReserva.Name = "btnReserva";
+            this.btnReserva.Padding = new System.Windows.Forms.Padding(48, 0, 0, 0);
+            this.btnReserva.Size = new System.Drawing.Size(241, 59);
+            this.btnReserva.TabIndex = 5;
+            this.btnReserva.Text = "Reserva";
+            this.btnReserva.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReserva.UseVisualStyleBackColor = false;
             // 
             // panelSlide
             // 
@@ -267,21 +311,6 @@
             this.panelSlide.Size = new System.Drawing.Size(241, 848);
             this.panelSlide.TabIndex = 3;
             // 
-            // btnEstados
-            // 
-            this.btnEstados.FlatAppearance.BorderSize = 0;
-            this.btnEstados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstados.ForeColor = System.Drawing.Color.White;
-            this.btnEstados.Location = new System.Drawing.Point(0, 58);
-            this.btnEstados.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEstados.Name = "btnEstados";
-            this.btnEstados.Padding = new System.Windows.Forms.Padding(48, 0, 0, 0);
-            this.btnEstados.Size = new System.Drawing.Size(241, 59);
-            this.btnEstados.TabIndex = 5;
-            this.btnEstados.Text = "Estados";
-            this.btnEstados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstados.UseVisualStyleBackColor = true;
-            // 
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.Blue;
@@ -298,63 +327,18 @@
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalir.UseVisualStyleBackColor = false;
             // 
-            // btnEquipo
-            // 
-            this.btnEquipo.FlatAppearance.BorderSize = 0;
-            this.btnEquipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEquipo.ForeColor = System.Drawing.Color.White;
-            this.btnEquipo.Location = new System.Drawing.Point(0, 103);
-            this.btnEquipo.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEquipo.Name = "btnEquipo";
-            this.btnEquipo.Padding = new System.Windows.Forms.Padding(48, 0, 0, 0);
-            this.btnEquipo.Size = new System.Drawing.Size(241, 59);
-            this.btnEquipo.TabIndex = 6;
-            this.btnEquipo.Text = "Equipo";
-            this.btnEquipo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEquipo.UseVisualStyleBackColor = true;
-            // 
-            // btnAccesorios
-            // 
-            this.btnAccesorios.FlatAppearance.BorderSize = 0;
-            this.btnAccesorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccesorios.ForeColor = System.Drawing.Color.White;
-            this.btnAccesorios.Location = new System.Drawing.Point(0, 153);
-            this.btnAccesorios.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAccesorios.Name = "btnAccesorios";
-            this.btnAccesorios.Padding = new System.Windows.Forms.Padding(48, 0, 0, 0);
-            this.btnAccesorios.Size = new System.Drawing.Size(241, 59);
-            this.btnAccesorios.TabIndex = 7;
-            this.btnAccesorios.Text = "Accesorios";
-            this.btnAccesorios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAccesorios.UseVisualStyleBackColor = true;
-            // 
-            // btnReserva
-            // 
-            this.btnReserva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(200)))));
-            this.btnReserva.FlatAppearance.BorderSize = 0;
-            this.btnReserva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReserva.ForeColor = System.Drawing.Color.White;
-            this.btnReserva.Location = new System.Drawing.Point(0, 0);
-            this.btnReserva.Margin = new System.Windows.Forms.Padding(4);
-            this.btnReserva.Name = "btnReserva";
-            this.btnReserva.Padding = new System.Windows.Forms.Padding(48, 0, 0, 0);
-            this.btnReserva.Size = new System.Drawing.Size(241, 59);
-            this.btnReserva.TabIndex = 5;
-            this.btnReserva.Text = "Reserva";
-            this.btnReserva.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReserva.UseVisualStyleBackColor = false;
-            // 
             // MenuMantenimiento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1424, 848);
+            this.ClientSize = new System.Drawing.Size(1284, 848);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelSlide);
             this.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MenuMantenimiento";
-            this.Text = "MenuMantenimiento";
+            this.Text = " ";
+            this.Load += new System.EventHandler(this.MenuMantenimiento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
@@ -382,7 +366,6 @@
         private System.Windows.Forms.Button btnItems;
         private System.Windows.Forms.Panel panelSubReserva;
         private System.Windows.Forms.Panel panelSlide;
-        private System.Windows.Forms.Button btnEstados;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnAccesorios;
         private System.Windows.Forms.Button btnEquipo;
