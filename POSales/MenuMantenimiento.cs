@@ -42,6 +42,7 @@ namespace POSales
         private void btnOrdenProductos_Click(object sender, EventArgs e)
         {
             Mantenimientos.OrdenServicioModulo NuevaOrden = new Mantenimientos.OrdenServicioModulo(idUsuarioFacturador);
+            NuevaOrden.ShowDialog();
         }
 
         private void panelMain_Paint(object sender, PaintEventArgs e)
@@ -54,9 +55,11 @@ namespace POSales
 
         }
 
+
         private void btnSalir_Click(object sender, EventArgs e)
         {
             
         }
+
     }
 }

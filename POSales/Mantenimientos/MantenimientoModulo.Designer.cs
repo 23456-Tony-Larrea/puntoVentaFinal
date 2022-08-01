@@ -51,7 +51,7 @@
             // txtOrdenServicio
             // 
             this.txtOrdenServicio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtOrdenServicio.Location = new System.Drawing.Point(189, 120);
+            this.txtOrdenServicio.Location = new System.Drawing.Point(220, 116);
             this.txtOrdenServicio.Multiline = true;
             this.txtOrdenServicio.Name = "txtOrdenServicio";
             this.txtOrdenServicio.ReadOnly = true;
@@ -63,7 +63,7 @@
             this.lblTecnico.AutoSize = true;
             this.lblTecnico.Location = new System.Drawing.Point(260, 70);
             this.lblTecnico.Name = "lblTecnico";
-            this.lblTecnico.Size = new System.Drawing.Size(78, 19);
+            this.lblTecnico.Size = new System.Drawing.Size(93, 21);
             this.lblTecnico.TabIndex = 118;
             this.lblTecnico.Text = "lblTecnico";
             // 
@@ -72,7 +72,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(185, 70);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 19);
+            this.label6.Size = new System.Drawing.Size(75, 21);
             this.label6.TabIndex = 117;
             this.label6.Text = "Tecnico";
             // 
@@ -83,7 +83,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(868, 496);
+            this.btnCancel.Location = new System.Drawing.Point(896, 496);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 35);
             this.btnCancel.TabIndex = 111;
@@ -97,7 +97,7 @@
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(637, 523);
+            this.btnUpdate.Location = new System.Drawing.Point(665, 523);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(121, 35);
             this.btnUpdate.TabIndex = 110;
@@ -111,7 +111,7 @@
             this.label2.Location = new System.Drawing.Point(16, 136);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(168, 19);
+            this.label2.Size = new System.Drawing.Size(200, 21);
             this.label2.TabIndex = 102;
             this.label2.Text = "Descripcion del Equipo";
             // 
@@ -120,7 +120,7 @@
             this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picClose.Image = ((System.Drawing.Image)(resources.GetObject("picClose.Image")));
             this.picClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.picClose.Location = new System.Drawing.Point(733, 0);
+            this.picClose.Location = new System.Drawing.Point(761, 0);
             this.picClose.Margin = new System.Windows.Forms.Padding(5);
             this.picClose.Name = "picClose";
             this.picClose.Size = new System.Drawing.Size(56, 45);
@@ -135,14 +135,14 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(789, 45);
+            this.panel2.Size = new System.Drawing.Size(817, 45);
             this.panel2.TabIndex = 101;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // txtDescripcionFallo
             // 
             this.txtDescripcionFallo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescripcionFallo.Location = new System.Drawing.Point(189, 262);
+            this.txtDescripcionFallo.Location = new System.Drawing.Point(220, 252);
             this.txtDescripcionFallo.Multiline = true;
             this.txtDescripcionFallo.Name = "txtDescripcionFallo";
             this.txtDescripcionFallo.ReadOnly = true;
@@ -155,14 +155,14 @@
             this.label3.Location = new System.Drawing.Point(34, 274);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 19);
+            this.label3.Size = new System.Drawing.Size(177, 21);
             this.label3.TabIndex = 124;
             this.label3.Text = "Descripcion del fallo";
             // 
             // txtSolucion
             // 
             this.txtSolucion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtSolucion.Location = new System.Drawing.Point(189, 397);
+            this.txtSolucion.Location = new System.Drawing.Point(220, 397);
             this.txtSolucion.Multiline = true;
             this.txtSolucion.Name = "txtSolucion";
             this.txtSolucion.Size = new System.Drawing.Size(569, 120);
@@ -174,7 +174,7 @@
             this.label4.Location = new System.Drawing.Point(100, 409);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 19);
+            this.label4.Size = new System.Drawing.Size(77, 21);
             this.label4.TabIndex = 126;
             this.label4.Text = "Solucion";
             // 
@@ -200,14 +200,14 @@
             this.panel1.Location = new System.Drawing.Point(0, 565);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(789, 55);
+            this.panel1.Size = new System.Drawing.Size(817, 55);
             this.panel1.TabIndex = 100;
             // 
             // MantenimientoModulo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(789, 620);
+            this.ClientSize = new System.Drawing.Size(817, 620);
             this.Controls.Add(this.txtSolucion);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtDescripcionFallo);

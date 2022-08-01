@@ -244,7 +244,7 @@ namespace POSalesDb
 
             try
             {
-                cm = new SqlCommand($"Select * from MantenimientoModel ");
+                cm = new SqlCommand($"Select * from Mantenimiento ");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();
@@ -261,7 +261,7 @@ namespace POSalesDb
                         MantenimientoModel.solucion = dt.Rows[0]["solucion"].ToString();
                         MantenimientoModel.idEstadoMantenimiento= (int)dt.Rows[0]["idEstadoMantenimiento"];
                         MantenimientoModel.idUsuarios = (int)dt.Rows[0]["idUsuarios"];
-                        MantenimientoModel.idOrdenServicio = (int)dt.Rows[0]["idOrdenServicioModel"];
+                        MantenimientoModel.idOrdenServicio = (int)dt.Rows[0]["idOrdenServicio"];
                         MantenimientoModel.estadoAplicarCorreccion= Convert.ToBoolean( dt.Rows[0]["estadoAplicarCorreccion"].ToString());
                         MantenimientoModels.Add(MantenimientoModel);
                     }
