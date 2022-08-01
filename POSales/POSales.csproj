@@ -357,11 +357,11 @@
     <Compile Include="Mantenimientos\MantenimientoModulo.Designer.cs">
       <DependentUpon>MantenimientoModulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mantenimientos\OrdenServicio.cs">
+    <Compile Include="Mantenimientos\SeleccionarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mantenimientos\OrdenServicio.Designer.cs">
-      <DependentUpon>OrdenServicio.cs</DependentUpon>
+    <Compile Include="Mantenimientos\SeleccionarCliente.Designer.cs">
+      <DependentUpon>SeleccionarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\OrdenServicioModulo.cs">
       <SubType>Form</SubType>
@@ -644,8 +644,8 @@
     <EmbeddedResource Include="Mantenimientos\MantenimientoModulo.resx">
       <DependentUpon>MantenimientoModulo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mantenimientos\OrdenServicio.resx">
-      <DependentUpon>OrdenServicio.cs</DependentUpon>
+    <EmbeddedResource Include="Mantenimientos\SeleccionarCliente.resx">
+      <DependentUpon>SeleccionarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\OrdenServicioModulo.resx">
       <DependentUpon>OrdenServicioModulo.cs</DependentUpon>

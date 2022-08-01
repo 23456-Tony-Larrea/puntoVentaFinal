@@ -49,6 +49,11 @@
             this.NoAplicarCorreccion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.enviarSolucionPorWhatsappToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtFechaEntrega = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dtFechaMantenimiento = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -57,12 +62,17 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            this.panel1.Controls.Add(this.dtFechaMantenimiento);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.dtFechaEntrega);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 422);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(0, 519);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1191, 65);
+            this.panel1.Size = new System.Drawing.Size(1588, 80);
             this.panel1.TabIndex = 10;
             // 
             // label1
@@ -71,10 +81,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(5, 15);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(7, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(262, 32);
+            this.label1.Size = new System.Drawing.Size(349, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "Manejo de Ordenes de Sevicio";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -113,12 +122,12 @@
             this.dgvClients.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvClients.EnableHeadersVisualStyles = false;
             this.dgvClients.Location = new System.Drawing.Point(0, 0);
-            this.dgvClients.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvClients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvClients.Name = "dgvClients";
             this.dgvClients.ReadOnly = true;
             this.dgvClients.RowHeadersVisible = false;
             this.dgvClients.RowHeadersWidth = 51;
-            this.dgvClients.Size = new System.Drawing.Size(1191, 422);
+            this.dgvClients.Size = new System.Drawing.Size(1588, 519);
             this.dgvClients.TabIndex = 11;
             this.dgvClients.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellClick);
             this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellContentClick);
@@ -126,6 +135,7 @@
             // Id
             // 
             this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
@@ -134,23 +144,27 @@
             // 
             this.Fecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Fecha.HeaderText = "Fecha In.";
+            this.Fecha.MinimumWidth = 6;
             this.Fecha.Name = "Fecha";
             this.Fecha.ReadOnly = true;
             this.Fecha.ToolTipText = "Fecha de Ingreso";
+            this.Fecha.Width = 122;
             // 
             // FechaEntrega
             // 
             this.FechaEntrega.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.FechaEntrega.HeaderText = "Fecha En.";
+            this.FechaEntrega.MinimumWidth = 6;
             this.FechaEntrega.Name = "FechaEntrega";
             this.FechaEntrega.ReadOnly = true;
             this.FechaEntrega.ToolTipText = "Fecha Entrega";
-            this.FechaEntrega.Width = 103;
+            this.FechaEntrega.Width = 127;
             // 
             // descripcionFalla
             // 
             this.descripcionFalla.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.descripcionFalla.HeaderText = "Falla";
+            this.descripcionFalla.MinimumWidth = 6;
             this.descripcionFalla.Name = "descripcionFalla";
             this.descripcionFalla.ReadOnly = true;
             // 
@@ -158,12 +172,14 @@
             // 
             this.solucion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.solucion.HeaderText = "solucion";
+            this.solucion.MinimumWidth = 6;
             this.solucion.Name = "solucion";
             this.solucion.ReadOnly = true;
             // 
             // idEstadoMantenimiento
             // 
             this.idEstadoMantenimiento.HeaderText = "idEstadoMantenimiento";
+            this.idEstadoMantenimiento.MinimumWidth = 6;
             this.idEstadoMantenimiento.Name = "idEstadoMantenimiento";
             this.idEstadoMantenimiento.ReadOnly = true;
             this.idEstadoMantenimiento.Visible = false;
@@ -171,6 +187,7 @@
             // idUsuario
             // 
             this.idUsuario.HeaderText = "idUsuario";
+            this.idUsuario.MinimumWidth = 6;
             this.idUsuario.Name = "idUsuario";
             this.idUsuario.ReadOnly = true;
             this.idUsuario.Visible = false;
@@ -179,13 +196,15 @@
             // 
             this.idOrdenServicio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.idOrdenServicio.HeaderText = "Orden";
+            this.idOrdenServicio.MinimumWidth = 6;
             this.idOrdenServicio.Name = "idOrdenServicio";
             this.idOrdenServicio.ReadOnly = true;
-            this.idOrdenServicio.Width = 79;
+            this.idOrdenServicio.Width = 97;
             // 
             // IdEquipo
             // 
             this.IdEquipo.HeaderText = "IdEquipo";
+            this.IdEquipo.MinimumWidth = 6;
             this.IdEquipo.Name = "IdEquipo";
             this.IdEquipo.ReadOnly = true;
             this.IdEquipo.Visible = false;
@@ -194,6 +213,7 @@
             // 
             this.descripcionEquipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.descripcionEquipo.HeaderText = "Equipo";
+            this.descripcionEquipo.MinimumWidth = 6;
             this.descripcionEquipo.Name = "descripcionEquipo";
             this.descripcionEquipo.ReadOnly = true;
             // 
@@ -201,55 +221,109 @@
             // 
             this.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.descripcion.HeaderText = "Estado";
+            this.descripcion.MinimumWidth = 6;
             this.descripcion.Name = "descripcion";
             this.descripcion.ReadOnly = true;
-            this.descripcion.Width = 81;
+            this.descripcion.Width = 99;
             // 
             // aplicarCorreccion
             // 
             this.aplicarCorreccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.aplicarCorreccion.HeaderText = "Aplicar";
+            this.aplicarCorreccion.MinimumWidth = 6;
             this.aplicarCorreccion.Name = "aplicarCorreccion";
             this.aplicarCorreccion.ReadOnly = true;
             this.aplicarCorreccion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.aplicarCorreccion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.aplicarCorreccion.Width = 84;
+            this.aplicarCorreccion.Width = 102;
             // 
             // NoAplicarCorreccion
             // 
             this.NoAplicarCorreccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.NoAplicarCorreccion.HeaderText = "No Aplicar";
+            this.NoAplicarCorreccion.MinimumWidth = 6;
             this.NoAplicarCorreccion.Name = "NoAplicarCorreccion";
             this.NoAplicarCorreccion.ReadOnly = true;
             this.NoAplicarCorreccion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.NoAplicarCorreccion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.NoAplicarCorreccion.Width = 109;
+            this.NoAplicarCorreccion.Width = 133;
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.enviarSolucionPorWhatsappToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(230, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(273, 28);
             // 
             // enviarSolucionPorWhatsappToolStripMenuItem
             // 
             this.enviarSolucionPorWhatsappToolStripMenuItem.Name = "enviarSolucionPorWhatsappToolStripMenuItem";
-            this.enviarSolucionPorWhatsappToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.enviarSolucionPorWhatsappToolStripMenuItem.Size = new System.Drawing.Size(272, 24);
             this.enviarSolucionPorWhatsappToolStripMenuItem.Text = "Enviar solucion por whatsapp";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(785, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(155, 22);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "fecha entregas :";
+            // 
+            // dtFechaEntrega
+            // 
+            this.dtFechaEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaEntrega.Location = new System.Drawing.Point(946, 27);
+            this.dtFechaEntrega.Name = "dtFechaEntrega";
+            this.dtFechaEntrega.Size = new System.Drawing.Size(109, 22);
+            this.dtFechaEntrega.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(756, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(23, 22);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "A";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(412, 27);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(218, 22);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "fecha mantenimientos :";
+            // 
+            // dtFechaMantenimiento
+            // 
+            this.dtFechaMantenimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaMantenimiento.Location = new System.Drawing.Point(626, 27);
+            this.dtFechaMantenimiento.Name = "dtFechaMantenimiento";
+            this.dtFechaMantenimiento.Size = new System.Drawing.Size(109, 22);
+            this.dtFechaMantenimiento.TabIndex = 5;
             // 
             // Mantenimiento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1191, 487);
+            this.ClientSize = new System.Drawing.Size(1588, 599);
             this.Controls.Add(this.dgvClients);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Mantenimiento";
             this.Text = "Mantenimiento";
             this.Load += new System.EventHandler(this.Mantenimiento_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -280,5 +354,10 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn NoAplicarCorreccion;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem enviarSolucionPorWhatsappToolStripMenuItem;
+        private System.Windows.Forms.DateTimePicker dtFechaMantenimiento;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dtFechaEntrega;
+        private System.Windows.Forms.Label label2;
     }
 }
