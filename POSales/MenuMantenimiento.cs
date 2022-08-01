@@ -48,5 +48,10 @@ namespace POSales
         {
 
         }
+
+        private void btnMantenimiento_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

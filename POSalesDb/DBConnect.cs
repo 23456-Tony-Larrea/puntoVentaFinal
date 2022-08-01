@@ -73,7 +73,7 @@ namespace POSalesDb
             DataTable dt = new DataTable();
             try
             {
-                cm = new SqlCommand($"Select * from OrdenServicioModel");
+                cm = new SqlCommand($"Select * from OrdenServicio");
                 using (SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn))
                 {
                     cn.Open();
@@ -149,7 +149,7 @@ namespace POSalesDb
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("UPDATE OrdenServicioModel SET descripcion=@descripcion,idCliente=@idCliente,idUsuarios=@idUsuarios WHERE Id = @Id  ", cn);
+                cm = new SqlCommand("UPDATE OrdenServicio SET descripcion=@descripcion,idCliente=@idCliente,idUsuarios=@idUsuarios WHERE Id = @Id  ", cn);
                 cm.Parameters.AddWithValue("@", orden.Id);
                 cm.Parameters.AddWithValue("@descripcion",orden.Descripcion);
                 cm.Parameters.AddWithValue("@idCliente", orden.idCliente);
