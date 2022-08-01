@@ -72,7 +72,7 @@
             this.lblName.Location = new System.Drawing.Point(7, 127);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(25, 20);
+            this.lblName.Size = new System.Drawing.Size(29, 21);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Ln";
             this.lblName.Visible = false;
@@ -84,7 +84,7 @@
             this.lblUsername.Location = new System.Drawing.Point(72, 151);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(63, 20);
+            this.lblUsername.Size = new System.Drawing.Size(72, 21);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Usuario";
             // 
@@ -95,7 +95,7 @@
             this.lblRole.Location = new System.Drawing.Point(68, 197);
             this.lblRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(66, 20);
+            this.lblRole.Size = new System.Drawing.Size(80, 21);
             this.lblRole.TabIndex = 0;
             this.lblRole.Text = "Tecnico";
             // 
@@ -190,6 +190,7 @@
             this.btnMantenimiento.Text = "Mantenimiento";
             this.btnMantenimiento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMantenimiento.UseVisualStyleBackColor = true;
+            this.btnMantenimiento.Click += new System.EventHandler(this.btnMantenimiento_Click);
             // 
             // panelSubMantenimiento
             // 
@@ -326,10 +327,11 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // MenuMantenimiento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 848);
             this.Controls.Add(this.panelMain);

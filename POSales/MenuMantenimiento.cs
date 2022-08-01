@@ -48,5 +48,15 @@ namespace POSales
         {
 
         }
+
+        private void btnMantenimiento_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
