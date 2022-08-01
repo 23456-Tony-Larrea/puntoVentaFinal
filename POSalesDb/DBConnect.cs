@@ -22,7 +22,7 @@ namespace POSalesDb
         private string con;
         public string myConnection()
         {
-            con = @"Data Source=.;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True";
+            con = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             return con;
         }
 
@@ -35,7 +35,7 @@ namespace POSalesDb
             OrdenServicioModel orden = new OrdenServicioModel();
             try
             {
-                cm = new SqlCommand($"Select * from OrdenServicioModel Where Id = {Id}", cn);
+                cm = new SqlCommand($"Select * from OrdenServicio Where Id = {Id}", cn);
             
                 cn.Open();
                 DataTable dt = new DataTable();
@@ -73,7 +73,7 @@ namespace POSalesDb
             DataTable dt = new DataTable();
             try
             {
-                cm = new SqlCommand($"Select * from OrdenServicioModel");
+                cm = new SqlCommand($"Select * from OrdenServicio");
                 using (SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn))
                 {
                     cn.Open();
@@ -149,7 +149,7 @@ namespace POSalesDb
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("UPDATE OrdenServicioModel SET descripcion=@descripcion,idCliente=@idCliente,idUsuarios=@idUsuarios WHERE Id = @Id  ", cn);
+                cm = new SqlCommand("UPDATE OrdenServicio SET descripcion=@descripcion,idCliente=@idCliente,idUsuarios=@idUsuarios WHERE Id = @Id  ", cn);
                 cm.Parameters.AddWithValue("@", orden.Id);
                 cm.Parameters.AddWithValue("@descripcion",orden.Descripcion);
                 cm.Parameters.AddWithValue("@idCliente", orden.idCliente);
@@ -177,7 +177,7 @@ namespace POSalesDb
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("DETELE FROM OrdenServicioModel WHERE Id = @Id  ", cn);
+                cm = new SqlCommand("DETELE FROM OrdenServicio WHERE Id = @Id  ", cn);
                 cm.Parameters.AddWithValue("@Id", idOrdenServicioModel);
                 cn.Open();
                 cm.ExecuteNonQuery();
@@ -398,7 +398,7 @@ FROM                     Mantenimiento LEFT JOIN
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("DETELE FROM MantenimientoModel WHERE Id = @Id  ", cn);
+                cm = new SqlCommand("DETELE FROM Mantenimiento WHERE Id = @Id  ", cn);
                 cm.Parameters.AddWithValue("@Id", idMantenimientoModels);
                 cn.Open();
                 cm.ExecuteNonQuery();
@@ -826,7 +826,7 @@ FROM                     Mantenimiento LEFT JOIN
             int Error = 0;
             try
             {
-                cm = new SqlCommand("Insert into Equipo (descirpcionEquipo,codigo,series,idcliente) values (@descripcionEquipo,@codigo,@series,@idcliente) SET @ID = SCOPE_IDENTITY();", cn);
+                cm = new SqlCommand("Insert into Equipo (descirpcionEquipo,codigo,series,idCliente) values (@descripcionEquipo,@codigo,@series,@idCliente) SET @ID = SCOPE_IDENTITY();", cn);
                 cm.Parameters.AddWithValue("@descripcionEquipo", equipo.descripcionEquipo);
                 cm.Parameters.AddWithValue("@codigo", equipo.codigo);
                 cm.Parameters.AddWithValue("@series", equipo.series);
