@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -31,12 +32,70 @@ namespace POSales.Mantenimientos
             dt = dbcon.selectTodosLosMantenimientoModelsData();
             foreach (DataRow r in dt.Rows)
             {
-                bool.TryParse(r["estadoNoAplicarCorreccion"].ToString(), out NoAprovado); bool.TryParse(r["estadoAplicarCorreccion"].ToString(), out Aprovado);
+                bool.TryParse(r["estadoNoAplicarCorreccion"].ToString(), out NoAprovado);
+                bool.TryParse(r["estadoAplicarCorreccion"].ToString(), out Aprovado);
                 dgvClients.Rows.Add(
                     r["id"].ToString(), r["fechaMantenimiento"].ToString(), r["fechaEntregaEquipo"].ToString(),
                     r["descripcionFalla"].ToString(), r["solucion"].ToString(), r["IdEstadoMantenimiento"].ToString(),
                     r["idUsuarios"].ToString(), r["idOrdenServicio"].ToString(), r["idEquipo"].ToString(),
-                    r["descirpcionEquipo"].ToString(), r["descripcion"].ToString(), Aprovado,
+                    r["codigo"].ToString(), r["descirpcionEquipo"].ToString(), r["descripcion"].ToString(), Aprovado,
+                    NoAprovado);
+            }
+        }
+        private void cargarDatosPorFechasDeMatenimiento(DateTime FechaDesde, DateTime FechaHasta)
+        {
+            dgvClients.Rows.Clear();
+            bool NoAprovado = false, Aprovado = false;
+
+            DataTable dt = new DataTable();
+            dt = dbcon.selectLosMantenimientoPorFechaMantenimientoData(FechaDesde, FechaHasta);
+            foreach (DataRow r in dt.Rows)
+            {
+                bool.TryParse(r["estadoNoAplicarCorreccion"].ToString(), out NoAprovado);
+                bool.TryParse(r["estadoAplicarCorreccion"].ToString(), out Aprovado);
+                dgvClients.Rows.Add(
+                     r["id"].ToString(), r["fechaMantenimiento"].ToString(), r["fechaEntregaEquipo"].ToString(),
+                     r["descripcionFalla"].ToString(), r["solucion"].ToString(), r["IdEstadoMantenimiento"].ToString(),
+                     r["idUsuarios"].ToString(), r["idOrdenServicio"].ToString(), r["idEquipo"].ToString(),
+                     r["codigo"].ToString(), r["descirpcionEquipo"].ToString(), r["descripcion"].ToString(), Aprovado,
+                     NoAprovado);
+            }
+        }
+        private void cargarDatosPorFechasDeEntrega(DateTime FechaDesde, DateTime FechaHasta)
+        {
+            dgvClients.Rows.Clear();
+            bool NoAprovado = false, Aprovado = false;
+
+            DataTable dt = new DataTable();
+            dt = dbcon.selectLosMantenimientoPorFechaEntregaData(FechaDesde, FechaHasta);
+            foreach (DataRow r in dt.Rows)
+            {
+                bool.TryParse(r["estadoNoAplicarCorreccion"].ToString(), out NoAprovado);
+                bool.TryParse(r["estadoAplicarCorreccion"].ToString(), out Aprovado);
+                dgvClients.Rows.Add(
+                    r["id"].ToString(), r["fechaMantenimiento"].ToString(), r["fechaEntregaEquipo"].ToString(),
+                    r["descripcionFalla"].ToString(), r["solucion"].ToString(), r["IdEstadoMantenimiento"].ToString(),
+                    r["idUsuarios"].ToString(), r["idOrdenServicio"].ToString(), r["idEquipo"].ToString(),
+                    r["codigo"].ToString(), r["descirpcionEquipo"].ToString(), r["descripcion"].ToString(), Aprovado,
+                    NoAprovado);
+            }
+        }
+        private void cargarDatosFiltrados(string Search)
+        {
+            dgvClients.Rows.Clear();
+            bool NoAprovado = false, Aprovado = false;
+
+            DataTable dt = new DataTable();
+            dt = dbcon.selectLosMantenimientoFiltrados(Search);
+            foreach (DataRow r in dt.Rows)
+            {
+                bool.TryParse(r["estadoNoAplicarCorreccion"].ToString(), out NoAprovado);
+                bool.TryParse(r["estadoAplicarCorreccion"].ToString(), out Aprovado);
+                dgvClients.Rows.Add(
+                    r["id"].ToString(), r["fechaMantenimiento"].ToString(), r["fechaEntregaEquipo"].ToString(),
+                    r["descripcionFalla"].ToString(), r["solucion"].ToString(), r["IdEstadoMantenimiento"].ToString(),
+                    r["idUsuarios"].ToString(), r["idOrdenServicio"].ToString(), r["idEquipo"].ToString(),
+                    r["codigo"].ToString(), r["descirpcionEquipo"].ToString(), r["descripcion"].ToString(), Aprovado,
                     NoAprovado);
             }
         }
@@ -107,6 +166,61 @@ namespace POSales.Mantenimientos
             }
           
 
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            if (dateTimePicker1.Value > dateTimePicker2.Value)
+            {
+                dateTimePicker2.Value = dateTimePicker1.Value;
+                MessageBox.Show("Debe escoger un valor menor en la fecha desde");
+                return;
+            }
+            if (dateTimePicker1.Value < dateTimePicker2.Value)
+            {
+                dateTimePicker1.Value = dateTimePicker2.Value;
+                MessageBox.Show("Debe escoger un valor Mayor en la fecha Hasta");
+                return;
+            }
+
+            cargarDatosPorFechasDeMatenimiento(dateTimePicker1.Value, dateTimePicker2.Value);
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            if (dateTimePicker3.Value > dateTimePicker4.Value)
+            {
+                dateTimePicker3.Value = dateTimePicker4.Value;
+                MessageBox.Show("Debe escoger un valor menor en la fecha desde");
+                return;
+            }
+            if (dateTimePicker3.Value < dateTimePicker4.Value)
+            {
+                dateTimePicker3.Value = dateTimePicker4.Value;
+                MessageBox.Show("Debe escoger un valor Mayor en la fecha Hasta");
+                return;
+            }
+            cargarDatosPorFechasDeEntrega(dateTimePicker1.Value, dateTimePicker2.Value);
+
+
+
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                cargarDatosFiltrados(textBox1.Text);
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar un valor en la caja de texto");
+            }
+          
         }
     }
 }

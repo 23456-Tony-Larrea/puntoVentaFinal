@@ -290,14 +290,112 @@ namespace POSalesDb
             {
                 cm = new SqlCommand($@"SELECT Mantenimiento.Id,Mantenimiento.fechaMantenimiento , Mantenimiento.fechaEntregaEquipo, Mantenimiento.descripcionFalla, Mantenimiento.solucion, Mantenimiento.IdEstadoMantenimiento, 
                          Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
-                         Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
-FROM                     Mantenimiento LEFT JOIN
+                         Equipo.codigo ,Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
+                         FROM                   
+                         Mantenimiento LEFT JOIN
                          Equipo ON Mantenimiento.IdEquipo = Equipo.Id LEFT JOIN
                          estadoMantenimiento ON Mantenimiento.[IdEstadoMantenimiento] = estadoMantenimiento.Id Order by Mantenimiento.Id desc");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
 
                 da.Fill(dt);
               
+                return dt;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return dt;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public DataTable selectLosMantenimientoPorFechaMantenimientoData(DateTime fechaMantenimientoDesde, DateTime fechaMantenimientoHasta)
+        {
+            cn.ConnectionString = myConnection();
+            List<MantenimientoModel> MantenimientoModels = new List<MantenimientoModel>();
+            cn.Open();
+            DataTable dt = new DataTable();
+            try
+            {
+                cm = new SqlCommand($@"SELECT Mantenimiento.Id,Mantenimiento.fechaMantenimiento , Mantenimiento.fechaEntregaEquipo, Mantenimiento.descripcionFalla, Mantenimiento.solucion, Mantenimiento.IdEstadoMantenimiento, 
+                         Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
+                         Equipo.codigo ,Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
+                         FROM                   
+                         Mantenimiento LEFT JOIN
+                         Equipo ON Mantenimiento.IdEquipo = Equipo.Id LEFT JOIN
+                         estadoMantenimiento ON Mantenimiento.[IdEstadoMantenimiento] = estadoMantenimiento.Id
+                         Where Mantenimiento.fechaMantenimiento Between '{fechaMantenimientoDesde.ToString("yyyy/MM/dd")} 00:00:00' and '{fechaMantenimientoHasta.ToString("yyyy/MM/dd")} 23:59:59'
+                         Order by Mantenimiento.Id desc");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                da.Fill(dt);
+                return dt;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return dt;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public DataTable selectLosMantenimientoPorFechaEntregaData(DateTime FechaEntregaDesde, DateTime FechaEntregaHasta)
+        {
+            cn.ConnectionString = myConnection();
+            List<MantenimientoModel> MantenimientoModels = new List<MantenimientoModel>();
+            cn.Open();
+            DataTable dt = new DataTable();
+            try
+            {
+                cm = new SqlCommand($@"SELECT Mantenimiento.Id,Mantenimiento.fechaMantenimiento , Mantenimiento.fechaEntregaEquipo, Mantenimiento.descripcionFalla, Mantenimiento.solucion, Mantenimiento.IdEstadoMantenimiento, 
+                         Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
+                         Equipo.codigo ,Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
+                         FROM                   
+                         Mantenimiento LEFT JOIN
+                         Equipo ON Mantenimiento.IdEquipo = Equipo.Id LEFT JOIN
+                         estadoMantenimiento ON Mantenimiento.[IdEstadoMantenimiento] = estadoMantenimiento.Id
+                         Where Mantenimiento.fechaEntregaEquipo Between '{FechaEntregaDesde.ToString("yyyy/MM/dd")} 00:00:00' and '{FechaEntregaHasta.ToString("yyyy/MM/dd")} 23:59:59'
+                         Order by Mantenimiento.Id desc");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                da.Fill(dt);
+                return dt;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return dt;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public DataTable selectLosMantenimientoFiltrados(string Search)
+        {
+            cn.ConnectionString = myConnection();
+            List<MantenimientoModel> MantenimientoModels = new List<MantenimientoModel>();
+            cn.Open();
+            DataTable dt = new DataTable();
+            try
+            {
+                cm = new SqlCommand($@"SELECT Mantenimiento.Id,Mantenimiento.fechaMantenimiento , Mantenimiento.fechaEntregaEquipo, Mantenimiento.descripcionFalla, Mantenimiento.solucion, Mantenimiento.IdEstadoMantenimiento, 
+                         Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
+                         Equipo.codigo ,Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
+                         FROM                   
+                         Mantenimiento LEFT JOIN
+                         Equipo ON Mantenimiento.IdEquipo = Equipo.Id LEFT JOIN
+                         estadoMantenimiento ON Mantenimiento.[IdEstadoMantenimiento] = estadoMantenimiento.Id
+                         Where 
+						 CONCAT(Mantenimiento.descripcionFalla, Mantenimiento.solucion, Equipo.codigo,Equipo.descirpcionEquipo) like '%{Search}%'
+                         Order by Mantenimiento.Id desc");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                da.Fill(dt);
                 return dt;
             }
 
@@ -366,11 +464,11 @@ FROM                     Mantenimiento LEFT JOIN
                 idUsuarios={MantenimientoModel.idUsuarios},
                 idOrdenServicio={MantenimientoModel.idOrdenServicio},
                 estadoAplicarCorreccion={Aplicar},
-                estadoNoAplicarCorreccion={NoAplicar} ";
+                estadoNoAplicarCorreccion={NoAplicar},";
                 DateTime MinimunDate = Convert.ToDateTime("01/01/2000");
                 if (MantenimientoModel.fechaEntregaEquipo > MinimunDate)
                 {
-                    Query += $" fechaEntregaEquipo = '{MantenimientoModel.fechaEntregaEquipo}'";
+                    Query += $" fechaEntregaEquipo = '{MantenimientoModel.fechaEntregaEquipo.ToString("yyyy-MM-dd")}'";
                 }
                 Query += $" WHERE Id = {MantenimientoModel.Id}";
                 adapter.UpdateCommand = new SqlCommand(Query, cn);
