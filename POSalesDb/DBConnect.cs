@@ -33,7 +33,7 @@ namespace POSalesDb
             MantenimientoModel MantenimientoModel = new MantenimientoModel();
             try
             {
-                cm = new SqlCommand($"Select * from Mantenimiento Where fechaEntregaEquipo = {fechaEntrega} between fechaEntregaEquipo = {fechaEntrega} and fechaMantenimiento={fechaMantenimiento} ", cn);
+                cm = new SqlCommand($"Select * from Mantenimiento Where fechaEntregaEquipo between {fechaEntrega} and {fechaMantenimiento} ", cn);
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();
@@ -75,7 +75,7 @@ namespace POSalesDb
             Clientes clientes = new Clientes();
             try
             {
-                cm = new SqlCommand($"Select * from Clientes Where Id={id} and nombre  like %{buscarNombre} and ciRuc like %{buscarCi}", cn);
+                cm = new SqlCommand($"Select * from Clientes Where Id={id} and nombre  like '%{buscarNombre}' and ciRuc like '%{buscarCi}'", cn);
                 cn.Open();
                 DataTable dt = new DataTable();
                 using (SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn))

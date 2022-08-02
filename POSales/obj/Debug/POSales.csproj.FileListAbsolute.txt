@@ -611,7 +611,6 @@ D:\newpullmantenimiento\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos
 D:\newpullmantenimiento\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.EstadoMantenimiento.resources
 D:\newpullmantenimiento\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.Mantenimiento.resources
 D:\newpullmantenimiento\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.MantenimientoModulo.resources
-D:\newpullmantenimiento\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.OrdenServicio.resources
 D:\newpullmantenimiento\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.OrdenServicioModulo.resources
 D:\newpullmantenimiento\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.Reserva.resources
 D:\newpullmantenimiento\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.ReservasModulo.resources
@@ -642,3 +641,4 @@ D:\newpullmantenimiento\puntoVentaFinal\POSales\obj\Debug\POSales.csproj.CoreCom
 D:\newpullmantenimiento\puntoVentaFinal\POSales\obj\Debug\POSales.csproj.CopyComplete
 D:\newpullmantenimiento\puntoVentaFinal\POSales\obj\Debug\POSales.exe
 D:\newpullmantenimiento\puntoVentaFinal\POSales\obj\Debug\POSales.pdb
+D:\newpullmantenimiento\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.SeleccionarCliente.resources
