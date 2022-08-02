@@ -149,5 +149,10 @@ namespace POSales.Mantenimientos
             verEquipos.ShowDialog();
             cargarEquiposPorCliente();
         }
+
+        private void picClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

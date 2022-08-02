@@ -22,11 +22,102 @@ namespace POSalesDb
         private string con;
         public string myConnection()
         {
-            con = @"Data Source=.;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True";
+            con = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             return con;
         }
 
-        
+        //get fechaMantenimiento
+      public MantenimientoModel FechaMantenimientoModel(int Id,DateTime fechaMantenimiento , DateTime fechaEntrega)
+        {
+            cn.ConnectionString = myConnection();
+            MantenimientoModel MantenimientoModel = new MantenimientoModel();
+            try
+            {
+                cm = new SqlCommand($"Select * from Mantenimiento Where fechaEntregaEquipo between {fechaEntrega} and {fechaMantenimiento} ", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    MantenimientoModel.Id = (int)dt.Rows[0]["Id"];
+                    MantenimientoModel.IdEquipo = (int)dt.Rows[0]["IdEquipo"];
+                    MantenimientoModel.fechaMantenimiento = Convert.ToDateTime(dt.Rows[0]["fechaMantenimiento"].ToString());
+                    DateTime.TryParse(dt.Rows[0]["fechaEntregaEquipo"].ToString(), out fechaEntrega);
+                    MantenimientoModel.fechaEntregaEquipo = fechaEntrega;
+                    MantenimientoModel.descripcionFalla = dt.Rows[0]["descripcionFalla"].ToString();
+                    MantenimientoModel.solucion = dt.Rows[0]["solucion"].ToString();
+                    MantenimientoModel.idEstadoMantenimiento = (int)dt.Rows[0]["idEstadoMantenimiento"];
+                    MantenimientoModel.idUsuarios = (int)dt.Rows[0]["idUsuarios"];
+                    MantenimientoModel.idOrdenServicio = (int)dt.Rows[0]["idOrdenServicio"];
+                    MantenimientoModel.estadoAplicarCorreccion = Convert.ToBoolean(dt.Rows[0]["estadoAplicarCorreccion"]);
+
+                }
+                return MantenimientoModel;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return MantenimientoModel;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+
+        //get buscarCliente
+        public Clientes BuscarCliente(int id,string buscarNombre,string buscarCi )
+        {
+            cn.ConnectionString = myConnection();
+            Clientes clientes = new Clientes();
+            try
+            {
+                cm = new SqlCommand($"Select * from Clientes Where Id={id} and nombre  like '%{buscarNombre}' and ciRuc like '%{buscarCi}'", cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                using (SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn))
+                {
+                    da.Fill(dt);
+                }
+
+                if (dt.Rows.Count > 0)
+                {
+                    clientes.Id = (int)dt.Rows[0]["Id"];
+                    clientes.nombre = Convert.ToString(dt.Rows[0]["nombre"]);
+                    clientes.comercio = Convert.ToString(dt.Rows[0]["comercio"]);
+                    clientes.codigo = Convert.ToString(dt.Rows[0]["codigo"]);
+                    clientes.fechaNacimiento = Convert.ToDateTime(dt.Rows[0]["fechaNacimiento"]);
+                    clientes.fechaRegistro = Convert.ToDateTime(dt.Rows[0]["fechaRegistro"]);
+                    clientes.ciudad = Convert.ToString(dt.Rows[0]["ciudad"]);
+                    clientes.tipo = Convert.ToString(dt.Rows[0]["tipo"]);
+                    clientes.ciRuc = Convert.ToString(dt.Rows[0]["ciRuc"]);
+                    clientes.pais = Convert.ToString(dt.Rows[0]["pais"]);
+                    clientes.estado = Convert.ToString(dt.Rows[0]["estado"]);
+                    clientes.direccion = Convert.ToString(dt.Rows[0]["direccion"]);
+                    clientes.telefono = Convert.ToString(dt.Rows[0]["telefono"]);
+                    clientes.celular = Convert.ToString(dt.Rows[0]["celular"]);
+                    clientes.fax = Convert.ToString(dt.Rows[0]["fax"]);
+                    clientes.cargo = Convert.ToString(dt.Rows[0]["cargo"]);
+                    clientes.email = Convert.ToString(dt.Rows[0]["email"]);
+                    clientes.tipo = Convert.ToString(dt.Rows[0]["tipoCliente"]);
+                }
+                return clientes;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return clientes;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
 
         //get OrdenServicioModel id
         public OrdenServicioModel selectOrdenServicioModelPorId(int Id)
@@ -244,7 +335,7 @@ namespace POSalesDb
 
             try
             {
-                cm = new SqlCommand($"Select * from MantenimientoModel ");
+                cm = new SqlCommand($"Select * from Mantenimiento ");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();
@@ -496,7 +587,7 @@ namespace POSalesDb
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("DETELE FROM MantenimientoModel WHERE Id = @Id  ", cn);
+                cm = new SqlCommand("DETELE FROM Mantenimiento WHERE Id = @Id  ", cn);
                 cm.Parameters.AddWithValue("@Id", idMantenimientoModels);
                 cn.Open();
                 cm.ExecuteNonQuery();
@@ -924,7 +1015,7 @@ namespace POSalesDb
             int Error = 0;
             try
             {
-                cm = new SqlCommand("Insert into Equipo (descirpcionEquipo,codigo,series,idcliente) values (@descripcionEquipo,@codigo,@series,@idcliente) SET @ID = SCOPE_IDENTITY();", cn);
+                cm = new SqlCommand("Insert into Equipo (descirpcionEquipo,codigo,series,idCliente) values (@descripcionEquipo,@codigo,@series,@idCliente) SET @ID = SCOPE_IDENTITY();", cn);
                 cm.Parameters.AddWithValue("@descripcionEquipo", equipo.descripcionEquipo);
                 cm.Parameters.AddWithValue("@codigo", equipo.codigo);
                 cm.Parameters.AddWithValue("@series", equipo.series);

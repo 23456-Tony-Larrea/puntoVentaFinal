@@ -45,3 +45,13 @@ D:\nuevo pull\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CoreCompileIn
 D:\nuevo pull\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CopyComplete
 D:\nuevo pull\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.dll
 D:\nuevo pull\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.pdb
+D:\newpullmantenimiento\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.dll.config
+D:\newpullmantenimiento\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.dll
+D:\newpullmantenimiento\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.pdb
+D:\newpullmantenimiento\puntoVentaFinal\POSalesDb\bin\Debug\Dapper.dll
+D:\newpullmantenimiento\puntoVentaFinal\POSalesDb\bin\Debug\Dapper.xml
+D:\newpullmantenimiento\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.AssemblyReference.cache
+D:\newpullmantenimiento\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CoreCompileInputs.cache
+D:\newpullmantenimiento\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CopyComplete
+D:\newpullmantenimiento\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.dll
+D:\newpullmantenimiento\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.pdb

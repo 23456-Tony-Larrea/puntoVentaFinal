@@ -54,5 +54,12 @@ namespace POSales
         {
 
         }
+
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }
