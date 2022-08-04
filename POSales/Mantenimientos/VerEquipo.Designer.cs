@@ -52,10 +52,10 @@
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 484);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(0, 596);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(876, 65);
+            this.panel1.Size = new System.Drawing.Size(1168, 80);
             this.panel1.TabIndex = 12;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -64,10 +64,10 @@
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(819, 21);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdd.Location = new System.Drawing.Point(1092, 26);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(29, 26);
+            this.btnAdd.Size = new System.Drawing.Size(39, 32);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -78,12 +78,11 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(5, 15);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(7, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(292, 32);
+            this.label1.Size = new System.Drawing.Size(232, 39);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Manejo de Estados Mantenimiento";
+            this.label1.Text = "Manejo de Equipos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // dgvEquipo
@@ -113,18 +112,20 @@
             this.dgvEquipo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEquipo.EnableHeadersVisualStyles = false;
             this.dgvEquipo.Location = new System.Drawing.Point(0, 0);
-            this.dgvEquipo.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvEquipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvEquipo.Name = "dgvEquipo";
             this.dgvEquipo.RowHeadersVisible = false;
             this.dgvEquipo.RowHeadersWidth = 51;
-            this.dgvEquipo.Size = new System.Drawing.Size(876, 549);
+            this.dgvEquipo.Size = new System.Drawing.Size(1168, 676);
             this.dgvEquipo.TabIndex = 13;
             this.dgvEquipo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEquipo_CellContentClick);
             // 
             // Selected
             // 
             this.Selected.HeaderText = "";
+            this.Selected.MinimumWidth = 6;
             this.Selected.Name = "Selected";
+            this.Selected.Width = 125;
             // 
             // Column1
             // 
@@ -132,7 +133,7 @@
             this.Column1.HeaderText = "No";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 53;
+            this.Column1.Width = 63;
             // 
             // Column2
             // 
@@ -141,7 +142,7 @@
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.Visible = false;
-            this.Column2.Width = 49;
+            this.Column2.Width = 57;
             // 
             // Column3
             // 
@@ -182,12 +183,12 @@
             // 
             // VerEquipo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 549);
+            this.ClientSize = new System.Drawing.Size(1168, 676);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvEquipo);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "VerEquipo";
             this.Text = "Equipo";
             this.Load += new System.EventHandler(this.VerEquipo_Load);

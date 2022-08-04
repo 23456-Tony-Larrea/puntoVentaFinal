@@ -94,7 +94,7 @@
             this.label2.Location = new System.Drawing.Point(14, 181);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 19);
+            this.label2.Size = new System.Drawing.Size(100, 21);
             this.label2.TabIndex = 102;
             this.label2.Text = "Decripcion";
             // 
@@ -109,6 +109,7 @@
             this.picClose.Size = new System.Drawing.Size(70, 59);
             this.picClose.TabIndex = 1;
             this.picClose.TabStop = false;
+            this.picClose.Click += new System.EventHandler(this.picClose_Click);
             // 
             // label1
             // 
@@ -152,12 +153,12 @@
             this.cboDescripcionMantenimiento.FormattingEnabled = true;
             this.cboDescripcionMantenimiento.Location = new System.Drawing.Point(122, 178);
             this.cboDescripcionMantenimiento.Name = "cboDescripcionMantenimiento";
-            this.cboDescripcionMantenimiento.Size = new System.Drawing.Size(776, 27);
+            this.cboDescripcionMantenimiento.Size = new System.Drawing.Size(776, 29);
             this.cboDescripcionMantenimiento.TabIndex = 120;
             // 
             // EstadoMantenimientoModulo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 480);
             this.Controls.Add(this.cboDescripcionMantenimiento);

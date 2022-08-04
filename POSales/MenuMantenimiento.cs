@@ -37,6 +37,7 @@ namespace POSales
         {
             Form OrdendeServicio = new Mantenimientos.Mantenimiento(idUsuarioFacturador);
             openChildForm(OrdendeServicio);
+          
         }
 
         private void btnOrdenProductos_Click(object sender, EventArgs e)
@@ -58,8 +59,18 @@ namespace POSales
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            
+            Login login = new Login();
+            login.ShowDialog();
         }
 
+        private void btnEquipo_Click(object sender, EventArgs e)
+        {
+       
+        }
+
+        private void btnAccesorios_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

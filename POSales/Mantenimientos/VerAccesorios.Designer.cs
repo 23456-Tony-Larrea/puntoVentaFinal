@@ -49,10 +49,10 @@
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 356);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(0, 438);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(730, 65);
+            this.panel1.Size = new System.Drawing.Size(973, 80);
             this.panel1.TabIndex = 14;
             // 
             // btnAdd
@@ -60,10 +60,10 @@
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(698, 21);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Location = new System.Drawing.Point(931, 26);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(29, 26);
+            this.btnAdd.Size = new System.Drawing.Size(39, 32);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -74,12 +74,11 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(5, 15);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(7, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(256, 32);
+            this.label1.Size = new System.Drawing.Size(267, 39);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Manejo de Estados Accesorios";
+            this.label1.Text = "Manejo de Accesorios";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // dgvAccesorios
@@ -106,11 +105,11 @@
             this.dgvAccesorios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAccesorios.EnableHeadersVisualStyles = false;
             this.dgvAccesorios.Location = new System.Drawing.Point(0, 0);
-            this.dgvAccesorios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvAccesorios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvAccesorios.Name = "dgvAccesorios";
             this.dgvAccesorios.RowHeadersVisible = false;
             this.dgvAccesorios.RowHeadersWidth = 51;
-            this.dgvAccesorios.Size = new System.Drawing.Size(730, 421);
+            this.dgvAccesorios.Size = new System.Drawing.Size(973, 518);
             this.dgvAccesorios.TabIndex = 15;
             this.dgvAccesorios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccesorios_CellContentClick);
             // 
@@ -120,7 +119,7 @@
             this.Column1.HeaderText = "No";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 53;
+            this.Column1.Width = 63;
             // 
             // Column2
             // 
@@ -129,7 +128,7 @@
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.Visible = false;
-            this.Column2.Width = 47;
+            this.Column2.Width = 57;
             // 
             // Column3
             // 
@@ -158,12 +157,12 @@
             // 
             // VerAccesorios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 421);
+            this.ClientSize = new System.Drawing.Size(973, 518);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvAccesorios);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "VerAccesorios";
             this.Text = "Accesorios";
             this.Load += new System.EventHandler(this.VerAccesorios_Load);

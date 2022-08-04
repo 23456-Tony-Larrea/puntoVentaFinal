@@ -680,6 +680,7 @@
     <EmbeddedResource Include="Record.resx">
       <DependentUpon>Record.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\facturaMantenimiento.rdlc" />
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="ReporteFactura.resx">
       <DependentUpon>ReporteFactura.cs</DependentUpon>

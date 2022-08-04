@@ -55,3 +55,13 @@ D:\newpullmantenimiento\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.Cor
 D:\newpullmantenimiento\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CopyComplete
 D:\newpullmantenimiento\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.dll
 D:\newpullmantenimiento\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.pdb
+D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.dll.config
+D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.dll
+D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.pdb
+D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\bin\Debug\Dapper.dll
+D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\bin\Debug\Dapper.xml
+D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.AssemblyReference.cache
+D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CoreCompileInputs.cache
+D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CopyComplete
+D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.dll
+D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.pdb

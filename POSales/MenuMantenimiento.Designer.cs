@@ -58,10 +58,11 @@
             // panelMain
             // 
             this.panelMain.BackColor = System.Drawing.Color.White;
-            this.panelMain.Location = new System.Drawing.Point(237, 4);
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(241, 0);
             this.panelMain.Margin = new System.Windows.Forms.Padding(4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1046, 844);
+            this.panelMain.Size = new System.Drawing.Size(1445, 786);
             this.panelMain.TabIndex = 5;
             this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
@@ -218,6 +219,7 @@
             this.btnAccesorios.Text = "Accesorios";
             this.btnAccesorios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAccesorios.UseVisualStyleBackColor = true;
+            this.btnAccesorios.Click += new System.EventHandler(this.btnAccesorios_Click);
             // 
             // btnEquipo
             // 
@@ -233,6 +235,7 @@
             this.btnEquipo.Text = "Equipo";
             this.btnEquipo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEquipo.UseVisualStyleBackColor = true;
+            this.btnEquipo.Click += new System.EventHandler(this.btnEquipo_Click);
             // 
             // btnReservas
             // 
@@ -309,7 +312,7 @@
             this.panelSlide.Location = new System.Drawing.Point(0, 0);
             this.panelSlide.Margin = new System.Windows.Forms.Padding(4);
             this.panelSlide.Name = "panelSlide";
-            this.panelSlide.Size = new System.Drawing.Size(241, 848);
+            this.panelSlide.Size = new System.Drawing.Size(241, 786);
             this.panelSlide.TabIndex = 3;
             // 
             // btnSalir
@@ -333,7 +336,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 848);
+            this.ClientSize = new System.Drawing.Size(1686, 786);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelSlide);
             this.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

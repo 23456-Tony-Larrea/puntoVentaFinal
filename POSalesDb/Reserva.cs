@@ -12,5 +12,8 @@ namespace POSalesDb
         public string estadoReserva { get; set; }
         public int idItem { get; set; }
         public Items items { get; set; }
+        public decimal precioReferencial { get; set; }
+        public decimal precioFinal { get; set; }
+        public decimal precioUnitario { get; set; }
     }
 }

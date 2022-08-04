@@ -126,6 +126,7 @@
             this.picClose.Size = new System.Drawing.Size(56, 45);
             this.picClose.TabIndex = 1;
             this.picClose.TabStop = false;
+            this.picClose.Click += new System.EventHandler(this.picClose_Click);
             // 
             // panel2
             // 

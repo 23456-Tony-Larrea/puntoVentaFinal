@@ -28,5 +28,6 @@ namespace POSalesDb
         public string tipoCliente { get; set; }
         public List<Equipo> Equipos { get; set; } = new List<Equipo>();
 
+
     }
 }

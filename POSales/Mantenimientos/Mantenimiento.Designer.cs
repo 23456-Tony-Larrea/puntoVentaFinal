@@ -34,21 +34,6 @@ namespace POSales.Mantenimientos
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mantenimiento));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvClients = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,215 +52,38 @@ namespace POSales.Mantenimientos
             this.NoAplicarCorreccion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.enviarSolucionPorWhatsappToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnBuscarCodigo = new FontAwesome.Sharp.IconButton();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtBucadorCodigo = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnEntregaBuscar = new FontAwesome.Sharp.IconButton();
+            this.dtFechaEntregaMantenimientoHasta = new System.Windows.Forms.DateTimePicker();
+            this.dtFechaEntregaDesde = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.btnIngresoBuscar = new FontAwesome.Sharp.IconButton();
+            this.dtFechaIngresoHasta = new System.Windows.Forms.DateTimePicker();
+            this.dtFechaIngresoDesde = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            this.panel1.Controls.Add(this.iconButton3);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.iconButton2);
-            this.panel1.Controls.Add(this.dateTimePicker3);
-            this.panel1.Controls.Add(this.dateTimePicker4);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.iconButton1);
-            this.panel1.Controls.Add(this.dateTimePicker2);
-            this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 248);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(0, 702);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(893, 151);
+            this.panel1.Size = new System.Drawing.Size(1626, 69);
             this.panel1.TabIndex = 10;
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.iconButton3.IconColor = System.Drawing.Color.Black;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 15;
-            this.iconButton3.Location = new System.Drawing.Point(858, 84);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(25, 19);
-            this.iconButton3.TabIndex = 18;
-            this.iconButton3.UseVisualStyleBackColor = true;
-            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label8.Location = new System.Drawing.Point(526, 24);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(343, 26);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Buscar Por Codigo,Falla,Solcion y Descripcion de Equipo";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(566, 60);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(280, 60);
-            this.textBox1.TabIndex = 16;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(319, 90);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 26);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Fecha Hasta";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(319, 64);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 26);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Fecha Desde";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label7.Location = new System.Drawing.Point(273, 38);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 26);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Fecha Entrega";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 15;
-            this.iconButton2.Location = new System.Drawing.Point(507, 82);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(25, 19);
-            this.iconButton2.TabIndex = 12;
-            this.iconButton2.UseVisualStyleBackColor = true;
-            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
-            // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(426, 95);
-            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(78, 20);
-            this.dateTimePicker3.TabIndex = 11;
-            // 
-            // dateTimePicker4
-            // 
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker4.Location = new System.Drawing.Point(426, 74);
-            this.dateTimePicker4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(78, 20);
-            this.dateTimePicker4.TabIndex = 10;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(43, 90);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 26);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Fecha Hasta";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(43, 64);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 26);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Fecha Desde";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(8, 38);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 26);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Fecha Ingreso";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 15;
-            this.iconButton1.Location = new System.Drawing.Point(238, 82);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(25, 19);
-            this.iconButton1.TabIndex = 5;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(150, 95);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(78, 20);
-            this.dateTimePicker2.TabIndex = 2;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(150, 74);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(78, 20);
-            this.dateTimePicker1.TabIndex = 1;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label1
             // 
@@ -283,10 +91,9 @@ namespace POSales.Mantenimientos
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(21, 15);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(12, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(209, 26);
+            this.label1.Size = new System.Drawing.Size(319, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Manejo de Mantenimientos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -323,15 +130,14 @@ namespace POSales.Mantenimientos
             this.descripcion,
             this.aplicarCorreccion,
             this.NoAplicarCorreccion});
-            this.dgvClients.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvClients.EnableHeadersVisualStyles = false;
-            this.dgvClients.Location = new System.Drawing.Point(0, 0);
-            this.dgvClients.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvClients.Location = new System.Drawing.Point(0, 102);
+            this.dgvClients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvClients.Name = "dgvClients";
             this.dgvClients.ReadOnly = true;
             this.dgvClients.RowHeadersVisible = false;
             this.dgvClients.RowHeadersWidth = 51;
-            this.dgvClients.Size = new System.Drawing.Size(893, 248);
+            this.dgvClients.Size = new System.Drawing.Size(1623, 596);
             this.dgvClients.TabIndex = 11;
             this.dgvClients.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellClick);
             this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellContentClick);
@@ -352,6 +158,7 @@ namespace POSales.Mantenimientos
             this.Fecha.Name = "Fecha";
             this.Fecha.ReadOnly = true;
             this.Fecha.ToolTipText = "Fecha de Ingreso";
+            this.Fecha.Width = 122;
             // 
             // FechaEntrega
             // 
@@ -361,7 +168,7 @@ namespace POSales.Mantenimientos
             this.FechaEntrega.Name = "FechaEntrega";
             this.FechaEntrega.ReadOnly = true;
             this.FechaEntrega.ToolTipText = "Fecha Entrega";
-            this.FechaEntrega.Width = 103;
+            this.FechaEntrega.Width = 127;
             // 
             // descripcionFalla
             // 
@@ -402,7 +209,7 @@ namespace POSales.Mantenimientos
             this.idOrdenServicio.MinimumWidth = 6;
             this.idOrdenServicio.Name = "idOrdenServicio";
             this.idOrdenServicio.ReadOnly = true;
-            this.idOrdenServicio.Width = 79;
+            this.idOrdenServicio.Width = 97;
             // 
             // IdEquipo
             // 
@@ -415,6 +222,7 @@ namespace POSales.Mantenimientos
             // Codigo
             // 
             this.Codigo.HeaderText = "Codigo Equipo";
+            this.Codigo.MinimumWidth = 6;
             this.Codigo.Name = "Codigo";
             this.Codigo.ReadOnly = true;
             // 
@@ -433,7 +241,7 @@ namespace POSales.Mantenimientos
             this.descripcion.MinimumWidth = 6;
             this.descripcion.Name = "descripcion";
             this.descripcion.ReadOnly = true;
-            this.descripcion.Width = 81;
+            this.descripcion.Width = 99;
             // 
             // aplicarCorreccion
             // 
@@ -444,7 +252,7 @@ namespace POSales.Mantenimientos
             this.aplicarCorreccion.ReadOnly = true;
             this.aplicarCorreccion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.aplicarCorreccion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.aplicarCorreccion.Width = 84;
+            this.aplicarCorreccion.Width = 102;
             // 
             // NoAplicarCorreccion
             // 
@@ -455,7 +263,7 @@ namespace POSales.Mantenimientos
             this.NoAplicarCorreccion.ReadOnly = true;
             this.NoAplicarCorreccion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.NoAplicarCorreccion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.NoAplicarCorreccion.Width = 109;
+            this.NoAplicarCorreccion.Width = 133;
             // 
             // contextMenuStrip1
             // 
@@ -463,30 +271,227 @@ namespace POSales.Mantenimientos
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.enviarSolucionPorWhatsappToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(230, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(273, 28);
             // 
             // enviarSolucionPorWhatsappToolStripMenuItem
             // 
             this.enviarSolucionPorWhatsappToolStripMenuItem.Name = "enviarSolucionPorWhatsappToolStripMenuItem";
-            this.enviarSolucionPorWhatsappToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.enviarSolucionPorWhatsappToolStripMenuItem.Size = new System.Drawing.Size(272, 24);
             this.enviarSolucionPorWhatsappToolStripMenuItem.Text = "Enviar solucion por whatsapp";
-            this.enviarSolucionPorWhatsappToolStripMenuItem.Click += new System.EventHandler(this.enviarSolucionPorWhatsappToolStripMenuItem_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            this.panel2.Controls.Add(this.btnBuscarCodigo);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.txtBucadorCodigo);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.btnEntregaBuscar);
+            this.panel2.Controls.Add(this.dtFechaEntregaMantenimientoHasta);
+            this.panel2.Controls.Add(this.dtFechaEntregaDesde);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.label15);
+            this.panel2.Controls.Add(this.btnIngresoBuscar);
+            this.panel2.Controls.Add(this.dtFechaIngresoHasta);
+            this.panel2.Controls.Add(this.dtFechaIngresoDesde);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1626, 106);
+            this.panel2.TabIndex = 12;
+            // 
+            // btnBuscarCodigo
+            // 
+            this.btnBuscarCodigo.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.btnBuscarCodigo.IconColor = System.Drawing.Color.Black;
+            this.btnBuscarCodigo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBuscarCodigo.IconSize = 15;
+            this.btnBuscarCodigo.Location = new System.Drawing.Point(1437, 75);
+            this.btnBuscarCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBuscarCodigo.Name = "btnBuscarCodigo";
+            this.btnBuscarCodigo.Size = new System.Drawing.Size(33, 23);
+            this.btnBuscarCodigo.TabIndex = 18;
+            this.btnBuscarCodigo.UseVisualStyleBackColor = true;
+            this.btnBuscarCodigo.Click += new System.EventHandler(this.btnBuscarCodigo_Click);
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label9.Location = new System.Drawing.Point(927, 3);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(564, 70);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Buscar Por Codigo,Falla,Solcion y Descripcion de Equipo";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtBucadorCodigo
+            // 
+            this.txtBucadorCodigo.Location = new System.Drawing.Point(1059, 75);
+            this.txtBucadorCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBucadorCodigo.Multiline = true;
+            this.txtBucadorCodigo.Name = "txtBucadorCodigo";
+            this.txtBucadorCodigo.Size = new System.Drawing.Size(372, 23);
+            this.txtBucadorCodigo.TabIndex = 16;
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label10.Location = new System.Drawing.Point(637, 41);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(139, 32);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "Fecha Hasta";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label11
+            // 
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label11.Location = new System.Drawing.Point(637, 9);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(139, 32);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Fecha Desde";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label12.Location = new System.Drawing.Point(437, 9);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(170, 32);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "Fecha Entrega";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnEntregaBuscar
+            // 
+            this.btnEntregaBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.btnEntregaBuscar.IconColor = System.Drawing.Color.Black;
+            this.btnEntregaBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEntregaBuscar.IconSize = 15;
+            this.btnEntregaBuscar.Location = new System.Drawing.Point(888, 31);
+            this.btnEntregaBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEntregaBuscar.Name = "btnEntregaBuscar";
+            this.btnEntregaBuscar.Size = new System.Drawing.Size(33, 23);
+            this.btnEntregaBuscar.TabIndex = 12;
+            this.btnEntregaBuscar.UseVisualStyleBackColor = true;
+            this.btnEntregaBuscar.Click += new System.EventHandler(this.btnEntregaBuscar_Click);
+            // 
+            // dtFechaEntregaMantenimientoHasta
+            // 
+            this.dtFechaEntregaMantenimientoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaEntregaMantenimientoHasta.Location = new System.Drawing.Point(780, 47);
+            this.dtFechaEntregaMantenimientoHasta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtFechaEntregaMantenimientoHasta.Name = "dtFechaEntregaMantenimientoHasta";
+            this.dtFechaEntregaMantenimientoHasta.Size = new System.Drawing.Size(103, 22);
+            this.dtFechaEntregaMantenimientoHasta.TabIndex = 11;
+            // 
+            // dtFechaEntregaDesde
+            // 
+            this.dtFechaEntregaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaEntregaDesde.Location = new System.Drawing.Point(780, 21);
+            this.dtFechaEntregaDesde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtFechaEntregaDesde.Name = "dtFechaEntregaDesde";
+            this.dtFechaEntregaDesde.Size = new System.Drawing.Size(103, 22);
+            this.dtFechaEntregaDesde.TabIndex = 10;
+            // 
+            // label13
+            // 
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label13.Location = new System.Drawing.Point(150, 33);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(139, 32);
+            this.label13.TabIndex = 9;
+            this.label13.Text = "Fecha Hasta";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label14
+            // 
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label14.Location = new System.Drawing.Point(150, 1);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(139, 32);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "Fecha Desde";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label15
+            // 
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label15.Location = new System.Drawing.Point(3, 9);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(150, 32);
+            this.label15.TabIndex = 7;
+            this.label15.Text = "Fecha Ingreso";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnIngresoBuscar
+            // 
+            this.btnIngresoBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.btnIngresoBuscar.IconColor = System.Drawing.Color.Black;
+            this.btnIngresoBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnIngresoBuscar.IconSize = 15;
+            this.btnIngresoBuscar.Location = new System.Drawing.Point(402, 23);
+            this.btnIngresoBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnIngresoBuscar.Name = "btnIngresoBuscar";
+            this.btnIngresoBuscar.Size = new System.Drawing.Size(33, 23);
+            this.btnIngresoBuscar.TabIndex = 5;
+            this.btnIngresoBuscar.UseVisualStyleBackColor = true;
+            this.btnIngresoBuscar.Click += new System.EventHandler(this.btnIngresoBuscar_Click);
+            // 
+            // dtFechaIngresoHasta
+            // 
+            this.dtFechaIngresoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaIngresoHasta.Location = new System.Drawing.Point(293, 39);
+            this.dtFechaIngresoHasta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtFechaIngresoHasta.Name = "dtFechaIngresoHasta";
+            this.dtFechaIngresoHasta.Size = new System.Drawing.Size(103, 22);
+            this.dtFechaIngresoHasta.TabIndex = 2;
+            // 
+            // dtFechaIngresoDesde
+            // 
+            this.dtFechaIngresoDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaIngresoDesde.Location = new System.Drawing.Point(293, 13);
+            this.dtFechaIngresoDesde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtFechaIngresoDesde.Name = "dtFechaIngresoDesde";
+            this.dtFechaIngresoDesde.Size = new System.Drawing.Size(103, 22);
+            this.dtFechaIngresoDesde.TabIndex = 1;
             // 
             // Mantenimiento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(893, 399);
+            this.ClientSize = new System.Drawing.Size(1626, 771);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgvClients);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Mantenimiento";
             this.Text = "Mantenimiento";
             this.Load += new System.EventHandler(this.Mantenimiento_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -502,18 +507,6 @@ namespace POSales.Mantenimientos
         private System.Windows.Forms.DataGridViewCheckBoxColumn estadoNoAplicarCorreccionDataGridViewCheckBoxColumn;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem enviarSolucionPorWhatsappToolStripMenuItem;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaEntrega;
@@ -528,9 +521,22 @@ namespace POSales.Mantenimientos
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewCheckBoxColumn aplicarCorreccion;
         private System.Windows.Forms.DataGridViewCheckBoxColumn NoAplicarCorreccion;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
         private EventHandler enviarSolucionPorWhatsappToolStripMenuItem_Click;
+        private System.Windows.Forms.Panel panel2;
+        private FontAwesome.Sharp.IconButton btnBuscarCodigo;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtBucadorCodigo;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private FontAwesome.Sharp.IconButton btnEntregaBuscar;
+        private System.Windows.Forms.DateTimePicker dtFechaEntregaMantenimientoHasta;
+        private System.Windows.Forms.DateTimePicker dtFechaEntregaDesde;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private FontAwesome.Sharp.IconButton btnIngresoBuscar;
+        private System.Windows.Forms.DateTimePicker dtFechaIngresoHasta;
+        private System.Windows.Forms.DateTimePicker dtFechaIngresoDesde;
     }
 }

@@ -44,6 +44,14 @@
             this.txtCodBarrasItem = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.cboEstadoReserva = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel2.SuspendLayout();
@@ -80,7 +88,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(672, 273);
+            this.btnCancel.Location = new System.Drawing.Point(689, 337);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 35);
             this.btnCancel.TabIndex = 190;
@@ -94,7 +102,7 @@
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(548, 273);
+            this.btnUpdate.Location = new System.Drawing.Point(565, 337);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(121, 35);
             this.btnUpdate.TabIndex = 189;
@@ -115,10 +123,10 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 315);
+            this.panel1.Location = new System.Drawing.Point(0, 379);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(792, 82);
+            this.panel1.Size = new System.Drawing.Size(809, 82);
             this.panel1.TabIndex = 184;
             // 
             // btnSave
@@ -128,7 +136,7 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(427, 273);
+            this.btnSave.Location = new System.Drawing.Point(444, 337);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(115, 35);
             this.btnSave.TabIndex = 188;
@@ -140,7 +148,7 @@
             this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picClose.Image = ((System.Drawing.Image)(resources.GetObject("picClose.Image")));
             this.picClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.picClose.Location = new System.Drawing.Point(736, 0);
+            this.picClose.Location = new System.Drawing.Point(753, 0);
             this.picClose.Margin = new System.Windows.Forms.Padding(5);
             this.picClose.Name = "picClose";
             this.picClose.Size = new System.Drawing.Size(56, 45);
@@ -184,7 +192,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(792, 45);
+            this.panel2.Size = new System.Drawing.Size(809, 45);
             this.panel2.TabIndex = 185;
             // 
             // txtCodBarrasItem
@@ -214,11 +222,95 @@
             this.cboEstadoReserva.Size = new System.Drawing.Size(567, 29);
             this.cboEstadoReserva.TabIndex = 197;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 274);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 21);
+            this.label3.TabIndex = 198;
+            this.label3.Text = "Cantidad";
+            // 
+            // textBox1
+            // 
+            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(102, 271);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(114, 28);
+            this.textBox1.TabIndex = 199;
+            // 
+            // textBox2
+            // 
+            this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(388, 271);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(114, 28);
+            this.textBox2.TabIndex = 201;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(223, 274);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(158, 21);
+            this.label4.TabIndex = 200;
+            this.label4.Text = "Precio Referencial";
+            // 
+            // textBox3
+            // 
+            this.textBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox3.Enabled = false;
+            this.textBox3.Location = new System.Drawing.Point(618, 274);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(114, 28);
+            this.textBox3.TabIndex = 203;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(509, 274);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(102, 21);
+            this.label5.TabIndex = 202;
+            this.label5.Text = "Precio Final";
+            // 
+            // textBox4
+            // 
+            this.textBox4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox4.Enabled = false;
+            this.textBox4.Location = new System.Drawing.Point(139, 330);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(114, 28);
+            this.textBox4.TabIndex = 205;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 337);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(129, 21);
+            this.label6.TabIndex = 204;
+            this.label6.Text = "Precio Unitario";
+            // 
             // ReservasModulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 397);
+            this.ClientSize = new System.Drawing.Size(809, 461);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cboEstadoReserva);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnCancel);
@@ -262,5 +354,13 @@
         private System.Windows.Forms.TextBox txtCodBarrasItem;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cboEstadoReserva;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label6;
     }
 }

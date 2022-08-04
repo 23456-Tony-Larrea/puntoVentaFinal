@@ -58,6 +58,7 @@ namespace POSales
 
         }
 
+
         private void Clients_Load(object sender, EventArgs e)
         {
         

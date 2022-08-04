@@ -60,5 +60,10 @@ namespace POSales.Mantenimientos
                 MessageBox.Show(Error);
             }
         }
+
+        private void picClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

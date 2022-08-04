@@ -168,59 +168,52 @@ namespace POSales.Mantenimientos
 
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void btnIngresoBuscar_Click(object sender, EventArgs e)
         {
-        }
-
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-            if (dateTimePicker1.Value > dateTimePicker2.Value)
+            if (dtFechaEntregaDesde.Value > dtFechaEntregaMantenimientoHasta.Value)
             {
-                dateTimePicker2.Value = dateTimePicker1.Value;
+                dtFechaEntregaMantenimientoHasta.Value = dtFechaEntregaDesde.Value;
                 MessageBox.Show("Debe escoger un valor menor en la fecha desde");
                 return;
             }
-            if (dateTimePicker1.Value < dateTimePicker2.Value)
+            if (dtFechaEntregaDesde.Value < dtFechaEntregaMantenimientoHasta.Value)
             {
-                dateTimePicker1.Value = dateTimePicker2.Value;
+                dtFechaEntregaDesde.Value = dtFechaEntregaMantenimientoHasta.Value;
                 MessageBox.Show("Debe escoger un valor Mayor en la fecha Hasta");
                 return;
             }
 
-            cargarDatosPorFechasDeMatenimiento(dateTimePicker1.Value, dateTimePicker2.Value);
+            cargarDatosPorFechasDeMatenimiento(dtFechaEntregaDesde.Value, dtFechaEntregaMantenimientoHasta.Value);
         }
 
-        private void iconButton2_Click(object sender, EventArgs e)
+        private void btnEntregaBuscar_Click(object sender, EventArgs e)
         {
-            if (dateTimePicker3.Value > dateTimePicker4.Value)
+            if (dtFechaIngresoDesde.Value > dtFechaIngresoHasta.Value)
             {
-                dateTimePicker3.Value = dateTimePicker4.Value;
+                dtFechaIngresoDesde.Value = dtFechaIngresoHasta.Value;
                 MessageBox.Show("Debe escoger un valor menor en la fecha desde");
                 return;
             }
-            if (dateTimePicker3.Value < dateTimePicker4.Value)
+            if (dtFechaIngresoDesde.Value < dtFechaIngresoHasta.Value)
             {
-                dateTimePicker3.Value = dateTimePicker4.Value;
+                dtFechaIngresoDesde.Value = dtFechaIngresoHasta.Value;
                 MessageBox.Show("Debe escoger un valor Mayor en la fecha Hasta");
                 return;
             }
-            cargarDatosPorFechasDeEntrega(dateTimePicker1.Value, dateTimePicker2.Value);
-
-
-
+            cargarDatosPorFechasDeEntrega(dtFechaIngresoDesde.Value, dtFechaIngresoHasta.Value);
         }
 
-        private void iconButton3_Click(object sender, EventArgs e)
+        private void btnBuscarCodigo_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(textBox1.Text))
+            if (!string.IsNullOrWhiteSpace(txtBucadorCodigo.Text))
             {
-                cargarDatosFiltrados(textBox1.Text);
+                cargarDatosFiltrados(txtBucadorCodigo.Text);
             }
             else
             {
                 MessageBox.Show("Debe ingresar un valor en la caja de texto");
             }
-          
+
         }
     }
 }
