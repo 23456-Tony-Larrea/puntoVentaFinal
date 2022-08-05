@@ -9,9 +9,11 @@ namespace POSalesDb
     public class Reserva
     {
         public int Id { get; set; }
+        public int IdMantenimiento { get; set; }
         public string estadoReserva { get; set; }
         public int idItem { get; set; }
         public Items items { get; set; }
+        public int Cantidad { get; set; }
         public decimal precioReferencial { get; set; }
         public decimal precioFinal { get; set; }
         public decimal precioUnitario { get; set; }
