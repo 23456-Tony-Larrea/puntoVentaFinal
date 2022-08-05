@@ -309,6 +309,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MantenimientosDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\EntregasCajero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\EntregasCajero.Designer.cs">
+      <DependentUpon>EntregasCajero.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\VerAccesorios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -619,6 +625,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\EntregasCajero.resx">
+      <DependentUpon>EntregasCajero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\VerAccesorios.resx">
       <DependentUpon>VerAccesorios.cs</DependentUpon>

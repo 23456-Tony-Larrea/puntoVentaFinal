@@ -52,9 +52,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnBuscarItem = new System.Windows.Forms.Button();
+            this.ggvProductos = new System.Windows.Forms.DataGridView();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ggvProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -88,7 +97,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(689, 337);
+            this.btnCancel.Location = new System.Drawing.Point(709, 578);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 35);
             this.btnCancel.TabIndex = 190;
@@ -102,7 +111,7 @@
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(565, 337);
+            this.btnUpdate.Location = new System.Drawing.Point(585, 578);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(121, 35);
             this.btnUpdate.TabIndex = 189;
@@ -123,10 +132,10 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 379);
+            this.panel1.Location = new System.Drawing.Point(0, 620);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(809, 82);
+            this.panel1.Size = new System.Drawing.Size(829, 82);
             this.panel1.TabIndex = 184;
             // 
             // btnSave
@@ -136,7 +145,7 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(444, 337);
+            this.btnSave.Location = new System.Drawing.Point(464, 578);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(115, 35);
             this.btnSave.TabIndex = 188;
@@ -148,7 +157,7 @@
             this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picClose.Image = ((System.Drawing.Image)(resources.GetObject("picClose.Image")));
             this.picClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.picClose.Location = new System.Drawing.Point(753, 0);
+            this.picClose.Location = new System.Drawing.Point(773, 0);
             this.picClose.Margin = new System.Windows.Forms.Padding(5);
             this.picClose.Name = "picClose";
             this.picClose.Size = new System.Drawing.Size(56, 45);
@@ -192,7 +201,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(809, 45);
+            this.panel2.Size = new System.Drawing.Size(829, 45);
             this.panel2.TabIndex = 185;
             // 
             // txtCodBarrasItem
@@ -207,7 +216,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 162);
+            this.label11.Location = new System.Drawing.Point(3, 165);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(201, 21);
@@ -298,11 +307,82 @@
             this.label6.TabIndex = 204;
             this.label6.Text = "Precio Unitario";
             // 
+            // btnBuscarItem
+            // 
+            this.btnBuscarItem.Location = new System.Drawing.Point(791, 136);
+            this.btnBuscarItem.Name = "btnBuscarItem";
+            this.btnBuscarItem.Size = new System.Drawing.Size(36, 34);
+            this.btnBuscarItem.TabIndex = 206;
+            this.btnBuscarItem.Text = "...";
+            this.btnBuscarItem.UseVisualStyleBackColor = true;
+            // 
+            // ggvProductos
+            // 
+            this.ggvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ggvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.No,
+            this.Id,
+            this.Producto,
+            this.precio,
+            this.cantidad,
+            this.total});
+            this.ggvProductos.Location = new System.Drawing.Point(7, 364);
+            this.ggvProductos.Name = "ggvProductos";
+            this.ggvProductos.RowHeadersWidth = 51;
+            this.ggvProductos.RowTemplate.Height = 24;
+            this.ggvProductos.Size = new System.Drawing.Size(776, 192);
+            this.ggvProductos.TabIndex = 207;
+            // 
+            // No
+            // 
+            this.No.HeaderText = "No";
+            this.No.MinimumWidth = 6;
+            this.No.Name = "No";
+            this.No.Width = 125;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            this.Id.Width = 125;
+            // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Productos";
+            this.Producto.MinimumWidth = 6;
+            this.Producto.Name = "Producto";
+            this.Producto.Width = 125;
+            // 
+            // precio
+            // 
+            this.precio.HeaderText = "precio";
+            this.precio.MinimumWidth = 6;
+            this.precio.Name = "precio";
+            this.precio.Width = 125;
+            // 
+            // cantidad
+            // 
+            this.cantidad.HeaderText = "cantidad";
+            this.cantidad.MinimumWidth = 6;
+            this.cantidad.Name = "cantidad";
+            this.cantidad.Width = 125;
+            // 
+            // total
+            // 
+            this.total.HeaderText = "total";
+            this.total.MinimumWidth = 6;
+            this.total.Name = "total";
+            this.total.Width = 125;
+            // 
             // ReservasModulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 461);
+            this.ClientSize = new System.Drawing.Size(829, 702);
+            this.Controls.Add(this.ggvProductos);
+            this.Controls.Add(this.btnBuscarItem);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox3);
@@ -332,6 +412,7 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ggvProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,5 +443,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnBuscarItem;
+        private System.Windows.Forms.DataGridView ggvProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
     }
 }
