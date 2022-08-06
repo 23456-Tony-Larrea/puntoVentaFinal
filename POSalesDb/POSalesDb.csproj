@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="DBConnect.cs" />
     <Compile Include="DescripcionVenta.cs" />
+    <Compile Include="DetallesVenta.cs" />
     <Compile Include="Detalle_Compra.cs" />
     <Compile Include="dtoDetallesDeCompra.cs" />
     <Compile Include="Enstock.cs" />

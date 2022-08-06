@@ -501,7 +501,6 @@ C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Man
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.EstadoMantenimiento.resources
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.Mantenimiento.resources
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.MantenimientoModulo.resources
-C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.OrdenServicio.resources
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.OrdenServicioModulo.resources
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.Reserva.resources
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.ReservasModulo.resources
@@ -777,3 +776,6 @@ D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.csproj.Co
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.csproj.CopyComplete
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.exe
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.pdb
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.EntregasCajero.resources
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.ReporteFacturaMantenimiento.resources
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.SeleccionarCliente.resources

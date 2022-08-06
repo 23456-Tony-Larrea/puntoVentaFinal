@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using POSalesDb;
@@ -13,9 +14,10 @@ namespace POSales.Mantenimientos
         DBConnect dbcon = new DBConnect();  
         MantenimientoModel mantenimiento = new MantenimientoModel();
         int idUsuarioFacturador = 0;
+        Usuarios usuario = new Usuarios();
         public Mantenimiento(int idUsuarioFacturador)
         {
-            this.idUsuarioFacturador = idUsuarioFacturador;
+            usuario = dbcon.selectUsuariosPorId(idUsuarioFacturador);
             InitializeComponent();
         }
 
@@ -123,7 +125,7 @@ namespace POSales.Mantenimientos
             {
                 int.TryParse(dgvClients.Rows[index].Cells["id"].Value.ToString(), out idmantenimiento);
                 DataGridViewColumn colum = dgvClients.Columns[e.ColumnIndex];
-                if (colum.Name == "solucion")
+                if (colum.Name == "solucion" && usuario.role == "tecnico")
                 {
                     if (idmantenimiento > 0)
                     {
@@ -136,8 +138,16 @@ namespace POSales.Mantenimientos
 
                 }
                 if (colum.Name == "aplicarCorreccion")
-                {
-                    if (idmantenimiento > 0)
+                { 
+                    if (usuario.role == "tecnico" && (bool)dgvClients.Rows[index].Cells["aplicarCorreccion"].Value == true)
+                    {
+                        mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
+                        mantenimiento.idEstadoMantenimiento = 5;
+                        dbcon.actualizarMantenimientoModel(mantenimiento);
+                    }
+                    else
+                    //&& 
+                    if (idmantenimiento > 0  && usuario.role == "facturero")
                     {
                         dgvClients.Rows[index].Cells["aplicarCorreccion"].Value = true;
                         dgvClients.Rows[index].Cells["NoAplicarCorreccion"].Value = false;
@@ -145,11 +155,12 @@ namespace POSales.Mantenimientos
                         mantenimiento.equipo = dbcon.selectEquipoPorId(mantenimiento.IdEquipo);
                         mantenimiento.estadoAplicarCorreccion = true;
                         mantenimiento.estadoNoAplicarCorreccion = false;
+                        mantenimiento.idEstadoMantenimiento = 4;
                         dbcon.actualizarMantenimientoModel(mantenimiento);
                     }
 
                 }
-                if (colum.Name == "NoAplicarCorreccion")
+                if (colum.Name == "NoAplicarCorreccion" && usuario.role == "facturero")
                 {
                     if (idmantenimiento > 0)
                     {
@@ -159,6 +170,7 @@ namespace POSales.Mantenimientos
                         mantenimiento.equipo = dbcon.selectEquipoPorId(mantenimiento.IdEquipo);
                         mantenimiento.estadoAplicarCorreccion = false;
                         mantenimiento.estadoNoAplicarCorreccion = true;
+                        mantenimiento.idEstadoMantenimiento = 5;
                         dbcon.actualizarMantenimientoModel(mantenimiento);
                     }
 
@@ -176,7 +188,7 @@ namespace POSales.Mantenimientos
                 MessageBox.Show("Debe escoger un valor menor en la fecha desde");
                 return;
             }
-            if (dtFechaEntregaDesde.Value < dtFechaEntregaMantenimientoHasta.Value)
+            if (dtFechaEntregaMantenimientoHasta.Value < dtFechaEntregaDesde.Value)
             {
                 dtFechaEntregaDesde.Value = dtFechaEntregaMantenimientoHasta.Value;
                 MessageBox.Show("Debe escoger un valor Mayor en la fecha Hasta");
@@ -194,7 +206,7 @@ namespace POSales.Mantenimientos
                 MessageBox.Show("Debe escoger un valor menor en la fecha desde");
                 return;
             }
-            if (dtFechaIngresoDesde.Value < dtFechaIngresoHasta.Value)
+            if (dtFechaIngresoHasta.Value < dtFechaIngresoDesde.Value)
             {
                 dtFechaIngresoDesde.Value = dtFechaIngresoHasta.Value;
                 MessageBox.Show("Debe escoger un valor Mayor en la fecha Hasta");
@@ -213,6 +225,44 @@ namespace POSales.Mantenimientos
             {
                 MessageBox.Show("Debe ingresar un valor en la caja de texto");
             }
+
+        }
+
+        private void enviarSolucionPorWhatsappToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            decimal total = 0;
+            int idmantenimiento = 0;
+            int index = dgvClients.CurrentCell.RowIndex;
+            if (index > (-1))
+            {
+
+                int.TryParse(dgvClients.Rows[index].Cells["id"].Value.ToString(), out idmantenimiento);
+                OrdenServicioModel orden = new OrdenServicioModel();
+                var mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
+                mantenimiento.reservas = dbcon.selectReservaPorMantenimiento(idmantenimiento);
+                foreach (var reserva in mantenimiento.reservas)
+                {
+                    total += reserva.precioFinal;   
+                }
+                total += mantenimiento.precioReferencial;
+                orden = dbcon.selectOrdenServicioModelPorId(mantenimiento.idOrdenServicio);
+                orden.cliente = dbcon.selectClientesId(orden.idCliente);
+                decimal TotalPorMantenimiento = 0;
+                string Message = $"Saludos, El equipo codigo. {mantenimiento.equipo.codigo} falla:{mantenimiento.descripcionFalla} tiene la solucion: {mantenimiento.solucion} con un costo de mantenimiento de: {total}";
+                ProcessStartInfo SendWhatsapp = new ProcessStartInfo($"https://web.whatsapp.com/send?phone={orden.cliente.telefono}&text={Message.Replace("","%20")}");
+                Process.Start(SendWhatsapp);
+                mantenimiento.idEstadoMantenimiento = 3;
+                dbcon.actualizarMantenimientoModel(mantenimiento);
+            }
+        }
+
+        private void facturarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
 
         }
     }

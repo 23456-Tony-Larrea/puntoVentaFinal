@@ -1,0 +1,40 @@
+System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
+   en System.Data.DataRow.GetDataColumn(String columnName)
+   en System.Data.DataRow.get_Item(String columnName)
+   en POSalesDb.DBConnect.selectClientesId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4012
+System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
+   en System.Data.DataRow.GetDataColumn(String columnName)
+   en System.Data.DataRow.get_Item(String columnName)
+   en POSalesDb.DBConnect.selectClientesId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4012
+System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
+   en System.Data.DataRow.GetDataColumn(String columnName)
+   en System.Data.DataRow.get_Item(String columnName)
+   en POSalesDb.DBConnect.selectClientesId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4012
+System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
+   en System.Data.DataRow.GetDataColumn(String columnName)
+   en System.Data.DataRow.get_Item(String columnName)
+   en POSalesDb.DBConnect.selectClientesId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4012
+System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
+   en System.Data.DataRow.GetDataColumn(String columnName)
+   en System.Data.DataRow.get_Item(String columnName)
+   en POSalesDb.DBConnect.selectClientesId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4012
+System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
+   en System.Data.DataRow.GetDataColumn(String columnName)
+   en System.Data.DataRow.get_Item(String columnName)
+   en POSalesDb.DBConnect.selectClientesId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4012
+System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
+   en System.Data.DataRow.GetDataColumn(String columnName)
+   en System.Data.DataRow.get_Item(String columnName)
+   en POSalesDb.DBConnect.selectClientesId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4012
+System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
+   en System.Data.DataRow.GetDataColumn(String columnName)
+   en System.Data.DataRow.get_Item(String columnName)
+   en POSalesDb.DBConnect.selectClientesId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4012
+System.ArgumentException: La columna 'precioUnitario' no pertenece a la tabla .
+   en System.Data.DataRow.GetDataColumn(String columnName)
+   en System.Data.DataRow.get_Item(String columnName)
+   en POSalesDb.DBConnect.selectReservaPorMantenimiento(Int32 IdMantenimiento)
+System.InvalidCastException: La conversión especificada no es válida.
+   en POSalesDb.DBConnect.selectItemPorId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 2245
+System.InvalidCastException: La conversión especificada no es válida.
+   en POSalesDb.DBConnect.selectItemPorId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 2245
