@@ -40,16 +40,19 @@ namespace POSales.Mantenimientos
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            decimal precioReferencial = 0;
             string Error = string.Empty;
             mantenimiento.idEstadoMantenimiento = 2;
             mantenimiento.fechaEntregaEquipo = DateTime.Now;
             mantenimiento.solucion = txtSolucion.Text;
             mantenimiento.idUsuarios = idUsuario;
+            decimal.TryParse(textBox2.Text, out precioReferencial);
+            mantenimiento.precioReferencial = precioReferencial;
             Error = dbcon.actualizarMantenimientoModel(mantenimiento);
             if (string.IsNullOrEmpty(Error))
             {
@@ -64,6 +67,13 @@ namespace POSales.Mantenimientos
         private void picClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Mantenimientos.ReservasModulo reserva = new Mantenimientos.ReservasModulo();
+            reserva.ShowDialog();
+            mantenimiento.reservas = reserva.ItemsFacturados;
         }
     }
 }

@@ -500,6 +500,36 @@ namespace POSalesDb
                 cn.Close();
             }
         }
+        public string insertarReservas(Reserva reserva)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand(@"Insert into Reserva (IdMantenimiento,estadoReserva,idItem,Cantidad,precioFinal,precioA)
+                    values(@IdMantenimiento,@estadoReserva,@idItem,@Cantidad,@precioFinal,@precioA)", cn);
+                cm.Parameters.AddWithValue("@IdMantenimiento", reserva.IdMantenimiento);
+                cm.Parameters.AddWithValue("@estadoReserva", reserva.estadoReserva = "Activo");
+                cm.Parameters.AddWithValue("@idItem", reserva.idItem);
+                cm.Parameters.AddWithValue("@Cantidad", reserva.Cantidad);
+                cm.Parameters.AddWithValue("@precioFinal", reserva.precioFinal);
+                cm.Parameters.AddWithValue("@precioA", reserva.items.precioA);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
         //insertar MantenimientoModels 
         public string insertMantenimientoModels(MantenimientoModel MantenimientoModel)
         {
@@ -555,7 +585,8 @@ namespace POSalesDb
                 idUsuarios={MantenimientoModel.idUsuarios},
                 idOrdenServicio={MantenimientoModel.idOrdenServicio},
                 estadoAplicarCorreccion={Aplicar},
-                estadoNoAplicarCorreccion={NoAplicar},";
+                estadoNoAplicarCorreccion={NoAplicar},
+                precioReferencial ={MantenimientoModel.precioReferencial},";
                 DateTime MinimunDate = Convert.ToDateTime("01/01/2000");
                 if (MantenimientoModel.fechaEntregaEquipo > MinimunDate)
                 {
@@ -566,6 +597,8 @@ namespace POSalesDb
 
                 cn.Open();
                 adapter.UpdateCommand.ExecuteNonQuery();
+
+
                 return Error;
             }
             catch (Exception ex)
@@ -578,6 +611,14 @@ namespace POSalesDb
             {
                 cn.Close();
             }
+
+            deleteReserva(MantenimientoModel.Id);
+            foreach (var reserva in MantenimientoModel.reservas)
+            {
+                reserva.IdMantenimiento = MantenimientoModel.Id;
+                insertarReservas(reserva);
+            }
+
         }
 
         //eliminar MantenimientoModels
@@ -1122,6 +1163,47 @@ namespace POSalesDb
                 cn.Close();
             }
         }
+        public List<Reserva> selectReservaPorMantenimiento(int IdMantenimiento)
+        {
+            cn.ConnectionString = myConnection();
+            List<Reserva> reservas = new List<Reserva>();
+            Reserva reserva = new Reserva();
+            try
+            {
+                cm = new SqlCommand($"Select * from Reserva Where IdMantenimiento = {IdMantenimiento}", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                da.Dispose();
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        reserva.Id = (int)r["Id"];
+                        reserva.estadoReserva = r["estadoReserva"].ToString();
+                        reserva.idItem = (int)r["IdItem"];
+                        reserva.Cantidad = (int)r["cantidad"];
+                        reserva.precioFinal = (decimal)r["precioFinal"];
+                        reserva.precioUnitario = (decimal)r["precioUnitario"];
+                        reserva.items = selectItemPorId(reserva.idItem);
+                        reservas.Add(reserva);
+                    }
+                   
+                }
+                return reservas;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return reservas;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
         // get Reserva
         public List<Reserva> selectTodosLasReservas()
         {
@@ -1167,12 +1249,25 @@ namespace POSalesDb
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("Insert into Reserva (estadoReserva,idItem) values (@estadoReserva,@idItem)", cn);
+        //         public int IdMantenimiento { get; set; }
+        //public string estadoReserva { get; set; }
+        //public int idItem { get; set; }
+        //public Items items { get; set; }
+        //public int Cantidad { get; set; }
+        //public decimal precioReferencial { get; set; }
+        //public decimal precioFinal { get; set; }
+        //public decimal precioUnitario { get; set; }
+        cm = new SqlCommand(@"Insert into Reserva (IdMantenimiento,estadoReserva,idItem,Cantidad,precioUnitario,precioFinal) 
+                        values (@IdMantenimiento,@estadoReserva,@idItem,@Cantidad,@precioUnitario,@precioFinal)", cn);
                 cm.Parameters.AddWithValue("@estadoReserva", reserva.estadoReserva);
                 cm.Parameters.AddWithValue("@idItem", reserva.idItem);
+                cm.Parameters.AddWithValue("@IdMantenimiento", reserva.IdMantenimiento);
+                cm.Parameters.AddWithValue("@Cantidad", reserva.Cantidad);
+                cm.Parameters.AddWithValue("@precioUnitario", reserva.precioUnitario);
+                cm.Parameters.AddWithValue("@precioFinal", reserva.precioFinal);
                 cn.Open();
-                adapter.UpdateCommand = cm;
-                adapter.UpdateCommand.ExecuteNonQuery();
+                adapter.InsertCommand = cm;
+                adapter.InsertCommand.ExecuteNonQuery();
                 return Error;
             }
 
@@ -1199,7 +1294,8 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@estadoReserva", reserva.estadoReserva);
                 cm.Parameters.AddWithValue("@idItem", reserva.idItem);
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.DeleteCommand = cm;
+                adapter.DeleteCommand.ExecuteNonQuery();
                 return Error;
             }
             catch (Exception ex)
@@ -1215,14 +1311,14 @@ namespace POSalesDb
         }
 
         //eliminar Reserva
-        public string deleteReserva(int idReserva)
+        public string deleteReserva(int IdMantenimiento)
         {
             cn.ConnectionString = myConnection();
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("DETELE FROM Reserva WHERE Id = @Id  ", cn);
-                cm.Parameters.AddWithValue("@Id", idReserva);
+                cm = new SqlCommand("DETELE FROM Reserva WHERE IdMantenimiento = @Id  ", cn);
+                cm.Parameters.AddWithValue("@Id", IdMantenimiento);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
