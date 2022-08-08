@@ -321,6 +321,12 @@
     <Compile Include="Mantenimientos\ReporteFacturaMantenimiento.Designer.cs">
       <DependentUpon>ReporteFacturaMantenimiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\SeleccionarMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\SeleccionarMantenimiento.Designer.cs">
+      <DependentUpon>SeleccionarMantenimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\VerAccesorios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -642,6 +648,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\ReporteFacturaMantenimiento.resx">
       <DependentUpon>ReporteFacturaMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\SeleccionarMantenimiento.resx">
+      <DependentUpon>SeleccionarMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\VerAccesorios.resx">
       <DependentUpon>VerAccesorios.cs</DependentUpon>

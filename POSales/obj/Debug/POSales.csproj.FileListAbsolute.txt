@@ -103,7 +103,6 @@ D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimi
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.EstadoMantenimientoModulo.resources
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.EstadoMantenimiento.resources
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.Mantenimiento.resources
-D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.MantenimientoModulo.resources
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.SeleccionarCliente.resources
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.OrdenServicioModulo.resources
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.Reserva.resources
@@ -272,3 +271,4 @@ C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.csp
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.exe
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.pdb
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.precioReferencial.resources
+D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.precioReferencial.resources
