@@ -406,7 +406,7 @@ namespace POSalesDb
                     MantenimientoModel.idUsuarios=(int)dt.Rows[0]["idUsuarios"];
                     MantenimientoModel.idOrdenServicio = (int)dt.Rows[0]["idOrdenServicio"];
                     MantenimientoModel.estadoAplicarCorreccion = Convert.ToBoolean(dt.Rows[0]["estadoAplicarCorreccion"]);
-                    MantenimientoModel.precioReferencial = Convert.ToDecimal(dt.Rows[0]["precioReferencial"]);
+                    MantenimientoModel.precioReferencial = Convert.ToDecimal(dt.Rows[0]["precioReferencial"].ToString());
 
                 }
                 return MantenimientoModel;
@@ -826,18 +826,23 @@ namespace POSalesDb
             finally
             {
                 cn.Close();
-                selectContadorDeMantenimientosRealizados(MantenimientoModel.idOrdenServicio);
-                deleteReserva(MantenimientoModel.Id);
-                if(MantenimientoModel.reservas.Count > 0)
-                {
-                    foreach (var reserva in MantenimientoModel.reservas)
-                    {
-                        reserva.IdMantenimiento = MantenimientoModel.Id;
-                        insertarReservas(reserva);
-                    }
-
-                }
         
+            }
+            if (MantenimientoModel.reservas == null)
+            {
+                return Error;
+            }
+            selectContadorDeMantenimientosRealizados(MantenimientoModel.idOrdenServicio);
+            deleteReserva(MantenimientoModel.Id);
+
+            if (MantenimientoModel.reservas.Count > 0)
+            {
+                foreach (var reserva in MantenimientoModel.reservas)
+                {
+                    reserva.IdMantenimiento = MantenimientoModel.Id;
+                    insertarReservas(reserva);
+                }
+
             }
 
         }
