@@ -188,6 +188,100 @@ namespace POSalesDb
                 foreach (DataRow r in dt.Rows)
                 {
                     OrdenServicioModel orden = new OrdenServicioModel();
+                    orden.Id = (int)r["Id"];
+                    orden.Descripcion = r["descripcion"].ToString();
+                    orden.idCliente = (int)r["idCliente"];
+                    orden.idUsuarios = (int)r["idUsuarios"];
+                    orden.cliente = selectClientesId(orden.idCliente);
+                    orden.usuario = selectUsuariosPorId(orden.idUsuarios);
+                    orden.mantenimientos = selectLosMantenimientoPorOrden(orden.Id);
+                    ordens.Add(orden);
+                }
+
+            }
+            return ordens;
+        }
+
+        private List<MantenimientoModel> selectLosMantenimientoPorOrden(int IdOrden)
+        {
+            cn.ConnectionString = myConnection();
+            List<MantenimientoModel> MantenimientoModels = new List<MantenimientoModel>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from Mantenimiento where IdOrdenServicio = {IdOrden} ");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                cn.Close();
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        MantenimientoModel MantenimientoModel = new MantenimientoModel();
+                        MantenimientoModel.Id = (int)r["Id"];
+                        MantenimientoModel.fechaMantenimiento = Convert.ToDateTime(r["fechaMantenimiento"].ToString());
+                        MantenimientoModel.descripcionFalla = r["descripcionFalla"].ToString();
+                        MantenimientoModel.solucion = r["solucion"].ToString();
+                        MantenimientoModel.idEstadoMantenimiento = (int)r["idEstadoMantenimiento"];
+                        MantenimientoModel.idUsuarios = (int)r["idUsuarios"];
+                        MantenimientoModel.idOrdenServicio = (int)r["idOrdenServicio"];
+                        if (!string.IsNullOrWhiteSpace(r["precioReferencial"].ToString()))
+                        {
+                            MantenimientoModel.precioReferencial = (decimal)r["precioReferencial"];
+                        }
+                        MantenimientoModel.estadoAplicarCorreccion = Convert.ToBoolean(r["estadoAplicarCorreccion"].ToString());
+                        MantenimientoModel.reservas = selectReservaPorMantenimiento(MantenimientoModel.Id);
+                        MantenimientoModels.Add(MantenimientoModel);
+                    }
+
+                }
+                return MantenimientoModels;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return MantenimientoModels;
+            }
+            finally
+            {
+              
+            }
+        }
+
+        public List<OrdenServicioModel> selectTodosLasOrdenServicioPorEntregar()
+        {
+            cn.ConnectionString = myConnection();
+            List<OrdenServicioModel> ordens = new List<OrdenServicioModel>();
+            DataTable dt = new DataTable();
+            try
+            {
+                cm = new SqlCommand($"Select * from OrdenServicio");
+                using (SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn))
+                {
+                    cn.Open();
+                    da.Fill(dt);
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return ordens;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow r in dt.Rows)
+                {
+                    OrdenServicioModel orden = new OrdenServicioModel();
                     orden.Id = (int)dt.Rows[0]["Id"];
                     orden.Descripcion = dt.Rows[0]["descripcion"].ToString();
                     orden.idCliente = (int)dt.Rows[0]["idCliente"];
@@ -346,7 +440,7 @@ namespace POSalesDb
                     {
                         MantenimientoModel MantenimientoModel = new MantenimientoModel();
                         MantenimientoModel.Id = (int)dt.Rows[0]["Id"];
-                        MantenimientoModel.fechaMantenimiento = Convert.ToDateTime( dt.Rows[0]["fechaMantenimientoModel"].ToString());
+                        MantenimientoModel.fechaMantenimiento = Convert.ToDateTime( dt.Rows[0]["fechaMantenimiento"].ToString());
                         MantenimientoModel.fechaEntregaEquipo = Convert.ToDateTime(dt.Rows[0]["fechaEntregaEquipo"].ToString());
                         MantenimientoModel.descripcionFalla = dt.Rows[0]["descripcionFalla"].ToString();
                         MantenimientoModel.solucion = dt.Rows[0]["solucion"].ToString();
@@ -500,6 +594,64 @@ namespace POSalesDb
                 cn.Close();
             }
         }
+        public void actualizarEstadoDeOrden(int IdOrdenDeServicio,bool isReady)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE OrdenServicio SET descripcion=@descripcion,idCliente=@idCliente,idUsuarios=@idUsuarios WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@isReady", true);
+                cn.Open();
+                cm.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public void selectContadorDeMantenimientosRealizados(int IdOrdenDeServicio)
+        {
+            cn.ConnectionString = myConnection();
+            cn.Open();
+            DataTable dt = new DataTable();
+            try
+            {
+                cm = new SqlCommand($@"select COUNT(idOrdenServicio) as Contador from Mantenimiento Where IdEstadoMantenimiento < 4 and idOrdenServicio = {IdOrdenDeServicio}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    int Contador = 0;
+                    if (int.TryParse(dt.Rows[0]["Contador"].ToString(), out Contador))
+                    {
+                        if (Contador == 0)
+                        {
+                            actualizarEstadoDeOrden(IdOrdenDeServicio, true);
+                        }
+                        else
+                        {
+                            actualizarEstadoDeOrden(IdOrdenDeServicio, false);
+                        }
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
         public string insertarReservas(Reserva reserva)
         {
             cn.ConnectionString = myConnection();
@@ -597,7 +749,7 @@ namespace POSalesDb
 
                 cn.Open();
                 adapter.UpdateCommand.ExecuteNonQuery();
-
+               
 
                 return Error;
             }
@@ -610,14 +762,15 @@ namespace POSalesDb
             finally
             {
                 cn.Close();
+                selectContadorDeMantenimientosRealizados(MantenimientoModel.idOrdenServicio);
+                deleteReserva(MantenimientoModel.Id);
+                foreach (var reserva in MantenimientoModel.reservas)
+                {
+                    reserva.IdMantenimiento = MantenimientoModel.Id;
+                    insertarReservas(reserva);
+                }
             }
-
-            deleteReserva(MantenimientoModel.Id);
-            foreach (var reserva in MantenimientoModel.reservas)
-            {
-                reserva.IdMantenimiento = MantenimientoModel.Id;
-                insertarReservas(reserva);
-            }
+            
 
         }
 
@@ -1175,6 +1328,7 @@ namespace POSalesDb
                 cn.Open();
                 DataTable dt = new DataTable();
                 da.Fill(dt);
+                cn.Close();
                 da.Dispose();
                 if (dt.Rows.Count > 0)
                 {
@@ -1201,7 +1355,7 @@ namespace POSalesDb
             }
             finally
             {
-                cn.Close();
+
             }
         }
         // get Reserva
@@ -1480,6 +1634,105 @@ namespace POSalesDb
                 cn.Close();
             }
         }
+        public int insertFacturaMantenimiento(Factura factura)
+        {
+            cn.ConnectionString = myConnection();
+            int Error = 0;
+            try
+            {
+                cm = new SqlCommand(@"INSERT INTO [dbo].[factura]
+                   ([clienteId]
+                   ,[usuario]
+                   ,[fecha_venta]
+                   ,[total]
+                   ,[iva]
+                   ,[subtotal]
+                   ,[descuento]
+                   ,[IdOrden]
+                   ,[TipoFactura])
+                     VALUES
+                    (@clienteId,
+                    @usuario,
+                    GETDATE(),
+                    @total,
+                    @iva,
+                    @subtotal,
+                    @descuento,
+                    @IdOrden,
+                    @TipoFactura)
+                    SET @ID = SCOPE_IDENTITY();", cn);
+                cm.Parameters.AddWithValue("@clienteId", factura.clienteId);
+                cm.Parameters.AddWithValue("@usuario", factura.usuario);
+                cm.Parameters.AddWithValue("@total", factura.total);
+                cm.Parameters.AddWithValue("@Date", DateTime.Now);
+                cm.Parameters.AddWithValue("@iva", factura.iva);
+                cm.Parameters.AddWithValue("@subtotal", factura.subtotal);
+                cm.Parameters.AddWithValue("@descuento", factura.descuento);
+                cm.Parameters.AddWithValue("@IdOrden", factura.idORden);
+                cm.Parameters.AddWithValue("@TipoFactura", 2);
+                SqlParameter param = new SqlParameter("@ID", SqlDbType.Int, 4);
+                param.Direction = ParameterDirection.Output;
+                cm.Parameters.Add(param);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                int.TryParse(param.Value.ToString(), out Error);
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public int insertDetalleVenta(DetallesVenta detalles)
+        {
+            cn.ConnectionString = myConnection();
+            int Error = 0;
+            try
+            {
+                cm = new SqlCommand(@"
+               INSERT INTO [dbo].[DetallesVentas]
+                (
+                [IdFactura]
+                ,[IdItem]
+                ,[precioVenta]
+                ,[cantidad]
+                ,[montoTotal]
+                ,[fechaRegistro])
+                VALUES
+                (@idCompra
+                ,@IdItem
+                ,@PrecioCompra
+                ,@Cantidad
+                ,@Total
+                ,GETDATE());", cn);
+                cm.Parameters.AddWithValue("@idCompra", detalles.IdFactura);
+                cm.Parameters.AddWithValue("@IdItem", detalles.IdItem);
+                cm.Parameters.AddWithValue("@PrecioCompra", detalles.precioVenta);
+                cm.Parameters.AddWithValue("@Cantidad", detalles.cantidad);
+                cm.Parameters.AddWithValue("@Total", detalles.montoTotal);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
         public int insertDetallesCompras(Detalle_Compra compras)
         {
             cn.ConnectionString = myConnection();
@@ -1662,6 +1915,21 @@ namespace POSalesDb
         {
             cn.ConnectionString = myConnection();
             cm = new SqlCommand($"SELECT [items].[nombre],[PrecioCompra],[Cantidad],[Total] FROM [dbo].[Detalle_Compra] inner join items on Items.Id =  [Detalle_Compra].IdItems where [idCompra] = {IdCompra}", cn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cm);
+            DataSet table = new DataSet();
+            cn.Open();
+            adapter.Fill(table);
+            adapter.Dispose();
+            cn.Close();
+            return table;
+        }
+        public DataSet generarReporteFactura(int idFactura)
+        {
+            cn.ConnectionString = myConnection();
+            cm = new SqlCommand($@"SELECT items.nombre,precioVenta as PrecioCompra,cantidad,DetallesVentas.montoTotal as Total
+            FROM DetallesVentas 
+            inner join items on Items.Id =  DetallesVentas.IdItem
+            where IdFactura = {idFactura}", cn);
             SqlDataAdapter adapter = new SqlDataAdapter(cm);
             DataSet table = new DataSet();
             cn.Open();
@@ -3759,6 +4027,31 @@ namespace POSalesDb
                 cn.Close();
             }
         }
+        public DataSet selectClienteIdData(int Id)
+        {
+            DataSet dt = new DataSet();
+            cn.ConnectionString = myConnection();
+            Clientes clientes = new Clientes();
+            try
+            {
+                cm = new SqlCommand($"Select * from Clientes Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+               
+                da.Fill(dt);
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return dt;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
 
         //obtener clientes
         public List<Clientes> TodosLosClientes()
@@ -3957,6 +4250,31 @@ namespace POSalesDb
             {
                 CrearEvento(ex.ToString());
                 return factura;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public DataSet selectFacturaIdData(int Id)
+        {
+            DataSet dt = new DataSet();
+            cn.ConnectionString = myConnection();
+            Factura factura = new Factura();
+            try
+            {
+                cm = new SqlCommand($"Select * from factura Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+        
+                da.Fill(dt);
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return dt;
             }
             finally
             {

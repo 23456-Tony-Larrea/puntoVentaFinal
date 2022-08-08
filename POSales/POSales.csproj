@@ -315,6 +315,12 @@
     <Compile Include="Mantenimientos\EntregasCajero.Designer.cs">
       <DependentUpon>EntregasCajero.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\ReporteFacturaMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\ReporteFacturaMantenimiento.Designer.cs">
+      <DependentUpon>ReporteFacturaMantenimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\VerAccesorios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -545,6 +551,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet4.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet5.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Adjustments.resx">
       <DependentUpon>Adjustments.cs</DependentUpon>
     </EmbeddedResource>
@@ -628,6 +639,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\EntregasCajero.resx">
       <DependentUpon>EntregasCajero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\ReporteFacturaMantenimiento.resx">
+      <DependentUpon>ReporteFacturaMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\VerAccesorios.resx">
       <DependentUpon>VerAccesorios.cs</DependentUpon>
@@ -809,10 +823,12 @@
     <None Include="Properties\DataSources\POSalesDb.Compras.datasource" />
     <None Include="Properties\DataSources\POSalesDb.Detalle_Compra.datasource" />
     <None Include="Properties\DataSources\POSalesDb.Equipo.datasource" />
+    <None Include="Properties\DataSources\POSalesDb.Factura.datasource" />
     <None Include="Properties\DataSources\POSalesDb.Items.datasource" />
     <None Include="Properties\DataSources\POSalesDb.Mantenimiento.datasource" />
     <None Include="Properties\DataSources\POSalesDb.MantenimientoModel.datasource" />
     <None Include="Properties\DataSources\POSalesDb.OrdenServicio.datasource" />
+    <None Include="Properties\DataSources\POSalesDb.OrdenServicioModel.datasource" />
     <None Include="Properties\DataSources\POSalesDb.Usuarios.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -877,6 +893,17 @@
     </None>
     <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet4.xss">
       <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet5.xsc">
+      <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet5.xss">
+      <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet5.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

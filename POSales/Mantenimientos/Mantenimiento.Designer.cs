@@ -79,10 +79,10 @@ namespace POSales.Mantenimientos
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 702);
+            this.panel1.Location = new System.Drawing.Point(0, 701);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1626, 69);
+            this.panel1.Size = new System.Drawing.Size(1640, 69);
             this.panel1.TabIndex = 10;
             // 
             // label1
@@ -130,14 +130,15 @@ namespace POSales.Mantenimientos
             this.descripcion,
             this.aplicarCorreccion,
             this.NoAplicarCorreccion});
+            this.dgvClients.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvClients.EnableHeadersVisualStyles = false;
-            this.dgvClients.Location = new System.Drawing.Point(0, 102);
+            this.dgvClients.Location = new System.Drawing.Point(0, 106);
             this.dgvClients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvClients.Name = "dgvClients";
             this.dgvClients.ReadOnly = true;
             this.dgvClients.RowHeadersVisible = false;
             this.dgvClients.RowHeadersWidth = 51;
-            this.dgvClients.Size = new System.Drawing.Size(1623, 596);
+            this.dgvClients.Size = new System.Drawing.Size(1640, 596);
             this.dgvClients.TabIndex = 11;
             this.dgvClients.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellClick);
             this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellContentClick);
@@ -272,12 +273,14 @@ namespace POSales.Mantenimientos
             this.enviarSolucionPorWhatsappToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(273, 28);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // enviarSolucionPorWhatsappToolStripMenuItem
             // 
             this.enviarSolucionPorWhatsappToolStripMenuItem.Name = "enviarSolucionPorWhatsappToolStripMenuItem";
             this.enviarSolucionPorWhatsappToolStripMenuItem.Size = new System.Drawing.Size(272, 24);
             this.enviarSolucionPorWhatsappToolStripMenuItem.Text = "Enviar solucion por whatsapp";
+            this.enviarSolucionPorWhatsappToolStripMenuItem.Click += new System.EventHandler(this.enviarSolucionPorWhatsappToolStripMenuItem_Click_1);
             // 
             // panel2
             // 
@@ -301,7 +304,7 @@ namespace POSales.Mantenimientos
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1626, 106);
+            this.panel2.Size = new System.Drawing.Size(1640, 106);
             this.panel2.TabIndex = 12;
             // 
             // btnBuscarCodigo
@@ -323,7 +326,7 @@ namespace POSales.Mantenimientos
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label9.Location = new System.Drawing.Point(927, 3);
+            this.label9.Location = new System.Drawing.Point(927, 2);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(564, 70);
             this.label9.TabIndex = 17;
@@ -336,7 +339,7 @@ namespace POSales.Mantenimientos
             this.txtBucadorCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBucadorCodigo.Multiline = true;
             this.txtBucadorCodigo.Name = "txtBucadorCodigo";
-            this.txtBucadorCodigo.Size = new System.Drawing.Size(372, 23);
+            this.txtBucadorCodigo.Size = new System.Drawing.Size(372, 22);
             this.txtBucadorCodigo.TabIndex = 16;
             // 
             // label10
@@ -370,7 +373,7 @@ namespace POSales.Mantenimientos
             this.label12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label12.Location = new System.Drawing.Point(437, 9);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(170, 32);
+            this.label12.Size = new System.Drawing.Size(171, 32);
             this.label12.TabIndex = 13;
             this.label12.Text = "Fecha Entrega";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -412,7 +415,7 @@ namespace POSales.Mantenimientos
             this.label13.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label13.Location = new System.Drawing.Point(150, 33);
+            this.label13.Location = new System.Drawing.Point(95, 44);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(139, 32);
             this.label13.TabIndex = 9;
@@ -424,7 +427,7 @@ namespace POSales.Mantenimientos
             this.label14.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label14.Location = new System.Drawing.Point(150, 1);
+            this.label14.Location = new System.Drawing.Point(95, 12);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(139, 32);
             this.label14.TabIndex = 8;
@@ -436,9 +439,9 @@ namespace POSales.Mantenimientos
             this.label15.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label15.Location = new System.Drawing.Point(3, 9);
+            this.label15.Location = new System.Drawing.Point(-52, 20);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(150, 32);
+            this.label15.Size = new System.Drawing.Size(149, 32);
             this.label15.TabIndex = 7;
             this.label15.Text = "Fecha Ingreso";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -449,7 +452,7 @@ namespace POSales.Mantenimientos
             this.btnIngresoBuscar.IconColor = System.Drawing.Color.Black;
             this.btnIngresoBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnIngresoBuscar.IconSize = 15;
-            this.btnIngresoBuscar.Location = new System.Drawing.Point(402, 23);
+            this.btnIngresoBuscar.Location = new System.Drawing.Point(360, 31);
             this.btnIngresoBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnIngresoBuscar.Name = "btnIngresoBuscar";
             this.btnIngresoBuscar.Size = new System.Drawing.Size(33, 23);
@@ -460,26 +463,28 @@ namespace POSales.Mantenimientos
             // dtFechaIngresoHasta
             // 
             this.dtFechaIngresoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaIngresoHasta.Location = new System.Drawing.Point(293, 39);
+            this.dtFechaIngresoHasta.Location = new System.Drawing.Point(239, 46);
             this.dtFechaIngresoHasta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtFechaIngresoHasta.Name = "dtFechaIngresoHasta";
             this.dtFechaIngresoHasta.Size = new System.Drawing.Size(103, 22);
             this.dtFechaIngresoHasta.TabIndex = 2;
+            this.dtFechaIngresoHasta.ValueChanged += new System.EventHandler(this.dtFechaIngresoHasta_ValueChanged);
             // 
             // dtFechaIngresoDesde
             // 
             this.dtFechaIngresoDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaIngresoDesde.Location = new System.Drawing.Point(293, 13);
+            this.dtFechaIngresoDesde.Location = new System.Drawing.Point(240, 19);
             this.dtFechaIngresoDesde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtFechaIngresoDesde.Name = "dtFechaIngresoDesde";
             this.dtFechaIngresoDesde.Size = new System.Drawing.Size(103, 22);
             this.dtFechaIngresoDesde.TabIndex = 1;
+            this.dtFechaIngresoDesde.ValueChanged += new System.EventHandler(this.dtFechaIngresoDesde_ValueChanged);
             // 
             // Mantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1626, 771);
+            this.ClientSize = new System.Drawing.Size(1640, 770);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgvClients);
             this.Controls.Add(this.panel1);

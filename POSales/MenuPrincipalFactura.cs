@@ -37,5 +37,16 @@ namespace POSales
             clientModule.ShowDialog();
            
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            Mantenimientos.EntregasCajero clientModule = new Mantenimientos.EntregasCajero(_idUsuario);
+            clientModule.ShowDialog();
+        }
     }
 }

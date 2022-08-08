@@ -1,6 +1,6 @@
-﻿namespace POSales
+﻿namespace POSales.Mantenimientos
 {
-    partial class ReporteFactura
+    partial class ReporteFacturaMantenimiento
     {
         /// <summary>
         /// Required designer variable.
@@ -36,22 +36,19 @@
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Remote;
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(425, 562);
-            this.reportViewer1.TabIndex = 0;
-            this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load_1);
+            this.reportViewer1.Size = new System.Drawing.Size(800, 450);
+            this.reportViewer1.TabIndex = 1;
             // 
-            // ReporteFactura
+            // ReporteFacturaMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 562);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "ReporteFactura";
-            this.Text = "ReporteFactura";
-            this.Load += new System.EventHandler(this.ReporteFactura_Load);
+            this.Name = "ReporteFacturaMantenimiento";
+            this.Text = "ReporteFacturaMantenimiento";
+            this.Load += new System.EventHandler(this.ReporteFacturaMantenimiento_Load);
             this.ResumeLayout(false);
 
         }

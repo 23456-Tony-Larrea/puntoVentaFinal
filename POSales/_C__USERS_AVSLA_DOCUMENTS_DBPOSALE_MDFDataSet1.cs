@@ -1,1 +1,7 @@
-﻿
+﻿namespace POSales
+{
+}
+
+namespace POSales
+{
+}

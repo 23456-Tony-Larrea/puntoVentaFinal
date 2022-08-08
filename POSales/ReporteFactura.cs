@@ -61,6 +61,7 @@ namespace POSales
 
 
         }
+      
 
         private void ReporteFactura_Load(object sender, EventArgs e)
         {

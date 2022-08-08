@@ -59,8 +59,10 @@ namespace POSales
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Login login = new Login();
             login.ShowDialog();
+            this.Visible = true;
         }
 
         private void btnEquipo_Click(object sender, EventArgs e)

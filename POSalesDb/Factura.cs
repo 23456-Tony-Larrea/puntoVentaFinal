@@ -18,6 +18,7 @@ namespace POSalesDb
         public decimal subtotal { get; set; }
         public decimal descuento { get; set; }
         public int productoId { get; set; }
-
+        public int idORden { get; set; }
+        public List<DetallesVenta> DetallesVenta { get; set; } = new List<DetallesVenta>();
     }
 }
