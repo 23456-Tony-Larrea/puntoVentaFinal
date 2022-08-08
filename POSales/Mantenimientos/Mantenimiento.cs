@@ -225,7 +225,8 @@ namespace POSales.Mantenimientos
                 orden.cliente = dbcon.selectClientesId(orden.idCliente);
                 decimal TotalPorMantenimiento = 0;
                 string Message = $"Saludos, El equipo codigo. {mantenimiento.equipo.codigo} falla:{mantenimiento.descripcionFalla} tiene la solucion: {mantenimiento.solucion} con un costo de mantenimiento de: {total}";
-                ProcessStartInfo SendWhatsapp = new ProcessStartInfo($"https://web.whatsapp.com/send?phone={orden.cliente.telefono}&text={Message.Replace("","%20")}");
+                string Completo = $"https://web.whatsapp.com/send?phone=+59{orden.cliente.celular}&text={Message.Replace(" ", "%20")}";
+                ProcessStartInfo SendWhatsapp = new ProcessStartInfo(Completo);
                 Process.Start(SendWhatsapp);
                 mantenimiento.idEstadoMantenimiento = 3;
                 dbcon.actualizarMantenimientoModel(mantenimiento);

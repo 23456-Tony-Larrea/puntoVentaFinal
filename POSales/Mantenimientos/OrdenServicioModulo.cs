@@ -27,6 +27,8 @@ namespace POSales.Mantenimientos
             InitializeComponent();
  
             orden.idUsuarios = IdUsuario;
+            orden.usuario = dbcon.selectUsuariosPorId(IdUsuario);
+            lblCajero.Text = orden.usuario.nombre;
         }
         public void openChildForm(Form childForm)
         {
@@ -100,16 +102,24 @@ namespace POSales.Mantenimientos
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
-            MantenimientoModel mantenimiento = new MantenimientoModel();
-            mantenimiento.equipo = equipoSeleccionado;
-            mantenimiento.IdEquipo = mantenimiento.equipo.Id;
-            mantenimiento.fechaMantenimiento = DateTime.Now;
-            mantenimiento.idEstadoMantenimiento = 1;
-            mantenimiento.descripcionFalla = txtDesFalla.Text;
-            mantenimientos.Add(mantenimiento);
-            dataGridView1.DataSource = new MantenimientoModel();
-            dataGridView1.DataSource = mantenimientos;
-            txtDesFalla.Clear();
+            if (equipoSeleccionado.Id > 0)
+            {
+                MantenimientoModel mantenimiento = new MantenimientoModel();
+                mantenimiento.equipo = equipoSeleccionado;
+                mantenimiento.IdEquipo = mantenimiento.equipo.Id;
+                mantenimiento.fechaMantenimiento = DateTime.Now;
+                mantenimiento.idEstadoMantenimiento = 1;
+                mantenimiento.descripcionFalla = txtDesFalla.Text;
+                mantenimientos.Add(mantenimiento);
+                dataGridView1.DataSource = new MantenimientoModel();
+                dataGridView1.DataSource = mantenimientos;
+                txtDesFalla.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Por favor seleccione un equipo");
+            }
+     
 
         }
 
