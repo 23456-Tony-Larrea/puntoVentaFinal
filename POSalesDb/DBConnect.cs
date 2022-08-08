@@ -406,7 +406,7 @@ namespace POSalesDb
                     MantenimientoModel.idUsuarios=(int)dt.Rows[0]["idUsuarios"];
                     MantenimientoModel.idOrdenServicio = (int)dt.Rows[0]["idOrdenServicio"];
                     MantenimientoModel.estadoAplicarCorreccion = Convert.ToBoolean(dt.Rows[0]["estadoAplicarCorreccion"]);
-                    MantenimientoModel.precioReferencial = Convert.ToDecimal(dt.Rows[0]["precioReferencial"]);
+                    MantenimientoModel.precioReferencial = Convert.ToDecimal(dt.Rows[0]["precioReferencial"].ToString());
 
                 }
                 return MantenimientoModel;

@@ -272,3 +272,4 @@ C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.exe
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.pdb
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.precioReferencial.resources
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.precioReferencial.resources
+D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.SeleccionarMantenimiento.resources
