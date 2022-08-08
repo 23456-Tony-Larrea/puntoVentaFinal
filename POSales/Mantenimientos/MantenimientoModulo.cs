@@ -11,13 +11,13 @@ using POSalesDb;
 
 namespace POSales.Mantenimientos
 {
-    public partial class MantenimientoModulo : Form
+    public partial class precioReferencial : Form
     {
         MantenimientoModel mantenimiento = new MantenimientoModel();
         Usuarios usuarios = new Usuarios();
         DBConnect dbcon = new DBConnect();
         int idUsuario;
-        public MantenimientoModulo(MantenimientoModel _mantenimiento,int IdUsuario)
+        public precioReferencial(MantenimientoModel _mantenimiento,int IdUsuario)
         {
             this.idUsuario = IdUsuario;
             mantenimiento = _mantenimiento;
@@ -30,6 +30,8 @@ namespace POSales.Mantenimientos
             lblTecnico.Text = usuarios.nombre;
             txtOrdenServicio.Text = mantenimiento.equipo.descripcionEquipo;
             txtDescripcionFallo.Text = mantenimiento.descripcionFalla;
+            txtSolucion.Text = mantenimiento.solucion;
+            txtPrecio.Text = mantenimiento.precioReferencial.ToString();
 
         }
 
@@ -51,7 +53,7 @@ namespace POSales.Mantenimientos
             mantenimiento.fechaEntregaEquipo = DateTime.Now;
             mantenimiento.solucion = txtSolucion.Text;
             mantenimiento.idUsuarios = idUsuario;
-            decimal.TryParse(textBox2.Text, out precioReferencial);
+            decimal.TryParse(txtPrecio.Text, out precioReferencial);
             mantenimiento.precioReferencial = precioReferencial;
             Error = dbcon.actualizarMantenimientoModel(mantenimiento);
             if (string.IsNullOrEmpty(Error))
@@ -71,9 +73,29 @@ namespace POSales.Mantenimientos
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Mantenimientos.ReservasModulo reserva = new Mantenimientos.ReservasModulo();
+            Mantenimientos.ReservasModulo reserva = new Mantenimientos.ReservasModulo(mantenimiento.Id);
             reserva.ShowDialog();
             mantenimiento.reservas = reserva.ItemsFacturados;
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar == '\b')
+            {
+                // Allow Digits and BackSpace char
+            }
+            else if (e.KeyChar == '.' && !((TextBox)sender).Text.Contains(','))
+            {
+                e.KeyChar = ',';
+            }
+            else if (e.KeyChar == ',' && !((TextBox)sender).Text.Contains(','))
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

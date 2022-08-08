@@ -1,6 +1,6 @@
 ﻿namespace POSales.Mantenimientos
 {
-    partial class MantenimientoModulo
+    partial class precioReferencial
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MantenimientoModulo));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(precioReferencial));
             this.txtOrdenServicio = new System.Windows.Forms.TextBox();
             this.lblTecnico = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,7 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
@@ -211,13 +211,14 @@
             this.panel1.Size = new System.Drawing.Size(880, 55);
             this.panel1.TabIndex = 100;
             // 
-            // textBox2
+            // txtPrecio
             // 
-            this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox2.Location = new System.Drawing.Point(220, 534);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(114, 24);
-            this.textBox2.TabIndex = 203;
+            this.txtPrecio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPrecio.Location = new System.Drawing.Point(220, 534);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(114, 24);
+            this.txtPrecio.TabIndex = 203;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // label5
             // 
@@ -244,13 +245,13 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // MantenimientoModulo
+            // precioReferencial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 704);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtSolucion);
             this.Controls.Add(this.label4);
@@ -265,7 +266,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "MantenimientoModulo";
+            this.Name = "precioReferencial";
             this.Text = "MantenimientoModulo";
             this.Load += new System.EventHandler(this.MantenimientoModulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
@@ -293,7 +294,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.Button button1;
     }

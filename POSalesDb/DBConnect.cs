@@ -406,7 +406,8 @@ namespace POSalesDb
                     MantenimientoModel.idUsuarios=(int)dt.Rows[0]["idUsuarios"];
                     MantenimientoModel.idOrdenServicio = (int)dt.Rows[0]["idOrdenServicio"];
                     MantenimientoModel.estadoAplicarCorreccion = Convert.ToBoolean(dt.Rows[0]["estadoAplicarCorreccion"]);
-                
+                    MantenimientoModel.precioReferencial = Convert.ToDecimal(dt.Rows[0]["precioReferencial"]);
+
                 }
                 return MantenimientoModel;
 
@@ -415,6 +416,36 @@ namespace POSalesDb
             {
                 CrearEvento(ex.ToString());
                 return MantenimientoModel;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public string selectFallaDeEquipo(int Id)
+        {
+            DateTime fechaEntrega;
+            string falla = string.Empty;
+            cn.ConnectionString = myConnection();
+            MantenimientoModel MantenimientoModel = new MantenimientoModel();
+            try
+            {
+                cm = new SqlCommand($"SELECT TOP (1) descripcionFalla from Mantenimiento Where IdEquipo = {Id} order by Mantenimiento desc ", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    falla = dt.Rows[0]["descripcionFalla"].ToString();
+                }
+                return falla;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return falla;
             }
             finally
             {
@@ -695,7 +726,7 @@ namespace POSalesDb
                     values(@IdMantenimiento,@estadoReserva,@idItem,@Cantidad,@precioFinal,@precioA)", cn);
                 cm.Parameters.AddWithValue("@IdMantenimiento", reserva.IdMantenimiento);
                 cm.Parameters.AddWithValue("@estadoReserva", reserva.estadoReserva = "Activo");
-                cm.Parameters.AddWithValue("@idItem", reserva.idItem);
+                cm.Parameters.AddWithValue("@idItem", reserva.items.Id);
                 cm.Parameters.AddWithValue("@Cantidad", reserva.Cantidad);
                 cm.Parameters.AddWithValue("@precioFinal", reserva.precioFinal);
                 cm.Parameters.AddWithValue("@precioA", reserva.items.precioA);
@@ -797,13 +828,17 @@ namespace POSalesDb
                 cn.Close();
                 selectContadorDeMantenimientosRealizados(MantenimientoModel.idOrdenServicio);
                 deleteReserva(MantenimientoModel.Id);
-                foreach (var reserva in MantenimientoModel.reservas)
+                if(MantenimientoModel.reservas.Count > 0)
                 {
-                    reserva.IdMantenimiento = MantenimientoModel.Id;
-                    insertarReservas(reserva);
+                    foreach (var reserva in MantenimientoModel.reservas)
+                    {
+                        reserva.IdMantenimiento = MantenimientoModel.Id;
+                        insertarReservas(reserva);
+                    }
+
                 }
+        
             }
-            
 
         }
 

@@ -63,5 +63,10 @@ namespace POSales
         {
         
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            ((DataTable)dgvClients.DataSource).DefaultView.RowFilter = string.Format("[nombreDataGridViewTextBoxColumn] LIKE '%{0}%' or [comercioDataGridViewTextBoxColumn] LIKE '%{0}%' or [codigoDataGridViewTextBoxColumn] LIKE '%{0}%' or [ciRucDataGridViewTextBoxColumn] LIKE '%{0}%'", textBox1.Text);
+        }
     }
 }

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservasModulo));
             this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.txtIdReserva = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -42,7 +41,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtCodBarrasItem = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.cboEstadoReserva = new System.Windows.Forms.ComboBox();
             this.btnBuscarItem = new System.Windows.Forms.Button();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
@@ -95,16 +93,6 @@
             this.label1.Text = "Modulo de Reservas";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 109);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(109, 19);
-            this.label10.TabIndex = 191;
-            this.label10.Text = "Estado reserva";
-            // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -118,6 +106,7 @@
             this.btnCancel.TabIndex = 190;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtIdReserva
             // 
@@ -225,14 +214,6 @@
             this.label11.Size = new System.Drawing.Size(165, 19);
             this.label11.TabIndex = 193;
             this.label11.Text = "codigo barras del Item";
-            // 
-            // cboEstadoReserva
-            // 
-            this.cboEstadoReserva.FormattingEnabled = true;
-            this.cboEstadoReserva.Location = new System.Drawing.Point(216, 109);
-            this.cboEstadoReserva.Name = "cboEstadoReserva";
-            this.cboEstadoReserva.Size = new System.Drawing.Size(567, 27);
-            this.cboEstadoReserva.TabIndex = 197;
             // 
             // btnBuscarItem
             // 
@@ -576,8 +557,6 @@
             this.Controls.Add(this.ggvProductos);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnBuscarItem);
-            this.Controls.Add(this.cboEstadoReserva);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtIdReserva);
             this.Controls.Add(this.panel1);
@@ -606,7 +585,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label10;
         public System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox txtIdReserva;
         private System.Windows.Forms.Panel panel1;
@@ -618,7 +596,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtCodBarrasItem;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cboEstadoReserva;
         private System.Windows.Forms.Button btnBuscarItem;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtTotal;

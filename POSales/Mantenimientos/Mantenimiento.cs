@@ -13,7 +13,6 @@ namespace POSales.Mantenimientos
     {
         DBConnect dbcon = new DBConnect();  
         MantenimientoModel mantenimiento = new MantenimientoModel();
-        int idUsuarioFacturador = 0;
         Usuarios usuario = new Usuarios();
         public Mantenimiento(int idUsuarioFacturador)
         {
@@ -131,7 +130,7 @@ namespace POSales.Mantenimientos
                     {
                         mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
                         mantenimiento.equipo = dbcon.selectEquipoPorId(mantenimiento.IdEquipo);
-                        Mantenimientos.MantenimientoModulo MantenimientoView = new Mantenimientos.MantenimientoModulo(mantenimiento, idUsuarioFacturador);
+                        Mantenimientos.precioReferencial MantenimientoView = new Mantenimientos.precioReferencial(mantenimiento, usuario.Id);
                         MantenimientoView.ShowDialog();
                         cargarDatos();
                     }
