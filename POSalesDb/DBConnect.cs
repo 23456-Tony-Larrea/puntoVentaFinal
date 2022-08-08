@@ -22,7 +22,7 @@ namespace POSalesDb
         private string con;
         public string myConnection()
         {
-            con = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            con = @"Data Source=.;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True";
             return con;
         }
 
@@ -484,6 +484,39 @@ namespace POSalesDb
 
                 da.Fill(dt);
               
+                return dt;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return dt;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public DataTable selectTodosLosMantenimientoDeHoyData()
+        {
+            cn.ConnectionString = myConnection();
+            List<MantenimientoModel> MantenimientoModels = new List<MantenimientoModel>();
+            cn.Open();
+            DataTable dt = new DataTable();
+            try
+            {
+                cm = new SqlCommand($@"SELECT Mantenimiento.Id,Mantenimiento.fechaMantenimiento , Mantenimiento.fechaEntregaEquipo, Mantenimiento.descripcionFalla, Mantenimiento.solucion, Mantenimiento.IdEstadoMantenimiento, 
+                         Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
+                         Equipo.codigo ,Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
+                         FROM                   
+                         Mantenimiento LEFT JOIN
+                         Equipo ON Mantenimiento.IdEquipo = Equipo.Id LEFT JOIN
+                         estadoMantenimiento ON Mantenimiento.[IdEstadoMantenimiento] = estadoMantenimiento.Id Order by Mantenimiento.Id desc
+                         where fechaMantenimiento =GETDATE()");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+
+                da.Fill(dt);
+
                 return dt;
             }
 

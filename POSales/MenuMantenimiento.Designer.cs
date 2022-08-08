@@ -62,7 +62,7 @@
             this.panelMain.Location = new System.Drawing.Point(241, 0);
             this.panelMain.Margin = new System.Windows.Forms.Padding(4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1445, 786);
+            this.panelMain.Size = new System.Drawing.Size(1043, 786);
             this.panelMain.TabIndex = 5;
             this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
@@ -73,7 +73,7 @@
             this.lblName.Location = new System.Drawing.Point(7, 127);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(29, 21);
+            this.lblName.Size = new System.Drawing.Size(25, 20);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Ln";
             this.lblName.Visible = false;
@@ -85,7 +85,7 @@
             this.lblUsername.Location = new System.Drawing.Point(72, 151);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(72, 21);
+            this.lblUsername.Size = new System.Drawing.Size(63, 20);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Usuario";
             // 
@@ -96,7 +96,7 @@
             this.lblRole.Location = new System.Drawing.Point(68, 197);
             this.lblRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(80, 21);
+            this.lblRole.Size = new System.Drawing.Size(66, 20);
             this.lblRole.TabIndex = 0;
             this.lblRole.Text = "Tecnico";
             // 
@@ -334,9 +334,9 @@
             // 
             // MenuMantenimiento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1686, 786);
+            this.ClientSize = new System.Drawing.Size(1284, 786);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelSlide);
             this.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

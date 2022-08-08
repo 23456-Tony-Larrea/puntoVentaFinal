@@ -31,7 +31,7 @@ namespace POSales.Mantenimientos
             bool NoAprovado = false, Aprovado = false;
 
             DataTable dt = new DataTable();
-            dt = dbcon.selectTodosLosMantenimientoModelsData();
+            dt = dbcon.selectTodosLosMantenimientoDeHoyData();
             foreach (DataRow r in dt.Rows)
             {
                 bool.TryParse(r["estadoNoAplicarCorreccion"].ToString(), out NoAprovado);
@@ -183,24 +183,13 @@ namespace POSales.Mantenimientos
         private void btnIngresoBuscar_Click(object sender, EventArgs e)
         {
            
-            cargarDatosPorFechasDeMatenimiento( dtFechaIngresoDesde.Value,dtFechaIngresoHasta.Value);
+            cargarDatosPorFechasDeMatenimiento(dtFechaIngresoDesde.Value,dtFechaIngresoHasta.Value);
         }
 
         private void btnEntregaBuscar_Click(object sender, EventArgs e)
         {
-            if (dtFechaIngresoDesde.Value > dtFechaIngresoHasta.Value)
-            {
-                dtFechaIngresoDesde.Value = dtFechaIngresoHasta.Value;
-                MessageBox.Show("Debe escoger un valor menor en la fecha desde");
-                return;
-            }
-            if (dtFechaIngresoHasta.Value < dtFechaIngresoDesde.Value)
-            {
-                dtFechaIngresoDesde.Value = dtFechaIngresoHasta.Value;
-                MessageBox.Show("Debe escoger un valor Mayor en la fecha Hasta");
-                return;
-             }
-            cargarDatosPorFechasDeEntrega(dtFechaIngresoDesde.Value, dtFechaIngresoHasta.Value);
+     
+            cargarDatosPorFechasDeEntrega(dtFechaEntregaDesde.Value, dtFechaEntregaMantenimientoHasta.Value);
         }
 
         private void btnBuscarCodigo_Click(object sender, EventArgs e)
@@ -266,13 +255,33 @@ namespace POSales.Mantenimientos
 
         private void dtFechaIngresoHasta_ValueChanged(object sender, EventArgs e)
         {
+            if (dtFechaIngresoHasta.Value < dtFechaIngresoDesde.Value)
+            {
+                dtFechaIngresoDesde.Value = dtFechaIngresoHasta.Value;
+                MessageBox.Show("Debe escoger un valor Mayor en la fecha Hasta");
+                return;
+            }
+
+        }
+
+        private void dtFechaEntregaDesde_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtFechaEntregaDesde.Value > dtFechaEntregaMantenimientoHasta.Value)
+            {
+                dtFechaEntregaMantenimientoHasta.Value = dtFechaEntregaDesde.Value;
+                MessageBox.Show("Debe escoger un valor menor en la fecha desde");
+                return;
+            }
+        }
+
+        private void dtFechaEntregaMantenimientoHasta_ValueChanged(object sender, EventArgs e)
+        {
             if (dtFechaEntregaMantenimientoHasta.Value < dtFechaEntregaDesde.Value)
             {
                 dtFechaEntregaDesde.Value = dtFechaEntregaMantenimientoHasta.Value;
                 MessageBox.Show("Debe escoger un valor Mayor en la fecha Hasta");
                 return;
             }
-
         }
     }
 }
