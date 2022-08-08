@@ -121,7 +121,7 @@
   <data name="picClientes.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAC+GSURBVHhe7d0J
+        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAC+GSURBVHhe7d0J
         +HZjgcfx177vS0IlUTRSTUW6qlFTTaWkRalp00I7DdMqUUwyEg1Jm4iEUSJaJKZBEVlKqLQQ2bIk+zLz
         +9GrP+/vff7bOee+z3m+3+v6dHUd7/t/7/M8z/9+tnPuM4eIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiI
         iIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiI
@@ -330,7 +330,7 @@
   <data name="btnFactura.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADEFSURBVHhe7d0J
+        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADEFSURBVHhe7d0J
         3K31vPfx2u2m3TwXGkSSShGlpJMUDk2e8hhKUXRUjyYRTkhISgMhpRKZyqFUOlEU0SzhiApplgaaS7XP
         8/3JdjX8dvu+//9r+P+v3+f9en1ez3nO63Wsay1r3+t7r3ut65oN2aaoF6i91HHqfHW9ukNNV/9LRFRg
         d6mb1S/UierDaiM1jwLwFNZVR6rblPePi4ioxu5XJ6vXqbkUAJldbaYuUt4/HCKiMXWL2k8tqICw7G3+
@@ -562,7 +562,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAD/aSURBVHhe7d0J
+        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAD/aSURBVHhe7d0J
         1HVpWd55ZJ4RcQAnoq2oFJhOjImzcehEnI1mEO1WE0U7DqiJMRoH0HaILQhSVjlFV0wMisOKs1hQqJ2k
         FVQ0VGmcIE4oo1ZRKihF93Wn8q2vhqvq3te7zz77Oef5/9f6rQXoffY+z5ne7wx7342IiIiIiIiIiIiI
         iIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiI

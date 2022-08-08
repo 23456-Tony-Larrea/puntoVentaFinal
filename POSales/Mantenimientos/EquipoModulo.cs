@@ -100,7 +100,7 @@ namespace POSales.Mantenimientos
             {
                 dbcon.insertAccesorios(accesorio);
             }
-               
+            MessageBox.Show("insertado con exito");   
         }
 
         private void label10_Click(object sender, EventArgs e)

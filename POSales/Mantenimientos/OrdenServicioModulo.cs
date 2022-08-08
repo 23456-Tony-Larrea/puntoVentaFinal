@@ -92,7 +92,8 @@ namespace POSales.Mantenimientos
                 MessageBox.Show($"has seleccionado el equipo codigo {equipoSeleccionado.codigo}");
      
                 txtDesFalla.Enabled = true;
-                txtDesFalla.Clear();
+                txtDesFalla.Text = dbcon.selectFallaDeEquipo(equipoSeleccionado.Id);
+
             }
            
         }

@@ -14,8 +14,9 @@ namespace POSales.Mantenimientos
         Items Itemseleccionado = new Items();
         DBConnect dbcon = new DBConnect();
         decimal Subtotal = 0, iva = 0, TotalFactura = 0;
-        public ReservasModulo()
+        public ReservasModulo(int idMantenimiento)
         {
+            this.idMantenimiento = idMantenimiento;
             InitializeComponent();
         }
 
@@ -26,6 +27,7 @@ namespace POSales.Mantenimientos
 
         private void btnBuscarItem_Click(object sender, EventArgs e)
         {
+            LimpiarCampos();
             LookUpProduct supplier = new LookUpProduct("");
             supplier.ShowDialog();
             Itemseleccionado = supplier.item;
@@ -33,6 +35,7 @@ namespace POSales.Mantenimientos
             txtDescripcionItem.Text = Itemseleccionado.nombre;
             txtStock.Text = Itemseleccionado.stock.ToString();
             txtPrecio.Text = Itemseleccionado.precioA.ToString();
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -117,6 +120,26 @@ namespace POSales.Mantenimientos
             }
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cboEstadoReserva_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void LimpiarCampos()
+        {
+            txtCant.Clear();
+            txtPrecio.Clear();
+            txtIvaItem.Clear();
+            txtStock.Clear();
+            txtSubtotal.Clear();
+            txtSubTotalItem.Clear();
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (Itemseleccionado.Id == 0)
@@ -158,6 +181,7 @@ namespace POSales.Mantenimientos
             txtSubtotal.Text = Subtotal.ToString();
             txtTotal.Text = TotalFactura.ToString();
             txtIva.Text = iva.ToString();
+            LimpiarCampos();
         }
     }
 }

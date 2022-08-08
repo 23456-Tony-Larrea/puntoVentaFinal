@@ -79,10 +79,10 @@ namespace POSales.Mantenimientos
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 701);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(0, 570);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1640, 69);
+            this.panel1.Size = new System.Drawing.Size(1234, 56);
             this.panel1.TabIndex = 10;
             // 
             // label1
@@ -91,9 +91,10 @@ namespace POSales.Mantenimientos
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Location = new System.Drawing.Point(9, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(319, 32);
+            this.label1.Size = new System.Drawing.Size(239, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Manejo de Mantenimientos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -132,13 +133,13 @@ namespace POSales.Mantenimientos
             this.NoAplicarCorreccion});
             this.dgvClients.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvClients.EnableHeadersVisualStyles = false;
-            this.dgvClients.Location = new System.Drawing.Point(0, 106);
-            this.dgvClients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvClients.Location = new System.Drawing.Point(0, 86);
+            this.dgvClients.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvClients.Name = "dgvClients";
             this.dgvClients.ReadOnly = true;
             this.dgvClients.RowHeadersVisible = false;
             this.dgvClients.RowHeadersWidth = 51;
-            this.dgvClients.Size = new System.Drawing.Size(1640, 596);
+            this.dgvClients.Size = new System.Drawing.Size(1230, 484);
             this.dgvClients.TabIndex = 11;
             this.dgvClients.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellClick);
             this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellContentClick);
@@ -159,7 +160,6 @@ namespace POSales.Mantenimientos
             this.Fecha.Name = "Fecha";
             this.Fecha.ReadOnly = true;
             this.Fecha.ToolTipText = "Fecha de Ingreso";
-            this.Fecha.Width = 122;
             // 
             // FechaEntrega
             // 
@@ -169,7 +169,7 @@ namespace POSales.Mantenimientos
             this.FechaEntrega.Name = "FechaEntrega";
             this.FechaEntrega.ReadOnly = true;
             this.FechaEntrega.ToolTipText = "Fecha Entrega";
-            this.FechaEntrega.Width = 127;
+            this.FechaEntrega.Width = 103;
             // 
             // descripcionFalla
             // 
@@ -210,7 +210,7 @@ namespace POSales.Mantenimientos
             this.idOrdenServicio.MinimumWidth = 6;
             this.idOrdenServicio.Name = "idOrdenServicio";
             this.idOrdenServicio.ReadOnly = true;
-            this.idOrdenServicio.Width = 97;
+            this.idOrdenServicio.Width = 79;
             // 
             // IdEquipo
             // 
@@ -242,7 +242,7 @@ namespace POSales.Mantenimientos
             this.descripcion.MinimumWidth = 6;
             this.descripcion.Name = "descripcion";
             this.descripcion.ReadOnly = true;
-            this.descripcion.Width = 99;
+            this.descripcion.Width = 81;
             // 
             // aplicarCorreccion
             // 
@@ -253,7 +253,7 @@ namespace POSales.Mantenimientos
             this.aplicarCorreccion.ReadOnly = true;
             this.aplicarCorreccion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.aplicarCorreccion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.aplicarCorreccion.Width = 102;
+            this.aplicarCorreccion.Width = 84;
             // 
             // NoAplicarCorreccion
             // 
@@ -264,7 +264,7 @@ namespace POSales.Mantenimientos
             this.NoAplicarCorreccion.ReadOnly = true;
             this.NoAplicarCorreccion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.NoAplicarCorreccion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.NoAplicarCorreccion.Width = 133;
+            this.NoAplicarCorreccion.Width = 109;
             // 
             // contextMenuStrip1
             // 
@@ -272,13 +272,13 @@ namespace POSales.Mantenimientos
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.enviarSolucionPorWhatsappToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(273, 28);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(230, 26);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // enviarSolucionPorWhatsappToolStripMenuItem
             // 
             this.enviarSolucionPorWhatsappToolStripMenuItem.Name = "enviarSolucionPorWhatsappToolStripMenuItem";
-            this.enviarSolucionPorWhatsappToolStripMenuItem.Size = new System.Drawing.Size(272, 24);
+            this.enviarSolucionPorWhatsappToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.enviarSolucionPorWhatsappToolStripMenuItem.Text = "Enviar solucion por whatsapp";
             this.enviarSolucionPorWhatsappToolStripMenuItem.Click += new System.EventHandler(this.enviarSolucionPorWhatsappToolStripMenuItem_Click_1);
             // 
@@ -302,9 +302,9 @@ namespace POSales.Mantenimientos
             this.panel2.Controls.Add(this.dtFechaIngresoDesde);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1640, 106);
+            this.panel2.Size = new System.Drawing.Size(1234, 86);
             this.panel2.TabIndex = 12;
             // 
             // btnBuscarCodigo
@@ -313,10 +313,10 @@ namespace POSales.Mantenimientos
             this.btnBuscarCodigo.IconColor = System.Drawing.Color.Black;
             this.btnBuscarCodigo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBuscarCodigo.IconSize = 15;
-            this.btnBuscarCodigo.Location = new System.Drawing.Point(1437, 75);
-            this.btnBuscarCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBuscarCodigo.Location = new System.Drawing.Point(1078, 61);
+            this.btnBuscarCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBuscarCodigo.Name = "btnBuscarCodigo";
-            this.btnBuscarCodigo.Size = new System.Drawing.Size(33, 23);
+            this.btnBuscarCodigo.Size = new System.Drawing.Size(25, 19);
             this.btnBuscarCodigo.TabIndex = 18;
             this.btnBuscarCodigo.UseVisualStyleBackColor = true;
             this.btnBuscarCodigo.Click += new System.EventHandler(this.btnBuscarCodigo_Click);
@@ -326,20 +326,21 @@ namespace POSales.Mantenimientos
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label9.Location = new System.Drawing.Point(927, 2);
+            this.label9.Location = new System.Drawing.Point(695, 2);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(564, 70);
+            this.label9.Size = new System.Drawing.Size(423, 57);
             this.label9.TabIndex = 17;
             this.label9.Text = "Buscar Por Codigo,Falla,Solcion y Descripcion de Equipo";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtBucadorCodigo
             // 
-            this.txtBucadorCodigo.Location = new System.Drawing.Point(1059, 75);
-            this.txtBucadorCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBucadorCodigo.Location = new System.Drawing.Point(794, 61);
+            this.txtBucadorCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBucadorCodigo.Multiline = true;
             this.txtBucadorCodigo.Name = "txtBucadorCodigo";
-            this.txtBucadorCodigo.Size = new System.Drawing.Size(372, 22);
+            this.txtBucadorCodigo.Size = new System.Drawing.Size(280, 19);
             this.txtBucadorCodigo.TabIndex = 16;
             // 
             // label10
@@ -347,9 +348,10 @@ namespace POSales.Mantenimientos
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label10.Location = new System.Drawing.Point(637, 41);
+            this.label10.Location = new System.Drawing.Point(478, 33);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(139, 32);
+            this.label10.Size = new System.Drawing.Size(104, 26);
             this.label10.TabIndex = 15;
             this.label10.Text = "Fecha Hasta";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -359,9 +361,10 @@ namespace POSales.Mantenimientos
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label11.Location = new System.Drawing.Point(637, 9);
+            this.label11.Location = new System.Drawing.Point(478, 7);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(139, 32);
+            this.label11.Size = new System.Drawing.Size(104, 26);
             this.label11.TabIndex = 14;
             this.label11.Text = "Fecha Desde";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -371,9 +374,10 @@ namespace POSales.Mantenimientos
             this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label12.Location = new System.Drawing.Point(437, 9);
+            this.label12.Location = new System.Drawing.Point(328, 7);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(171, 32);
+            this.label12.Size = new System.Drawing.Size(128, 26);
             this.label12.TabIndex = 13;
             this.label12.Text = "Fecha Entrega";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -384,10 +388,10 @@ namespace POSales.Mantenimientos
             this.btnEntregaBuscar.IconColor = System.Drawing.Color.Black;
             this.btnEntregaBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEntregaBuscar.IconSize = 15;
-            this.btnEntregaBuscar.Location = new System.Drawing.Point(888, 31);
-            this.btnEntregaBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEntregaBuscar.Location = new System.Drawing.Point(666, 25);
+            this.btnEntregaBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEntregaBuscar.Name = "btnEntregaBuscar";
-            this.btnEntregaBuscar.Size = new System.Drawing.Size(33, 23);
+            this.btnEntregaBuscar.Size = new System.Drawing.Size(25, 19);
             this.btnEntregaBuscar.TabIndex = 12;
             this.btnEntregaBuscar.UseVisualStyleBackColor = true;
             this.btnEntregaBuscar.Click += new System.EventHandler(this.btnEntregaBuscar_Click);
@@ -395,29 +399,32 @@ namespace POSales.Mantenimientos
             // dtFechaEntregaMantenimientoHasta
             // 
             this.dtFechaEntregaMantenimientoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaEntregaMantenimientoHasta.Location = new System.Drawing.Point(780, 47);
-            this.dtFechaEntregaMantenimientoHasta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtFechaEntregaMantenimientoHasta.Location = new System.Drawing.Point(585, 38);
+            this.dtFechaEntregaMantenimientoHasta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtFechaEntregaMantenimientoHasta.Name = "dtFechaEntregaMantenimientoHasta";
-            this.dtFechaEntregaMantenimientoHasta.Size = new System.Drawing.Size(103, 22);
+            this.dtFechaEntregaMantenimientoHasta.Size = new System.Drawing.Size(78, 20);
             this.dtFechaEntregaMantenimientoHasta.TabIndex = 11;
+            this.dtFechaEntregaMantenimientoHasta.ValueChanged += new System.EventHandler(this.dtFechaEntregaMantenimientoHasta_ValueChanged);
             // 
             // dtFechaEntregaDesde
             // 
             this.dtFechaEntregaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaEntregaDesde.Location = new System.Drawing.Point(780, 21);
-            this.dtFechaEntregaDesde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtFechaEntregaDesde.Location = new System.Drawing.Point(585, 17);
+            this.dtFechaEntregaDesde.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtFechaEntregaDesde.Name = "dtFechaEntregaDesde";
-            this.dtFechaEntregaDesde.Size = new System.Drawing.Size(103, 22);
+            this.dtFechaEntregaDesde.Size = new System.Drawing.Size(78, 20);
             this.dtFechaEntregaDesde.TabIndex = 10;
+            this.dtFechaEntregaDesde.ValueChanged += new System.EventHandler(this.dtFechaEntregaDesde_ValueChanged);
             // 
             // label13
             // 
             this.label13.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label13.Location = new System.Drawing.Point(95, 44);
+            this.label13.Location = new System.Drawing.Point(71, 36);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(139, 32);
+            this.label13.Size = new System.Drawing.Size(104, 26);
             this.label13.TabIndex = 9;
             this.label13.Text = "Fecha Hasta";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -427,9 +434,10 @@ namespace POSales.Mantenimientos
             this.label14.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label14.Location = new System.Drawing.Point(95, 12);
+            this.label14.Location = new System.Drawing.Point(71, 10);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(139, 32);
+            this.label14.Size = new System.Drawing.Size(104, 26);
             this.label14.TabIndex = 8;
             this.label14.Text = "Fecha Desde";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -439,9 +447,10 @@ namespace POSales.Mantenimientos
             this.label15.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label15.Location = new System.Drawing.Point(-52, 20);
+            this.label15.Location = new System.Drawing.Point(-39, 16);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(149, 32);
+            this.label15.Size = new System.Drawing.Size(112, 26);
             this.label15.TabIndex = 7;
             this.label15.Text = "Fecha Ingreso";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -452,10 +461,10 @@ namespace POSales.Mantenimientos
             this.btnIngresoBuscar.IconColor = System.Drawing.Color.Black;
             this.btnIngresoBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnIngresoBuscar.IconSize = 15;
-            this.btnIngresoBuscar.Location = new System.Drawing.Point(360, 31);
-            this.btnIngresoBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnIngresoBuscar.Location = new System.Drawing.Point(270, 25);
+            this.btnIngresoBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnIngresoBuscar.Name = "btnIngresoBuscar";
-            this.btnIngresoBuscar.Size = new System.Drawing.Size(33, 23);
+            this.btnIngresoBuscar.Size = new System.Drawing.Size(25, 19);
             this.btnIngresoBuscar.TabIndex = 5;
             this.btnIngresoBuscar.UseVisualStyleBackColor = true;
             this.btnIngresoBuscar.Click += new System.EventHandler(this.btnIngresoBuscar_Click);
@@ -463,32 +472,32 @@ namespace POSales.Mantenimientos
             // dtFechaIngresoHasta
             // 
             this.dtFechaIngresoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaIngresoHasta.Location = new System.Drawing.Point(239, 46);
-            this.dtFechaIngresoHasta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtFechaIngresoHasta.Location = new System.Drawing.Point(179, 37);
+            this.dtFechaIngresoHasta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtFechaIngresoHasta.Name = "dtFechaIngresoHasta";
-            this.dtFechaIngresoHasta.Size = new System.Drawing.Size(103, 22);
+            this.dtFechaIngresoHasta.Size = new System.Drawing.Size(78, 20);
             this.dtFechaIngresoHasta.TabIndex = 2;
             this.dtFechaIngresoHasta.ValueChanged += new System.EventHandler(this.dtFechaIngresoHasta_ValueChanged);
             // 
             // dtFechaIngresoDesde
             // 
             this.dtFechaIngresoDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaIngresoDesde.Location = new System.Drawing.Point(240, 19);
-            this.dtFechaIngresoDesde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtFechaIngresoDesde.Location = new System.Drawing.Point(180, 15);
+            this.dtFechaIngresoDesde.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtFechaIngresoDesde.Name = "dtFechaIngresoDesde";
-            this.dtFechaIngresoDesde.Size = new System.Drawing.Size(103, 22);
+            this.dtFechaIngresoDesde.Size = new System.Drawing.Size(78, 20);
             this.dtFechaIngresoDesde.TabIndex = 1;
             this.dtFechaIngresoDesde.ValueChanged += new System.EventHandler(this.dtFechaIngresoDesde_ValueChanged);
             // 
             // Mantenimiento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1640, 770);
+            this.ClientSize = new System.Drawing.Size(1234, 626);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgvClients);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Mantenimiento";
             this.Text = "Mantenimiento";
             this.Load += new System.EventHandler(this.Mantenimiento_Load);
