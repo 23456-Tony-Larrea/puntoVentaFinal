@@ -51,20 +51,30 @@ namespace POSales.Mantenimientos
         private void CargarOrdenes()
         {
             dgvOrdenes.Rows.Clear();
-            bool NoAprovado = false, Aprovado = false;
-
-            DataTable dt = new DataTable();
-            dt = dbcon.selectTodosLosMantenimientoModelsData();
-            foreach (DataRow r in dt.Rows)
+            DataSet ordenes = new DataSet();
+            ordenes = dbcon.selectTodosLasOrdenesDS();
+            if (ordenes.Tables.Count > 0)
             {
-                bool.TryParse(r["estadoNoAplicarCorreccion"].ToString(), out NoAprovado);
-                bool.TryParse(r["estadoAplicarCorreccion"].ToString(), out Aprovado);
-                dgvOrdenes.Rows.Add(
-                    r["id"].ToString(), r["fechaMantenimiento"].ToString(), r["fechaEntregaEquipo"].ToString(),
-                    r["descripcionFalla"].ToString(), r["solucion"].ToString(), r["IdEstadoMantenimiento"].ToString(),
-                    r["idUsuarios"].ToString(), r["idOrdenServicio"].ToString(), r["idEquipo"].ToString(),
-                    r["codigo"].ToString(), r["descirpcionEquipo"].ToString(), r["descripcion"].ToString(), Aprovado,
-                    NoAprovado);
+                if (ordenes.Tables[0].Rows.Count > 0)
+                {
+                    foreach (DataRow r in ordenes.Tables[0].Rows)
+                    {
+                        string Estado = string.Empty;
+                        if (r["Estado"].ToString() == "1" || r["Estado"].ToString() == "true")
+                        {
+                            Estado = "Facturado";
+                        }
+                        else
+                        {
+                            Estado = "No Facturado";
+                        }
+                        dgvOrdenes.Rows.Add(r["id"].ToString(), r["Fecha Ingreso"].ToString(),
+                            r["ciRuc"].ToString(), r["Nombre"].ToString(), r["Nombre"].ToString(),
+                            r["Estado"].ToString(), Estado, r["idUsuarios"].ToString(),
+                            r["idCliente"].ToString(), false);
+                    }
+
+                }
             }
         }
 
@@ -135,31 +145,7 @@ namespace POSales.Mantenimientos
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-            DataSet ordenes = new DataSet();
-            ordenes = dbcon.selectTodosLasOrdenesDS();
-            if(ordenes.Tables.Count > 0)
-            {
-                if (ordenes.Tables[0].Rows.Count > 0)
-                {
-                    foreach(DataRow r in ordenes.Tables[0].Rows)
-                    {
-                        string Estado = string.Empty;
-                        if (r["Estado"].ToString() == "1" || r["Estado"].ToString() == "true")
-                        {
-                            Estado = "Facturado";
-                        }
-                        else
-                        {
-                            Estado = "No Facturado";
-                        }
-                        dgvOrdenes.Rows.Add(r["id"].ToString(), r["Fecha Ingreso"].ToString(),
-                            r["ciRuc"].ToString(), r["Nombre"].ToString(), r["Nombre"].ToString(),
-                            r["Estado"].ToString(), Estado, r["idUsuarios"].ToString(),
-                            r["idCliente"].ToString()) ; 
-                    }
-                    
-                }
-            }
+          
            
         }
 

@@ -204,8 +204,7 @@ namespace POSalesDb
         public DataSet selectTodosLasOrdenesDS()
         {
             cn.ConnectionString = myConnection();
-            DataSet ordenes = new DataSet();
-            DataTable dt = new DataTable();
+            DataSet dt = new DataSet();
             try
             {
                 cm = new SqlCommand($@"SELECT [ordenServicio].[Id]
@@ -222,12 +221,12 @@ namespace POSalesDb
                     cn.Open();
                     da.Fill(dt);
                 }
-                return ordenes;
+                return dt;
             }
             catch (Exception ex)
             {
                 CrearEvento(ex.ToString());
-                return ordenes;
+                return dt;
             }
             finally
             {
@@ -826,7 +825,7 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@idEstadoMantenimiento", MantenimientoModel.idEstadoMantenimiento);
                 cm.Parameters.AddWithValue("@idUsuarios", MantenimientoModel.idUsuarios);
                 cm.Parameters.AddWithValue("@idOrdenServicio", MantenimientoModel.idOrdenServicio);
-                cm.Parameters.AddWithValue("@IdEquipo", MantenimientoModel.idOrdenServicio); 
+                cm.Parameters.AddWithValue("@IdEquipo", MantenimientoModel.IdEquipo); 
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
