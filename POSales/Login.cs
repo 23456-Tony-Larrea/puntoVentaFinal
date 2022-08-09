@@ -84,6 +84,7 @@ namespace POSales
                     this.Visible = true;
 
                 }
+                
                 if (usuario.role == "tecnico")
                 {
                     MessageBox.Show("Bienvenido " + usuario.nombre + " |", "ACCESSO CONCEBIDO", MessageBoxButtons.OK, MessageBoxIcon.Information);
