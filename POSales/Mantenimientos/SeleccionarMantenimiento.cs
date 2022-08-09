@@ -69,9 +69,9 @@ namespace POSales.Mantenimientos
                             Estado = "No Facturado";
                         }
                         dgvOrdenes.Rows.Add(r["id"].ToString(), r["Fecha Ingreso"].ToString(),
-                            r["ciRuc"].ToString(), r["Nombre"].ToString(), r["Nombre"].ToString(),
+                            r["ciRuc"].ToString(), r["Nombre"].ToString(),
                             r["Estado"].ToString(), Estado, r["idUsuarios"].ToString(),
-                            r["idCliente"].ToString(), false);
+                            r["idCliente"].ToString());
                     }
 
                 }
