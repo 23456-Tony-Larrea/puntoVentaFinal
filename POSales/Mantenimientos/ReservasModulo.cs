@@ -127,10 +127,6 @@ namespace POSales.Mantenimientos
 
         private void cboEstadoReserva_SelectedIndexChanged(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-=======
-            
->>>>>>> f07e5244f654379719e702c90e042dd95843d12e
         }
 
         private void LimpiarCampos()

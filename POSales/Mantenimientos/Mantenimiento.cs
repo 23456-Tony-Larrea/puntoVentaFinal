@@ -118,63 +118,6 @@ namespace POSales.Mantenimientos
 
         private void dgvClients_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int idmantenimiento = 0;
-            int index = e.RowIndex;
-            if (index > (-1))
-            {
-                int.TryParse(dgvClients.Rows[index].Cells["id"].Value.ToString(), out idmantenimiento);
-                DataGridViewColumn colum = dgvClients.Columns[e.ColumnIndex];
-                if (colum.Name == "solucion" && usuario.role == "tecnico")
-                {
-                    if (idmantenimiento > 0)
-                    {
-                        mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
-                        mantenimiento.equipo = dbcon.selectEquipoPorId(mantenimiento.IdEquipo);
-                        Mantenimientos.precioReferencial MantenimientoView = new Mantenimientos.precioReferencial(mantenimiento, usuario.Id);
-                        MantenimientoView.ShowDialog();
-                        cargarDatos();
-                    }
-
-                }
-                if (colum.Name == "aplicarCorreccion")
-                { 
-                    if (usuario.role == "tecnico" && (bool)dgvClients.Rows[index].Cells["aplicarCorreccion"].Value == true)
-                    {
-                        mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
-                        mantenimiento.idEstadoMantenimiento = 5;
-                        dbcon.actualizarMantenimientoModel(mantenimiento);
-                    }
-                    else
-                    //&& 
-                    if (idmantenimiento > 0  && usuario.role == "facturero")
-                    {
-                        dgvClients.Rows[index].Cells["aplicarCorreccion"].Value = true;
-                        dgvClients.Rows[index].Cells["NoAplicarCorreccion"].Value = false;
-                        mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
-                        mantenimiento.equipo = dbcon.selectEquipoPorId(mantenimiento.IdEquipo);
-                        mantenimiento.estadoAplicarCorreccion = true;
-                        mantenimiento.estadoNoAplicarCorreccion = false;
-                        mantenimiento.idEstadoMantenimiento = 4;
-                        dbcon.actualizarMantenimientoModel(mantenimiento);
-                    }
-
-                }
-                if (colum.Name == "NoAplicarCorreccion" && usuario.role == "facturero")
-                {
-                    if (idmantenimiento > 0)
-                    {
-                        dgvClients.Rows[index].Cells["aplicarCorreccion"].Value = false;
-                        dgvClients.Rows[index].Cells["NoAplicarCorreccion"].Value = true;
-                        mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
-                        mantenimiento.equipo = dbcon.selectEquipoPorId(mantenimiento.IdEquipo);
-                        mantenimiento.estadoAplicarCorreccion = false;
-                        mantenimiento.estadoNoAplicarCorreccion = true;
-                        mantenimiento.idEstadoMantenimiento = 5;
-                        dbcon.actualizarMantenimientoModel(mantenimiento);
-                    }
-
-                }
-            }
           
 
         }
@@ -225,12 +168,8 @@ namespace POSales.Mantenimientos
                 orden.cliente = dbcon.selectClientesId(orden.idCliente);
                 decimal TotalPorMantenimiento = 0;
                 string Message = $"Saludos, El equipo codigo. {mantenimiento.equipo.codigo} falla:{mantenimiento.descripcionFalla} tiene la solucion: {mantenimiento.solucion} con un costo de mantenimiento de: {total}";
-<<<<<<< HEAD
                 string Completo = $"https://web.whatsapp.com/send?phone=+59{orden.cliente.celular}&text={Message.Replace(" ", "%20")}";
                 ProcessStartInfo SendWhatsapp = new ProcessStartInfo(Completo);
-=======
-                ProcessStartInfo SendWhatsapp = new ProcessStartInfo($"https://web.whatsapp.com/send?phone=+593{orden.cliente.telefono}&text={Message.Replace("","%20")}");
->>>>>>> f07e5244f654379719e702c90e042dd95843d12e
                 Process.Start(SendWhatsapp);
                 mantenimiento.idEstadoMantenimiento = 3;
                 dbcon.actualizarMantenimientoModel(mantenimiento);

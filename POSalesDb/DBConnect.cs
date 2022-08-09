@@ -22,7 +22,7 @@ namespace POSalesDb
         private string con;
         public string myConnection()
         {
-            con = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            con = @"Data Source=.;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True";
             return con;
         }
 
@@ -200,6 +200,40 @@ namespace POSalesDb
 
             }
             return ordens;
+        }
+        public DataSet selectTodosLasOrdenesDS()
+        {
+            cn.ConnectionString = myConnection();
+            DataSet ordenes = new DataSet();
+            DataTable dt = new DataTable();
+            try
+            {
+                cm = new SqlCommand($@"SELECT [ordenServicio].[Id]
+                  ,[Fecha Ingreso]
+	              ,[idCliente]
+	              ,[ciRuc]
+                  ,[nombre]
+                  ,[idUsuarios]
+	              ,[ordenServicio].[Estado]
+              FROM [C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF].[dbo].[ordenServicio]
+              join clientes on Clientes.Id = ordenServicio.idCliente");
+                using (SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn))
+                {
+                    cn.Open();
+                    da.Fill(dt);
+                }
+                return ordenes;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return ordenes;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
         }
 
         private List<MantenimientoModel> selectLosMantenimientoPorOrden(int IdOrden)
@@ -528,6 +562,38 @@ namespace POSalesDb
                 cn.Close();
             }
         }
+        public DataTable selectTodosLosMantenimientoPorOrdenData(int IdOrden)
+        {
+            cn.ConnectionString = myConnection();
+            List<MantenimientoModel> MantenimientoModels = new List<MantenimientoModel>();
+            cn.Open();
+            DataTable dt = new DataTable();
+            try
+            {
+                cm = new SqlCommand($@"SELECT Mantenimiento.Id,Mantenimiento.fechaMantenimiento , Mantenimiento.fechaEntregaEquipo, Mantenimiento.descripcionFalla, Mantenimiento.solucion, Mantenimiento.IdEstadoMantenimiento, 
+                         Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
+                         Equipo.codigo ,Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
+                         FROM                   
+                         Mantenimiento LEFT JOIN
+                         Equipo ON Mantenimiento.IdEquipo = Equipo.Id LEFT JOIN
+                         estadoMantenimiento ON Mantenimiento.[IdEstadoMantenimiento] = estadoMantenimiento.Id where Mantenimiento.idOrdenServicio = {IdOrden} Order by Mantenimiento.Id desc");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+
+                da.Fill(dt);
+
+                return dt;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return dt;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
         public DataTable selectTodosLosMantenimientoDeHoyData()
         {
             cn.ConnectionString = myConnection();
@@ -722,6 +788,7 @@ namespace POSalesDb
             string Error = String.Empty;
             try
             {
+                actualizarvalorStock(reserva.Cantidad * (-1),reserva.items.Id);
                 cm = new SqlCommand(@"Insert into Reserva (IdMantenimiento,estadoReserva,idItem,Cantidad,precioFinal,precioA)
                     values(@IdMantenimiento,@estadoReserva,@idItem,@Cantidad,@precioFinal,@precioA)", cn);
                 cm.Parameters.AddWithValue("@IdMantenimiento", reserva.IdMantenimiento);
@@ -1540,6 +1607,12 @@ namespace POSalesDb
         //eliminar Reserva
         public string deleteReserva(int IdMantenimiento)
         {
+            List<Reserva> reservas = new List<Reserva>();
+            reservas = selectReservaPorMantenimiento(IdMantenimiento);
+            foreach(var reserva in reservas)
+            {
+                actualizarvalorStock(reserva.Cantidad, reserva.items.Id);
+            }
             cn.ConnectionString = myConnection();
             string Error = String.Empty;
             try

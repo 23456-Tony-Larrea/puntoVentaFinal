@@ -98,6 +98,7 @@ namespace POSales.Mantenimientos
             equipo.Id = dbcon.insertEquipos(equipo);
             foreach (var accesorio in equipo.accesorios)
             {
+                accesorio.idEquipo = equipo.Id;
                 dbcon.insertAccesorios(accesorio);
             }
             MessageBox.Show("insertado con exito");

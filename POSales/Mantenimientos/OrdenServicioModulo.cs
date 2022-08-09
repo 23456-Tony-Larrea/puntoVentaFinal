@@ -128,6 +128,7 @@ namespace POSales.Mantenimientos
             if (dataGridView1.SelectedRows.Count > (-1))
             {
                 mantenimientos.RemoveAt(dataGridView1.CurrentCell.RowIndex);
+                dataGridView1.DataSource = new MantenimientoModel();
                 dataGridView1.DataSource = mantenimientos;
             }
         }
