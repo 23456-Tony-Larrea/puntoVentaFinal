@@ -43,6 +43,8 @@ namespace POSales
         private void dgvClients_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string colName = dgvClients.Columns[e.ColumnIndex].Name;
+            if (e.RowIndex < 0)
+            { return; }
             if (colName == "Edit")
             {
                 cliente = clientes.ElementAt(e.RowIndex);
@@ -66,7 +68,23 @@ namespace POSales
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            ((DataTable)dgvClients.DataSource).DefaultView.RowFilter = string.Format("[nombreDataGridViewTextBoxColumn] LIKE '%{0}%' or [comercioDataGridViewTextBoxColumn] LIKE '%{0}%' or [codigoDataGridViewTextBoxColumn] LIKE '%{0}%' or [ciRucDataGridViewTextBoxColumn] LIKE '%{0}%'", textBox1.Text);
+            List<Clientes> limpiarClientes = new List<Clientes>();
+            if (!string.IsNullOrEmpty(textBox1.Text))
+            {
+            
+                dgvClients.DataSource = limpiarClientes;
+                 limpiarClientes = clientes.Where(x => 
+                 x.nombre.StartsWith(textBox1.Text) || x.nombre.StartsWith(textBox1.Text.ToUpper())
+                    || x.codigo.StartsWith(textBox1.Text) ||
+                   x.comercio.StartsWith(textBox1.Text) || x.ciRuc.StartsWith(textBox1.Text)).ToList();
+                dgvClients.DataSource = limpiarClientes;
+            }
+            else
+            {
+                dgvClients.DataSource = limpiarClientes;
+                dgvClients.DataSource = clientes;
+            }
+       
         }
     }
 }

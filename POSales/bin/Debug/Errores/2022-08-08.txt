@@ -15,8 +15,13 @@ System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keywo
    en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+<<<<<<< HEAD
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:40c58999-cfea-4247-821c-2d17568b1dff
+=======
    en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
 ClientConnectionId:4bc9c7b7-fbac-4ae3-8cde-0f714ed0d387
+>>>>>>> f07e5244f654379719e702c90e042dd95843d12e
 Error Number:156,State:1,Class:15
 System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
@@ -35,8 +40,13 @@ System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keywo
    en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+<<<<<<< HEAD
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:ad32a3a7-b310-4c2d-b317-bc3641d9ad33
+=======
    en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
 ClientConnectionId:4bc9c7b7-fbac-4ae3-8cde-0f714ed0d387
+>>>>>>> f07e5244f654379719e702c90e042dd95843d12e
 Error Number:156,State:1,Class:15
 System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
@@ -55,8 +65,13 @@ System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keywo
    en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+<<<<<<< HEAD
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:435149d9-74a9-4fd2-8a0d-f665925d0a8b
+=======
    en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
 ClientConnectionId:d6a2eb75-f93b-4700-affa-2a0ec1e5f4de
+>>>>>>> f07e5244f654379719e702c90e042dd95843d12e
 Error Number:156,State:1,Class:15
 System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
@@ -75,6 +90,11 @@ System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keywo
    en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+<<<<<<< HEAD
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:28126463-506f-4b6d-a007-1fb1aa5094c6
+Error Number:156,State:1,Class:15
+=======
    en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
 ClientConnectionId:2ca456f8-3d5b-4a7e-938c-b3b8c6d78f2f
 Error Number:156,State:1,Class:15
@@ -92,6 +112,7 @@ The statement has been terminated.
    en POSalesDb.DBConnect.insertAccesorios(Accesorios accesorios) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 1099
 ClientConnectionId:2ca456f8-3d5b-4a7e-938c-b3b8c6d78f2f
 Error Number:515,State:2,Class:16
+>>>>>>> f07e5244f654379719e702c90e042dd95843d12e
 System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
    en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
@@ -109,6 +130,12 @@ System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keywo
    en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+<<<<<<< HEAD
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:e8f6e58f-2641-45c4-8977-8da2d1fe6b30
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+=======
    en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
 ClientConnectionId:d0a6a6da-dd0f-4cf0-b929-e268c7a08be9
 Error Number:156,State:1,Class:15
@@ -125,6 +152,443 @@ The statement has been terminated.
    en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
    en POSalesDb.DBConnect.insertAccesorios(Accesorios accesorios) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 1099
 ClientConnectionId:d0a6a6da-dd0f-4cf0-b929-e268c7a08be9
+Error Number:515,State:2,Class:16
+System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Mantenimiento'.
+>>>>>>> f07e5244f654379719e702c90e042dd95843d12e
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+<<<<<<< HEAD
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:60788235-6081-4215-bc4b-cae875ccfdf4
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:8d025cef-199a-4f3d-991e-173c1200e25b
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:3a05deba-cac5-49c8-b18c-3876b267876b
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:4cc146d4-e83e-4526-95c1-bd09be4e1cca
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:2cb330ba-859b-4013-b0c9-3ba7305db6ec
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:20f5780b-2543-4527-98bf-693b53f68622
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:7259305b-1796-4980-bae7-d4daaff15006
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:59a14331-5b79-4340-a11f-55126f6a95b9
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:c667824c-60bb-4b63-92c7-22f55335f393
+Error Number:156,State:1,Class:15
+System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
+   en System.Data.DataRow.GetDataColumn(String columnName)
+   en System.Data.DataRow.get_Item(String columnName)
+   en POSalesDb.DBConnect.selectClientesId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4081
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:65152413-89dc-4559-87e8-c8200512cfc9
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:65152413-89dc-4559-87e8-c8200512cfc9
+Error Number:156,State:1,Class:15
+System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
+   en System.Data.DataRow.GetDataColumn(String columnName)
+   en System.Data.DataRow.get_Item(String columnName)
+   en POSalesDb.DBConnect.selectClientesId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4081
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:77f12225-d61b-4457-949d-346f49b97df7
+Error Number:156,State:1,Class:15
+System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
+   en System.Data.DataRow.GetDataColumn(String columnName)
+   en System.Data.DataRow.get_Item(String columnName)
+   en POSalesDb.DBConnect.selectClientesId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4081
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:2becad6f-c073-40ca-a557-141713d41c0d
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:493f49a7-8a91-4f69-90e2-635bc30f9b97
+Error Number:156,State:1,Class:15
+System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
+   en System.Data.DataRow.GetDataColumn(String columnName)
+   en System.Data.DataRow.get_Item(String columnName)
+   en POSalesDb.DBConnect.selectClientesId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4081
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:3eb11e95-cbeb-4fc0-af81-c1e03618a444
+Error Number:156,State:1,Class:15
+System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
+   en System.Data.DataRow.GetDataColumn(String columnName)
+   en System.Data.DataRow.get_Item(String columnName)
+   en POSalesDb.DBConnect.selectClientesId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4081
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near '00'.
+=======
+   en POSalesDb.DBConnect.selectFallaDeEquipo(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 437
+ClientConnectionId:d0a6a6da-dd0f-4cf0-b929-e268c7a08be9
+Error Number:207,State:1,Class:16
+System.InvalidCastException: No se puede convertir un objeto DBNull en otros tipos.
+   en System.DBNull.System.IConvertible.ToBoolean(IFormatProvider provider)
+   en System.Convert.ToBoolean(Object value)
+   en POSalesDb.DBConnect.selectMantenimientoModelPorId(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 408
+System.InvalidCastException: La conversión especificada no es válida.
+   en POSalesDb.DBConnect.selectItemPorId(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 2313
+System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'precioReferencial'.
+>>>>>>> f07e5244f654379719e702c90e042dd95843d12e
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+<<<<<<< HEAD
+   en POSalesDb.DBConnect.actualizarMantenimientoModel(MantenimientoModel MantenimientoModel) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 815
+ClientConnectionId:3eb11e95-cbeb-4fc0-af81-c1e03618a444
+Error Number:102,State:1,Class:15
+System.InvalidOperationException: No está autorizado a cambiar la propiedad 'ConnectionString'. El estado actual de la conexión es abierta.
+   en System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   en System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   en POSalesDb.DBConnect.actualizarEstadoDeOrden(Int32 IdOrdenDeServicio, Boolean isReady) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 663
+   en POSalesDb.DBConnect.selectContadorDeMantenimientosRealizados(Int32 IdOrdenDeServicio) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 704
+=======
+   en POSalesDb.DBConnect.actualizarMantenimientoModel(MantenimientoModel MantenimientoModel) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 815
+ClientConnectionId:d0a6a6da-dd0f-4cf0-b929-e268c7a08be9
+Error Number:207,State:1,Class:16
+System.InvalidOperationException: No está autorizado a cambiar la propiedad 'ConnectionString'. El estado actual de la conexión es abierta.
+   en System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   en System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   en POSalesDb.DBConnect.actualizarEstadoDeOrden(Int32 IdOrdenDeServicio, Boolean isReady) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 663
+   en POSalesDb.DBConnect.selectContadorDeMantenimientosRealizados(Int32 IdOrdenDeServicio) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 704
+>>>>>>> f07e5244f654379719e702c90e042dd95843d12e
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'FROM'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+<<<<<<< HEAD
+   en POSalesDb.DBConnect.deleteReserva(Int32 IdMantenimiento) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 1545
+ClientConnectionId:3eb11e95-cbeb-4fc0-af81-c1e03618a444
+=======
+   en POSalesDb.DBConnect.deleteReserva(Int32 IdMantenimiento) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 1545
+ClientConnectionId:d0a6a6da-dd0f-4cf0-b929-e268c7a08be9
+>>>>>>> f07e5244f654379719e702c90e042dd95843d12e
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+<<<<<<< HEAD
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:4ec4b4b9-35ff-4d6a-9119-7b84a4373687
+=======
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:aad29542-e7b0-4556-b387-a2a1a25852d4
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Mantenimiento'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectFallaDeEquipo(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 437
+ClientConnectionId:aad29542-e7b0-4556-b387-a2a1a25852d4
+Error Number:207,State:1,Class:16
+System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Id', table 'C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF.dbo.Accesorios'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en POSalesDb.DBConnect.insertAccesorios(Accesorios accesorios) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 1099
+ClientConnectionId:aad29542-e7b0-4556-b387-a2a1a25852d4
 Error Number:515,State:2,Class:16
 System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Mantenimiento'.
    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
@@ -144,115 +608,6 @@ System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Mantenimie
    en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
    en POSalesDb.DBConnect.selectFallaDeEquipo(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 437
-ClientConnectionId:d0a6a6da-dd0f-4cf0-b929-e268c7a08be9
-Error Number:207,State:1,Class:16
-System.InvalidCastException: No se puede convertir un objeto DBNull en otros tipos.
-   en System.DBNull.System.IConvertible.ToBoolean(IFormatProvider provider)
-   en System.Convert.ToBoolean(Object value)
-   en POSalesDb.DBConnect.selectMantenimientoModelPorId(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 408
-System.InvalidCastException: La conversión especificada no es válida.
-   en POSalesDb.DBConnect.selectItemPorId(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 2313
-System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'precioReferencial'.
-   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   en System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
-   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
-   en POSalesDb.DBConnect.actualizarMantenimientoModel(MantenimientoModel MantenimientoModel) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 815
-ClientConnectionId:d0a6a6da-dd0f-4cf0-b929-e268c7a08be9
-Error Number:207,State:1,Class:16
-System.InvalidOperationException: No está autorizado a cambiar la propiedad 'ConnectionString'. El estado actual de la conexión es abierta.
-   en System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
-   en System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
-   en POSalesDb.DBConnect.actualizarEstadoDeOrden(Int32 IdOrdenDeServicio, Boolean isReady) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 663
-   en POSalesDb.DBConnect.selectContadorDeMantenimientosRealizados(Int32 IdOrdenDeServicio) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 704
-System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'FROM'.
-   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
-   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
-   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
-   en POSalesDb.DBConnect.deleteReserva(Int32 IdMantenimiento) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 1545
-ClientConnectionId:d0a6a6da-dd0f-4cf0-b929-e268c7a08be9
-Error Number:156,State:1,Class:15
-System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
-   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
-   en System.Data.SqlClient.SqlDataReader.get_MetaData()
-   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
-   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
-   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
-   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
-ClientConnectionId:aad29542-e7b0-4556-b387-a2a1a25852d4
-Error Number:156,State:1,Class:15
-System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Mantenimiento'.
-   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
-   en System.Data.SqlClient.SqlDataReader.get_MetaData()
-   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
-   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
-   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
-   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en POSalesDb.DBConnect.selectFallaDeEquipo(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 437
-ClientConnectionId:aad29542-e7b0-4556-b387-a2a1a25852d4
-Error Number:207,State:1,Class:16
-System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Id', table 'C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF.dbo.Accesorios'; column does not allow nulls. INSERT fails.
-The statement has been terminated.
-   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
-   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
-   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
-   en POSalesDb.DBConnect.insertAccesorios(Accesorios accesorios) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 1099
-ClientConnectionId:aad29542-e7b0-4556-b387-a2a1a25852d4
-Error Number:515,State:2,Class:16
-System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Mantenimiento'.
-   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
-   en System.Data.SqlClient.SqlDataReader.get_MetaData()
-   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
-   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
-   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
-   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en POSalesDb.DBConnect.selectFallaDeEquipo(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 437
 ClientConnectionId:aad29542-e7b0-4556-b387-a2a1a25852d4
 Error Number:207,State:1,Class:16
 System.InvalidCastException: No se puede convertir un objeto DBNull en otros tipos.
@@ -397,10 +752,31 @@ System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keywo
    en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
    en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
 ClientConnectionId:45243a5d-a146-4fc6-9a5c-b41586114c03
+>>>>>>> f07e5244f654379719e702c90e042dd95843d12e
 Error Number:156,State:1,Class:15
 System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
    en System.Data.DataRow.GetDataColumn(String columnName)
    en System.Data.DataRow.get_Item(String columnName)
+<<<<<<< HEAD
+   en POSalesDb.DBConnect.selectClientesId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4081
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near '00'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en POSalesDb.DBConnect.actualizarMantenimientoModel(MantenimientoModel MantenimientoModel) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 815
+ClientConnectionId:4ec4b4b9-35ff-4d6a-9119-7b84a4373687
+Error Number:102,State:1,Class:15
+System.InvalidOperationException: No está autorizado a cambiar la propiedad 'ConnectionString'. El estado actual de la conexión es abierta.
+   en System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   en System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   en POSalesDb.DBConnect.actualizarEstadoDeOrden(Int32 IdOrdenDeServicio, Boolean isReady) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 663
+   en POSalesDb.DBConnect.selectContadorDeMantenimientosRealizados(Int32 IdOrdenDeServicio) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 704
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'FROM'.
+=======
    en POSalesDb.DBConnect.selectClientesId(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4081
 System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
    en System.Data.DataRow.GetDataColumn(String columnName)
@@ -455,10 +831,20 @@ System.FormatException: No se puede reconocer la cadena como un tipo booleano v�
    en System.Convert.ToBoolean(String value)
    en POSalesDb.DBConnect.selectLosMantenimientoPorOrden(Int32 IdOrden) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 234
 System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+>>>>>>> f07e5244f654379719e702c90e042dd95843d12e
    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
    en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
    en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
    en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+<<<<<<< HEAD
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en POSalesDb.DBConnect.deleteReserva(Int32 IdMantenimiento) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 1545
+ClientConnectionId:4ec4b4b9-35ff-4d6a-9119-7b84a4373687
+=======
    en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
    en System.Data.SqlClient.SqlDataReader.get_MetaData()
    en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
@@ -473,6 +859,7 @@ System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keywo
    en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
    en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
 ClientConnectionId:0c445733-1938-43f3-93f1-229edd2fdfa7
+>>>>>>> f07e5244f654379719e702c90e042dd95843d12e
 Error Number:156,State:1,Class:15
 System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
@@ -491,8 +878,42 @@ System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keywo
    en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+<<<<<<< HEAD
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:4ec4b4b9-35ff-4d6a-9119-7b84a4373687
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near '00'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en POSalesDb.DBConnect.actualizarMantenimientoModel(MantenimientoModel MantenimientoModel) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 815
+ClientConnectionId:4ec4b4b9-35ff-4d6a-9119-7b84a4373687
+Error Number:102,State:1,Class:15
+System.InvalidOperationException: No está autorizado a cambiar la propiedad 'ConnectionString'. El estado actual de la conexión es abierta.
+   en System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   en System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   en POSalesDb.DBConnect.actualizarEstadoDeOrden(Int32 IdOrdenDeServicio, Boolean isReady) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 663
+   en POSalesDb.DBConnect.selectContadorDeMantenimientosRealizados(Int32 IdOrdenDeServicio) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 704
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'FROM'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en POSalesDb.DBConnect.deleteReserva(Int32 IdMantenimiento) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 1545
+ClientConnectionId:4ec4b4b9-35ff-4d6a-9119-7b84a4373687
+=======
    en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
 ClientConnectionId:0c445733-1938-43f3-93f1-229edd2fdfa7
+>>>>>>> f07e5244f654379719e702c90e042dd95843d12e
 Error Number:156,State:1,Class:15
 System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
@@ -511,6 +932,15 @@ System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keywo
    en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+<<<<<<< HEAD
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:c9831a40-3d64-4cb6-98c9-054ac01e9064
+Error Number:156,State:1,Class:15
+System.InvalidCastException: No se puede convertir un objeto DBNull en otros tipos.
+   en System.DBNull.System.IConvertible.ToDecimal(IFormatProvider provider)
+   en System.Convert.ToDecimal(Object value)
+   en POSalesDb.DBConnect.selectMantenimientoModelPorId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 409
+=======
    en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
 ClientConnectionId:371367e5-3351-402b-b4ae-39f01c1cf0b2
 Error Number:156,State:1,Class:15
@@ -542,6 +972,7 @@ System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
    en System.Data.DataRow.GetDataColumn(String columnName)
    en System.Data.DataRow.get_Item(String columnName)
    en POSalesDb.DBConnect.selectClientesId(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4081
+>>>>>>> f07e5244f654379719e702c90e042dd95843d12e
 System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
    en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
@@ -559,6 +990,19 @@ System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keywo
    en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+<<<<<<< HEAD
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:c9831a40-3d64-4cb6-98c9-054ac01e9064
+Error Number:156,State:1,Class:15
+System.InvalidCastException: No se puede convertir un objeto DBNull en otros tipos.
+   en System.DBNull.System.IConvertible.ToDecimal(IFormatProvider provider)
+   en System.Convert.ToDecimal(Object value)
+   en POSalesDb.DBConnect.selectMantenimientoModelPorId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 409
+System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
+   en System.Data.DataRow.GetDataColumn(String columnName)
+   en System.Data.DataRow.get_Item(String columnName)
+   en POSalesDb.DBConnect.selectClientesId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4086
+=======
    en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
 ClientConnectionId:c21d85f0-d750-4443-aad2-f2f4acd0315d
 Error Number:156,State:1,Class:15
@@ -618,6 +1062,7 @@ System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
    en System.Data.DataRow.GetDataColumn(String columnName)
    en System.Data.DataRow.get_Item(String columnName)
    en POSalesDb.DBConnect.selectClientesId(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4081
+>>>>>>> f07e5244f654379719e702c90e042dd95843d12e
 System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
    en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
@@ -635,6 +1080,15 @@ System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keywo
    en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+<<<<<<< HEAD
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:f6b06e7c-cd7d-4579-8dc9-b753ecdc64e1
+Error Number:156,State:1,Class:15
+System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
+   en System.Data.DataRow.GetDataColumn(String columnName)
+   en System.Data.DataRow.get_Item(String columnName)
+   en POSalesDb.DBConnect.selectClientesId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4086
+=======
    en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
 ClientConnectionId:f2acfb16-a157-4d3e-b0ff-2460cecd3a84
 Error Number:156,State:1,Class:15
@@ -740,6 +1194,7 @@ System.ArgumentException: La columna 'precioUnitario' no pertenece a la tabla .
    en POSalesDb.DBConnect.selectReservaPorMantenimiento(Int32 IdMantenimiento) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 1410
 System.InvalidCastException: La conversión especificada no es válida.
    en POSalesDb.DBConnect.selectItemPorId(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 2313
+>>>>>>> f07e5244f654379719e702c90e042dd95843d12e
 System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near '00'.
    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
    en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
@@ -748,6 +1203,11 @@ System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near '00'.
    en System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
    en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
    en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+<<<<<<< HEAD
+   en POSalesDb.DBConnect.actualizarMantenimientoModel(MantenimientoModel MantenimientoModel) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 815
+ClientConnectionId:f6b06e7c-cd7d-4579-8dc9-b753ecdc64e1
+Error Number:102,State:1,Class:15
+=======
    en POSalesDb.DBConnect.actualizarMantenimientoModel(MantenimientoModel MantenimientoModel) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 815
 ClientConnectionId:eb2461b9-dfb6-46a9-bfc5-73ade7d3ed95
 Error Number:102,State:1,Class:15
@@ -821,6 +1281,7 @@ System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
    en System.Data.DataRow.GetDataColumn(String columnName)
    en System.Data.DataRow.get_Item(String columnName)
    en POSalesDb.DBConnect.selectClientesId(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4081
+<<<<<<< HEAD
 System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
    en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
@@ -965,3 +1426,281 @@ System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
    en System.Data.DataRow.GetDataColumn(String columnName)
    en System.Data.DataRow.get_Item(String columnName)
    en POSalesDb.DBConnect.selectClientesId(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4081
+=======
+>>>>>>> f07e5244f654379719e702c90e042dd95843d12e
+>>>>>>> 18860bc9947e22aa5081e9ff8381477213965c55
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:9d9879af-0402-4d29-a321-1efcb06f8016
+Error Number:156,State:1,Class:15
+System.InvalidCastException: No se puede convertir un objeto DBNull en otros tipos.
+   en System.DBNull.System.IConvertible.ToBoolean(IFormatProvider provider)
+   en System.Convert.ToBoolean(Object value)
+   en POSalesDb.DBConnect.selectMantenimientoModelPorId(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 408
+System.ArgumentException: La columna 'cargo' no pertenece a la tabla .
+   en System.Data.DataRow.GetDataColumn(String columnName)
+   en System.Data.DataRow.get_Item(String columnName)
+   en POSalesDb.DBConnect.selectClientesId(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 4086
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'WHERE'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en POSalesDb.DBConnect.actualizarMantenimientoModel(MantenimientoModel MantenimientoModel) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 815
+ClientConnectionId:9d9879af-0402-4d29-a321-1efcb06f8016
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:9d9879af-0402-4d29-a321-1efcb06f8016
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:b551c455-d23f-4ebd-b28a-867ee9a58be1
+Error Number:156,State:1,Class:15
+System.InvalidCastException: No se puede convertir un objeto DBNull en otros tipos.
+   en System.DBNull.System.IConvertible.ToBoolean(IFormatProvider provider)
+   en System.Convert.ToBoolean(Object value)
+   en POSalesDb.DBConnect.selectMantenimientoModelPorId(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 408
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:b551c455-d23f-4ebd-b28a-867ee9a58be1
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Id', table 'C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF.dbo.Accesorios'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en POSalesDb.DBConnect.insertAccesorios(Accesorios accesorios) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 1104
+ClientConnectionId:b551c455-d23f-4ebd-b28a-867ee9a58be1
+Error Number:515,State:2,Class:16
+System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Mantenimiento'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectFallaDeEquipo(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 437
+ClientConnectionId:b551c455-d23f-4ebd-b28a-867ee9a58be1
+Error Number:207,State:1,Class:16
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:067a43de-fd8d-4ff4-b48f-8e869a468170
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:cf2f2e8c-4755-4766-abe6-13345427b2cf
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Id', table 'C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF.dbo.Accesorios'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en POSalesDb.DBConnect.insertAccesorios(Accesorios accesorios) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 1104
+ClientConnectionId:cf2f2e8c-4755-4766-abe6-13345427b2cf
+Error Number:515,State:2,Class:16
+System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Mantenimiento'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectFallaDeEquipo(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 437
+ClientConnectionId:cf2f2e8c-4755-4766-abe6-13345427b2cf
+Error Number:207,State:1,Class:16
+System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Mantenimiento'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectFallaDeEquipo(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 437
+ClientConnectionId:cf2f2e8c-4755-4766-abe6-13345427b2cf
+Error Number:207,State:1,Class:16
+System.InvalidCastException: No se puede convertir un objeto DBNull en otros tipos.
+   en System.DBNull.System.IConvertible.ToBoolean(IFormatProvider provider)
+   en System.Convert.ToBoolean(Object value)
+   en POSalesDb.DBConnect.selectMantenimientoModelPorId(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 408
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:cf2f2e8c-4755-4766-abe6-13345427b2cf
+Error Number:156,State:1,Class:15
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 549
+ClientConnectionId:d926c0cb-4d90-465a-951f-f8836d790eee
+Error Number:156,State:1,Class:15

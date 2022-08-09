@@ -826,18 +826,23 @@ namespace POSalesDb
             finally
             {
                 cn.Close();
-                selectContadorDeMantenimientosRealizados(MantenimientoModel.idOrdenServicio);
-                deleteReserva(MantenimientoModel.Id);
-                if(MantenimientoModel.reservas.Count > 0)
-                {
-                    foreach (var reserva in MantenimientoModel.reservas)
-                    {
-                        reserva.IdMantenimiento = MantenimientoModel.Id;
-                        insertarReservas(reserva);
-                    }
-
-                }
         
+            }
+            if (MantenimientoModel.reservas == null)
+            {
+                return Error;
+            }
+            selectContadorDeMantenimientosRealizados(MantenimientoModel.idOrdenServicio);
+            deleteReserva(MantenimientoModel.Id);
+
+            if (MantenimientoModel.reservas.Count > 0)
+            {
+                foreach (var reserva in MantenimientoModel.reservas)
+                {
+                    reserva.IdMantenimiento = MantenimientoModel.Id;
+                    insertarReservas(reserva);
+                }
+
             }
 
         }
