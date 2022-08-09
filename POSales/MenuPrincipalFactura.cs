@@ -45,8 +45,14 @@ namespace POSales
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            Mantenimientos.EntregasCajero clientModule = new Mantenimientos.EntregasCajero(_idUsuario);
+            Mantenimientos.SeleccionarMantenimiento clientModule = new Mantenimientos.SeleccionarMantenimiento(_idUsuario);
             clientModule.ShowDialog();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Mantenimientos.OrdenServicioModulo orden = new Mantenimientos.OrdenServicioModulo(_idUsuario);
+            orden.ShowDialog();
         }
     }
 }
