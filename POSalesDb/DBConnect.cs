@@ -4567,6 +4567,154 @@ namespace POSalesDb
 
         }
 
+        //obtener id tipoEquipo   
+        public TipoEquipo selectTipoEquipoId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            TipoEquipo tipoEquipo = new TipoEquipo();
+            try
+            {
+                cm = new SqlCommand($"Select * from TipoEquipo Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    tipoEquipo.Id = (int)dt.Rows[0]["Id"];
+                    tipoEquipo.tipoEquipo = Convert.ToString(dt.Rows[0]["tipoEquipo"]);
+
+                }
+                return tipoEquipo;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return tipoEquipo;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //obtener tipoEquipo
+        public List<TipoEquipo> TodosTipoEquipo()
+        {
+            cn.ConnectionString = myConnection();
+            List<TipoEquipo> tipoEquipo = new List<TipoEquipo>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from TipoEquipo");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        TipoEquipo tipoEquipos = new TipoEquipo();
+                        tipoEquipos.Id = (int)dt.Rows[0]["Id"];
+                        tipoEquipos.tipoEquipo = Convert.ToString(dt.Rows[0]["tipoEquipo"]);
+
+                        tipoEquipo.Add(tipoEquipos);
+                    }
+
+                }
+                return tipoEquipo;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return tipoEquipo;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar un tipoEquipo
+        public string insertTipoEquipo(TipoEquipo tipoEquipo)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into TipoEquipo (tipoEquipo)values(@tipoEquipo)");
+                cm.Parameters.AddWithValue("@tipoEquipo", tipoEquipo.tipoEquipo);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar un tipoEquipo
+        public string actualizarTipoEquipo(TipoEquipo tipoEquipo)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE TipoEquipo SET tipoEquipo=@tipoequipo WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", tipoEquipo.Id);
+                cm.Parameters.AddWithValue("@nombre", tipoEquipo.tipoEquipo);
+                cn.Open();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar tipoEquipo
+        public string deleteTipoEquipo(int idTipoEquipo)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM TipoEquipo WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@Id", idTipoEquipo);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+
         //obtener id grupo   
         public Grupo selectGrupoId(int Id)
         {

@@ -84,6 +84,7 @@
     <Compile Include="Repository.cs" />
     <Compile Include="Reserva.cs" />
     <Compile Include="Tiendas.cs" />
+    <Compile Include="TipoEquipo.cs" />
     <Compile Include="Usuarios.cs" />
     <Compile Include="Venta.cs" />
   </ItemGroup>

@@ -328,6 +328,18 @@
     <Compile Include="Mantenimientos\SeleccionarMantenimiento.Designer.cs">
       <DependentUpon>SeleccionarMantenimiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\TipoEquipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\TipoEquipo.Designer.cs">
+      <DependentUpon>TipoEquipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\TipoEquipoModulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\TipoEquipoModulo.Designer.cs">
+      <DependentUpon>TipoEquipoModulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\VerAccesorios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -652,6 +664,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\SeleccionarMantenimiento.resx">
       <DependentUpon>SeleccionarMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\TipoEquipo.resx">
+      <DependentUpon>TipoEquipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\TipoEquipoModulo.resx">
+      <DependentUpon>TipoEquipoModulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\VerAccesorios.resx">
       <DependentUpon>VerAccesorios.cs</DependentUpon>
