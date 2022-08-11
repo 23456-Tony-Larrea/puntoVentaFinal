@@ -4871,7 +4871,8 @@ namespace POSalesDb
                 cm = new SqlCommand("Insert into MarcaEquipo (marcaEquipo)values(@marcaEquipo)");
                 cm.Parameters.AddWithValue("@marcaEquipo", marcaEquipo.NombreMarcaEquipo);
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.InsertCommand = cm;
+                adapter.InsertCommand.ExecuteNonQuery();
                 return Error;
 
             }
@@ -5298,7 +5299,7 @@ namespace POSalesDb
                     {
                         MarcaEquipo marcas = new MarcaEquipo();
                         marcas.Id = (int)dt.Rows[0]["Id"];
-                        marcas.Nombre = Convert.ToString(dt.Rows[0]["marca"]);
+                        marcas.NombreMarcaEquipo = Convert.ToString(dt.Rows[0]["marca"]);
 
                         marca.Add(marcas);
                     }

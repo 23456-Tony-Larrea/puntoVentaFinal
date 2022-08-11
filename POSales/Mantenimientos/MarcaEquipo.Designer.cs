@@ -49,7 +49,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 408);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(903, 69);
+            this.panel1.Size = new System.Drawing.Size(449, 69);
             this.panel1.TabIndex = 17;
             // 
             // btnAdd
@@ -57,12 +57,13 @@
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(846, 18);
+            this.btnAdd.Location = new System.Drawing.Point(391, 16);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(39, 32);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label1
             // 
@@ -105,7 +106,7 @@
             this.dgvTipoEquipo.ReadOnly = true;
             this.dgvTipoEquipo.RowHeadersVisible = false;
             this.dgvTipoEquipo.RowHeadersWidth = 51;
-            this.dgvTipoEquipo.Size = new System.Drawing.Size(903, 477);
+            this.dgvTipoEquipo.Size = new System.Drawing.Size(449, 477);
             this.dgvTipoEquipo.TabIndex = 18;
             // 
             // Id
@@ -126,15 +127,16 @@
             // 
             // MarcaEquipo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(903, 477);
+            this.ClientSize = new System.Drawing.Size(449, 477);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvTipoEquipo);
             this.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MarcaEquipo";
             this.Text = "MarcaEquipo";
+            this.Load += new System.EventHandler(this.MarcaEquipo_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTipoEquipo)).EndInit();
             this.ResumeLayout(false);
