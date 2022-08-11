@@ -65,22 +65,25 @@
             this.mantenimientoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label14 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.advancedDataGridView1 = new Zuby.ADGV.AdvancedDataGridView();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seriesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.equipoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDesFalla = new System.Windows.Forms.TextBox();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.equipoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.seriesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.advancedDataGridView1 = new Zuby.ADGV.AdvancedDataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.IdMantenimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescripcionFalla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -89,9 +92,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.mantenimientoModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mantenimientoBindingSource)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -113,7 +117,7 @@
             this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picClose.Image = ((System.Drawing.Image)(resources.GetObject("picClose.Image")));
             this.picClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.picClose.Location = new System.Drawing.Point(785, 0);
+            this.picClose.Location = new System.Drawing.Point(1066, 0);
             this.picClose.Margin = new System.Windows.Forms.Padding(5);
             this.picClose.Name = "picClose";
             this.picClose.Size = new System.Drawing.Size(56, 45);
@@ -124,7 +128,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(116, 152);
+            this.label5.Location = new System.Drawing.Point(21, 156);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 21);
@@ -134,7 +138,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(103, 107);
+            this.label4.Location = new System.Drawing.Point(8, 111);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 21);
@@ -144,7 +148,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 16);
+            this.label3.Location = new System.Drawing.Point(5, 15);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(175, 21);
@@ -161,7 +165,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(841, 45);
+            this.panel2.Size = new System.Drawing.Size(1122, 45);
             this.panel2.TabIndex = 49;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -192,10 +196,10 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 911);
+            this.panel1.Location = new System.Drawing.Point(0, 815);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(841, 58);
+            this.panel1.Size = new System.Drawing.Size(1122, 58);
             this.panel1.TabIndex = 48;
             // 
             // btnCancel
@@ -205,7 +209,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(726, 869);
+            this.btnCancel.Location = new System.Drawing.Point(999, 773);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 35);
             this.btnCancel.TabIndex = 91;
@@ -219,7 +223,7 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(590, 869);
+            this.btnSave.Location = new System.Drawing.Point(863, 773);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(115, 35);
             this.btnSave.TabIndex = 89;
@@ -230,7 +234,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(98, 59);
+            this.label20.Location = new System.Drawing.Point(3, 63);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(86, 21);
@@ -247,15 +251,16 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label20);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Location = new System.Drawing.Point(12, 53);
+            this.panel3.Location = new System.Drawing.Point(12, 89);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(771, 201);
+            this.panel3.Size = new System.Drawing.Size(376, 184);
             this.panel3.TabIndex = 97;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // TxtEmail
             // 
             this.TxtEmail.AutoSize = true;
-            this.TxtEmail.Location = new System.Drawing.Point(174, 152);
+            this.TxtEmail.Location = new System.Drawing.Point(79, 156);
             this.TxtEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(55, 21);
@@ -265,7 +270,7 @@
             // TxtCelular
             // 
             this.TxtCelular.AutoSize = true;
-            this.TxtCelular.Location = new System.Drawing.Point(174, 107);
+            this.TxtCelular.Location = new System.Drawing.Point(79, 111);
             this.TxtCelular.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxtCelular.Name = "TxtCelular";
             this.TxtCelular.Size = new System.Drawing.Size(71, 21);
@@ -275,7 +280,7 @@
             // TxtNombre
             // 
             this.TxtNombre.AutoSize = true;
-            this.TxtNombre.Location = new System.Drawing.Point(174, 59);
+            this.TxtNombre.Location = new System.Drawing.Point(79, 63);
             this.TxtNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(86, 21);
@@ -285,7 +290,7 @@
             // TxtCiCliente
             // 
             this.TxtCiCliente.AutoSize = true;
-            this.TxtCiCliente.Location = new System.Drawing.Point(174, 16);
+            this.TxtCiCliente.Location = new System.Drawing.Point(159, 15);
             this.TxtCiCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxtCiCliente.Name = "TxtCiCliente";
             this.TxtCiCliente.Size = new System.Drawing.Size(175, 21);
@@ -298,7 +303,7 @@
             this.iconButton1.IconColor = System.Drawing.Color.Black;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 20;
-            this.iconButton1.Location = new System.Drawing.Point(789, 217);
+            this.iconButton1.Location = new System.Drawing.Point(394, 241);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(41, 37);
             this.iconButton1.TabIndex = 98;
@@ -327,12 +332,12 @@
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewCheckBoxColumn1});
             this.dataGridView1.DataSource = this.mantenimientoModelBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 670);
+            this.dataGridView1.Location = new System.Drawing.Point(8, 566);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(771, 193);
+            this.dataGridView1.Size = new System.Drawing.Size(1055, 193);
             this.dataGridView1.TabIndex = 105;
             // 
             // dataGridViewTextBoxColumn1
@@ -460,7 +465,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(8, 626);
+            this.label14.Location = new System.Drawing.Point(11, 532);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(235, 21);
@@ -469,30 +474,128 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.iconButton4);
-            this.panel4.Controls.Add(this.advancedDataGridView1);
-            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.dataGridView2);
+            this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.txtDesFalla);
             this.panel4.Enabled = false;
-            this.panel4.Location = new System.Drawing.Point(12, 261);
+            this.panel4.Location = new System.Drawing.Point(12, 284);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(771, 227);
+            this.panel4.Size = new System.Drawing.Size(1054, 227);
             this.panel4.TabIndex = 106;
             // 
-            // iconButton4
+            // equipoBindingSource1
             // 
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.iconButton4.IconColor = System.Drawing.Color.Black;
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 30;
-            this.iconButton4.Location = new System.Drawing.Point(451, 120);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(45, 39);
-            this.iconButton4.TabIndex = 108;
-            this.iconButton4.Tag = "Buscar Cliente";
-            this.iconButton4.UseVisualStyleBackColor = true;
-            this.iconButton4.Click += new System.EventHandler(this.iconButton4_Click);
+            this.equipoBindingSource1.DataSource = typeof(POSalesDb.Equipo);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 11);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(182, 21);
+            this.label2.TabIndex = 103;
+            this.label2.Text = "Descripcion de falla";
+            // 
+            // txtDesFalla
+            // 
+            this.txtDesFalla.Enabled = false;
+            this.txtDesFalla.Location = new System.Drawing.Point(9, 44);
+            this.txtDesFalla.Multiline = true;
+            this.txtDesFalla.Name = "txtDesFalla";
+            this.txtDesFalla.Size = new System.Drawing.Size(367, 165);
+            this.txtDesFalla.TabIndex = 0;
+            // 
+            // iconButton3
+            // 
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Download;
+            this.iconButton3.IconColor = System.Drawing.Color.Black;
+            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton3.IconSize = 30;
+            this.iconButton3.Location = new System.Drawing.Point(1068, 375);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Size = new System.Drawing.Size(45, 39);
+            this.iconButton3.TabIndex = 107;
+            this.iconButton3.Tag = "Buscar Cliente";
+            this.iconButton3.UseVisualStyleBackColor = true;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.iconButton2.IconColor = System.Drawing.Color.Black;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 30;
+            this.iconButton2.Location = new System.Drawing.Point(1068, 720);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(45, 39);
+            this.iconButton2.TabIndex = 108;
+            this.iconButton2.Tag = "Buscar Cliente";
+            this.iconButton2.UseVisualStyleBackColor = true;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click_1);
+            // 
+            // equipoBindingSource
+            // 
+            this.equipoBindingSource.DataSource = typeof(POSalesDb.Equipo);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(4, 56);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(209, 21);
+            this.label9.TabIndex = 103;
+            this.label9.Text = "Codigo Orden Servicio";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(220, 53);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 30);
+            this.textBox1.TabIndex = 1;
+            // 
+            // seriesDataGridViewTextBoxColumn
+            // 
+            this.seriesDataGridViewTextBoxColumn.DataPropertyName = "series";
+            this.seriesDataGridViewTextBoxColumn.HeaderText = "series";
+            this.seriesDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.seriesDataGridViewTextBoxColumn.Name = "seriesDataGridViewTextBoxColumn";
+            this.seriesDataGridViewTextBoxColumn.ReadOnly = true;
+            this.seriesDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.seriesDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // descripcionEquipoDataGridViewTextBoxColumn
+            // 
+            this.descripcionEquipoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.descripcionEquipoDataGridViewTextBoxColumn.DataPropertyName = "descripcionEquipo";
+            this.descripcionEquipoDataGridViewTextBoxColumn.HeaderText = "descripcionEquipo";
+            this.descripcionEquipoDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.descripcionEquipoDataGridViewTextBoxColumn.Name = "descripcionEquipoDataGridViewTextBoxColumn";
+            this.descripcionEquipoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descripcionEquipoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // codigoDataGridViewTextBoxColumn
+            // 
+            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "codigo";
+            this.codigoDataGridViewTextBoxColumn.HeaderText = "codigo";
+            this.codigoDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
+            this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codigoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.codigoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.MinimumWidth = 22;
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.idDataGridViewTextBoxColumn1.Visible = false;
+            this.idDataGridViewTextBoxColumn1.Width = 125;
             // 
             // advancedDataGridView1
             // 
@@ -509,7 +612,7 @@
             this.advancedDataGridView1.DataSource = this.equipoBindingSource1;
             this.advancedDataGridView1.FilterAndSortEnabled = true;
             this.advancedDataGridView1.FilterStringChangedInvokeBeforeDatasourceUpdate = true;
-            this.advancedDataGridView1.Location = new System.Drawing.Point(24, 46);
+            this.advancedDataGridView1.Location = new System.Drawing.Point(464, 89);
             this.advancedDataGridView1.MultiSelect = false;
             this.advancedDataGridView1.Name = "advancedDataGridView1";
             this.advancedDataGridView1.ReadOnly = true;
@@ -517,156 +620,83 @@
             this.advancedDataGridView1.RowHeadersVisible = false;
             this.advancedDataGridView1.RowHeadersWidth = 51;
             this.advancedDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.advancedDataGridView1.Size = new System.Drawing.Size(421, 165);
+            this.advancedDataGridView1.Size = new System.Drawing.Size(602, 189);
             this.advancedDataGridView1.SortStringChangedInvokeBeforeDatasourceUpdate = true;
             this.advancedDataGridView1.TabIndex = 109;
             this.advancedDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridView1_CellContentClick);
             // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn1.MinimumWidth = 22;
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.idDataGridViewTextBoxColumn1.Visible = false;
-            this.idDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // codigoDataGridViewTextBoxColumn
-            // 
-            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "codigo";
-            this.codigoDataGridViewTextBoxColumn.HeaderText = "codigo";
-            this.codigoDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
-            this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.codigoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.codigoDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // descripcionEquipoDataGridViewTextBoxColumn
-            // 
-            this.descripcionEquipoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.descripcionEquipoDataGridViewTextBoxColumn.DataPropertyName = "descripcionEquipo";
-            this.descripcionEquipoDataGridViewTextBoxColumn.HeaderText = "descripcionEquipo";
-            this.descripcionEquipoDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.descripcionEquipoDataGridViewTextBoxColumn.Name = "descripcionEquipoDataGridViewTextBoxColumn";
-            this.descripcionEquipoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descripcionEquipoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // seriesDataGridViewTextBoxColumn
-            // 
-            this.seriesDataGridViewTextBoxColumn.DataPropertyName = "series";
-            this.seriesDataGridViewTextBoxColumn.HeaderText = "series";
-            this.seriesDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.seriesDataGridViewTextBoxColumn.Name = "seriesDataGridViewTextBoxColumn";
-            this.seriesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.seriesDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.seriesDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // equipoBindingSource1
-            // 
-            this.equipoBindingSource1.DataSource = typeof(POSalesDb.Equipo);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(20, 13);
+            this.label7.Location = new System.Drawing.Point(460, 62);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(190, 21);
             this.label7.TabIndex = 108;
             this.label7.Text = "Seleccion de Equipo";
             // 
-            // label2
+            // iconButton4
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(498, 13);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 21);
-            this.label2.TabIndex = 103;
-            this.label2.Text = "Descripcion de falla";
-            // 
-            // txtDesFalla
-            // 
-            this.txtDesFalla.Enabled = false;
-            this.txtDesFalla.Location = new System.Drawing.Point(502, 46);
-            this.txtDesFalla.Multiline = true;
-            this.txtDesFalla.Name = "txtDesFalla";
-            this.txtDesFalla.Size = new System.Drawing.Size(252, 165);
-            this.txtDesFalla.TabIndex = 0;
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Download;
-            this.iconButton3.IconColor = System.Drawing.Color.Black;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 30;
-            this.iconButton3.Location = new System.Drawing.Point(785, 381);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(45, 39);
-            this.iconButton3.TabIndex = 107;
-            this.iconButton3.Tag = "Buscar Cliente";
-            this.iconButton3.UseVisualStyleBackColor = true;
-            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 30;
-            this.iconButton2.Location = new System.Drawing.Point(789, 802);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(45, 39);
-            this.iconButton2.TabIndex = 108;
-            this.iconButton2.Tag = "Buscar Cliente";
-            this.iconButton2.UseVisualStyleBackColor = true;
-            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click_1);
-            // 
-            // equipoBindingSource
-            // 
-            this.equipoBindingSource.DataSource = typeof(POSalesDb.Equipo);
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.iconButton4.IconColor = System.Drawing.Color.Black;
+            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton4.IconSize = 30;
+            this.iconButton4.Location = new System.Drawing.Point(1068, 234);
+            this.iconButton4.Name = "iconButton4";
+            this.iconButton4.Size = new System.Drawing.Size(45, 39);
+            this.iconButton4.TabIndex = 108;
+            this.iconButton4.Tag = "Buscar Cliente";
+            this.iconButton4.UseVisualStyleBackColor = true;
+            this.iconButton4.Click += new System.EventHandler(this.iconButton4_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 501);
+            this.label8.Location = new System.Drawing.Point(448, 11);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(144, 21);
-            this.label8.TabIndex = 109;
-            this.label8.Text = "Tipo del equipo";
+            this.label8.Size = new System.Drawing.Size(74, 21);
+            this.label8.TabIndex = 105;
+            this.label8.Text = "Historial";
             // 
-            // comboBox1
+            // dataGridView2
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 541);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(445, 29);
-            this.comboBox1.TabIndex = 110;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdMantenimiento,
+            this.DescripcionFalla});
+            this.dataGridView2.Enabled = false;
+            this.dataGridView2.Location = new System.Drawing.Point(452, 31);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(599, 178);
+            this.dataGridView2.TabIndex = 106;
             // 
-            // iconButton5
+            // IdMantenimiento
             // 
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.iconButton5.IconColor = System.Drawing.Color.Black;
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 30;
-            this.iconButton5.Location = new System.Drawing.Point(463, 535);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(45, 39);
-            this.iconButton5.TabIndex = 110;
-            this.iconButton5.Tag = "Buscar Cliente";
-            this.iconButton5.UseVisualStyleBackColor = true;
+            this.IdMantenimiento.HeaderText = "N°Mantenimiento";
+            this.IdMantenimiento.MinimumWidth = 6;
+            this.IdMantenimiento.Name = "IdMantenimiento";
+            this.IdMantenimiento.Width = 125;
+            // 
+            // DescripcionFalla
+            // 
+            this.DescripcionFalla.HeaderText = "Descripcion de la falla";
+            this.DescripcionFalla.MinimumWidth = 6;
+            this.DescripcionFalla.Name = "DescripcionFalla";
+            this.DescripcionFalla.Width = 125;
             // 
             // OrdenServicioModulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 969);
-            this.Controls.Add(this.iconButton5);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label8);
+            this.ClientSize = new System.Drawing.Size(1122, 873);
+            this.Controls.Add(this.iconButton4);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.advancedDataGridView1);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.iconButton2);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.label14);
@@ -695,9 +725,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.mantenimientoBindingSource)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -738,17 +769,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn solucionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn estadoAplicarCorreccionDataGridViewCheckBoxColumn;
         private System.Windows.Forms.BindingSource mantenimientoBindingSource;
-        private Zuby.ADGV.AdvancedDataGridView advancedDataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionEquipoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn seriesDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource equipoBindingSource1;
-        private System.Windows.Forms.Label label7;
         private FontAwesome.Sharp.IconButton iconButton3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.BindingSource equipoBindingSource;
-        private FontAwesome.Sharp.IconButton iconButton4;
         private FontAwesome.Sharp.IconButton iconButton2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -765,8 +789,18 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.BindingSource mantenimientoModelBindingSource;
         public System.Windows.Forms.TextBox txtDesFalla;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox1;
+        private Zuby.ADGV.AdvancedDataGridView advancedDataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionEquipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn seriesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdMantenimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionFalla;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private FontAwesome.Sharp.IconButton iconButton5;
+        private FontAwesome.Sharp.IconButton iconButton4;
     }
 }

@@ -45,7 +45,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -54,7 +53,7 @@
             // txtOrdenServicio
             // 
             this.txtOrdenServicio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtOrdenServicio.Location = new System.Drawing.Point(220, 116);
+            this.txtOrdenServicio.Location = new System.Drawing.Point(205, 53);
             this.txtOrdenServicio.Multiline = true;
             this.txtOrdenServicio.Name = "txtOrdenServicio";
             this.txtOrdenServicio.ReadOnly = true;
@@ -88,7 +87,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(880, 583);
+            this.btnCancel.Location = new System.Drawing.Point(861, 440);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 35);
             this.btnCancel.TabIndex = 111;
@@ -102,7 +101,7 @@
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(589, 610);
+            this.btnUpdate.Location = new System.Drawing.Point(634, 467);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(121, 35);
             this.btnUpdate.TabIndex = 110;
@@ -113,7 +112,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 136);
+            this.label2.Location = new System.Drawing.Point(1, 73);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(200, 21);
@@ -125,7 +124,7 @@
             this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picClose.Image = ((System.Drawing.Image)(resources.GetObject("picClose.Image")));
             this.picClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.picClose.Location = new System.Drawing.Point(745, 0);
+            this.picClose.Location = new System.Drawing.Point(726, 0);
             this.picClose.Margin = new System.Windows.Forms.Padding(5);
             this.picClose.Name = "picClose";
             this.picClose.Size = new System.Drawing.Size(56, 45);
@@ -143,14 +142,14 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(801, 45);
+            this.panel2.Size = new System.Drawing.Size(782, 45);
             this.panel2.TabIndex = 101;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // txtDescripcionFallo
             // 
             this.txtDescripcionFallo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescripcionFallo.Location = new System.Drawing.Point(220, 252);
+            this.txtDescripcionFallo.Location = new System.Drawing.Point(205, 189);
             this.txtDescripcionFallo.Multiline = true;
             this.txtDescripcionFallo.Name = "txtDescripcionFallo";
             this.txtDescripcionFallo.ReadOnly = true;
@@ -160,7 +159,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 274);
+            this.label3.Location = new System.Drawing.Point(19, 211);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(177, 21);
@@ -170,7 +169,7 @@
             // txtSolucion
             // 
             this.txtSolucion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtSolucion.Location = new System.Drawing.Point(220, 397);
+            this.txtSolucion.Location = new System.Drawing.Point(205, 334);
             this.txtSolucion.Multiline = true;
             this.txtSolucion.Name = "txtSolucion";
             this.txtSolucion.Size = new System.Drawing.Size(569, 120);
@@ -179,7 +178,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(100, 409);
+            this.label4.Location = new System.Drawing.Point(85, 346);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 21);
@@ -205,16 +204,16 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 652);
+            this.panel1.Location = new System.Drawing.Point(0, 509);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(801, 55);
+            this.panel1.Size = new System.Drawing.Size(782, 55);
             this.panel1.TabIndex = 100;
             // 
             // txtPrecio
             // 
             this.txtPrecio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPrecio.Location = new System.Drawing.Point(220, 534);
+            this.txtPrecio.Location = new System.Drawing.Point(205, 471);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(114, 28);
             this.txtPrecio.TabIndex = 203;
@@ -223,34 +222,18 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(61, 534);
+            this.label5.Location = new System.Drawing.Point(46, 471);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(158, 21);
             this.label5.TabIndex = 202;
             this.label5.Text = "Precio Referencial";
             // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(380, 527);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(179, 35);
-            this.button1.TabIndex = 204;
-            this.button1.Text = "Agregar Reserva";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // precioReferencial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 707);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(782, 564);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtSolucion);
@@ -296,6 +279,5 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.Button button1;
     }
 }

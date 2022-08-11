@@ -50,7 +50,7 @@
             // txtAccesoriosEquipo
             // 
             this.txtAccesoriosEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtAccesoriosEquipo.Location = new System.Drawing.Point(190, 135);
+            this.txtAccesoriosEquipo.Location = new System.Drawing.Point(211, 132);
             this.txtAccesoriosEquipo.Multiline = true;
             this.txtAccesoriosEquipo.Name = "txtAccesoriosEquipo";
             this.txtAccesoriosEquipo.Size = new System.Drawing.Size(569, 120);
@@ -62,7 +62,7 @@
             this.label10.Location = new System.Drawing.Point(3, 135);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(173, 20);
+            this.label10.Size = new System.Drawing.Size(206, 21);
             this.label10.TabIndex = 177;
             this.label10.Text = "Accesorios del equipo";
             // 
@@ -101,7 +101,7 @@
             this.txtIdAccesorios.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtIdAccesorios.Location = new System.Drawing.Point(62, 53);
             this.txtIdAccesorios.Name = "txtIdAccesorios";
-            this.txtIdAccesorios.Size = new System.Drawing.Size(114, 25);
+            this.txtIdAccesorios.Size = new System.Drawing.Size(114, 30);
             this.txtIdAccesorios.TabIndex = 171;
             this.txtIdAccesorios.Visible = false;
             // 
@@ -164,7 +164,7 @@
             this.label18.Location = new System.Drawing.Point(29, 56);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(24, 20);
+            this.label18.Size = new System.Drawing.Size(27, 21);
             this.label18.TabIndex = 170;
             this.label18.Text = "Id";
             this.label18.Visible = false;
@@ -186,22 +186,22 @@
             this.txtCodigoEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodigoEquipo.Location = new System.Drawing.Point(190, 96);
             this.txtCodigoEquipo.Name = "txtCodigoEquipo";
-            this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 25);
+            this.txtCodigoEquipo.Size = new System.Drawing.Size(590, 30);
             this.txtCodigoEquipo.TabIndex = 181;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(58, 96);
+            this.label11.Location = new System.Drawing.Point(43, 99);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(118, 20);
+            this.label11.Size = new System.Drawing.Size(140, 21);
             this.label11.TabIndex = 179;
             this.label11.Text = "codigo equipo";
             // 
             // AccesoriosModulo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 374);
             this.Controls.Add(this.txtAccesoriosEquipo);

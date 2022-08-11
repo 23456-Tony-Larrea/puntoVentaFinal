@@ -53,6 +53,13 @@
             this.accesoriosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.iconButton6 = new FontAwesome.Sharp.IconButton();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel1.SuspendLayout();
@@ -66,7 +73,7 @@
             this.label18.Location = new System.Drawing.Point(9, 70);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(24, 20);
+            this.label18.Size = new System.Drawing.Size(27, 21);
             this.label18.TabIndex = 142;
             this.label18.Text = "Id";
             this.label18.Visible = false;
@@ -79,7 +86,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(817, 45);
+            this.panel2.Size = new System.Drawing.Size(1021, 45);
             this.panel2.TabIndex = 140;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -88,7 +95,7 @@
             this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picClose.Image = ((System.Drawing.Image)(resources.GetObject("picClose.Image")));
             this.picClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.picClose.Location = new System.Drawing.Point(761, 0);
+            this.picClose.Location = new System.Drawing.Point(965, 0);
             this.picClose.Margin = new System.Windows.Forms.Padding(5);
             this.picClose.Name = "picClose";
             this.picClose.Size = new System.Drawing.Size(56, 45);
@@ -101,10 +108,10 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 506);
+            this.panel1.Location = new System.Drawing.Point(0, 624);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(817, 82);
+            this.panel1.Size = new System.Drawing.Size(1021, 82);
             this.panel1.TabIndex = 139;
             // 
             // label1
@@ -126,7 +133,7 @@
             this.txtSeriesEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtSeriesEquipo.Location = new System.Drawing.Point(185, 258);
             this.txtSeriesEquipo.Name = "txtSeriesEquipo";
-            this.txtSeriesEquipo.Size = new System.Drawing.Size(569, 25);
+            this.txtSeriesEquipo.Size = new System.Drawing.Size(569, 30);
             this.txtSeriesEquipo.TabIndex = 167;
             // 
             // txtCodigoEquipo
@@ -134,16 +141,16 @@
             this.txtCodigoEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodigoEquipo.Location = new System.Drawing.Point(185, 101);
             this.txtCodigoEquipo.Name = "txtCodigoEquipo";
-            this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 25);
+            this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 30);
             this.txtCodigoEquipo.TabIndex = 166;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(51, 258);
+            this.label12.Location = new System.Drawing.Point(55, 261);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(105, 20);
+            this.label12.Size = new System.Drawing.Size(123, 21);
             this.label12.TabIndex = 165;
             this.label12.Text = "series equipo";
             // 
@@ -153,7 +160,7 @@
             this.label11.Location = new System.Drawing.Point(43, 104);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(118, 20);
+            this.label11.Size = new System.Drawing.Size(140, 21);
             this.label11.TabIndex = 164;
             this.label11.Text = "codigo equipo";
             // 
@@ -172,7 +179,7 @@
             this.label10.Location = new System.Drawing.Point(9, 132);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(152, 20);
+            this.label10.Size = new System.Drawing.Size(179, 21);
             this.label10.TabIndex = 162;
             this.label10.Text = "Descripcion equipo";
             this.label10.Click += new System.EventHandler(this.label10_Click);
@@ -184,7 +191,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(694, 464);
+            this.btnCancel.Location = new System.Drawing.Point(898, 582);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 35);
             this.btnCancel.TabIndex = 146;
@@ -199,7 +206,7 @@
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(570, 464);
+            this.btnUpdate.Location = new System.Drawing.Point(774, 582);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(121, 35);
             this.btnUpdate.TabIndex = 145;
@@ -214,7 +221,7 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(449, 464);
+            this.btnSave.Location = new System.Drawing.Point(653, 582);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(115, 35);
             this.btnSave.TabIndex = 144;
@@ -228,7 +235,7 @@
             this.txtIdEquipo.Enabled = false;
             this.txtIdEquipo.Location = new System.Drawing.Point(42, 67);
             this.txtIdEquipo.Name = "txtIdEquipo";
-            this.txtIdEquipo.Size = new System.Drawing.Size(114, 25);
+            this.txtIdEquipo.Size = new System.Drawing.Size(114, 30);
             this.txtIdEquipo.TabIndex = 143;
             this.txtIdEquipo.Visible = false;
             // 
@@ -247,11 +254,12 @@
             this.advancedDataGridView1.DataSource = this.accesoriosBindingSource;
             this.advancedDataGridView1.FilterAndSortEnabled = true;
             this.advancedDataGridView1.FilterStringChangedInvokeBeforeDatasourceUpdate = true;
-            this.advancedDataGridView1.Location = new System.Drawing.Point(185, 289);
+            this.advancedDataGridView1.Location = new System.Drawing.Point(144, 397);
             this.advancedDataGridView1.Name = "advancedDataGridView1";
             this.advancedDataGridView1.ReadOnly = true;
             this.advancedDataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.advancedDataGridView1.RowHeadersVisible = false;
+            this.advancedDataGridView1.RowHeadersWidth = 51;
             this.advancedDataGridView1.Size = new System.Drawing.Size(569, 150);
             this.advancedDataGridView1.SortStringChangedInvokeBeforeDatasourceUpdate = true;
             this.advancedDataGridView1.TabIndex = 168;
@@ -265,6 +273,7 @@
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 125;
             // 
             // codigoEquipoDataGridViewTextBoxColumn
             // 
@@ -274,6 +283,7 @@
             this.codigoEquipoDataGridViewTextBoxColumn.Name = "codigoEquipoDataGridViewTextBoxColumn";
             this.codigoEquipoDataGridViewTextBoxColumn.ReadOnly = true;
             this.codigoEquipoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.codigoEquipoDataGridViewTextBoxColumn.Width = 125;
             // 
             // accesoriosEquipoDataGridViewTextBoxColumn
             // 
@@ -294,6 +304,7 @@
             this.idEquipoDataGridViewTextBoxColumn.ReadOnly = true;
             this.idEquipoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.idEquipoDataGridViewTextBoxColumn.Visible = false;
+            this.idEquipoDataGridViewTextBoxColumn.Width = 125;
             // 
             // accesoriosBindingSource
             // 
@@ -302,10 +313,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(71, 298);
+            this.label2.Location = new System.Drawing.Point(10, 397);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 20);
+            this.label2.Size = new System.Drawing.Size(107, 21);
             this.label2.TabIndex = 169;
             this.label2.Text = "Accesorios";
             // 
@@ -315,7 +326,7 @@
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(759, 404);
+            this.btnAdd.Location = new System.Drawing.Point(718, 512);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(41, 35);
@@ -323,11 +334,90 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // iconButton6
+            // 
+            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.iconButton6.IconColor = System.Drawing.Color.Black;
+            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton6.IconSize = 30;
+            this.iconButton6.Location = new System.Drawing.Point(960, 334);
+            this.iconButton6.Name = "iconButton6";
+            this.iconButton6.Size = new System.Drawing.Size(45, 39);
+            this.iconButton6.TabIndex = 176;
+            this.iconButton6.Tag = "Buscar Cliente";
+            this.iconButton6.UseVisualStyleBackColor = true;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(509, 340);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(445, 29);
+            this.comboBox2.TabIndex = 175;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(521, 300);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(167, 21);
+            this.label3.TabIndex = 174;
+            this.label3.Text = "Marca del equipo";
+            // 
+            // iconButton5
+            // 
+            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.iconButton5.IconColor = System.Drawing.Color.Black;
+            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton5.IconSize = 30;
+            this.iconButton5.Location = new System.Drawing.Point(458, 334);
+            this.iconButton5.Name = "iconButton5";
+            this.iconButton5.Size = new System.Drawing.Size(45, 39);
+            this.iconButton5.TabIndex = 172;
+            this.iconButton5.Tag = "Buscar Cliente";
+            this.iconButton5.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(7, 340);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(445, 29);
+            this.comboBox1.TabIndex = 173;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 300);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(144, 21);
+            this.label8.TabIndex = 171;
+            this.label8.Text = "Tipo del equipo";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(760, 260);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(124, 25);
+            this.checkBox1.TabIndex = 177;
+            this.checkBox1.Text = "lleva series";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // EquipoModulo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 588);
+            this.ClientSize = new System.Drawing.Size(1021, 706);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.iconButton6);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.iconButton5);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.advancedDataGridView1);
@@ -384,5 +474,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoEquipoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn accesoriosEquipoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idEquipoDataGridViewTextBoxColumn;
+        private FontAwesome.Sharp.IconButton iconButton6;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label3;
+        private FontAwesome.Sharp.IconButton iconButton5;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
