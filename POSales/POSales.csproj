@@ -310,6 +310,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MantenimientosDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\DataSet1Informe.cs">
+      <DependentUpon>DataSet1Informe.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\DataSet1Informe.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
