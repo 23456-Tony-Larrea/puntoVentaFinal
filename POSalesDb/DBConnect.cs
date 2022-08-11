@@ -22,7 +22,7 @@ namespace POSalesDb
         private string con;
         public string myConnection()
         {
-            con = @"Data Source=.;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True";
+            con = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             return con;
         }
 
@@ -5288,7 +5288,7 @@ namespace POSalesDb
 
             try
             {
-                cm = new SqlCommand($"Select * from MarcaEquipo");
+                cm = new SqlCommand($"Select * from Marca");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();
@@ -5297,9 +5297,9 @@ namespace POSalesDb
                 {
                     foreach (DataRow r in dt.Rows)
                     {
-                        MarcaEquipo marcas = new MarcaEquipo();
+                        Marcas marcas = new Marcas();
                         marcas.Id = (int)dt.Rows[0]["Id"];
-                        marcas.NombreMarcaEquipo = Convert.ToString(dt.Rows[0]["marca"]);
+                        marcas.Nombre = Convert.ToString(dt.Rows[0]["Nombre"]);
 
                         marca.Add(marcas);
                     }
