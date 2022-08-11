@@ -9,6 +9,7 @@ namespace POSalesDb
     public class MantenimientoModel
     {
         public int Id { get; set; }
+        public string Codigo { get; set; }
         public DateTime fechaMantenimiento { get; set; }
         public DateTime fechaEntregaEquipo { get; set; }
         public int idEstadoMantenimiento { get; set; }

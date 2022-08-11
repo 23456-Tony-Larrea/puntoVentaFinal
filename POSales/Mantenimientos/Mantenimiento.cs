@@ -113,6 +113,11 @@ namespace POSales.Mantenimientos
 
         private void dgvClients_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+           
+        }
+
+        private void dgvClients_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
             int idmantenimiento = 0;
             int index = e.RowIndex;
             if (index > (-1))
@@ -168,11 +173,6 @@ namespace POSales.Mantenimientos
 
                 }
             }
-        }
-
-        private void dgvClients_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-          
 
         }
 

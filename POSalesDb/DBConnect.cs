@@ -22,7 +22,7 @@ namespace POSalesDb
         private string con;
         public string myConnection()
         {
-            con = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            con = @"Data Source=.;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True";
             return con;
         }
 
@@ -479,6 +479,33 @@ namespace POSalesDb
             {
                 CrearEvento(ex.ToString());
                 return falla;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public DataSet selectFallasDeEquipo(int Id)
+        {
+            DataSet dt = new DataSet();
+            DateTime fechaEntrega;
+            string falla = string.Empty;
+            cn.ConnectionString = myConnection();
+            MantenimientoModel MantenimientoModel = new MantenimientoModel();
+            try
+            {
+                cm = new SqlCommand($"SELECT Id,descripcionFalla from Mantenimiento Where IdEquipo = {Id} order by Mantenimiento desc ", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+
+                da.Fill(dt);
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return dt;
             }
             finally
             {
@@ -1281,11 +1308,17 @@ namespace POSalesDb
                 {
                     foreach (DataRow r in dt.Rows)
                     {
+                        int idTipo, idMarca;
+                        int.TryParse(r["IdtipoEquipo"].ToString(), out idTipo);
+                        int.TryParse(r["Idmarca"].ToString(), out idMarca);
                         Equipo equipo = new Equipo();
-                        equipo.Id = (int)dt.Rows[0]["Id"];
-                        equipo.descripcionEquipo = dt.Rows[0]["descirpcionEquipo"].ToString();
-                        equipo.codigo = dt.Rows[0]["codigo"].ToString();
-                        equipo.series = dt.Rows[0]["series"].ToString();
+                        equipo.Id = (int)r["Id"];
+                        equipo.descripcionEquipo = r["descirpcionEquipo"].ToString();
+                        equipo.IdtipoEquipo = idTipo;
+                        equipo.Idmarca = idMarca;
+                        equipo.codigo = r["codigo"].ToString();
+                        equipo.series = r["series"].ToString();
+                        equipos.Add(equipo);
                         equipos.Add(equipo);
                     }
 
@@ -1319,9 +1352,14 @@ namespace POSalesDb
                 {
                     foreach (DataRow r in dt.Rows)
                     {
+                        int idTipo, idMarca;
+                        int.TryParse(r["IdtipoEquipo"].ToString(), out idTipo);
+                        int.TryParse(r["Idmarca"].ToString(), out idMarca);
                         Equipo equipo = new Equipo();
                         equipo.Id = (int)r["Id"];
                         equipo.descripcionEquipo = r["descirpcionEquipo"].ToString();
+                        equipo.IdtipoEquipo = idTipo;
+                        equipo.Idmarca = idMarca;
                         equipo.codigo = r["codigo"].ToString();
                         equipo.series = r["series"].ToString();
                         equipos.Add(equipo);
@@ -1348,11 +1386,13 @@ namespace POSalesDb
             int Error = 0;
             try
             {
-                cm = new SqlCommand("Insert into Equipo (descirpcionEquipo,codigo,series,idCliente) values (@descripcionEquipo,@codigo,@series,@idCliente) SET @ID = SCOPE_IDENTITY();", cn);
+                cm = new SqlCommand("Insert into Equipo (descirpcionEquipo,codigo,series,idCliente,IdtipoEquipo,IdMarca) values (@descripcionEquipo,@codigo,@series,@idCliente,@IdtipoEquipo,@IdMarca) SET @ID = SCOPE_IDENTITY();", cn);
                 cm.Parameters.AddWithValue("@descripcionEquipo", equipo.descripcionEquipo);
                 cm.Parameters.AddWithValue("@codigo", equipo.codigo);
                 cm.Parameters.AddWithValue("@series", equipo.series);
                 cm.Parameters.AddWithValue("@idcliente", equipo.idCliente);
+                cm.Parameters.AddWithValue("@IdtipoEquipo", equipo.IdtipoEquipo);
+                cm.Parameters.AddWithValue("@IdMarca", equipo.Idmarca);
                 SqlParameter param = new SqlParameter("@ID", SqlDbType.Int, 4);
                 param.Direction = ParameterDirection.Output;
                 cm.Parameters.Add(param);
@@ -1379,11 +1419,22 @@ namespace POSalesDb
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("UPDATE Equipo SET descripcionFallo=@descripcionFallo,descripcionEquipo=@descripcionEquipo,codigo=@codigo,series=@series WHERE Id = @Id  ", cn);
-                cm.Parameters.AddWithValue("@", equipo.Id);
+                cm = new SqlCommand(@"UPDATE 
+                Equipo 
+                SET 
+                descripcionFallo=@descripcionFallo,
+                descripcionEquipo=@descripcionEquipo,
+                codigo=@codigo,
+                series=@series, 
+                IdtipoEquipo=@IdtipoEquipo,
+                IdMarca=@IdMarca 
+                WHERE Id = @Id", cn);
+                cm.Parameters.AddWithValue("@Id", equipo.Id);
                 cm.Parameters.AddWithValue("@descripcionEquipo", equipo.descripcionEquipo);
                 cm.Parameters.AddWithValue("@codigo", equipo.codigo);
                 cm.Parameters.AddWithValue("@series", equipo.series);
+                cm.Parameters.AddWithValue("@IdtipoEquipo", equipo.IdtipoEquipo);
+                cm.Parameters.AddWithValue("@IdMarca", equipo.Idmarca);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
@@ -5166,7 +5217,80 @@ namespace POSalesDb
             }
 
         }
+        public List<Marcas> TodosLasMarcas()
+        {
+            cn.ConnectionString = myConnection();
+            List<Marcas> marca = new List<Marcas>();
 
+            try
+            {
+                cm = new SqlCommand($"Select * from Marcas");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        Marcas marcas = new Marcas();
+                        marcas.Id = (int)dt.Rows[0]["Id"];
+                        marcas.Nombre = Convert.ToString(dt.Rows[0]["marca"]);
+
+                        marca.Add(marcas);
+                    }
+
+                }
+                return marca;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return marca;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public List<MarcaEquipo> TodosLasMarcasEquipo()
+        {
+            cn.ConnectionString = myConnection();
+            List<MarcaEquipo> marca = new List<MarcaEquipo>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from MarcaEquipo");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        MarcaEquipo marcas = new MarcaEquipo();
+                        marcas.Id = (int)dt.Rows[0]["Id"];
+                        marcas.Nombre = Convert.ToString(dt.Rows[0]["marca"]);
+
+                        marca.Add(marcas);
+                    }
+
+                }
+                return marca;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return marca;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
         //obtener id marcas   
         public Marcas selectMarcasId(int Id)
         {
@@ -5199,14 +5323,14 @@ namespace POSalesDb
         }
 
         //obtener marcas
-        public List<Marcas> TodosLasMarcas()
+        public List<TipoEquipo> TodosLosTipoEquipos()
         {
             cn.ConnectionString = myConnection();
-            List<Marcas> marca = new List<Marcas>();
+            List<TipoEquipo> tipoEquipos = new List<TipoEquipo>();
 
             try
             {
-                cm = new SqlCommand($"Select * from Marcas");
+                cm = new SqlCommand($"Select * from TipoEquipos");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();
@@ -5215,21 +5339,21 @@ namespace POSalesDb
                 {
                     foreach (DataRow r in dt.Rows)
                     {
-                        Marcas marcas = new Marcas();
-                        marcas.Id = (int)dt.Rows[0]["Id"];
-                        marcas.Nombre = Convert.ToString(dt.Rows[0]["marca"]);
+                        TipoEquipo tipoEquipo = new TipoEquipo();
+                        tipoEquipo.Id = (int)dt.Rows[0]["Id"];
+                        tipoEquipo.tipoEquipo = Convert.ToString(dt.Rows[0]["marca"]);
 
-                        marca.Add(marcas);
+                        tipoEquipos.Add(tipoEquipo);
                     }
 
                 }
-                return marca;
+                return tipoEquipos;
             }
 
             catch (Exception ex)
             {
                 CrearEvento(ex.ToString());
-                return marca;
+                return tipoEquipos;
             }
             finally
             {

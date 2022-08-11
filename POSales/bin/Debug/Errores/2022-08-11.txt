@@ -15,8 +15,13 @@ System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keywo
    en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+<<<<<<< HEAD
    en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 614
 ClientConnectionId:160439d4-27dc-4db7-b618-ac900dba7135
+=======
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 641
+ClientConnectionId:2ea5d472-a4e3-4fac-a63d-275736164009
+>>>>>>> 3177288933b956eda966c13c22b5973504d12033
 Error Number:156,State:1,Class:15
 System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'where'.
    en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
@@ -35,6 +40,7 @@ System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keywo
    en System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+<<<<<<< HEAD
    en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 614
 ClientConnectionId:b75ea46e-931d-48a1-9ce5-2079c4fab173
 Error Number:156,State:1,Class:15
@@ -58,3 +64,12 @@ System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Mantenimie
    en POSalesDb.DBConnect.selectFallaDeEquipo(Int32 Id) en D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 470
 ClientConnectionId:b75ea46e-931d-48a1-9ce5-2079c4fab173
 Error Number:207,State:1,Class:16
+=======
+   en POSalesDb.DBConnect.selectTodosLosMantenimientoDeHoyData() en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 641
+ClientConnectionId:9e60e72f-c51b-4a18-9932-b8b25b7a9105
+Error Number:156,State:1,Class:15
+System.InvalidCastException: No se puede convertir un objeto DBNull en otros tipos.
+   en System.DBNull.System.IConvertible.ToBoolean(IFormatProvider provider)
+   en System.Convert.ToBoolean(Object value)
+   en POSalesDb.DBConnect.selectMantenimientoModelPorId(Int32 Id) en C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\DBConnect.cs:línea 441
+>>>>>>> 3177288933b956eda966c13c22b5973504d12033

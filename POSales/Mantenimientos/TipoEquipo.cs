@@ -16,5 +16,10 @@ namespace POSales.Mantenimientos
         {
             InitializeComponent();
         }
+
+        private void dgvTipoEquipo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

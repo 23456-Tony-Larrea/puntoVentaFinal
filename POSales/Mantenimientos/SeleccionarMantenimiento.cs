@@ -80,6 +80,42 @@ namespace POSales.Mantenimientos
 
         private void dgvClients_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
+
+        private void SeleccionarMantenimiento_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+          
+           
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvOrdenes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int idOrden = 0;
+            if(e.RowIndex < 0)
+            { 
+                return;
+            }
+            int.TryParse(dgvOrdenes.Rows[e.RowIndex].Cells["Id"].Value.ToString(), out idOrden);
+            if (idOrden > 0)
+            {
+                cargarDatosMantenimiento(idOrden);
+            }
+           
+        }
+
+        private void dgvClients_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
             int idmantenimiento = 0;
             int index = e.RowIndex;
             if (index > (-1))
@@ -136,37 +172,6 @@ namespace POSales.Mantenimientos
                 }
             }
 
-        }
-
-        private void SeleccionarMantenimiento_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconButton2_Click(object sender, EventArgs e)
-        {
-          
-           
-        }
-
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvOrdenes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int idOrden = 0;
-            if(e.RowIndex < 0)
-            { 
-                return;
-            }
-            int.TryParse(dgvOrdenes.Rows[e.RowIndex].Cells["Id"].Value.ToString(), out idOrden);
-            if (idOrden > 0)
-            {
-                cargarDatosMantenimiento(idOrden);
-            }
-           
         }
     }
 }
