@@ -46,11 +46,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.txtIdEquipo = new System.Windows.Forms.TextBox();
             this.advancedDataGridView1 = new Zuby.ADGV.AdvancedDataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accesoriosEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accesoriosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
@@ -60,6 +55,11 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accesoriosEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accesoriosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel1.SuspendLayout();
@@ -131,6 +131,7 @@
             // txtSeriesEquipo
             // 
             this.txtSeriesEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtSeriesEquipo.Enabled = false;
             this.txtSeriesEquipo.Location = new System.Drawing.Point(185, 258);
             this.txtSeriesEquipo.Name = "txtSeriesEquipo";
             this.txtSeriesEquipo.Size = new System.Drawing.Size(569, 25);
@@ -264,52 +265,6 @@
             this.advancedDataGridView1.SortStringChangedInvokeBeforeDatasourceUpdate = true;
             this.advancedDataGridView1.TabIndex = 168;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            this.idDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // codigoEquipoDataGridViewTextBoxColumn
-            // 
-            this.codigoEquipoDataGridViewTextBoxColumn.DataPropertyName = "codigoEquipo";
-            this.codigoEquipoDataGridViewTextBoxColumn.HeaderText = "codigo";
-            this.codigoEquipoDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.codigoEquipoDataGridViewTextBoxColumn.Name = "codigoEquipoDataGridViewTextBoxColumn";
-            this.codigoEquipoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.codigoEquipoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.codigoEquipoDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // accesoriosEquipoDataGridViewTextBoxColumn
-            // 
-            this.accesoriosEquipoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.accesoriosEquipoDataGridViewTextBoxColumn.DataPropertyName = "accesoriosEquipo";
-            this.accesoriosEquipoDataGridViewTextBoxColumn.HeaderText = "Descripcion";
-            this.accesoriosEquipoDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.accesoriosEquipoDataGridViewTextBoxColumn.Name = "accesoriosEquipoDataGridViewTextBoxColumn";
-            this.accesoriosEquipoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.accesoriosEquipoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // idEquipoDataGridViewTextBoxColumn
-            // 
-            this.idEquipoDataGridViewTextBoxColumn.DataPropertyName = "idEquipo";
-            this.idEquipoDataGridViewTextBoxColumn.HeaderText = "idEquipo";
-            this.idEquipoDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.idEquipoDataGridViewTextBoxColumn.Name = "idEquipoDataGridViewTextBoxColumn";
-            this.idEquipoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idEquipoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.idEquipoDataGridViewTextBoxColumn.Visible = false;
-            this.idEquipoDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // accesoriosBindingSource
-            // 
-            this.accesoriosBindingSource.DataSource = typeof(POSalesDb.Accesorios);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -378,6 +333,7 @@
             this.iconButton5.TabIndex = 172;
             this.iconButton5.Tag = "Buscar Cliente";
             this.iconButton5.UseVisualStyleBackColor = true;
+            this.iconButton5.Click += new System.EventHandler(this.iconButton5_Click);
             // 
             // comboBox1
             // 
@@ -407,6 +363,53 @@
             this.checkBox1.TabIndex = 177;
             this.checkBox1.Text = "lleva series";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // codigoEquipoDataGridViewTextBoxColumn
+            // 
+            this.codigoEquipoDataGridViewTextBoxColumn.DataPropertyName = "codigoEquipo";
+            this.codigoEquipoDataGridViewTextBoxColumn.HeaderText = "codigo";
+            this.codigoEquipoDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.codigoEquipoDataGridViewTextBoxColumn.Name = "codigoEquipoDataGridViewTextBoxColumn";
+            this.codigoEquipoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codigoEquipoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.codigoEquipoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // accesoriosEquipoDataGridViewTextBoxColumn
+            // 
+            this.accesoriosEquipoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.accesoriosEquipoDataGridViewTextBoxColumn.DataPropertyName = "accesoriosEquipo";
+            this.accesoriosEquipoDataGridViewTextBoxColumn.HeaderText = "Descripcion";
+            this.accesoriosEquipoDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.accesoriosEquipoDataGridViewTextBoxColumn.Name = "accesoriosEquipoDataGridViewTextBoxColumn";
+            this.accesoriosEquipoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.accesoriosEquipoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // idEquipoDataGridViewTextBoxColumn
+            // 
+            this.idEquipoDataGridViewTextBoxColumn.DataPropertyName = "idEquipo";
+            this.idEquipoDataGridViewTextBoxColumn.HeaderText = "idEquipo";
+            this.idEquipoDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.idEquipoDataGridViewTextBoxColumn.Name = "idEquipoDataGridViewTextBoxColumn";
+            this.idEquipoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idEquipoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.idEquipoDataGridViewTextBoxColumn.Visible = false;
+            this.idEquipoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // accesoriosBindingSource
+            // 
+            this.accesoriosBindingSource.DataSource = typeof(POSalesDb.Accesorios);
             // 
             // EquipoModulo
             // 

@@ -629,7 +629,7 @@ namespace POSalesDb
             try
             {
                 cm = new SqlCommand($@"SELECT Mantenimiento.Id,Mantenimiento.fechaMantenimiento , Mantenimiento.fechaEntregaEquipo, Mantenimiento.descripcionFalla, Mantenimiento.solucion, Mantenimiento.IdEstadoMantenimiento, 
-                         Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
+                         Mantenimiento.idUsuarios, Mantenimiento.codigo as idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
                          Equipo.codigo ,Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
                          FROM                   
                          Mantenimiento LEFT JOIN
@@ -662,9 +662,9 @@ namespace POSalesDb
             try
             {
                 cm = new SqlCommand($@"SELECT Mantenimiento.Id,Mantenimiento.fechaMantenimiento , Mantenimiento.fechaEntregaEquipo, Mantenimiento.descripcionFalla, Mantenimiento.solucion, Mantenimiento.IdEstadoMantenimiento, 
-                         Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
+                         Mantenimiento.idUsuarios, Mantenimiento.codigo as idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
                          Equipo.codigo ,Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
-                         FROM                   
+                         FROM                            
                          Mantenimiento LEFT JOIN
                          Equipo ON Mantenimiento.IdEquipo = Equipo.Id LEFT JOIN
                          estadoMantenimiento ON Mantenimiento.[IdEstadoMantenimiento] = estadoMantenimiento.Id
@@ -694,9 +694,9 @@ namespace POSalesDb
             try
             {
                 cm = new SqlCommand($@"SELECT Mantenimiento.Id,Mantenimiento.fechaMantenimiento , Mantenimiento.fechaEntregaEquipo, Mantenimiento.descripcionFalla, Mantenimiento.solucion, Mantenimiento.IdEstadoMantenimiento, 
-                         Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
+                         Mantenimiento.idUsuarios, Mantenimiento.codigo as idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
                          Equipo.codigo ,Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
-                         FROM                   
+                         FROM                             
                          Mantenimiento LEFT JOIN
                          Equipo ON Mantenimiento.IdEquipo = Equipo.Id LEFT JOIN
                          estadoMantenimiento ON Mantenimiento.[IdEstadoMantenimiento] = estadoMantenimiento.Id
@@ -726,14 +726,14 @@ namespace POSalesDb
             try
             {
                 cm = new SqlCommand($@"SELECT Mantenimiento.Id,Mantenimiento.fechaMantenimiento , Mantenimiento.fechaEntregaEquipo, Mantenimiento.descripcionFalla, Mantenimiento.solucion, Mantenimiento.IdEstadoMantenimiento, 
-                         Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
+                         Mantenimiento.idUsuarios, Mantenimiento.codigo as idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
                          Equipo.codigo ,Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
-                         FROM                   
+                         FROM                             
                          Mantenimiento LEFT JOIN
                          Equipo ON Mantenimiento.IdEquipo = Equipo.Id LEFT JOIN
                          estadoMantenimiento ON Mantenimiento.[IdEstadoMantenimiento] = estadoMantenimiento.Id
                          Where 
-						 CONCAT(Mantenimiento.descripcionFalla, Mantenimiento.solucion, Equipo.codigo,Equipo.descirpcionEquipo) like '%{Search}%'
+						 CONCAT(Mantenimiento.descripcionFalla, Mantenimiento.solucion, Mantenimiento.codigo, Equipo.codigo,Equipo.descirpcionEquipo) like '%{Search}%'
                          Order by Mantenimiento.Id desc");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 da.Fill(dt);
@@ -1176,6 +1176,30 @@ namespace POSalesDb
             {
                 CrearEvento(ex.ToString());
                 return accesorios;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        public DataTable selectTodosLosAccesoriosData()
+        {
+            cn.ConnectionString = myConnection();
+            DataTable dt = new DataTable();
+            try
+            {
+                cm = new SqlCommand($"Select * from Accesorios join Equipo on Equipo.Id = accesorios.IdEquipo");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+              
+                da.Fill(dt);
+                return dt;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return dt;
             }
             finally
             {
@@ -4698,7 +4722,9 @@ namespace POSalesDb
                 cm = new SqlCommand("Insert into TipoEquipo (tipoEquipo)values(@tipoEquipo)");
                 cm.Parameters.AddWithValue("@tipoEquipo", tipoEquipo.tipoEquipo);
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.InsertCommand = cm;
+                adapter.InsertCommand.ExecuteNonQuery();
+                adapter.Dispose();
                 return Error;
 
             }

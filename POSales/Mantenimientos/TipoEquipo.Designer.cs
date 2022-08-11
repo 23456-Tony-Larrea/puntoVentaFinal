@@ -47,7 +47,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 394);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(674, 56);
             this.panel1.TabIndex = 15;
@@ -58,11 +58,12 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.Location = new System.Drawing.Point(634, 15);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(29, 26);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label1
             // 
@@ -101,7 +102,7 @@
             this.dgvTipoEquipo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTipoEquipo.EnableHeadersVisualStyles = false;
             this.dgvTipoEquipo.Location = new System.Drawing.Point(0, 0);
-            this.dgvTipoEquipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvTipoEquipo.Margin = new System.Windows.Forms.Padding(2);
             this.dgvTipoEquipo.Name = "dgvTipoEquipo";
             this.dgvTipoEquipo.ReadOnly = true;
             this.dgvTipoEquipo.RowHeadersVisible = false;
@@ -133,9 +134,10 @@
             this.ClientSize = new System.Drawing.Size(674, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvTipoEquipo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TipoEquipo";
             this.Text = "TipoEquipo";
+            this.Load += new System.EventHandler(this.TipoEquipo_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTipoEquipo)).EndInit();
             this.ResumeLayout(false);

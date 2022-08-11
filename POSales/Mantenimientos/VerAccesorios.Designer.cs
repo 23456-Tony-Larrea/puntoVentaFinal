@@ -37,6 +37,8 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoEquipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
@@ -49,10 +51,10 @@
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 438);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(0, 356);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(973, 80);
+            this.panel1.Size = new System.Drawing.Size(805, 65);
             this.panel1.TabIndex = 14;
             // 
             // btnAdd
@@ -60,10 +62,10 @@
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(931, 26);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdd.Location = new System.Drawing.Point(698, 21);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(39, 32);
+            this.btnAdd.Size = new System.Drawing.Size(29, 26);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -74,9 +76,10 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(7, 18);
+            this.label1.Location = new System.Drawing.Point(5, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(267, 39);
+            this.label1.Size = new System.Drawing.Size(200, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Manejo de Accesorios";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -100,16 +103,19 @@
             this.Column1,
             this.Column2,
             this.Column3,
+            this.CodigoEquipo,
+            this.Equipo,
             this.Edit,
             this.Delete});
             this.dgvAccesorios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAccesorios.EnableHeadersVisualStyles = false;
             this.dgvAccesorios.Location = new System.Drawing.Point(0, 0);
-            this.dgvAccesorios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvAccesorios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvAccesorios.Name = "dgvAccesorios";
+            this.dgvAccesorios.ReadOnly = true;
             this.dgvAccesorios.RowHeadersVisible = false;
             this.dgvAccesorios.RowHeadersWidth = 51;
-            this.dgvAccesorios.Size = new System.Drawing.Size(973, 518);
+            this.dgvAccesorios.Size = new System.Drawing.Size(805, 421);
             this.dgvAccesorios.TabIndex = 15;
             this.dgvAccesorios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccesorios_CellContentClick);
             // 
@@ -119,7 +125,8 @@
             this.Column1.HeaderText = "No";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 63;
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 53;
             // 
             // Column2
             // 
@@ -127,8 +134,9 @@
             this.Column2.HeaderText = "Id";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             this.Column2.Visible = false;
-            this.Column2.Width = 57;
+            this.Column2.Width = 47;
             // 
             // Column3
             // 
@@ -136,6 +144,21 @@
             this.Column3.HeaderText = "Accesorios";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // CodigoEquipo
+            // 
+            this.CodigoEquipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CodigoEquipo.HeaderText = "Codigo del Equipo";
+            this.CodigoEquipo.Name = "CodigoEquipo";
+            this.CodigoEquipo.ReadOnly = true;
+            // 
+            // Equipo
+            // 
+            this.Equipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Equipo.HeaderText = "Equipo";
+            this.Equipo.Name = "Equipo";
+            this.Equipo.ReadOnly = true;
             // 
             // Edit
             // 
@@ -144,6 +167,7 @@
             this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
             this.Edit.MinimumWidth = 6;
             this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
             this.Edit.Width = 6;
             // 
             // Delete
@@ -153,16 +177,17 @@
             this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
             this.Delete.MinimumWidth = 6;
             this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
             this.Delete.Width = 6;
             // 
             // VerAccesorios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(973, 518);
+            this.ClientSize = new System.Drawing.Size(805, 421);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvAccesorios);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "VerAccesorios";
             this.Text = "Accesorios";
             this.Load += new System.EventHandler(this.VerAccesorios_Load);
@@ -181,6 +206,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoEquipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Equipo;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
     }

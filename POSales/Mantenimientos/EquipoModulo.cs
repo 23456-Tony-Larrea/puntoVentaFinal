@@ -45,8 +45,16 @@ namespace POSales.Mantenimientos
             txtIdEquipo.Text = equipo.Id.ToString();
             txtCodigoEquipo.Text = equipo.codigo;
             txtDescripcionEquipo.Text = equipo.descripcionEquipo;
-            txtSeriesEquipo.Text = equipo.series;
+            
             advancedDataGridView1.DataSource = equipo.accesorios;
+            if(!string.IsNullOrEmpty(equipo.series))
+            {
+                txtSeriesEquipo.Text = equipo.series;
+            }
+             else
+            {
+                checkBox1.Checked = true;
+            }
             comboBox1.Text = tipoEquipos.Where(x => x.Id == equipo.IdtipoEquipo).First().tipoEquipo;
             comboBox2.Text = marcas.Where(x => x.Id == equipo.Idmarca).First().Nombre;
         }
@@ -139,6 +147,24 @@ namespace POSales.Mantenimientos
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             equipo.Idmarca = marcas.ElementAt(comboBox2.SelectedIndex).Id;
+        }
+
+        private void iconButton5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                txtSeriesEquipo.Enabled = true;
+            }
+            else
+            {
+                txtSeriesEquipo.Clear();
+                txtSeriesEquipo.Enabled = false;
+            }
         }
     }
 }
