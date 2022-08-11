@@ -4806,7 +4806,7 @@ namespace POSalesDb
                 if (dt.Rows.Count > 0)
                 {
                     marcaEquipo.Id = (int)dt.Rows[0]["Id"];
-                    marcaEquipo.NombreMarcaEquipo = Convert.ToString(dt.Rows[0]["marcaEquipo"]);
+                    marcaEquipo.Nombre = Convert.ToString(dt.Rows[0]["marcaEquipo"]);
 
                 }
                 return marcaEquipo;
@@ -4842,7 +4842,7 @@ namespace POSalesDb
                     {
                         MarcaEquipo marcaEquipos = new MarcaEquipo();
                         marcaEquipos.Id = (int)dt.Rows[0]["Id"];
-                        marcaEquipos.NombreMarcaEquipo = Convert.ToString(dt.Rows[0]["marcaEquipo"]);
+                        marcaEquipos.Nombre = Convert.ToString(dt.Rows[0]["marcaEquipo"]);
 
                         marcaEquipo.Add(marcaEquipos);
                     }
@@ -4869,9 +4869,10 @@ namespace POSalesDb
             try
             {
                 cm = new SqlCommand("Insert into MarcaEquipo (marcaEquipo)values(@marcaEquipo)");
-                cm.Parameters.AddWithValue("@marcaEquipo", marcaEquipo.NombreMarcaEquipo);
+                cm.Parameters.AddWithValue("@marcaEquipo", marcaEquipo.Nombre);
                 cn.Open();
-                cm.ExecuteNonQuery();
+                adapter.InsertCommand = cm;
+                adapter.InsertCommand.ExecuteNonQuery();
                 return Error;
 
             }
@@ -4896,7 +4897,7 @@ namespace POSalesDb
             {
                 cm = new SqlCommand("UPDATE MarcaEquipo SET marcaEquipo=@marcaEquipo WHERE Id = @Id  ", cn);
                 cm.Parameters.AddWithValue("@", marcaEquipo.Id);
-                cm.Parameters.AddWithValue("@nombre", marcaEquipo.NombreMarcaEquipo);
+                cm.Parameters.AddWithValue("@nombre", marcaEquipo.Nombre);
                 cn.Open();
                 adapter.UpdateCommand = cm;
                 adapter.UpdateCommand.ExecuteNonQuery();
