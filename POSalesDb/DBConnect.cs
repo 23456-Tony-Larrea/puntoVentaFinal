@@ -4806,7 +4806,7 @@ namespace POSalesDb
                 if (dt.Rows.Count > 0)
                 {
                     marcaEquipo.Id = (int)dt.Rows[0]["Id"];
-                    marcaEquipo.Nombre = Convert.ToString(dt.Rows[0]["marcaEquipo"]);
+                    marcaEquipo.NombreMarcaEquipo = Convert.ToString(dt.Rows[0]["marcaEquipo"]);
 
                 }
                 return marcaEquipo;
@@ -4842,7 +4842,7 @@ namespace POSalesDb
                     {
                         MarcaEquipo marcaEquipos = new MarcaEquipo();
                         marcaEquipos.Id = (int)dt.Rows[0]["Id"];
-                        marcaEquipos.Nombre = Convert.ToString(dt.Rows[0]["marcaEquipo"]);
+                        marcaEquipos.NombreMarcaEquipo = Convert.ToString(dt.Rows[0]["marcaEquipo"]);
 
                         marcaEquipo.Add(marcaEquipos);
                     }
@@ -4869,7 +4869,7 @@ namespace POSalesDb
             try
             {
                 cm = new SqlCommand("Insert into MarcaEquipo (marcaEquipo)values(@marcaEquipo)");
-                cm.Parameters.AddWithValue("@marcaEquipo", marcaEquipo.Nombre);
+                cm.Parameters.AddWithValue("@marcaEquipo", marcaEquipo.NombreMarcaEquipo);
                 cn.Open();
                 adapter.InsertCommand = cm;
                 adapter.InsertCommand.ExecuteNonQuery();
@@ -4897,7 +4897,7 @@ namespace POSalesDb
             {
                 cm = new SqlCommand("UPDATE MarcaEquipo SET marcaEquipo=@marcaEquipo WHERE Id = @Id  ", cn);
                 cm.Parameters.AddWithValue("@", marcaEquipo.Id);
-                cm.Parameters.AddWithValue("@nombre", marcaEquipo.Nombre);
+                cm.Parameters.AddWithValue("@nombre", marcaEquipo.NombreMarcaEquipo);
                 cn.Open();
                 adapter.UpdateCommand = cm;
                 adapter.UpdateCommand.ExecuteNonQuery();
@@ -5299,7 +5299,7 @@ namespace POSalesDb
                     {
                         MarcaEquipo marcas = new MarcaEquipo();
                         marcas.Id = (int)dt.Rows[0]["Id"];
-                        marcas.Nombre = Convert.ToString(dt.Rows[0]["marca"]);
+                        marcas.NombreMarcaEquipo = Convert.ToString(dt.Rows[0]["marca"]);
 
                         marca.Add(marcas);
                     }

@@ -19,7 +19,7 @@ namespace POSales.Mantenimientos
         DBConnect dbcon = new DBConnect();
         string stitle = "Punto de venta";
         Equipo equipo = new Equipo();
-        List<MarcaEquipo> marcas = new List<MarcaEquipo>();
+        List<POSalesDb.MarcaEquipo> marcas = new List<POSalesDb.MarcaEquipo>();
         List<POSalesDb.TipoEquipo> tipoEquipos = new List<POSalesDb.TipoEquipo>();
         bool Nuevo = false;
 
@@ -56,7 +56,7 @@ namespace POSales.Mantenimientos
                 checkBox1.Checked = true;
             }
             comboBox1.Text = tipoEquipos.Where(x => x.Id == equipo.IdtipoEquipo).First().tipoEquipo;
-            comboBox2.Text = marcas.Where(x => x.Id == equipo.Idmarca).First().Nombre;
+            comboBox2.Text = marcas.Where(x => x.Id == equipo.Idmarca).First().NombreMarcaEquipo;
         }
 
         private void cargarMarcasEquipo()
@@ -64,7 +64,7 @@ namespace POSales.Mantenimientos
             marcas = dbcon.TodosLasMarcasEquipo();
             foreach (var marca in marcas)
             {
-                comboBox1.Items.Add(marca.Nombre);
+                comboBox1.Items.Add(marca.NombreMarcaEquipo);
             }
         }
         private void cargarTipodeEquios()
