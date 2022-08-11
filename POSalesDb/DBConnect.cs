@@ -463,7 +463,20 @@ namespace POSalesDb
             MantenimientoModel MantenimientoModel = new MantenimientoModel();
             try
             {
-                cm = new SqlCommand($"SELECT TOP (1) descripcionFalla from Mantenimiento Where IdEquipo = {Id} order by Mantenimiento desc ", cn);
+                cm = new SqlCommand($@"SELECT TOP (1) [Id]
+                  ,[fechaMantenimiento]
+                  ,[fechaEntregaEquipo]
+                  ,[descripcionFalla]
+                  ,[solucion]
+                  ,[IdEstadoMantenimiento]
+                  ,[idUsuarios]
+                  ,[idOrdenServicio]
+                  ,[estadoAplicarCorreccion]
+                  ,[estadoNoAplicarCorreccion]
+                  ,[idEquipo]
+                  ,[precioReferencial]
+                  ,[Codigo]
+                    FROM [C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF].[dbo].[Mantenimiento]  Where IdEquipo = {1} order by [Id] desc", cn);
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();
@@ -494,7 +507,20 @@ namespace POSalesDb
             MantenimientoModel MantenimientoModel = new MantenimientoModel();
             try
             {
-                cm = new SqlCommand($"SELECT Id,descripcionFalla from Mantenimiento Where IdEquipo = {Id} order by Mantenimiento desc ", cn);
+                cm = new SqlCommand($@"SELECT [Id]
+      ,[fechaMantenimiento]
+      ,[fechaEntregaEquipo]
+      ,[descripcionFalla]
+      ,[solucion]
+      ,[IdEstadoMantenimiento]
+      ,[idUsuarios]
+      ,[idOrdenServicio]
+      ,[estadoAplicarCorreccion]
+      ,[estadoNoAplicarCorreccion]
+      ,[idEquipo]
+      ,[precioReferencial]
+      ,[Codigo]
+  FROM [C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF].[dbo].[Mantenimiento]  Where IdEquipo = {Id} order by [Id] desc ", cn);
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
 
@@ -632,10 +658,12 @@ namespace POSalesDb
                          Mantenimiento.idUsuarios, Mantenimiento.codigo as idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
                          Equipo.codigo ,Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
                          FROM                   
-                         Mantenimiento LEFT JOIN
+                         [dbo].[Mantenimiento] LEFT JOIN
                          Equipo ON Mantenimiento.IdEquipo = Equipo.Id LEFT JOIN
-                         estadoMantenimiento ON Mantenimiento.[IdEstadoMantenimiento] = estadoMantenimiento.Id Order by Mantenimiento.Id desc
-                         where fechaMantenimiento =GETDATE()");
+                         estadoMantenimiento ON Mantenimiento.IdEstadoMantenimiento = estadoMantenimiento.Id
+						 where fechaMantenimiento = GETDATE()
+						 Order by Mantenimiento.Id desc
+                      ");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
 
                 da.Fill(dt);
