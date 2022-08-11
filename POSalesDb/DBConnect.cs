@@ -4714,7 +4714,153 @@ namespace POSalesDb
             }
 
         }
+        //obtener id MarcaEquipo   
+        public MarcaEquipo selectMarcaEquipoId(int Id)
+        {
+            cn.ConnectionString = myConnection();
+            MarcaEquipo marcaEquipo = new MarcaEquipo();
+            try
+            {
+                cm = new SqlCommand($"Select * from MarcaEquipo Where Id = {Id}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    marcaEquipo.Id = (int)dt.Rows[0]["Id"];
+                    marcaEquipo.NombreMarcaEquipo = Convert.ToString(dt.Rows[0]["marcaEquipo"]);
 
+                }
+                return marcaEquipo;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return marcaEquipo;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        //obtener marcaEquipo
+        public List<MarcaEquipo> TodosMarcaEquipo()
+        {
+            cn.ConnectionString = myConnection();
+            List<MarcaEquipo> marcaEquipo = new List<MarcaEquipo>();
+
+            try
+            {
+                cm = new SqlCommand($"Select * from MarcaEquipo");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        MarcaEquipo marcaEquipos = new MarcaEquipo();
+                        marcaEquipos.Id = (int)dt.Rows[0]["Id"];
+                        marcaEquipos.NombreMarcaEquipo = Convert.ToString(dt.Rows[0]["marcaEquipo"]);
+
+                        marcaEquipo.Add(marcaEquipos);
+                    }
+
+                }
+                return marcaEquipo;
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return marcaEquipo;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //insertar un marcaEquipo
+        public string insertMarcaEquipo(MarcaEquipo marcaEquipo)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("Insert into MarcaEquipo (marcaEquipo)values(@marcaEquipo)");
+                cm.Parameters.AddWithValue("@marcaEquipo", marcaEquipo.NombreMarcaEquipo);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+
+            }
+
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //actualizar un marcaEquipo
+        public string actualizarMarcaEquipo(MarcaEquipo marcaEquipo)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("UPDATE MarcaEquipo SET marcaEquipo=@marcaEquipo WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@", marcaEquipo.Id);
+                cm.Parameters.AddWithValue("@nombre", marcaEquipo.NombreMarcaEquipo);
+                cn.Open();
+                adapter.UpdateCommand = cm;
+                adapter.UpdateCommand.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+        //eliminar MarcaEquipo
+        public string deleteMarcaEquipo(int idMarcaEquipo)
+        {
+            cn.ConnectionString = myConnection();
+            string Error = String.Empty;
+            try
+            {
+                cm = new SqlCommand("DETELE FROM MarcaEquipo WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@Id", idMarcaEquipo);
+                cn.Open();
+                cm.ExecuteNonQuery();
+                return Error;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                Error = ex.ToString();
+                return Error;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
         //obtener id grupo   
         public Grupo selectGrupoId(int Id)
         {

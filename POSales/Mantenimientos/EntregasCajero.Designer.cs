@@ -75,7 +75,7 @@
             this.btnBuscarCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBuscarCodigo.Name = "btnBuscarCodigo";
             this.btnBuscarCodigo.Size = new System.Drawing.Size(33, 23);
-            this.btnBuscarCodigo.TabIndex = 18;
+            this.btnBuscarCodigo.TabIndex = 2;
             this.btnBuscarCodigo.UseVisualStyleBackColor = true;
             this.btnBuscarCodigo.Click += new System.EventHandler(this.btnBuscarCodigo_Click);
             // 
@@ -98,7 +98,7 @@
             this.txtBucadorCodigo.Multiline = true;
             this.txtBucadorCodigo.Name = "txtBucadorCodigo";
             this.txtBucadorCodigo.Size = new System.Drawing.Size(372, 22);
-            this.txtBucadorCodigo.TabIndex = 16;
+            this.txtBucadorCodigo.TabIndex = 1;
             // 
             // enviarSolucionPorWhatsappToolStripMenuItem
             // 
@@ -157,7 +157,7 @@
             this.dgvOrdenes.FilterAndSortEnabled = true;
             this.dgvOrdenes.FilterStringChangedInvokeBeforeDatasourceUpdate = true;
             this.dgvOrdenes.Location = new System.Drawing.Point(0, 103);
-            this.dgvOrdenes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvOrdenes.Margin = new System.Windows.Forms.Padding(4);
             this.dgvOrdenes.Name = "dgvOrdenes";
             this.dgvOrdenes.ReadOnly = true;
             this.dgvOrdenes.RightToLeft = System.Windows.Forms.RightToLeft.No;

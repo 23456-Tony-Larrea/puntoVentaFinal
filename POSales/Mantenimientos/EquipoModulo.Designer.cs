@@ -134,7 +134,7 @@
             this.txtSeriesEquipo.Location = new System.Drawing.Point(185, 258);
             this.txtSeriesEquipo.Name = "txtSeriesEquipo";
             this.txtSeriesEquipo.Size = new System.Drawing.Size(569, 30);
-            this.txtSeriesEquipo.TabIndex = 167;
+            this.txtSeriesEquipo.TabIndex = 3;
             // 
             // txtCodigoEquipo
             // 
@@ -142,7 +142,7 @@
             this.txtCodigoEquipo.Location = new System.Drawing.Point(185, 101);
             this.txtCodigoEquipo.Name = "txtCodigoEquipo";
             this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 30);
-            this.txtCodigoEquipo.TabIndex = 166;
+            this.txtCodigoEquipo.TabIndex = 1;
             // 
             // label12
             // 
@@ -171,7 +171,7 @@
             this.txtDescripcionEquipo.Multiline = true;
             this.txtDescripcionEquipo.Name = "txtDescripcionEquipo";
             this.txtDescripcionEquipo.Size = new System.Drawing.Size(569, 120);
-            this.txtDescripcionEquipo.TabIndex = 163;
+            this.txtDescripcionEquipo.TabIndex = 2;
             // 
             // label10
             // 
@@ -374,7 +374,7 @@
             this.iconButton5.Location = new System.Drawing.Point(458, 334);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Size = new System.Drawing.Size(45, 39);
-            this.iconButton5.TabIndex = 172;
+            this.iconButton5.TabIndex = 4;
             this.iconButton5.Tag = "Buscar Cliente";
             this.iconButton5.UseVisualStyleBackColor = true;
             // 

@@ -212,7 +212,7 @@
             this.btnCancel.Location = new System.Drawing.Point(999, 773);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 35);
-            this.btnCancel.TabIndex = 91;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
@@ -226,7 +226,7 @@
             this.btnSave.Location = new System.Drawing.Point(863, 773);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(115, 35);
-            this.btnSave.TabIndex = 89;
+            this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -306,7 +306,7 @@
             this.iconButton1.Location = new System.Drawing.Point(394, 241);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(41, 37);
-            this.iconButton1.TabIndex = 98;
+            this.iconButton1.TabIndex = 2;
             this.iconButton1.Tag = "Buscar Cliente";
             this.iconButton1.UseVisualStyleBackColor = true;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
@@ -505,7 +505,7 @@
             this.txtDesFalla.Multiline = true;
             this.txtDesFalla.Name = "txtDesFalla";
             this.txtDesFalla.Size = new System.Drawing.Size(367, 165);
-            this.txtDesFalla.TabIndex = 0;
+            this.txtDesFalla.TabIndex = 4;
             // 
             // iconButton3
             // 
@@ -516,7 +516,7 @@
             this.iconButton3.Location = new System.Drawing.Point(1068, 375);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(45, 39);
-            this.iconButton3.TabIndex = 107;
+            this.iconButton3.TabIndex = 5;
             this.iconButton3.Tag = "Buscar Cliente";
             this.iconButton3.UseVisualStyleBackColor = true;
             this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
@@ -530,7 +530,7 @@
             this.iconButton2.Location = new System.Drawing.Point(1068, 720);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(45, 39);
-            this.iconButton2.TabIndex = 108;
+            this.iconButton2.TabIndex = 6;
             this.iconButton2.Tag = "Buscar Cliente";
             this.iconButton2.UseVisualStyleBackColor = true;
             this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click_1);
@@ -644,7 +644,7 @@
             this.iconButton4.Location = new System.Drawing.Point(1068, 234);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Size = new System.Drawing.Size(45, 39);
-            this.iconButton4.TabIndex = 108;
+            this.iconButton4.TabIndex = 3;
             this.iconButton4.Tag = "Buscar Cliente";
             this.iconButton4.UseVisualStyleBackColor = true;
             this.iconButton4.Click += new System.EventHandler(this.iconButton4_Click);

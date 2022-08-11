@@ -136,3 +136,5 @@ D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.csproj.Co
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.csproj.CopyComplete
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.exe
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.pdb
+D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.TipoEquipo.resources
+D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.TipoEquipoModulo.resources
