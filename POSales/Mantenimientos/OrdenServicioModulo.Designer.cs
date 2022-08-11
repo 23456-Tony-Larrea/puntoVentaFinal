@@ -83,6 +83,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.IdMantenimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescripcionFalla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel2.SuspendLayout();
@@ -491,6 +492,7 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdMantenimiento,
+            this.FechaIngreso,
             this.DescripcionFalla});
             this.dataGridView2.Enabled = false;
             this.dataGridView2.Location = new System.Drawing.Point(452, 31);
@@ -501,6 +503,7 @@
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(599, 178);
             this.dataGridView2.TabIndex = 106;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // label8
             // 
@@ -662,6 +665,7 @@
             this.label7.Size = new System.Drawing.Size(159, 20);
             this.label7.TabIndex = 108;
             this.label7.Text = "Seleccion de Equipo";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // iconButton4
             // 
@@ -683,7 +687,14 @@
             this.IdMantenimiento.HeaderText = "N°Mantenimiento";
             this.IdMantenimiento.MinimumWidth = 6;
             this.IdMantenimiento.Name = "IdMantenimiento";
+            this.IdMantenimiento.ReadOnly = true;
             this.IdMantenimiento.Width = 162;
+            // 
+            // FechaIngreso
+            // 
+            this.FechaIngreso.HeaderText = "Fecha In.";
+            this.FechaIngreso.Name = "FechaIngreso";
+            this.FechaIngreso.ReadOnly = true;
             // 
             // DescripcionFalla
             // 
@@ -691,6 +702,7 @@
             this.DescripcionFalla.HeaderText = "Descripcion de la falla";
             this.DescripcionFalla.MinimumWidth = 6;
             this.DescripcionFalla.Name = "DescripcionFalla";
+            this.DescripcionFalla.ReadOnly = true;
             // 
             // OrdenServicioModulo
             // 
@@ -806,6 +818,7 @@
         private System.Windows.Forms.Label label8;
         private FontAwesome.Sharp.IconButton iconButton4;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdMantenimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaIngreso;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionFalla;
     }
 }

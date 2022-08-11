@@ -41,12 +41,14 @@ namespace POSales.Mantenimientos
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
+            tipoEquipo.tipoEquipo = txtCodigoEquipo.Text;
+            dbcon.insertTipoEquipo(tipoEquipo);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            tipoEquipo.tipoEquipo = txtCodigoEquipo.Text;
+            dbcon.actualizarTipoEquipo(tipoEquipo);
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)

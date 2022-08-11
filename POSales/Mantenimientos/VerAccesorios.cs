@@ -17,7 +17,7 @@ namespace POSales.Mantenimientos
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DBConnect dbcon = new DBConnect();
-        List<Accesorios> accesorios1 = new List<Accesorios>();
+        DataTable accesorios = new DataTable();
         SqlDataReader dr;
         public VerAccesorios()
         {
@@ -28,10 +28,10 @@ namespace POSales.Mantenimientos
         public void cargarAccesorios()
         {
             int i = 1;
-            accesorios1 = dbcon.selectTodosLosAccesorios();
-            foreach (var accesorio in accesorios1)
+            accesorios = dbcon.selectTodosLosAccesoriosData();
+            foreach (DataRow r in accesorios.Rows)
             {
-                dgvAccesorios.Rows.Add(i,accesorio.Id,accesorio.accesoriosEquipo);
+                dgvAccesorios.Rows.Add(i, r["Id"].ToString(), r["accesoriosEquipo"].ToString(), r["codigo"].ToString(), r["descirpcionEquipo"].ToString());
                 i++;
             }
         }
@@ -43,8 +43,7 @@ namespace POSales.Mantenimientos
             {
                 Accesorios accesorios = new Accesorios();
                 accesorios.Id = Convert.ToInt32(dgvAccesorios.Rows[e.RowIndex].Cells["Id"].Value);
-                accesorios.codigoEquipo = Convert.ToString(dgvAccesorios.Rows[e.RowIndex].Cells["codigoEquipo"].Value);
-                accesorios.codigoEquipo = Convert.ToString(dgvAccesorios.Rows[e.RowIndex].Cells["accesoriosEquipo"].Value);
+                accesorios.codigoEquipo = Convert.ToString(dgvAccesorios.Rows[e.RowIndex].Cells["codigo"].Value);
                 accesorios.idEquipo = Convert.ToInt32(dgvAccesorios.Rows[e.RowIndex].Cells["idEquipo"].Value);
                 Form accesoriosModulo = new AccesoriosModulo(accesorios,accesorios.idEquipo);
                 accesoriosModulo.ShowDialog();
