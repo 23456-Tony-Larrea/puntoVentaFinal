@@ -310,11 +310,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MantenimientosDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\DataSet1Informe.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1Informe.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\EntregasCajero.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Mantenimientos\EntregasCajero.Designer.cs">
       <DependentUpon>EntregasCajero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\InformeCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\InformeCliente.Designer.cs">
+      <DependentUpon>InformeCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\MarcaEquipo.cs">
       <SubType>Form</SubType>
@@ -671,6 +682,9 @@
     <EmbeddedResource Include="Mantenimientos\EntregasCajero.resx">
       <DependentUpon>EntregasCajero.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\InformeCliente.resx">
+      <DependentUpon>InformeCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\MarcaEquipo.resx">
       <DependentUpon>MarcaEquipo.cs</DependentUpon>
     </EmbeddedResource>
@@ -862,6 +876,17 @@
     </None>
     <None Include="MantenimientosDS.xss">
       <DependentUpon>MantenimientosDS.xsd</DependentUpon>
+    </None>
+    <None Include="Mantenimientos\DataSet1Informe.xsc">
+      <DependentUpon>DataSet1Informe.xsd</DependentUpon>
+    </None>
+    <None Include="Mantenimientos\DataSet1Informe.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1Informe.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Mantenimientos\DataSet1Informe.xss">
+      <DependentUpon>DataSet1Informe.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\POSalesDb.Accesorios.datasource" />

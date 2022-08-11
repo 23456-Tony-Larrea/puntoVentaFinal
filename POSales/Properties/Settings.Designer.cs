@@ -55,5 +55,29 @@ namespace POSales.Properties {
                 return ((string)(this["C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=\"D:\\NUEVO LA CAGUE\\PUNTOVENTAF" +
+            "INAL\\POSALES\\DBPOSALE.MDF\";Integrated Security=True;Connect Timeout=30;Encrypt=F" +
+            "alse;TrustServerCertificate=False")]
+        public string D__NUEVO_LA_CAGUE_PUNTOVENTAFINAL_POSALES_DBPOSALE_MDFConnectionString {
+            get {
+                return ((string)(this["D__NUEVO_LA_CAGUE_PUNTOVENTAFINAL_POSALES_DBPOSALE_MDFConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=C:\\USERS\\AVSLA\\DOCUMENTS\\DBPOS" +
+            "ALE.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCer" +
+            "tificate=False")]
+        public string C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFConnectionString2 {
+            get {
+                return ((string)(this["C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFConnectionString2"]));
+            }
+        }
     }
 }
