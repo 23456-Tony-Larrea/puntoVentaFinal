@@ -71,6 +71,7 @@
     <Compile Include="Inventario.cs" />
     <Compile Include="Items.cs" />
     <Compile Include="Mantenimiento.cs" />
+    <Compile Include="MarcaEquipo.cs" />
     <Compile Include="Marcas.cs" />
     <Compile Include="OrdenServicio.cs" />
     <Compile Include="Productos.cs" />

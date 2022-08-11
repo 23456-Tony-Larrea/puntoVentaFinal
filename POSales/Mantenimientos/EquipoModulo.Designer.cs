@@ -73,7 +73,7 @@
             this.label18.Location = new System.Drawing.Point(9, 70);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(27, 21);
+            this.label18.Size = new System.Drawing.Size(24, 20);
             this.label18.TabIndex = 142;
             this.label18.Text = "Id";
             this.label18.Visible = false;
@@ -133,7 +133,7 @@
             this.txtSeriesEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtSeriesEquipo.Location = new System.Drawing.Point(185, 258);
             this.txtSeriesEquipo.Name = "txtSeriesEquipo";
-            this.txtSeriesEquipo.Size = new System.Drawing.Size(569, 30);
+            this.txtSeriesEquipo.Size = new System.Drawing.Size(569, 25);
             this.txtSeriesEquipo.TabIndex = 167;
             // 
             // txtCodigoEquipo
@@ -141,7 +141,7 @@
             this.txtCodigoEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodigoEquipo.Location = new System.Drawing.Point(185, 101);
             this.txtCodigoEquipo.Name = "txtCodigoEquipo";
-            this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 30);
+            this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 25);
             this.txtCodigoEquipo.TabIndex = 166;
             // 
             // label12
@@ -150,7 +150,7 @@
             this.label12.Location = new System.Drawing.Point(55, 261);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(123, 21);
+            this.label12.Size = new System.Drawing.Size(105, 20);
             this.label12.TabIndex = 165;
             this.label12.Text = "series equipo";
             // 
@@ -160,7 +160,7 @@
             this.label11.Location = new System.Drawing.Point(43, 104);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(140, 21);
+            this.label11.Size = new System.Drawing.Size(118, 20);
             this.label11.TabIndex = 164;
             this.label11.Text = "codigo equipo";
             // 
@@ -179,7 +179,7 @@
             this.label10.Location = new System.Drawing.Point(9, 132);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(179, 21);
+            this.label10.Size = new System.Drawing.Size(152, 20);
             this.label10.TabIndex = 162;
             this.label10.Text = "Descripcion equipo";
             this.label10.Click += new System.EventHandler(this.label10_Click);
@@ -235,7 +235,7 @@
             this.txtIdEquipo.Enabled = false;
             this.txtIdEquipo.Location = new System.Drawing.Point(42, 67);
             this.txtIdEquipo.Name = "txtIdEquipo";
-            this.txtIdEquipo.Size = new System.Drawing.Size(114, 30);
+            this.txtIdEquipo.Size = new System.Drawing.Size(114, 25);
             this.txtIdEquipo.TabIndex = 143;
             this.txtIdEquipo.Visible = false;
             // 
@@ -316,7 +316,7 @@
             this.label2.Location = new System.Drawing.Point(10, 397);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 21);
+            this.label2.Size = new System.Drawing.Size(90, 20);
             this.label2.TabIndex = 169;
             this.label2.Text = "Accesorios";
             // 
@@ -352,8 +352,9 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(509, 340);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(445, 29);
+            this.comboBox2.Size = new System.Drawing.Size(445, 27);
             this.comboBox2.TabIndex = 175;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -361,7 +362,7 @@
             this.label3.Location = new System.Drawing.Point(521, 300);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(167, 21);
+            this.label3.Size = new System.Drawing.Size(142, 20);
             this.label3.TabIndex = 174;
             this.label3.Text = "Marca del equipo";
             // 
@@ -383,8 +384,9 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(7, 340);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(445, 29);
+            this.comboBox1.Size = new System.Drawing.Size(445, 27);
             this.comboBox1.TabIndex = 173;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -392,7 +394,7 @@
             this.label8.Location = new System.Drawing.Point(3, 300);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(144, 21);
+            this.label8.Size = new System.Drawing.Size(120, 20);
             this.label8.TabIndex = 171;
             this.label8.Text = "Tipo del equipo";
             // 
@@ -401,14 +403,14 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(760, 260);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(124, 25);
+            this.checkBox1.Size = new System.Drawing.Size(108, 24);
             this.checkBox1.TabIndex = 177;
             this.checkBox1.Text = "lleva series";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // EquipoModulo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1021, 706);
             this.Controls.Add(this.checkBox1);

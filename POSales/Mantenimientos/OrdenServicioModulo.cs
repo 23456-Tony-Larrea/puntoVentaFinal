@@ -29,6 +29,9 @@ namespace POSales.Mantenimientos
             orden.idUsuarios = IdUsuario;
             orden.usuario = dbcon.selectUsuariosPorId(IdUsuario);
             lblCajero.Text = orden.usuario.nombre;
+            Random rnd = new Random();
+            textBox1.Text = rnd.Next().ToString();
+ 
         }
         public void openChildForm(Form childForm)
         {
@@ -92,9 +95,10 @@ namespace POSales.Mantenimientos
 
                 equipoSeleccionado = equipos.ElementAt(e.RowIndex);
                 MessageBox.Show($"has seleccionado el equipo codigo {equipoSeleccionado.codigo}");
-     
-                txtDesFalla.Enabled = true;
                 txtDesFalla.Text = dbcon.selectFallaDeEquipo(equipoSeleccionado.Id);
+                txtDesFalla.Enabled = true;
+                dataGridView2.DataSource = new DataSet();
+                dataGridView2.DataSource = dbcon.selectFallasDeEquipo(equipoSeleccionado.Id);
 
             }
            
@@ -144,6 +148,7 @@ namespace POSales.Mantenimientos
                     foreach (var mantenimiento in mantenimientos)
                     {
                         mantenimiento.idOrdenServicio = idOrden;
+                        mantenimiento.Codigo = textBox1.Text;
                         dbcon.insertMantenimientoModels(mantenimiento);
                     }
                 }

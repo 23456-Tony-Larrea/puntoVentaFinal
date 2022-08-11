@@ -19,6 +19,8 @@ namespace POSales.Mantenimientos
         DBConnect dbcon = new DBConnect();
         string stitle = "Punto de venta";
         Equipo equipo = new Equipo();
+        List<MarcaEquipo> marcas = new List<MarcaEquipo>();
+        List<POSalesDb.TipoEquipo> tipoEquipos = new List<POSalesDb.TipoEquipo>();
         bool Nuevo = false;
 
         public EquipoModulo(Equipo eqp)
@@ -35,7 +37,8 @@ namespace POSales.Mantenimientos
             {
                 btnUpdate.Visible = false;
             }
-       
+            cargarMarcasEquipo();
+            cargarTipodeEquios();
         }
         private void cargarEquipo()
         {
@@ -44,8 +47,26 @@ namespace POSales.Mantenimientos
             txtDescripcionEquipo.Text = equipo.descripcionEquipo;
             txtSeriesEquipo.Text = equipo.series;
             advancedDataGridView1.DataSource = equipo.accesorios;
+            comboBox1.Text = tipoEquipos.Where(x => x.Id == equipo.IdtipoEquipo).First().tipoEquipo;
+            comboBox2.Text = marcas.Where(x => x.Id == equipo.Idmarca).First().Nombre;
         }
 
+        private void cargarMarcasEquipo()
+        {
+            marcas = dbcon.TodosLasMarcasEquipo();
+            foreach (var marca in marcas)
+            {
+                comboBox1.Items.Add(marca.Nombre);
+            }
+        }
+        private void cargarTipodeEquios()
+        { 
+            tipoEquipos = dbcon.TodosLosTipoEquipos();
+            foreach (var tipoEquipo in tipoEquipos)
+            {
+                comboBox1.Items.Add(tipoEquipo.tipoEquipo);
+            }
+        }
         private void picClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -108,6 +129,16 @@ namespace POSales.Mantenimientos
         private void label10_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            equipo.IdtipoEquipo = tipoEquipos.ElementAt(comboBox1.SelectedIndex).Id;
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            equipo.Idmarca = marcas.ElementAt(comboBox2.SelectedIndex).Id;
         }
     }
 }

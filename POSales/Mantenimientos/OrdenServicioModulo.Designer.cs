@@ -65,9 +65,11 @@
             this.mantenimientoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label14 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.equipoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDesFalla = new System.Windows.Forms.TextBox();
+            this.equipoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.equipoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -80,8 +82,6 @@
             this.advancedDataGridView1 = new Zuby.ADGV.AdvancedDataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.label8 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.IdMantenimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescripcionFalla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
@@ -92,10 +92,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.mantenimientoModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mantenimientoBindingSource)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -131,7 +131,7 @@
             this.label5.Location = new System.Drawing.Point(21, 156);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 21);
+            this.label5.Size = new System.Drawing.Size(46, 20);
             this.label5.TabIndex = 53;
             this.label5.Text = "Email";
             // 
@@ -141,7 +141,7 @@
             this.label4.Location = new System.Drawing.Point(8, 111);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 21);
+            this.label4.Size = new System.Drawing.Size(61, 20);
             this.label4.TabIndex = 52;
             this.label4.Text = "Celular";
             // 
@@ -151,7 +151,7 @@
             this.label3.Location = new System.Drawing.Point(5, 15);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(175, 21);
+            this.label3.Size = new System.Drawing.Size(146, 20);
             this.label3.TabIndex = 51;
             this.label3.Text = "Cedula del Cliente";
             // 
@@ -176,7 +176,7 @@
             this.lblCajero.ForeColor = System.Drawing.Color.White;
             this.lblCajero.Location = new System.Drawing.Point(81, 11);
             this.lblCajero.Name = "lblCajero";
-            this.lblCajero.Size = new System.Drawing.Size(96, 23);
+            this.lblCajero.Size = new System.Drawing.Size(77, 18);
             this.lblCajero.TabIndex = 98;
             this.lblCajero.Text = "lblCajero";
             // 
@@ -187,7 +187,7 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(15, 11);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 23);
+            this.label6.Size = new System.Drawing.Size(59, 18);
             this.label6.TabIndex = 97;
             this.label6.Text = "Cajero";
             // 
@@ -237,7 +237,7 @@
             this.label20.Location = new System.Drawing.Point(3, 63);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(86, 21);
+            this.label20.Size = new System.Drawing.Size(72, 20);
             this.label20.TabIndex = 92;
             this.label20.Text = "Nombre ";
             // 
@@ -263,7 +263,7 @@
             this.TxtEmail.Location = new System.Drawing.Point(79, 156);
             this.TxtEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxtEmail.Name = "TxtEmail";
-            this.TxtEmail.Size = new System.Drawing.Size(55, 21);
+            this.TxtEmail.Size = new System.Drawing.Size(46, 20);
             this.TxtEmail.TabIndex = 102;
             this.TxtEmail.Text = "Email";
             // 
@@ -273,7 +273,7 @@
             this.TxtCelular.Location = new System.Drawing.Point(79, 111);
             this.TxtCelular.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxtCelular.Name = "TxtCelular";
-            this.TxtCelular.Size = new System.Drawing.Size(71, 21);
+            this.TxtCelular.Size = new System.Drawing.Size(61, 20);
             this.TxtCelular.TabIndex = 101;
             this.TxtCelular.Text = "Celular";
             // 
@@ -283,7 +283,7 @@
             this.TxtNombre.Location = new System.Drawing.Point(79, 63);
             this.TxtNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(86, 21);
+            this.TxtNombre.Size = new System.Drawing.Size(72, 20);
             this.TxtNombre.TabIndex = 100;
             this.TxtNombre.Text = "Nombre ";
             // 
@@ -293,7 +293,7 @@
             this.TxtCiCliente.Location = new System.Drawing.Point(159, 15);
             this.TxtCiCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxtCiCliente.Name = "TxtCiCliente";
-            this.TxtCiCliente.Size = new System.Drawing.Size(175, 21);
+            this.TxtCiCliente.Size = new System.Drawing.Size(146, 20);
             this.TxtCiCliente.TabIndex = 99;
             this.TxtCiCliente.Text = "Cedula del Cliente";
             // 
@@ -468,7 +468,7 @@
             this.label14.Location = new System.Drawing.Point(11, 532);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(235, 21);
+            this.label14.Size = new System.Drawing.Size(199, 20);
             this.label14.TabIndex = 103;
             this.label14.Text = "Lista de equipos a reparar";
             // 
@@ -484,9 +484,33 @@
             this.panel4.Size = new System.Drawing.Size(1054, 227);
             this.panel4.TabIndex = 106;
             // 
-            // equipoBindingSource1
+            // dataGridView2
             // 
-            this.equipoBindingSource1.DataSource = typeof(POSalesDb.Equipo);
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdMantenimiento,
+            this.DescripcionFalla});
+            this.dataGridView2.Enabled = false;
+            this.dataGridView2.Location = new System.Drawing.Point(452, 31);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(599, 178);
+            this.dataGridView2.TabIndex = 106;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(448, 11);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(64, 20);
+            this.label8.TabIndex = 105;
+            this.label8.Text = "Historial";
             // 
             // label2
             // 
@@ -494,7 +518,7 @@
             this.label2.Location = new System.Drawing.Point(5, 11);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 21);
+            this.label2.Size = new System.Drawing.Size(155, 20);
             this.label2.TabIndex = 103;
             this.label2.Text = "Descripcion de falla";
             // 
@@ -506,6 +530,10 @@
             this.txtDesFalla.Name = "txtDesFalla";
             this.txtDesFalla.Size = new System.Drawing.Size(367, 165);
             this.txtDesFalla.TabIndex = 0;
+            // 
+            // equipoBindingSource1
+            // 
+            this.equipoBindingSource1.DataSource = typeof(POSalesDb.Equipo);
             // 
             // iconButton3
             // 
@@ -545,7 +573,7 @@
             this.label9.Location = new System.Drawing.Point(4, 56);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(209, 21);
+            this.label9.Size = new System.Drawing.Size(177, 20);
             this.label9.TabIndex = 103;
             this.label9.Text = "Codigo Orden Servicio";
             // 
@@ -553,7 +581,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(220, 53);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 30);
+            this.textBox1.Size = new System.Drawing.Size(100, 25);
             this.textBox1.TabIndex = 1;
             // 
             // seriesDataGridViewTextBoxColumn
@@ -631,7 +659,7 @@
             this.label7.Location = new System.Drawing.Point(460, 62);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(190, 21);
+            this.label7.Size = new System.Drawing.Size(159, 20);
             this.label7.TabIndex = 108;
             this.label7.Text = "Seleccion de Equipo";
             // 
@@ -649,47 +677,24 @@
             this.iconButton4.UseVisualStyleBackColor = true;
             this.iconButton4.Click += new System.EventHandler(this.iconButton4_Click);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(448, 11);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 21);
-            this.label8.TabIndex = 105;
-            this.label8.Text = "Historial";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdMantenimiento,
-            this.DescripcionFalla});
-            this.dataGridView2.Enabled = false;
-            this.dataGridView2.Location = new System.Drawing.Point(452, 31);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(599, 178);
-            this.dataGridView2.TabIndex = 106;
-            // 
             // IdMantenimiento
             // 
+            this.IdMantenimiento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.IdMantenimiento.HeaderText = "N°Mantenimiento";
             this.IdMantenimiento.MinimumWidth = 6;
             this.IdMantenimiento.Name = "IdMantenimiento";
-            this.IdMantenimiento.Width = 125;
+            this.IdMantenimiento.Width = 162;
             // 
             // DescripcionFalla
             // 
+            this.DescripcionFalla.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.DescripcionFalla.HeaderText = "Descripcion de la falla";
             this.DescripcionFalla.MinimumWidth = 6;
             this.DescripcionFalla.Name = "DescripcionFalla";
-            this.DescripcionFalla.Width = 125;
             // 
             // OrdenServicioModulo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1122, 873);
             this.Controls.Add(this.iconButton4);
@@ -725,10 +730,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.mantenimientoBindingSource)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -798,9 +803,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn seriesDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdMantenimiento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionFalla;
         private System.Windows.Forms.Label label8;
         private FontAwesome.Sharp.IconButton iconButton4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdMantenimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionFalla;
     }
 }
