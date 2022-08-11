@@ -134,26 +134,18 @@
             this.txtSeriesEquipo.Enabled = false;
             this.txtSeriesEquipo.Location = new System.Drawing.Point(185, 258);
             this.txtSeriesEquipo.Name = "txtSeriesEquipo";
-<<<<<<< HEAD
             this.txtSeriesEquipo.Size = new System.Drawing.Size(569, 30);
             this.txtSeriesEquipo.TabIndex = 3;
-=======
-            this.txtSeriesEquipo.Size = new System.Drawing.Size(569, 25);
-            this.txtSeriesEquipo.TabIndex = 167;
->>>>>>> 3177288933b956eda966c13c22b5973504d12033
             // 
             // txtCodigoEquipo
             // 
             this.txtCodigoEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodigoEquipo.Location = new System.Drawing.Point(185, 101);
             this.txtCodigoEquipo.Name = "txtCodigoEquipo";
-<<<<<<< HEAD
             this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 30);
             this.txtCodigoEquipo.TabIndex = 1;
-=======
             this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 25);
             this.txtCodigoEquipo.TabIndex = 166;
->>>>>>> 3177288933b956eda966c13c22b5973504d12033
             // 
             // label12
             // 

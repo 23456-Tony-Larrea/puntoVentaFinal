@@ -30,13 +30,13 @@ namespace POSales.Mantenimientos
 
         private void btnSave_Click(object sender, System.EventArgs e)
         {
-            Marca.Nombre = txtCodigoEquipo.Text;
+            Marca.NombreMarcaEquipo = txtCodigoEquipo.Text;
             dbcon.insertMarcaEquipo(Marca);
         }
 
         private void btnUpdate_Click(object sender, System.EventArgs e)
         {
-            Marca.Nombre = txtCodigoEquipo.Text;
+            Marca.NombreMarcaEquipo = txtCodigoEquipo.Text;
             dbcon.actualizarMarcaEquipo(Marca);
 
         }

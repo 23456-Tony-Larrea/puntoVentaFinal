@@ -281,6 +281,11 @@ C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.csp
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.exe
 C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.pdb
 >>>>>>> 3177288933b956eda966c13c22b5973504d12033
+<<<<<<< HEAD
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.InformeCliente.resources
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.MarcaEquipo.resources
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.MarcaEquipoModulo.resources
+=======
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.MarcaEquipo.resources
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSales\obj\Debug\POSales.Mantenimientos.MarcaEquipoModulo.resources
+>>>>>>> 38348ee02062054b5a5ac66243e68168583ea03f

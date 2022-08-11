@@ -5299,7 +5299,11 @@ namespace POSalesDb
                     {
                         Marcas marcas = new Marcas();
                         marcas.Id = (int)dt.Rows[0]["Id"];
+<<<<<<< HEAD
                         marcas.Nombre = Convert.ToString(dt.Rows[0]["Nombre"]);
+=======
+                        marcas.NombreMarcaEquipo = Convert.ToString(dt.Rows[0]["marca"]);
+>>>>>>> 38348ee02062054b5a5ac66243e68168583ea03f
 
                         marca.Add(marcas);
                     }
