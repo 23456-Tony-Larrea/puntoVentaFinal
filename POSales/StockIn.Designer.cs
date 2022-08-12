@@ -121,7 +121,7 @@ namespace POSales
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(0, 0);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(1160, 574);
             this.metroTabControl1.TabIndex = 4;
             this.metroTabControl1.UseSelectable = true;
@@ -148,7 +148,7 @@ namespace POSales
             this.btnEntry.Location = new System.Drawing.Point(1049, 489);
             this.btnEntry.Name = "btnEntry";
             this.btnEntry.Size = new System.Drawing.Size(94, 35);
-            this.btnEntry.TabIndex = 12;
+            this.btnEntry.TabIndex = 9;
             this.btnEntry.Text = "Entrar";
             this.btnEntry.UseVisualStyleBackColor = false;
             this.btnEntry.Click += new System.EventHandler(this.btnEntry_Click);
@@ -195,7 +195,7 @@ namespace POSales
             this.no.HeaderText = "No";
             this.no.MinimumWidth = 6;
             this.no.Name = "no";
-            this.no.Width = 53;
+            this.no.Width = 63;
             // 
             // Column9
             // 
@@ -218,7 +218,7 @@ namespace POSales
             this.codP.HeaderText = "codP";
             this.codP.MinimumWidth = 6;
             this.codP.Name = "codP";
-            this.codP.Width = 71;
+            this.codP.Width = 85;
             // 
             // Descripcion
             // 
@@ -233,7 +233,7 @@ namespace POSales
             this.cant.HeaderText = "cant";
             this.cant.MinimumWidth = 6;
             this.cant.Name = "cant";
-            this.cant.Width = 66;
+            this.cant.Width = 81;
             // 
             // dateStock
             // 
@@ -241,7 +241,7 @@ namespace POSales
             this.dateStock.HeaderText = "Fecha en stock";
             this.dateStock.MinimumWidth = 6;
             this.dateStock.Name = "dateStock";
-            this.dateStock.Width = 144;
+            this.dateStock.Width = 177;
             // 
             // Inventario
             // 
@@ -249,7 +249,7 @@ namespace POSales
             this.Inventario.HeaderText = "en Inventario";
             this.Inventario.MinimumWidth = 6;
             this.Inventario.Name = "Inventario";
-            this.Inventario.Width = 131;
+            this.Inventario.Width = 161;
             // 
             // Column8
             // 
@@ -257,7 +257,7 @@ namespace POSales
             this.Column8.HeaderText = "Proveedor";
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
-            this.Column8.Width = 111;
+            this.Column8.Width = 134;
             // 
             // Delete
             // 
@@ -295,23 +295,23 @@ namespace POSales
             // 
             this.txtAddress.Location = new System.Drawing.Point(792, 80);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(351, 26);
-            this.txtAddress.TabIndex = 7;
+            this.txtAddress.Size = new System.Drawing.Size(351, 30);
+            this.txtAddress.TabIndex = 8;
             // 
             // txtConPerson
             // 
             this.txtConPerson.Location = new System.Drawing.Point(792, 44);
             this.txtConPerson.Name = "txtConPerson";
-            this.txtConPerson.Size = new System.Drawing.Size(351, 26);
-            this.txtConPerson.TabIndex = 6;
+            this.txtConPerson.Size = new System.Drawing.Size(351, 30);
+            this.txtConPerson.TabIndex = 7;
             // 
             // cbSupplier
             // 
             this.cbSupplier.FormattingEnabled = true;
             this.cbSupplier.Location = new System.Drawing.Point(792, 4);
             this.cbSupplier.Name = "cbSupplier";
-            this.cbSupplier.Size = new System.Drawing.Size(351, 28);
-            this.cbSupplier.TabIndex = 5;
+            this.cbSupplier.Size = new System.Drawing.Size(351, 30);
+            this.cbSupplier.TabIndex = 6;
             this.cbSupplier.TextChanged += new System.EventHandler(this.cbSupplier_TextChanged);
             this.cbSupplier.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbSupplier_KeyPress);
             // 
@@ -321,8 +321,8 @@ namespace POSales
             this.LinProduct.LinkColor = System.Drawing.Color.DimGray;
             this.LinProduct.Location = new System.Drawing.Point(78, 133);
             this.LinProduct.Name = "LinProduct";
-            this.LinProduct.Size = new System.Drawing.Size(351, 20);
-            this.LinProduct.TabIndex = 4;
+            this.LinProduct.Size = new System.Drawing.Size(442, 22);
+            this.LinProduct.TabIndex = 5;
             this.LinProduct.TabStop = true;
             this.LinProduct.Text = "[Haga clic aquí para navegar por el producto]";
             this.LinProduct.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinProduct_LinkClicked);
@@ -333,8 +333,8 @@ namespace POSales
             this.LinGenerate.LinkColor = System.Drawing.Color.DimGray;
             this.LinGenerate.Location = new System.Drawing.Point(332, 15);
             this.LinGenerate.Name = "LinGenerate";
-            this.LinGenerate.Size = new System.Drawing.Size(89, 20);
-            this.LinGenerate.TabIndex = 4;
+            this.LinGenerate.Size = new System.Drawing.Size(112, 22);
+            this.LinGenerate.TabIndex = 2;
             this.LinGenerate.TabStop = true;
             this.LinGenerate.Text = "[ Generar ]";
             this.LinGenerate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinGenerate_LinkClicked);
@@ -343,21 +343,21 @@ namespace POSales
             // 
             this.dtStockIn.Location = new System.Drawing.Point(160, 92);
             this.dtStockIn.Name = "dtStockIn";
-            this.dtStockIn.Size = new System.Drawing.Size(360, 26);
-            this.dtStockIn.TabIndex = 3;
+            this.dtStockIn.Size = new System.Drawing.Size(360, 30);
+            this.dtStockIn.TabIndex = 4;
             // 
             // txtStockInBy
             // 
             this.txtStockInBy.Location = new System.Drawing.Point(160, 52);
             this.txtStockInBy.Name = "txtStockInBy";
-            this.txtStockInBy.Size = new System.Drawing.Size(360, 26);
-            this.txtStockInBy.TabIndex = 2;
+            this.txtStockInBy.Size = new System.Drawing.Size(360, 30);
+            this.txtStockInBy.TabIndex = 3;
             // 
             // txtRefNo
             // 
             this.txtRefNo.Location = new System.Drawing.Point(165, 12);
             this.txtRefNo.Name = "txtRefNo";
-            this.txtRefNo.Size = new System.Drawing.Size(165, 26);
+            this.txtRefNo.Size = new System.Drawing.Size(165, 30);
             this.txtRefNo.TabIndex = 1;
             // 
             // label4
@@ -365,7 +365,7 @@ namespace POSales
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(8, 90);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(124, 20);
+            this.label4.Size = new System.Drawing.Size(154, 22);
             this.label4.TabIndex = 0;
             this.label4.Text = "Stock en fecha:";
             // 
@@ -374,7 +374,7 @@ namespace POSales
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(8, 52);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 20);
+            this.label3.Size = new System.Drawing.Size(151, 22);
             this.label3.TabIndex = 0;
             this.label3.Text = "Inventario por :";
             // 
@@ -383,7 +383,7 @@ namespace POSales
             this.lblId.AutoSize = true;
             this.lblId.Location = new System.Drawing.Point(576, 133);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(37, 20);
+            this.lblId.Size = new System.Drawing.Size(44, 22);
             this.lblId.TabIndex = 0;
             this.lblId.Text = "lbId";
             this.lblId.Visible = false;
@@ -393,7 +393,7 @@ namespace POSales
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(576, 90);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 20);
+            this.label7.Size = new System.Drawing.Size(101, 22);
             this.label7.TabIndex = 0;
             this.label7.Text = "Direccion:";
             // 
@@ -402,7 +402,7 @@ namespace POSales
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(576, 52);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(169, 20);
+            this.label6.Size = new System.Drawing.Size(210, 22);
             this.label6.TabIndex = 0;
             this.label6.Text = "Persona de contacto:";
             // 
@@ -411,7 +411,7 @@ namespace POSales
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(576, 17);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 20);
+            this.label5.Size = new System.Drawing.Size(117, 22);
             this.label5.TabIndex = 0;
             this.label5.Text = "Proovedor :";
             // 
@@ -420,7 +420,7 @@ namespace POSales
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(8, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 20);
+            this.label2.Size = new System.Drawing.Size(151, 22);
             this.label2.TabIndex = 0;
             this.label2.Text = "Referencia No :";
             // 
@@ -475,7 +475,7 @@ namespace POSales
             this.dataGridViewTextBoxColumn1.HeaderText = "No";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 53;
+            this.dataGridViewTextBoxColumn1.Width = 63;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -498,7 +498,7 @@ namespace POSales
             this.dataGridViewTextBoxColumn4.HeaderText = "codP";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 71;
+            this.dataGridViewTextBoxColumn4.Width = 85;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -513,7 +513,7 @@ namespace POSales
             this.dataGridViewTextBoxColumn6.HeaderText = "Cant";
             this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 68;
+            this.dataGridViewTextBoxColumn6.Width = 84;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -521,7 +521,7 @@ namespace POSales
             this.dataGridViewTextBoxColumn7.HeaderText = "Fecha en Stock";
             this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 145;
+            this.dataGridViewTextBoxColumn7.Width = 179;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -529,7 +529,7 @@ namespace POSales
             this.dataGridViewTextBoxColumn8.HeaderText = "Inventario por";
             this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 137;
+            this.dataGridViewTextBoxColumn8.Width = 168;
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -537,7 +537,7 @@ namespace POSales
             this.dataGridViewTextBoxColumn9.HeaderText = "Proveedor";
             this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 111;
+            this.dataGridViewTextBoxColumn9.Width = 134;
             // 
             // panel3
             // 
@@ -572,7 +572,7 @@ namespace POSales
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(365, 23);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(20, 20);
+            this.label9.Size = new System.Drawing.Size(25, 22);
             this.label9.TabIndex = 2;
             this.label9.Text = "A";
             // 
@@ -582,7 +582,7 @@ namespace POSales
             this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtTo.Location = new System.Drawing.Point(409, 17);
             this.dtTo.Name = "dtTo";
-            this.dtTo.Size = new System.Drawing.Size(116, 26);
+            this.dtTo.Size = new System.Drawing.Size(116, 30);
             this.dtTo.TabIndex = 1;
             // 
             // dtFrom
@@ -591,7 +591,7 @@ namespace POSales
             this.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtFrom.Location = new System.Drawing.Point(225, 19);
             this.dtFrom.Name = "dtFrom";
-            this.dtFrom.Size = new System.Drawing.Size(116, 26);
+            this.dtFrom.Size = new System.Drawing.Size(116, 30);
             this.dtFrom.TabIndex = 1;
             // 
             // label8
@@ -599,13 +599,13 @@ namespace POSales
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(8, 25);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(178, 20);
+            this.label8.Size = new System.Drawing.Size(220, 22);
             this.label8.TabIndex = 0;
             this.label8.Text = "fitrar por fecha : Desde";
             // 
             // StockIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1160, 631);
             this.ControlBox = false;

@@ -58,7 +58,7 @@
             this.txtOrdenServicio.Name = "txtOrdenServicio";
             this.txtOrdenServicio.ReadOnly = true;
             this.txtOrdenServicio.Size = new System.Drawing.Size(569, 120);
-            this.txtOrdenServicio.TabIndex = 1;
+            this.txtOrdenServicio.TabIndex = 0;
             // 
             // lblTecnico
             // 
@@ -104,7 +104,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(634, 467);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(121, 35);
-            this.btnUpdate.TabIndex = 5;
+            this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Actualizar";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -154,7 +154,7 @@
             this.txtDescripcionFallo.Name = "txtDescripcionFallo";
             this.txtDescripcionFallo.ReadOnly = true;
             this.txtDescripcionFallo.Size = new System.Drawing.Size(569, 120);
-            this.txtDescripcionFallo.TabIndex = 2;
+            this.txtDescripcionFallo.TabIndex = 0;
             // 
             // label3
             // 
@@ -173,7 +173,7 @@
             this.txtSolucion.Multiline = true;
             this.txtSolucion.Name = "txtSolucion";
             this.txtSolucion.Size = new System.Drawing.Size(569, 120);
-            this.txtSolucion.TabIndex = 3;
+            this.txtSolucion.TabIndex = 1;
             // 
             // label4
             // 
@@ -216,7 +216,7 @@
             this.txtPrecio.Location = new System.Drawing.Point(205, 471);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(114, 28);
-            this.txtPrecio.TabIndex = 4;
+            this.txtPrecio.TabIndex = 2;
             this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // label5

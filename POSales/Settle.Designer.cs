@@ -92,7 +92,7 @@ namespace POSales
             this.btnSeven.Location = new System.Drawing.Point(12, 130);
             this.btnSeven.Name = "btnSeven";
             this.btnSeven.Size = new System.Drawing.Size(50, 50);
-            this.btnSeven.TabIndex = 2;
+            this.btnSeven.TabIndex = 7;
             this.btnSeven.Text = "7";
             this.btnSeven.UseVisualStyleBackColor = false;
             this.btnSeven.Click += new System.EventHandler(this.btnSeven_Click);
@@ -104,7 +104,7 @@ namespace POSales
             this.btnEight.Location = new System.Drawing.Point(68, 130);
             this.btnEight.Name = "btnEight";
             this.btnEight.Size = new System.Drawing.Size(50, 50);
-            this.btnEight.TabIndex = 2;
+            this.btnEight.TabIndex = 8;
             this.btnEight.Text = "8";
             this.btnEight.UseVisualStyleBackColor = false;
             this.btnEight.Click += new System.EventHandler(this.btnEight_Click);
@@ -116,7 +116,7 @@ namespace POSales
             this.btnNine.Location = new System.Drawing.Point(124, 130);
             this.btnNine.Name = "btnNine";
             this.btnNine.Size = new System.Drawing.Size(50, 50);
-            this.btnNine.TabIndex = 2;
+            this.btnNine.TabIndex = 9;
             this.btnNine.Text = "9";
             this.btnNine.UseVisualStyleBackColor = false;
             this.btnNine.Click += new System.EventHandler(this.btnNine_Click);
@@ -128,7 +128,7 @@ namespace POSales
             this.btnClear.Location = new System.Drawing.Point(180, 130);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(50, 50);
-            this.btnClear.TabIndex = 2;
+            this.btnClear.TabIndex = 10;
             this.btnClear.Text = "C";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -140,7 +140,7 @@ namespace POSales
             this.btnFour.Location = new System.Drawing.Point(12, 186);
             this.btnFour.Name = "btnFour";
             this.btnFour.Size = new System.Drawing.Size(50, 50);
-            this.btnFour.TabIndex = 2;
+            this.btnFour.TabIndex = 4;
             this.btnFour.Text = "4";
             this.btnFour.UseVisualStyleBackColor = false;
             this.btnFour.Click += new System.EventHandler(this.btnFour_Click);
@@ -152,7 +152,7 @@ namespace POSales
             this.btnFive.Location = new System.Drawing.Point(68, 186);
             this.btnFive.Name = "btnFive";
             this.btnFive.Size = new System.Drawing.Size(50, 50);
-            this.btnFive.TabIndex = 2;
+            this.btnFive.TabIndex = 5;
             this.btnFive.Text = "5";
             this.btnFive.UseVisualStyleBackColor = false;
             this.btnFive.Click += new System.EventHandler(this.btnFive_Click);
@@ -164,7 +164,7 @@ namespace POSales
             this.btnSix.Location = new System.Drawing.Point(124, 186);
             this.btnSix.Name = "btnSix";
             this.btnSix.Size = new System.Drawing.Size(50, 50);
-            this.btnSix.TabIndex = 2;
+            this.btnSix.TabIndex = 6;
             this.btnSix.Text = "6";
             this.btnSix.UseVisualStyleBackColor = false;
             this.btnSix.Click += new System.EventHandler(this.btnSix_Click);
@@ -176,7 +176,7 @@ namespace POSales
             this.btnZero.Location = new System.Drawing.Point(180, 186);
             this.btnZero.Name = "btnZero";
             this.btnZero.Size = new System.Drawing.Size(50, 50);
-            this.btnZero.TabIndex = 2;
+            this.btnZero.TabIndex = 11;
             this.btnZero.Text = "0";
             this.btnZero.UseVisualStyleBackColor = false;
             this.btnZero.Click += new System.EventHandler(this.btnZero_Click);
@@ -188,7 +188,7 @@ namespace POSales
             this.btnOne.Location = new System.Drawing.Point(12, 242);
             this.btnOne.Name = "btnOne";
             this.btnOne.Size = new System.Drawing.Size(50, 50);
-            this.btnOne.TabIndex = 2;
+            this.btnOne.TabIndex = 1;
             this.btnOne.Text = "1";
             this.btnOne.UseVisualStyleBackColor = false;
             this.btnOne.Click += new System.EventHandler(this.btnOne_Click);
@@ -212,7 +212,7 @@ namespace POSales
             this.btnThree.Location = new System.Drawing.Point(124, 242);
             this.btnThree.Name = "btnThree";
             this.btnThree.Size = new System.Drawing.Size(50, 50);
-            this.btnThree.TabIndex = 2;
+            this.btnThree.TabIndex = 3;
             this.btnThree.Text = "3";
             this.btnThree.UseVisualStyleBackColor = false;
             this.btnThree.Click += new System.EventHandler(this.btnThree_Click);
@@ -224,7 +224,7 @@ namespace POSales
             this.btnDZero.Location = new System.Drawing.Point(180, 242);
             this.btnDZero.Name = "btnDZero";
             this.btnDZero.Size = new System.Drawing.Size(50, 50);
-            this.btnDZero.TabIndex = 2;
+            this.btnDZero.TabIndex = 12;
             this.btnDZero.Text = "00";
             this.btnDZero.UseVisualStyleBackColor = false;
             this.btnDZero.Click += new System.EventHandler(this.btnDZero_Click);
@@ -236,7 +236,7 @@ namespace POSales
             this.btnEnter.Location = new System.Drawing.Point(12, 298);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(218, 50);
-            this.btnEnter.TabIndex = 2;
+            this.btnEnter.TabIndex = 13;
             this.btnEnter.Text = "Ingresar";
             this.btnEnter.UseVisualStyleBackColor = false;
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);

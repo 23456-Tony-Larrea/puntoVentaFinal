@@ -100,7 +100,7 @@
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(135, 46);
-            this.btnCancel.TabIndex = 19;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
@@ -115,7 +115,7 @@
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(141, 46);
-            this.btnUpdate.TabIndex = 18;
+            this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Actualizar";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -141,7 +141,7 @@
             this.btnGuardarCat.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardarCat.Name = "btnGuardarCat";
             this.btnGuardarCat.Size = new System.Drawing.Size(136, 46);
-            this.btnGuardarCat.TabIndex = 16;
+            this.btnGuardarCat.TabIndex = 2;
             this.btnGuardarCat.Text = "Guardar";
             this.btnGuardarCat.UseVisualStyleBackColor = false;
             this.btnGuardarCat.Click += new System.EventHandler(this.btnGuardarCat_Click);
@@ -153,7 +153,7 @@
             this.txtBodega.Margin = new System.Windows.Forms.Padding(4);
             this.txtBodega.Name = "txtBodega";
             this.txtBodega.Size = new System.Drawing.Size(663, 28);
-            this.txtBodega.TabIndex = 15;
+            this.txtBodega.TabIndex = 1;
             // 
             // BodegaModule
             // 

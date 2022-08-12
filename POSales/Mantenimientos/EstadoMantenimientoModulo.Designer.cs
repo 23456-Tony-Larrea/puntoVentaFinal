@@ -50,11 +50,11 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(762, 317);
+            this.btnCancel.Location = new System.Drawing.Point(782, 125);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(135, 46);
-            this.btnCancel.TabIndex = 111;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
@@ -65,11 +65,11 @@
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(608, 317);
+            this.btnUpdate.Location = new System.Drawing.Point(628, 125);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(151, 46);
-            this.btnUpdate.TabIndex = 110;
+            this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Actualizar";
             this.btnUpdate.UseVisualStyleBackColor = false;
             // 
@@ -80,18 +80,18 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(456, 317);
+            this.btnSave.Location = new System.Drawing.Point(476, 125);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(144, 46);
-            this.btnSave.TabIndex = 109;
+            this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 181);
+            this.label2.Location = new System.Drawing.Point(6, 83);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 21);
@@ -103,7 +103,7 @@
             this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picClose.Image = ((System.Drawing.Image)(resources.GetObject("picClose.Image")));
             this.picClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.picClose.Location = new System.Drawing.Point(840, 0);
+            this.picClose.Location = new System.Drawing.Point(860, 0);
             this.picClose.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.picClose.Name = "picClose";
             this.picClose.Size = new System.Drawing.Size(70, 59);
@@ -133,7 +133,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(910, 59);
+            this.panel2.Size = new System.Drawing.Size(930, 59);
             this.panel2.TabIndex = 101;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -142,25 +142,25 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 405);
+            this.panel1.Location = new System.Drawing.Point(0, 213);
             this.panel1.Margin = new System.Windows.Forms.Padding(5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(910, 75);
+            this.panel1.Size = new System.Drawing.Size(930, 75);
             this.panel1.TabIndex = 100;
             // 
             // cboDescripcionMantenimiento
             // 
             this.cboDescripcionMantenimiento.FormattingEnabled = true;
-            this.cboDescripcionMantenimiento.Location = new System.Drawing.Point(122, 178);
+            this.cboDescripcionMantenimiento.Location = new System.Drawing.Point(114, 80);
             this.cboDescripcionMantenimiento.Name = "cboDescripcionMantenimiento";
             this.cboDescripcionMantenimiento.Size = new System.Drawing.Size(776, 29);
-            this.cboDescripcionMantenimiento.TabIndex = 120;
+            this.cboDescripcionMantenimiento.TabIndex = 1;
             // 
             // EstadoMantenimientoModulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 480);
+            this.ClientSize = new System.Drawing.Size(930, 288);
             this.Controls.Add(this.cboDescripcionMantenimiento);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpdate);

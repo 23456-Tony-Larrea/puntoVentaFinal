@@ -127,7 +127,7 @@ namespace POSales
             this.txtName.SelectionStart = 0;
             this.txtName.ShortcutsEnabled = true;
             this.txtName.Size = new System.Drawing.Size(268, 31);
-            this.txtName.TabIndex = 10;
+            this.txtName.TabIndex = 1;
             this.txtName.UseSelectable = true;
             this.txtName.WaterMark = "Username";
             this.txtName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -172,7 +172,7 @@ namespace POSales
             this.txtPass.SelectionStart = 0;
             this.txtPass.ShortcutsEnabled = true;
             this.txtPass.Size = new System.Drawing.Size(268, 31);
-            this.txtPass.TabIndex = 10;
+            this.txtPass.TabIndex = 2;
             this.txtPass.UseSelectable = true;
             this.txtPass.UseSystemPasswordChar = true;
             this.txtPass.WaterMark = "Password";
@@ -190,7 +190,7 @@ namespace POSales
             this.btnLogin.Location = new System.Drawing.Point(270, 396);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(268, 31);
-            this.btnLogin.TabIndex = 12;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Ingresar";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -206,7 +206,7 @@ namespace POSales
             this.btnCancel.Location = new System.Drawing.Point(270, 433);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(268, 31);
-            this.btnCancel.TabIndex = 12;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);

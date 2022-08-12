@@ -80,10 +80,10 @@ namespace POSales
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(545, 598);
+            this.btnSave.Location = new System.Drawing.Point(416, 619);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(105, 35);
-            this.btnSave.TabIndex = 21;
+            this.btnSave.TabIndex = 17;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -95,10 +95,10 @@ namespace POSales
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(775, 598);
+            this.btnCancel.Location = new System.Drawing.Point(646, 619);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(115, 35);
-            this.btnCancel.TabIndex = 30;
+            this.btnCancel.TabIndex = 19;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -120,14 +120,14 @@ namespace POSales
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(902, 50);
+            this.panel1.Size = new System.Drawing.Size(781, 50);
             this.panel1.TabIndex = 17;
             // 
             // picClose
             // 
             this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picClose.Image = ((System.Drawing.Image)(resources.GetObject("picClose.Image")));
-            this.picClose.Location = new System.Drawing.Point(873, 0);
+            this.picClose.Location = new System.Drawing.Point(752, 0);
             this.picClose.Name = "picClose";
             this.picClose.Size = new System.Drawing.Size(30, 35);
             this.picClose.TabIndex = 1;
@@ -152,10 +152,10 @@ namespace POSales
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(656, 598);
+            this.btnUpdate.Location = new System.Drawing.Point(527, 619);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(113, 35);
-            this.btnUpdate.TabIndex = 29;
+            this.btnUpdate.TabIndex = 18;
             this.btnUpdate.Text = "Actualizar";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -211,7 +211,7 @@ namespace POSales
             this.txtAddress.Location = new System.Drawing.Point(205, 420);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(565, 30);
-            this.txtAddress.TabIndex = 31;
+            this.txtAddress.TabIndex = 12;
             // 
             // txtConPerson
             // 
@@ -219,7 +219,7 @@ namespace POSales
             this.txtConPerson.Location = new System.Drawing.Point(198, 157);
             this.txtConPerson.Name = "txtConPerson";
             this.txtConPerson.Size = new System.Drawing.Size(565, 30);
-            this.txtConPerson.TabIndex = 31;
+            this.txtConPerson.TabIndex = 3;
             // 
             // txtPhone
             // 
@@ -227,7 +227,7 @@ namespace POSales
             this.txtPhone.Location = new System.Drawing.Point(207, 456);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(217, 30);
-            this.txtPhone.TabIndex = 31;
+            this.txtPhone.TabIndex = 13;
             // 
             // txtFaxNo
             // 
@@ -235,7 +235,7 @@ namespace POSales
             this.txtFaxNo.Location = new System.Drawing.Point(544, 456);
             this.txtFaxNo.Name = "txtFaxNo";
             this.txtFaxNo.Size = new System.Drawing.Size(225, 30);
-            this.txtFaxNo.TabIndex = 31;
+            this.txtFaxNo.TabIndex = 14;
             // 
             // txtEmail
             // 
@@ -243,7 +243,7 @@ namespace POSales
             this.txtEmail.Location = new System.Drawing.Point(196, 511);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(565, 30);
-            this.txtEmail.TabIndex = 31;
+            this.txtEmail.TabIndex = 15;
             // 
             // lblId
             // 
@@ -262,7 +262,7 @@ namespace POSales
             this.txtReasonS.Location = new System.Drawing.Point(200, 121);
             this.txtReasonS.Name = "txtReasonS";
             this.txtReasonS.Size = new System.Drawing.Size(565, 30);
-            this.txtReasonS.TabIndex = 34;
+            this.txtReasonS.TabIndex = 2;
             // 
             // label8
             // 
@@ -280,10 +280,10 @@ namespace POSales
             this.cbRucCI.Items.AddRange(new object[] {
             "CI",
             "RUC"});
-            this.cbRucCI.Location = new System.Drawing.Point(14, 234);
+            this.cbRucCI.Location = new System.Drawing.Point(-107, 234);
             this.cbRucCI.Name = "cbRucCI";
             this.cbRucCI.Size = new System.Drawing.Size(66, 30);
-            this.cbRucCI.TabIndex = 35;
+            this.cbRucCI.TabIndex = 4;
             // 
             // label9
             // 
@@ -309,7 +309,7 @@ namespace POSales
             this.txtCiRuc.Location = new System.Drawing.Point(97, 234);
             this.txtCiRuc.Name = "txtCiRuc";
             this.txtCiRuc.Size = new System.Drawing.Size(197, 30);
-            this.txtCiRuc.TabIndex = 38;
+            this.txtCiRuc.TabIndex = 5;
             // 
             // label11
             // 
@@ -326,7 +326,7 @@ namespace POSales
             this.txtProvince.Location = new System.Drawing.Point(200, 387);
             this.txtProvince.Name = "txtProvince";
             this.txtProvince.Size = new System.Drawing.Size(226, 30);
-            this.txtProvince.TabIndex = 40;
+            this.txtProvince.TabIndex = 10;
             // 
             // label12
             // 
@@ -343,14 +343,14 @@ namespace POSales
             this.txtCPostal.Location = new System.Drawing.Point(544, 387);
             this.txtCPostal.Name = "txtCPostal";
             this.txtCPostal.Size = new System.Drawing.Size(225, 30);
-            this.txtCPostal.TabIndex = 42;
+            this.txtCPostal.TabIndex = 11;
             // 
             // txtDays
             // 
             this.txtDays.Location = new System.Drawing.Point(430, 240);
             this.txtDays.Name = "txtDays";
             this.txtDays.Size = new System.Drawing.Size(65, 30);
-            this.txtDays.TabIndex = 44;
+            this.txtDays.TabIndex = 6;
             this.txtDays.Text = "0";
             // 
             // label13
@@ -378,10 +378,10 @@ namespace POSales
             this.cboState.Items.AddRange(new object[] {
             "Activo",
             "Pasivo"});
-            this.cboState.Location = new System.Drawing.Point(637, 212);
+            this.cboState.Location = new System.Drawing.Point(631, 209);
             this.cboState.Name = "cboState";
             this.cboState.Size = new System.Drawing.Size(132, 30);
-            this.cboState.TabIndex = 45;
+            this.cboState.TabIndex = 7;
             // 
             // txtPageWeb
             // 
@@ -389,7 +389,7 @@ namespace POSales
             this.txtPageWeb.Location = new System.Drawing.Point(198, 562);
             this.txtPageWeb.Name = "txtPageWeb";
             this.txtPageWeb.Size = new System.Drawing.Size(565, 30);
-            this.txtPageWeb.TabIndex = 48;
+            this.txtPageWeb.TabIndex = 16;
             // 
             // label15
             // 
@@ -406,7 +406,7 @@ namespace POSales
             this.txtCity.Location = new System.Drawing.Point(200, 278);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(561, 30);
-            this.txtCity.TabIndex = 50;
+            this.txtCity.TabIndex = 8;
             // 
             // label16
             // 
@@ -423,7 +423,7 @@ namespace POSales
             this.txtCountry.Location = new System.Drawing.Point(200, 324);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(563, 30);
-            this.txtCountry.TabIndex = 52;
+            this.txtCountry.TabIndex = 9;
             // 
             // label17
             // 
@@ -440,14 +440,14 @@ namespace POSales
             this.txtSupplier.Location = new System.Drawing.Point(200, 85);
             this.txtSupplier.Name = "txtSupplier";
             this.txtSupplier.Size = new System.Drawing.Size(565, 30);
-            this.txtSupplier.TabIndex = 31;
+            this.txtSupplier.TabIndex = 1;
             // 
             // SupplierModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(902, 666);
+            this.ClientSize = new System.Drawing.Size(781, 666);
             this.Controls.Add(this.txtCountry);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.txtCity);

@@ -86,7 +86,7 @@ namespace POSales
             this.Column1.HeaderText = "No";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 53;
+            this.Column1.Width = 63;
             // 
             // Column2
             // 
@@ -94,7 +94,7 @@ namespace POSales
             this.Column2.HeaderText = "codP";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
-            this.Column2.Width = 71;
+            this.Column2.Width = 85;
             // 
             // Column4
             // 
@@ -102,7 +102,7 @@ namespace POSales
             this.Column4.HeaderText = "Descripcion";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
-            this.Column4.Width = 119;
+            this.Column4.Width = 143;
             // 
             // Column8
             // 
@@ -110,7 +110,7 @@ namespace POSales
             this.Column8.HeaderText = "Cant";
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
-            this.Column8.Width = 68;
+            this.Column8.Width = 84;
             // 
             // Select
             // 
@@ -166,7 +166,7 @@ namespace POSales
             this.metroTextBox1.SelectionStart = 0;
             this.metroTextBox1.ShortcutsEnabled = true;
             this.metroTextBox1.Size = new System.Drawing.Size(264, 25);
-            this.metroTextBox1.TabIndex = 17;
+            this.metroTextBox1.TabIndex = 1;
             this.metroTextBox1.UseSelectable = true;
             this.metroTextBox1.WaterMark = "Buscar aqui";
             this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -207,7 +207,7 @@ namespace POSales
             this.btnClose.Location = new System.Drawing.Point(622, 20);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(82, 35);
-            this.btnClose.TabIndex = 14;
+            this.btnClose.TabIndex = 3;
             this.btnClose.Text = "Cerrar";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -274,7 +274,7 @@ namespace POSales
             // 
             // ProductStockIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 588);
             this.ControlBox = false;

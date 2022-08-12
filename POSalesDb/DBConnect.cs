@@ -4852,7 +4852,7 @@ namespace POSalesDb
         }
 
         //obtener marcaEquipo
-        public List<MarcaEquipo> TodosMarcaEquipo()
+        public List<MarcaEquipo> TodosLasMarcasEquipo()
         {
             cn.ConnectionString = myConnection();
             List<MarcaEquipo> marcaEquipo = new List<MarcaEquipo>();

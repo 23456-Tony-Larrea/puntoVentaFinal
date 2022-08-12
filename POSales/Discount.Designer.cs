@@ -111,14 +111,14 @@ namespace POSales
             this.txtTotalPrice.Location = new System.Drawing.Point(197, 71);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.Size = new System.Drawing.Size(457, 30);
-            this.txtTotalPrice.TabIndex = 10;
+            this.txtTotalPrice.TabIndex = 1;
             // 
             // txtDiscount
             // 
             this.txtDiscount.Location = new System.Drawing.Point(197, 107);
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(457, 30);
-            this.txtDiscount.TabIndex = 10;
+            this.txtDiscount.TabIndex = 2;
             this.txtDiscount.TextChanged += new System.EventHandler(this.txtDiscount_TextChanged);
             // 
             // txtDiscAmount
@@ -127,7 +127,7 @@ namespace POSales
             this.txtDiscAmount.Location = new System.Drawing.Point(197, 146);
             this.txtDiscAmount.Name = "txtDiscAmount";
             this.txtDiscAmount.Size = new System.Drawing.Size(457, 30);
-            this.txtDiscAmount.TabIndex = 10;
+            this.txtDiscAmount.TabIndex = 3;
             // 
             // lbId
             // 
@@ -149,7 +149,7 @@ namespace POSales
             this.btnSave.Location = new System.Drawing.Point(535, 185);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(119, 35);
-            this.btnSave.TabIndex = 11;
+            this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Confirmar";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);

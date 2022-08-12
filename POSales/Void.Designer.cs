@@ -102,7 +102,7 @@ namespace POSales
             this.txtUsername.SelectionStart = 0;
             this.txtUsername.ShortcutsEnabled = true;
             this.txtUsername.Size = new System.Drawing.Size(268, 31);
-            this.txtUsername.TabIndex = 12;
+            this.txtUsername.TabIndex = 1;
             this.txtUsername.UseSelectable = true;
             this.txtUsername.WaterMark = "Usuario";
             this.txtUsername.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -136,7 +136,7 @@ namespace POSales
             this.txtPass.SelectionStart = 0;
             this.txtPass.ShortcutsEnabled = true;
             this.txtPass.Size = new System.Drawing.Size(268, 31);
-            this.txtPass.TabIndex = 11;
+            this.txtPass.TabIndex = 2;
             this.txtPass.UseSelectable = true;
             this.txtPass.UseSystemPasswordChar = true;
             this.txtPass.WaterMark = "Contraseña";
@@ -153,7 +153,7 @@ namespace POSales
             this.btnVoid.Location = new System.Drawing.Point(71, 179);
             this.btnVoid.Name = "btnVoid";
             this.btnVoid.Size = new System.Drawing.Size(268, 31);
-            this.btnVoid.TabIndex = 13;
+            this.btnVoid.TabIndex = 3;
             this.btnVoid.Text = "Factura";
             this.btnVoid.UseVisualStyleBackColor = false;
             this.btnVoid.Click += new System.EventHandler(this.btnVoid_Click);

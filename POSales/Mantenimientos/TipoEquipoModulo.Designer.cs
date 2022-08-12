@@ -55,7 +55,7 @@
             this.btnCancel.Location = new System.Drawing.Point(675, 167);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 35);
-            this.btnCancel.TabIndex = 188;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
@@ -69,7 +69,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(551, 167);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(121, 35);
-            this.btnUpdate.TabIndex = 187;
+            this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Actualizar";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -79,7 +79,7 @@
             this.txtIdAccesorios.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtIdAccesorios.Location = new System.Drawing.Point(62, 53);
             this.txtIdAccesorios.Name = "txtIdAccesorios";
-            this.txtIdAccesorios.Size = new System.Drawing.Size(114, 24);
+            this.txtIdAccesorios.Size = new System.Drawing.Size(114, 28);
             this.txtIdAccesorios.TabIndex = 185;
             this.txtIdAccesorios.Visible = false;
             // 
@@ -118,7 +118,7 @@
             this.btnSave.Location = new System.Drawing.Point(430, 167);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(115, 35);
-            this.btnSave.TabIndex = 186;
+            this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -142,7 +142,7 @@
             this.label18.Location = new System.Drawing.Point(29, 56);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(22, 19);
+            this.label18.Size = new System.Drawing.Size(27, 21);
             this.label18.TabIndex = 184;
             this.label18.Text = "Id";
             this.label18.Visible = false;
@@ -164,8 +164,8 @@
             this.txtCodigoEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodigoEquipo.Location = new System.Drawing.Point(174, 100);
             this.txtCodigoEquipo.Name = "txtCodigoEquipo";
-            this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 24);
-            this.txtCodigoEquipo.TabIndex = 192;
+            this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 28);
+            this.txtCodigoEquipo.TabIndex = 1;
             // 
             // label11
             // 
@@ -173,13 +173,13 @@
             this.label11.Location = new System.Drawing.Point(29, 103);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(116, 19);
+            this.label11.Size = new System.Drawing.Size(138, 21);
             this.label11.TabIndex = 191;
             this.label11.Text = "tipo del equipo";
             // 
             // TipoEquipoModulo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 272);
             this.Controls.Add(this.btnCancel);

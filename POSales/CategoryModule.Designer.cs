@@ -101,7 +101,7 @@ namespace POSales
             this.txtCategory.Location = new System.Drawing.Point(259, 90);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(531, 30);
-            this.txtCategory.TabIndex = 8;
+            this.txtCategory.TabIndex = 1;
             // 
             // btnCancel
             // 
@@ -113,7 +113,7 @@ namespace POSales
             this.btnCancel.Location = new System.Drawing.Point(698, 170);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 35);
-            this.btnCancel.TabIndex = 16;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
@@ -127,7 +127,7 @@ namespace POSales
             this.btnActualizar.Location = new System.Drawing.Point(568, 171);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(124, 35);
-            this.btnActualizar.TabIndex = 15;
+            this.btnActualizar.TabIndex = 3;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.button2_Click);
@@ -142,7 +142,7 @@ namespace POSales
             this.btnGuardar.Location = new System.Drawing.Point(463, 170);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(99, 35);
-            this.btnGuardar.TabIndex = 14;
+            this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);

@@ -60,7 +60,7 @@ namespace POSales
             this.txtResPass.Location = new System.Drawing.Point(250, 48);
             this.txtResPass.Name = "txtResPass";
             this.txtResPass.Size = new System.Drawing.Size(233, 27);
-            this.txtResPass.TabIndex = 1;
+            this.txtResPass.TabIndex = 2;
             this.txtResPass.UseSystemPasswordChar = true;
             // 
             // txtNpass
@@ -80,7 +80,7 @@ namespace POSales
             this.btnOk.Location = new System.Drawing.Point(274, 117);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(89, 30);
-            this.btnOk.TabIndex = 23;
+            this.btnOk.TabIndex = 3;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -94,7 +94,7 @@ namespace POSales
             this.btnCancel.Location = new System.Drawing.Point(369, 117);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(97, 30);
-            this.btnCancel.TabIndex = 24;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);

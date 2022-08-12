@@ -89,7 +89,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -97,6 +96,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ggvProductos)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -173,7 +173,7 @@
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(99, 29);
-            this.btnEliminar.TabIndex = 55;
+            this.btnEliminar.TabIndex = 19;
             this.btnEliminar.Text = "Eliminar ";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -184,7 +184,7 @@
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(99, 31);
-            this.btnAgregar.TabIndex = 54;
+            this.btnAgregar.TabIndex = 12;
             this.btnAgregar.Text = "Agregar ";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -195,7 +195,7 @@
             this.txtTotalItem.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalItem.Name = "txtTotalItem";
             this.txtTotalItem.Size = new System.Drawing.Size(72, 28);
-            this.txtTotalItem.TabIndex = 53;
+            this.txtTotalItem.TabIndex = 18;
             // 
             // txtCant
             // 
@@ -203,7 +203,7 @@
             this.txtCant.Margin = new System.Windows.Forms.Padding(4);
             this.txtCant.Name = "txtCant";
             this.txtCant.Size = new System.Drawing.Size(83, 28);
-            this.txtCant.TabIndex = 52;
+            this.txtCant.TabIndex = 15;
             this.txtCant.TextChanged += new System.EventHandler(this.txtCant_TextChanged);
             // 
             // txtStock
@@ -213,7 +213,7 @@
             this.txtStock.Margin = new System.Windows.Forms.Padding(4);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(76, 28);
-            this.txtStock.TabIndex = 51;
+            this.txtStock.TabIndex = 14;
             // 
             // label8
             // 
@@ -412,7 +412,7 @@
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(196, 28);
-            this.txtCodigo.TabIndex = 40;
+            this.txtCodigo.TabIndex = 1;
             // 
             // panel1
             // 
@@ -474,7 +474,7 @@
             this.dateFecha.Location = new System.Drawing.Point(1061, 122);
             this.dateFecha.Name = "dateFecha";
             this.dateFecha.Size = new System.Drawing.Size(138, 28);
-            this.dateFecha.TabIndex = 76;
+            this.dateFecha.TabIndex = 2;
             // 
             // textBox1
             // 
@@ -483,7 +483,7 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(196, 28);
-            this.textBox1.TabIndex = 77;
+            this.textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
@@ -492,7 +492,7 @@
             this.textBox2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(678, 28);
-            this.textBox2.TabIndex = 78;
+            this.textBox2.TabIndex = 4;
             // 
             // button1
             // 
@@ -500,7 +500,7 @@
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(32, 28);
-            this.button1.TabIndex = 79;
+            this.button1.TabIndex = 5;
             this.button1.Text = "...";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -512,7 +512,7 @@
             this.textBox3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(345, 28);
-            this.textBox3.TabIndex = 81;
+            this.textBox3.TabIndex = 6;
             // 
             // label17
             // 
@@ -531,7 +531,7 @@
             this.textBox4.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(345, 28);
-            this.textBox4.TabIndex = 83;
+            this.textBox4.TabIndex = 7;
             // 
             // label18
             // 
@@ -550,7 +550,7 @@
             this.textBox5.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(345, 28);
-            this.textBox5.TabIndex = 85;
+            this.textBox5.TabIndex = 8;
             // 
             // label19
             // 
@@ -569,7 +569,7 @@
             this.textBox6.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(298, 28);
-            this.textBox6.TabIndex = 86;
+            this.textBox6.TabIndex = 9;
             // 
             // button2
             // 
@@ -577,7 +577,7 @@
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(32, 28);
-            this.button2.TabIndex = 87;
+            this.button2.TabIndex = 10;
             this.button2.Text = "...";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -599,7 +599,7 @@
             this.textBox7.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(377, 28);
-            this.textBox7.TabIndex = 89;
+            this.textBox7.TabIndex = 11;
             // 
             // txtSubTotalItem
             // 
@@ -607,7 +607,7 @@
             this.txtSubTotalItem.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubTotalItem.Name = "txtSubTotalItem";
             this.txtSubTotalItem.Size = new System.Drawing.Size(124, 28);
-            this.txtSubTotalItem.TabIndex = 92;
+            this.txtSubTotalItem.TabIndex = 16;
             // 
             // label21
             // 
@@ -625,7 +625,7 @@
             this.txtIvaItem.Margin = new System.Windows.Forms.Padding(4);
             this.txtIvaItem.Name = "txtIvaItem";
             this.txtIvaItem.Size = new System.Drawing.Size(124, 28);
-            this.txtIvaItem.TabIndex = 94;
+            this.txtIvaItem.TabIndex = 17;
             // 
             // label22
             // 
@@ -691,20 +691,6 @@
             this.label11.TabIndex = 99;
             this.label11.Text = "TOTAL";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "CONTADO",
-            "CHEQUE",
-            "DEPOSITO",
-            "PLAZOS"});
-            this.comboBox1.Location = new System.Drawing.Point(151, 610);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(165, 29);
-            this.comboBox1.TabIndex = 101;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -721,7 +707,7 @@
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(99, 32);
-            this.button3.TabIndex = 103;
+            this.button3.TabIndex = 21;
             this.button3.Text = "NUEVO";
             this.button3.UseVisualStyleBackColor = true;
             // 
@@ -731,7 +717,7 @@
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(119, 32);
-            this.button4.TabIndex = 104;
+            this.button4.TabIndex = 22;
             this.button4.Text = "FACTURAR";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -742,7 +728,7 @@
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(119, 32);
-            this.button5.TabIndex = 105;
+            this.button5.TabIndex = 23;
             this.button5.Text = "SERIES";
             this.button5.UseVisualStyleBackColor = true;
             // 
@@ -752,7 +738,7 @@
             this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(119, 32);
-            this.button6.TabIndex = 106;
+            this.button6.TabIndex = 24;
             this.button6.Text = "IMPRIMIR";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
@@ -763,7 +749,7 @@
             this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(119, 32);
-            this.button7.TabIndex = 107;
+            this.button7.TabIndex = 25;
             this.button7.Text = "SALIR";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
@@ -774,7 +760,22 @@
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(89, 28);
-            this.txtPrecio.TabIndex = 108;
+            this.txtPrecio.TabIndex = 13;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.ItemHeight = 21;
+            this.comboBox1.Items.AddRange(new object[] {
+            "CONTADO",
+            "CHEQUE",
+            "DEPOSITO",
+            "PLAZOS"});
+            this.comboBox1.Location = new System.Drawing.Point(151, 610);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(165, 29);
+            this.comboBox1.TabIndex = 101;
             // 
             // ComprasProveedor
             // 
@@ -905,7 +906,6 @@
         public System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtTotal;
         public System.Windows.Forms.Label label11;
-        public System.Windows.Forms.ComboBox comboBox1;
         public System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
@@ -921,5 +921,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IvaPorItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotalPorItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        public System.Windows.Forms.ComboBox comboBox1;
     }
 }

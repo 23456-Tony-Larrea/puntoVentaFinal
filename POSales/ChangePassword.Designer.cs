@@ -115,7 +115,7 @@ namespace POSales
             this.txtPass.SelectionStart = 0;
             this.txtPass.ShortcutsEnabled = true;
             this.txtPass.Size = new System.Drawing.Size(361, 31);
-            this.txtPass.TabIndex = 11;
+            this.txtPass.TabIndex = 1;
             this.txtPass.UseSelectable = true;
             this.txtPass.UseSystemPasswordChar = true;
             this.txtPass.WaterMark = "Contraseña actual";
@@ -212,7 +212,7 @@ namespace POSales
             this.txtComPass.SelectionStart = 0;
             this.txtComPass.ShortcutsEnabled = true;
             this.txtComPass.Size = new System.Drawing.Size(361, 31);
-            this.txtComPass.TabIndex = 15;
+            this.txtComPass.TabIndex = 2;
             this.txtComPass.UseSelectable = true;
             this.txtComPass.UseSystemPasswordChar = true;
             this.txtComPass.Visible = false;
@@ -230,7 +230,7 @@ namespace POSales
             this.btnNext.Location = new System.Drawing.Point(315, 252);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(109, 35);
-            this.btnNext.TabIndex = 16;
+            this.btnNext.TabIndex = 3;
             this.btnNext.Text = "Siguiente";
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);

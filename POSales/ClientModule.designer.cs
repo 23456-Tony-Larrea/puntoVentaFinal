@@ -263,7 +263,7 @@
             this.txtName.Location = new System.Drawing.Point(123, 109);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(659, 28);
-            this.txtName.TabIndex = 23;
+            this.txtName.TabIndex = 1;
             // 
             // txtComercio
             // 
@@ -271,7 +271,7 @@
             this.txtComercio.Location = new System.Drawing.Point(123, 157);
             this.txtComercio.Name = "txtComercio";
             this.txtComercio.Size = new System.Drawing.Size(659, 28);
-            this.txtComercio.TabIndex = 24;
+            this.txtComercio.TabIndex = 2;
             // 
             // txtCodigo
             // 
@@ -279,7 +279,7 @@
             this.txtCodigo.Location = new System.Drawing.Point(85, 198);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(133, 28);
-            this.txtCodigo.TabIndex = 25;
+            this.txtCodigo.TabIndex = 3;
             // 
             // dateNacimiento
             // 
@@ -287,7 +287,7 @@
             this.dateNacimiento.Location = new System.Drawing.Point(340, 198);
             this.dateNacimiento.Name = "dateNacimiento";
             this.dateNacimiento.Size = new System.Drawing.Size(133, 28);
-            this.dateNacimiento.TabIndex = 26;
+            this.dateNacimiento.TabIndex = 4;
             // 
             // dateRegisstro
             // 
@@ -295,7 +295,7 @@
             this.dateRegisstro.Location = new System.Drawing.Point(649, 198);
             this.dateRegisstro.Name = "dateRegisstro";
             this.dateRegisstro.Size = new System.Drawing.Size(133, 28);
-            this.dateRegisstro.TabIndex = 27;
+            this.dateRegisstro.TabIndex = 5;
             // 
             // txtCiudad
             // 
@@ -303,7 +303,7 @@
             this.txtCiudad.Location = new System.Drawing.Point(85, 271);
             this.txtCiudad.Name = "txtCiudad";
             this.txtCiudad.Size = new System.Drawing.Size(216, 28);
-            this.txtCiudad.TabIndex = 28;
+            this.txtCiudad.TabIndex = 6;
             // 
             // cboTipo
             // 
@@ -314,7 +314,7 @@
             this.cboTipo.Location = new System.Drawing.Point(356, 270);
             this.cboTipo.Name = "cboTipo";
             this.cboTipo.Size = new System.Drawing.Size(121, 29);
-            this.cboTipo.TabIndex = 29;
+            this.cboTipo.TabIndex = 7;
             // 
             // label16
             // 
@@ -331,7 +331,7 @@
             this.txtCiRuc.Location = new System.Drawing.Point(574, 266);
             this.txtCiRuc.Name = "txtCiRuc";
             this.txtCiRuc.Size = new System.Drawing.Size(208, 28);
-            this.txtCiRuc.TabIndex = 31;
+            this.txtCiRuc.TabIndex = 8;
             // 
             // txtPais
             // 
@@ -339,7 +339,7 @@
             this.txtPais.Location = new System.Drawing.Point(85, 333);
             this.txtPais.Name = "txtPais";
             this.txtPais.Size = new System.Drawing.Size(216, 28);
-            this.txtPais.TabIndex = 32;
+            this.txtPais.TabIndex = 9;
             // 
             // label17
             // 
@@ -359,7 +359,7 @@
             this.cboEstado.Location = new System.Drawing.Point(382, 330);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(121, 29);
-            this.cboEstado.TabIndex = 34;
+            this.cboEstado.TabIndex = 10;
             // 
             // txtDireccion
             // 
@@ -367,7 +367,7 @@
             this.txtDireccion.Location = new System.Drawing.Point(102, 378);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(680, 28);
-            this.txtDireccion.TabIndex = 35;
+            this.txtDireccion.TabIndex = 11;
             // 
             // txtTelf
             // 
@@ -375,7 +375,7 @@
             this.txtTelf.Location = new System.Drawing.Point(97, 419);
             this.txtTelf.Name = "txtTelf";
             this.txtTelf.Size = new System.Drawing.Size(216, 28);
-            this.txtTelf.TabIndex = 36;
+            this.txtTelf.TabIndex = 12;
             // 
             // txtFax
             // 
@@ -383,7 +383,7 @@
             this.txtFax.Location = new System.Drawing.Point(451, 419);
             this.txtFax.Name = "txtFax";
             this.txtFax.Size = new System.Drawing.Size(216, 28);
-            this.txtFax.TabIndex = 37;
+            this.txtFax.TabIndex = 15;
             // 
             // txtCelular
             // 
@@ -391,7 +391,7 @@
             this.txtCelular.Location = new System.Drawing.Point(85, 460);
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(216, 28);
-            this.txtCelular.TabIndex = 38;
+            this.txtCelular.TabIndex = 13;
             // 
             // txtCargo
             // 
@@ -399,7 +399,7 @@
             this.txtCargo.Location = new System.Drawing.Point(451, 460);
             this.txtCargo.Name = "txtCargo";
             this.txtCargo.Size = new System.Drawing.Size(216, 28);
-            this.txtCargo.TabIndex = 39;
+            this.txtCargo.TabIndex = 16;
             // 
             // txtEmail
             // 
@@ -407,7 +407,7 @@
             this.txtEmail.Location = new System.Drawing.Point(85, 508);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(216, 28);
-            this.txtEmail.TabIndex = 40;
+            this.txtEmail.TabIndex = 14;
             // 
             // btnCancel
             // 
@@ -419,7 +419,7 @@
             this.btnCancel.Location = new System.Drawing.Point(764, 602);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 35);
-            this.btnCancel.TabIndex = 43;
+            this.btnCancel.TabIndex = 20;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -434,7 +434,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(640, 602);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(121, 35);
-            this.btnUpdate.TabIndex = 42;
+            this.btnUpdate.TabIndex = 19;
             this.btnUpdate.Text = "Actualizar";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -449,7 +449,7 @@
             this.btnSave.Location = new System.Drawing.Point(519, 602);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(115, 35);
-            this.btnSave.TabIndex = 41;
+            this.btnSave.TabIndex = 18;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -484,7 +484,7 @@
             this.cboTipoCliente.Location = new System.Drawing.Point(447, 523);
             this.cboTipoCliente.Name = "cboTipoCliente";
             this.cboTipoCliente.Size = new System.Drawing.Size(220, 29);
-            this.cboTipoCliente.TabIndex = 47;
+            this.cboTipoCliente.TabIndex = 17;
             // 
             // label19
             // 

@@ -89,7 +89,7 @@ namespace POSales
             this.txtStName.Location = new System.Drawing.Point(169, 35);
             this.txtStName.Name = "txtStName";
             this.txtStName.Size = new System.Drawing.Size(473, 30);
-            this.txtStName.TabIndex = 7;
+            this.txtStName.TabIndex = 1;
             // 
             // txtAddress
             // 
@@ -97,7 +97,7 @@ namespace POSales
             this.txtAddress.Location = new System.Drawing.Point(169, 74);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(473, 30);
-            this.txtAddress.TabIndex = 7;
+            this.txtAddress.TabIndex = 2;
             // 
             // btnSave
             // 
@@ -109,7 +109,7 @@ namespace POSales
             this.btnSave.Location = new System.Drawing.Point(429, 116);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(102, 35);
-            this.btnSave.TabIndex = 31;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -124,7 +124,7 @@ namespace POSales
             this.btnCancel.Location = new System.Drawing.Point(532, 116);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 35);
-            this.btnCancel.TabIndex = 32;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);

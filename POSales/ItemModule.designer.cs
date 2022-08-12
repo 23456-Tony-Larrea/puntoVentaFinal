@@ -120,7 +120,7 @@ namespace POSales
             this.btnSave.Location = new System.Drawing.Point(775, 643);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(106, 35);
-            this.btnSave.TabIndex = 9;
+            this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -157,7 +157,7 @@ namespace POSales
             this.btnCancel.Location = new System.Drawing.Point(1034, 643);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(117, 35);
-            this.btnCancel.TabIndex = 12;
+            this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -172,7 +172,7 @@ namespace POSales
             this.btnUpdate.Location = new System.Drawing.Point(903, 643);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(113, 35);
-            this.btnUpdate.TabIndex = 11;
+            this.btnUpdate.TabIndex = 8;
             this.btnUpdate.Text = "Actualizar";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -193,7 +193,7 @@ namespace POSales
             this.txtIdProd.Location = new System.Drawing.Point(162, 59);
             this.txtIdProd.Name = "txtIdProd";
             this.txtIdProd.Size = new System.Drawing.Size(194, 30);
-            this.txtIdProd.TabIndex = 8;
+            this.txtIdProd.TabIndex = 1;
             // 
             // panel1
             // 
@@ -258,7 +258,7 @@ namespace POSales
             this.txtBarcode.Location = new System.Drawing.Point(529, 62);
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Size = new System.Drawing.Size(194, 30);
-            this.txtBarcode.TabIndex = 8;
+            this.txtBarcode.TabIndex = 2;
             // 
             // cboBrand
             // 
@@ -341,7 +341,7 @@ namespace POSales
             this.txtNameProdcut.Location = new System.Drawing.Point(107, 100);
             this.txtNameProdcut.Name = "txtNameProdcut";
             this.txtNameProdcut.Size = new System.Drawing.Size(713, 30);
-            this.txtNameProdcut.TabIndex = 23;
+            this.txtNameProdcut.TabIndex = 3;
             // 
             // HasIva
             // 
@@ -349,7 +349,7 @@ namespace POSales
             this.HasIva.Location = new System.Drawing.Point(617, 130);
             this.HasIva.Name = "HasIva";
             this.HasIva.Size = new System.Drawing.Size(67, 26);
-            this.HasIva.TabIndex = 35;
+            this.HasIva.TabIndex = 5;
             this.HasIva.Text = "IVA";
             this.HasIva.UseVisualStyleBackColor = true;
             this.HasIva.CheckedChanged += new System.EventHandler(this.HasIva_CheckedChanged);
@@ -465,7 +465,7 @@ namespace POSales
             this.txtReason.Multiline = true;
             this.txtReason.Name = "txtReason";
             this.txtReason.Size = new System.Drawing.Size(633, 167);
-            this.txtReason.TabIndex = 56;
+            this.txtReason.TabIndex = 7;
             // 
             // txtStockMax
             // 
@@ -584,7 +584,7 @@ namespace POSales
             this.chckCombo.Location = new System.Drawing.Point(677, 318);
             this.chckCombo.Name = "chckCombo";
             this.chckCombo.Size = new System.Drawing.Size(101, 26);
-            this.chckCombo.TabIndex = 94;
+            this.chckCombo.TabIndex = 6;
             this.chckCombo.Text = "Combo";
             this.chckCombo.UseVisualStyleBackColor = true;
             this.chckCombo.CheckedChanged += new System.EventHandler(this.chckCombo_CheckedChanged);
@@ -655,7 +655,7 @@ namespace POSales
             this.txtIva.Location = new System.Drawing.Point(538, 130);
             this.txtIva.Name = "txtIva";
             this.txtIva.Size = new System.Drawing.Size(73, 30);
-            this.txtIva.TabIndex = 101;
+            this.txtIva.TabIndex = 4;
             this.txtIva.Text = "00,00";
             this.txtIva.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtIva.TextChanged += new System.EventHandler(this.txtIva_TextChanged);
@@ -758,7 +758,7 @@ namespace POSales
             this.btnAgregarCombos.Location = new System.Drawing.Point(811, 312);
             this.btnAgregarCombos.Name = "btnAgregarCombos";
             this.btnAgregarCombos.Size = new System.Drawing.Size(214, 32);
-            this.btnAgregarCombos.TabIndex = 104;
+            this.btnAgregarCombos.TabIndex = 5;
             this.btnAgregarCombos.Text = "Agregar o Eliminar items";
             this.btnAgregarCombos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarCombos.UseVisualStyleBackColor = true;

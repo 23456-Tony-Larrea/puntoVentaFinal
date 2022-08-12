@@ -106,7 +106,7 @@ namespace POSales
             this.btnItems.Name = "btnItems";
             this.btnItems.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnItems.Size = new System.Drawing.Size(179, 63);
-            this.btnItems.TabIndex = 10;
+            this.btnItems.TabIndex = 15;
             this.btnItems.Text = "Items por mayor";
             this.btnItems.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnItems.UseVisualStyleBackColor = true;
@@ -122,7 +122,7 @@ namespace POSales
             this.btnWhatsapp.Name = "btnWhatsapp";
             this.btnWhatsapp.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnWhatsapp.Size = new System.Drawing.Size(179, 52);
-            this.btnWhatsapp.TabIndex = 12;
+            this.btnWhatsapp.TabIndex = 14;
             this.btnWhatsapp.Text = "Whatsapp";
             this.btnWhatsapp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnWhatsapp.UseVisualStyleBackColor = true;
@@ -138,7 +138,7 @@ namespace POSales
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnLogout.Size = new System.Drawing.Size(179, 46);
-            this.btnLogout.TabIndex = 9;
+            this.btnLogout.TabIndex = 16;
             this.btnLogout.Text = "Salir";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -165,7 +165,7 @@ namespace POSales
             this.btnStore.Name = "btnStore";
             this.btnStore.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnStore.Size = new System.Drawing.Size(179, 45);
-            this.btnStore.TabIndex = 5;
+            this.btnStore.TabIndex = 13;
             this.btnStore.Text = "Tienda";
             this.btnStore.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStore.UseVisualStyleBackColor = true;
@@ -181,7 +181,7 @@ namespace POSales
             this.btnUser.Name = "btnUser";
             this.btnUser.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnUser.Size = new System.Drawing.Size(179, 45);
-            this.btnUser.TabIndex = 4;
+            this.btnUser.TabIndex = 12;
             this.btnUser.Text = "Usuarios";
             this.btnUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUser.UseVisualStyleBackColor = true;
@@ -197,7 +197,7 @@ namespace POSales
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnSetting.Size = new System.Drawing.Size(179, 52);
-            this.btnSetting.TabIndex = 7;
+            this.btnSetting.TabIndex = 11;
             this.btnSetting.Text = "Configuracion";
             this.btnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSetting.UseVisualStyleBackColor = true;
@@ -224,7 +224,7 @@ namespace POSales
             this.btnPosRecord.Name = "btnPosRecord";
             this.btnPosRecord.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnPosRecord.Size = new System.Drawing.Size(179, 45);
-            this.btnPosRecord.TabIndex = 5;
+            this.btnPosRecord.TabIndex = 10;
             this.btnPosRecord.Text = "POS Registro";
             this.btnPosRecord.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPosRecord.UseVisualStyleBackColor = true;
@@ -240,7 +240,7 @@ namespace POSales
             this.btnSaleHist.Name = "btnSaleHist";
             this.btnSaleHist.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnSaleHist.Size = new System.Drawing.Size(179, 45);
-            this.btnSaleHist.TabIndex = 4;
+            this.btnSaleHist.TabIndex = 9;
             this.btnSaleHist.Text = "hist ventas";
             this.btnSaleHist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSaleHist.UseVisualStyleBackColor = true;
@@ -256,7 +256,7 @@ namespace POSales
             this.btnRecord.Name = "btnRecord";
             this.btnRecord.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnRecord.Size = new System.Drawing.Size(179, 45);
-            this.btnRecord.TabIndex = 5;
+            this.btnRecord.TabIndex = 8;
             this.btnRecord.Text = "Record";
             this.btnRecord.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRecord.UseVisualStyleBackColor = true;
@@ -272,7 +272,7 @@ namespace POSales
             this.btnSupplier.Name = "btnSupplier";
             this.btnSupplier.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnSupplier.Size = new System.Drawing.Size(179, 45);
-            this.btnSupplier.TabIndex = 4;
+            this.btnSupplier.TabIndex = 7;
             this.btnSupplier.Text = "Proveedor";
             this.btnSupplier.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSupplier.UseVisualStyleBackColor = true;
@@ -299,7 +299,7 @@ namespace POSales
             this.btnStockAdjustment.Name = "btnStockAdjustment";
             this.btnStockAdjustment.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnStockAdjustment.Size = new System.Drawing.Size(179, 45);
-            this.btnStockAdjustment.TabIndex = 5;
+            this.btnStockAdjustment.TabIndex = 6;
             this.btnStockAdjustment.Text = "Ajustes";
             this.btnStockAdjustment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStockAdjustment.UseVisualStyleBackColor = true;
@@ -315,7 +315,7 @@ namespace POSales
             this.btnStockEntry.Name = "btnStockEntry";
             this.btnStockEntry.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnStockEntry.Size = new System.Drawing.Size(179, 54);
-            this.btnStockEntry.TabIndex = 4;
+            this.btnStockEntry.TabIndex = 5;
             this.btnStockEntry.Text = "Entradas";
             this.btnStockEntry.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStockEntry.UseVisualStyleBackColor = true;
@@ -331,7 +331,7 @@ namespace POSales
             this.btnInStock.Name = "btnInStock";
             this.btnInStock.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnInStock.Size = new System.Drawing.Size(179, 45);
-            this.btnInStock.TabIndex = 3;
+            this.btnInStock.TabIndex = 4;
             this.btnInStock.Text = "En Stock";
             this.btnInStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInStock.UseVisualStyleBackColor = true;
@@ -359,7 +359,7 @@ namespace POSales
             this.btnBrand.Name = "btnBrand";
             this.btnBrand.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnBrand.Size = new System.Drawing.Size(179, 45);
-            this.btnBrand.TabIndex = 5;
+            this.btnBrand.TabIndex = 3;
             this.btnBrand.Text = "Marcas";
             this.btnBrand.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBrand.UseVisualStyleBackColor = true;
@@ -375,7 +375,7 @@ namespace POSales
             this.btnCategory.Name = "btnCategory";
             this.btnCategory.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnCategory.Size = new System.Drawing.Size(179, 45);
-            this.btnCategory.TabIndex = 4;
+            this.btnCategory.TabIndex = 2;
             this.btnCategory.Text = "Categoria";
             this.btnCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCategory.UseVisualStyleBackColor = true;
@@ -391,7 +391,7 @@ namespace POSales
             this.btnProductList.Name = "btnProductList";
             this.btnProductList.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnProductList.Size = new System.Drawing.Size(179, 58);
-            this.btnProductList.TabIndex = 3;
+            this.btnProductList.TabIndex = 1;
             this.btnProductList.Text = "Productos unitarios";
             this.btnProductList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProductList.UseVisualStyleBackColor = true;

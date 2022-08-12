@@ -30,7 +30,7 @@ namespace POSales.Mantenimientos
             orden.usuario = dbcon.selectUsuariosPorId(IdUsuario);
             lblCajero.Text = orden.usuario.nombre;
             Random rnd = new Random();
-            textBox1.Text = rnd.Next().ToString();
+            txtCodigo.Text = rnd.Next().ToString();
  
         }
         public void openChildForm(Form childForm)
@@ -148,7 +148,7 @@ namespace POSales.Mantenimientos
                     foreach (var mantenimiento in mantenimientos)
                     {
                         mantenimiento.idOrdenServicio = idOrden;
-                        mantenimiento.Codigo = textBox1.Text;
+                        mantenimiento.Codigo = txtCodigo.Text;
                         dbcon.insertMantenimientoModels(mantenimiento);
                     }
                 }

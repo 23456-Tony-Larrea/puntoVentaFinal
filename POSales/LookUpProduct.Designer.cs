@@ -98,8 +98,10 @@ namespace POSales
             // Id
             // 
             this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
             this.Id.Name = "Id";
             this.Id.Visible = false;
+            this.Id.Width = 125;
             // 
             // Column2
             // 
@@ -121,7 +123,7 @@ namespace POSales
             this.Column4.HeaderText = "Descripcion";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
-            this.Column4.Width = 119;
+            this.Column4.Width = 143;
             // 
             // Column5
             // 
@@ -129,7 +131,7 @@ namespace POSales
             this.Column5.HeaderText = "Marca";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
-            this.Column5.Width = 82;
+            this.Column5.Width = 98;
             // 
             // Column6
             // 
@@ -137,7 +139,7 @@ namespace POSales
             this.Column6.HeaderText = "Categoria";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
-            this.Column6.Width = 107;
+            this.Column6.Width = 131;
             // 
             // Column7
             // 
@@ -147,7 +149,7 @@ namespace POSales
             this.Column7.HeaderText = "Precio";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
-            this.Column7.Width = 79;
+            this.Column7.Width = 93;
             // 
             // Column8
             // 
@@ -157,7 +159,7 @@ namespace POSales
             this.Column8.HeaderText = "Cant";
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
-            this.Column8.Width = 68;
+            this.Column8.Width = 84;
             // 
             // Select
             // 
@@ -190,7 +192,7 @@ namespace POSales
             this.btnClose.Location = new System.Drawing.Point(900, 26);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(82, 35);
-            this.btnClose.TabIndex = 13;
+            this.btnClose.TabIndex = 2;
             this.btnClose.Text = "Cerrar";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -224,7 +226,7 @@ namespace POSales
             this.txtSearch.SelectionStart = 0;
             this.txtSearch.ShortcutsEnabled = true;
             this.txtSearch.Size = new System.Drawing.Size(376, 27);
-            this.txtSearch.TabIndex = 2;
+            this.txtSearch.TabIndex = 1;
             this.txtSearch.UseSelectable = true;
             this.txtSearch.WaterMark = "buscar aqui";
             this.txtSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -247,7 +249,7 @@ namespace POSales
             // 
             // LookUpProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 599);
             this.Controls.Add(this.dgvProduct);

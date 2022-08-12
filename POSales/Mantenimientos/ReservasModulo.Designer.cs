@@ -103,7 +103,7 @@
             this.btnCancel.Location = new System.Drawing.Point(466, 621);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 35);
-            this.btnCancel.TabIndex = 190;
+            this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -138,7 +138,7 @@
             this.btnSave.Location = new System.Drawing.Point(675, 621);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(115, 35);
-            this.btnSave.TabIndex = 188;
+            this.btnSave.TabIndex = 14;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -162,7 +162,7 @@
             this.txtDescripcionItem.Location = new System.Drawing.Point(213, 173);
             this.txtDescripcionItem.Name = "txtDescripcionItem";
             this.txtDescripcionItem.Size = new System.Drawing.Size(569, 28);
-            this.txtDescripcionItem.TabIndex = 196;
+            this.txtDescripcionItem.TabIndex = 2;
             // 
             // label2
             // 
@@ -203,7 +203,7 @@
             this.txtCodBarrasItem.Location = new System.Drawing.Point(213, 118);
             this.txtCodBarrasItem.Name = "txtCodBarrasItem";
             this.txtCodBarrasItem.Size = new System.Drawing.Size(569, 28);
-            this.txtCodBarrasItem.TabIndex = 194;
+            this.txtCodBarrasItem.TabIndex = 1;
             // 
             // label11
             // 
@@ -232,7 +232,7 @@
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(89, 28);
-            this.txtPrecio.TabIndex = 228;
+            this.txtPrecio.TabIndex = 4;
             // 
             // txtTotal
             // 
@@ -240,7 +240,7 @@
             this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(124, 28);
-            this.txtTotal.TabIndex = 227;
+            this.txtTotal.TabIndex = 12;
             // 
             // label3
             // 
@@ -258,7 +258,7 @@
             this.txtIva.Margin = new System.Windows.Forms.Padding(4);
             this.txtIva.Name = "txtIva";
             this.txtIva.Size = new System.Drawing.Size(124, 28);
-            this.txtIva.TabIndex = 225;
+            this.txtIva.TabIndex = 11;
             // 
             // label4
             // 
@@ -295,7 +295,7 @@
             this.txtIvaItem.Margin = new System.Windows.Forms.Padding(4);
             this.txtIvaItem.Name = "txtIvaItem";
             this.txtIvaItem.Size = new System.Drawing.Size(124, 28);
-            this.txtIvaItem.TabIndex = 221;
+            this.txtIvaItem.TabIndex = 7;
             // 
             // label22
             // 
@@ -314,7 +314,7 @@
             this.txtSubTotalItem.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubTotalItem.Name = "txtSubTotalItem";
             this.txtSubTotalItem.Size = new System.Drawing.Size(124, 28);
-            this.txtSubTotalItem.TabIndex = 219;
+            this.txtSubTotalItem.TabIndex = 6;
             // 
             // label21
             // 
@@ -350,7 +350,7 @@
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(99, 29);
-            this.btnEliminar.TabIndex = 214;
+            this.btnEliminar.TabIndex = 10;
             this.btnEliminar.Text = "Eliminar ";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -362,7 +362,7 @@
             this.txtTotalItem.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalItem.Name = "txtTotalItem";
             this.txtTotalItem.Size = new System.Drawing.Size(72, 28);
-            this.txtTotalItem.TabIndex = 213;
+            this.txtTotalItem.TabIndex = 8;
             // 
             // txtCant
             // 
@@ -370,7 +370,7 @@
             this.txtCant.Margin = new System.Windows.Forms.Padding(4);
             this.txtCant.Name = "txtCant";
             this.txtCant.Size = new System.Drawing.Size(83, 28);
-            this.txtCant.TabIndex = 212;
+            this.txtCant.TabIndex = 3;
             this.txtCant.TextChanged += new System.EventHandler(this.txtCant_TextChanged);
             // 
             // txtStock
@@ -380,7 +380,7 @@
             this.txtStock.Margin = new System.Windows.Forms.Padding(4);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(76, 28);
-            this.txtStock.TabIndex = 211;
+            this.txtStock.TabIndex = 5;
             // 
             // label8
             // 
@@ -524,7 +524,7 @@
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(99, 31);
-            this.btnAgregar.TabIndex = 229;
+            this.btnAgregar.TabIndex = 9;
             this.btnAgregar.Text = "Agregar ";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);

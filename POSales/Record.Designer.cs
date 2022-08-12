@@ -31,33 +31,38 @@ namespace POSales
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Record));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvTopSelling = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLoadTopSell = new System.Windows.Forms.Button();
             this.btnPrintTopSell = new System.Windows.Forms.Button();
@@ -68,6 +73,13 @@ namespace POSales
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvSoldItems = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnLoadSoldItems = new System.Windows.Forms.Button();
@@ -78,50 +90,6 @@ namespace POSales
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvCriticalItems = new System.Windows.Forms.DataGridView();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dgvInventoryList = new System.Windows.Forms.DataGridView();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.btnPrintInventoryList = new System.Windows.Forms.Button();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.dgvCancel = new System.Windows.Forms.DataGridView();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.btnLoadCancel = new System.Windows.Forms.Button();
-            this.btnPrintCancel = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dtToCancel = new System.Windows.Forms.DateTimePicker();
-            this.dtFromCancel = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.dgvStockIn = new System.Windows.Forms.DataGridView();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.btnLoadStockIn = new System.Windows.Forms.Button();
-            this.btnPrintStockIn = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dtToStockIn = new System.Windows.Forms.DateTimePicker();
-            this.dtFromStockIn = new System.Windows.Forms.DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -131,6 +99,8 @@ namespace POSales
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dgvInventoryList = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -140,6 +110,10 @@ namespace POSales
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnPrintInventoryList = new System.Windows.Forms.Button();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.dgvCancel = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -152,6 +126,32 @@ namespace POSales
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btnLoadCancel = new System.Windows.Forms.Button();
+            this.btnPrintCancel = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dtToCancel = new System.Windows.Forms.DateTimePicker();
+            this.dtFromCancel = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.dgvStockIn = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.btnLoadStockIn = new System.Windows.Forms.Button();
+            this.btnPrintStockIn = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dtFromStockIn = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dtToStockIn = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.metroTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -207,7 +207,7 @@ namespace POSales
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(0, 0);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 5;
+            this.metroTabControl1.SelectedIndex = 4;
             this.metroTabControl1.Size = new System.Drawing.Size(1257, 602);
             this.metroTabControl1.TabIndex = 4;
             this.metroTabControl1.UseSelectable = true;
@@ -253,6 +253,49 @@ namespace POSales
             this.dgvTopSelling.Size = new System.Drawing.Size(1249, 491);
             this.dgvTopSelling.TabIndex = 5;
             // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "No";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 63;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column2.HeaderText = "codP";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 85;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.HeaderText = "Descripcion";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column6.HeaderText = "Cant";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 84;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column7.HeaderText = "Ventas totales";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 169;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnLoadTopSell);
@@ -278,7 +321,7 @@ namespace POSales
             this.btnLoadTopSell.Location = new System.Drawing.Point(837, 15);
             this.btnLoadTopSell.Name = "btnLoadTopSell";
             this.btnLoadTopSell.Size = new System.Drawing.Size(171, 36);
-            this.btnLoadTopSell.TabIndex = 16;
+            this.btnLoadTopSell.TabIndex = 4;
             this.btnLoadTopSell.Text = "Cargar datos";
             this.btnLoadTopSell.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLoadTopSell.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -294,7 +337,7 @@ namespace POSales
             this.btnPrintTopSell.Location = new System.Drawing.Point(1023, 15);
             this.btnPrintTopSell.Name = "btnPrintTopSell";
             this.btnPrintTopSell.Size = new System.Drawing.Size(42, 36);
-            this.btnPrintTopSell.TabIndex = 15;
+            this.btnPrintTopSell.TabIndex = 5;
             this.btnPrintTopSell.UseVisualStyleBackColor = true;
             this.btnPrintTopSell.Click += new System.EventHandler(this.btnPrintTopSell_Click);
             // 
@@ -326,7 +369,7 @@ namespace POSales
             this.dtToTopSell.Location = new System.Drawing.Point(367, 18);
             this.dtToTopSell.Name = "dtToTopSell";
             this.dtToTopSell.Size = new System.Drawing.Size(104, 30);
-            this.dtToTopSell.TabIndex = 1;
+            this.dtToTopSell.TabIndex = 2;
             // 
             // dtFromTopSell
             // 
@@ -387,585 +430,6 @@ namespace POSales
             this.dgvSoldItems.RowHeadersWidth = 51;
             this.dgvSoldItems.Size = new System.Drawing.Size(1249, 491);
             this.dgvSoldItems.TabIndex = 6;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.lblTotal);
-            this.panel3.Controls.Add(this.btnLoadSoldItems);
-            this.panel3.Controls.Add(this.btnPrintSoldItems);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.dtToSoldItems);
-            this.panel3.Controls.Add(this.dtFromSoldItems);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1249, 69);
-            this.panel3.TabIndex = 1;
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblTotal.Location = new System.Drawing.Point(882, 22);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(138, 31);
-            this.lblTotal.TabIndex = 17;
-            this.lblTotal.Text = "0.00";
-            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // btnLoadSoldItems
-            // 
-            this.btnLoadSoldItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLoadSoldItems.FlatAppearance.BorderSize = 0;
-            this.btnLoadSoldItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadSoldItems.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadSoldItems.Image")));
-            this.btnLoadSoldItems.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLoadSoldItems.Location = new System.Drawing.Point(527, 20);
-            this.btnLoadSoldItems.Name = "btnLoadSoldItems";
-            this.btnLoadSoldItems.Size = new System.Drawing.Size(173, 36);
-            this.btnLoadSoldItems.TabIndex = 16;
-            this.btnLoadSoldItems.Text = "Cargar Datos";
-            this.btnLoadSoldItems.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLoadSoldItems.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLoadSoldItems.UseVisualStyleBackColor = true;
-            this.btnLoadSoldItems.Click += new System.EventHandler(this.btnLoadSoldItems_Click);
-            // 
-            // btnPrintSoldItems
-            // 
-            this.btnPrintSoldItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPrintSoldItems.FlatAppearance.BorderSize = 0;
-            this.btnPrintSoldItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintSoldItems.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintSoldItems.Image")));
-            this.btnPrintSoldItems.Location = new System.Drawing.Point(834, 21);
-            this.btnPrintSoldItems.Name = "btnPrintSoldItems";
-            this.btnPrintSoldItems.Size = new System.Drawing.Size(42, 36);
-            this.btnPrintSoldItems.TabIndex = 15;
-            this.btnPrintSoldItems.UseVisualStyleBackColor = true;
-            this.btnPrintSoldItems.Click += new System.EventHandler(this.btnPrintSoldItems_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(299, 24);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 22);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "A";
-            // 
-            // dtToSoldItems
-            // 
-            this.dtToSoldItems.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtToSoldItems.Location = new System.Drawing.Point(330, 18);
-            this.dtToSoldItems.Name = "dtToSoldItems";
-            this.dtToSoldItems.Size = new System.Drawing.Size(104, 30);
-            this.dtToSoldItems.TabIndex = 1;
-            // 
-            // dtFromSoldItems
-            // 
-            this.dtFromSoldItems.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFromSoldItems.Location = new System.Drawing.Point(189, 18);
-            this.dtFromSoldItems.Name = "dtFromSoldItems";
-            this.dtFromSoldItems.Size = new System.Drawing.Size(104, 30);
-            this.dtFromSoldItems.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 24);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(166, 22);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Filtrar por : Desde";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.Color.White;
-            this.tabPage3.Controls.Add(this.dgvCriticalItems);
-            this.tabPage3.Location = new System.Drawing.Point(4, 38);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1249, 560);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Stock criticos";
-            // 
-            // dgvCriticalItems
-            // 
-            this.dgvCriticalItems.AllowUserToAddRows = false;
-            this.dgvCriticalItems.BackgroundColor = System.Drawing.Color.White;
-            this.dgvCriticalItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCriticalItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dgvCriticalItems.ColumnHeadersHeight = 30;
-            this.dgvCriticalItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvCriticalItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.Column5,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.Column8,
-            this.Column9});
-            this.dgvCriticalItems.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCriticalItems.EnableHeadersVisualStyles = false;
-            this.dgvCriticalItems.Location = new System.Drawing.Point(0, 0);
-            this.dgvCriticalItems.Name = "dgvCriticalItems";
-            this.dgvCriticalItems.RowHeadersVisible = false;
-            this.dgvCriticalItems.RowHeadersWidth = 51;
-            this.dgvCriticalItems.Size = new System.Drawing.Size(1249, 560);
-            this.dgvCriticalItems.TabIndex = 4;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.BackColor = System.Drawing.Color.White;
-            this.tabPage4.Controls.Add(this.dgvInventoryList);
-            this.tabPage4.Controls.Add(this.panel4);
-            this.tabPage4.Location = new System.Drawing.Point(4, 38);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1249, 560);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Lista de inventario";
-            // 
-            // dgvInventoryList
-            // 
-            this.dgvInventoryList.AllowUserToAddRows = false;
-            this.dgvInventoryList.BackgroundColor = System.Drawing.Color.White;
-            this.dgvInventoryList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInventoryList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
-            this.dgvInventoryList.ColumnHeadersHeight = 30;
-            this.dgvInventoryList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvInventoryList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn20,
-            this.dataGridViewTextBoxColumn19});
-            this.dgvInventoryList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvInventoryList.EnableHeadersVisualStyles = false;
-            this.dgvInventoryList.Location = new System.Drawing.Point(0, 53);
-            this.dgvInventoryList.Name = "dgvInventoryList";
-            this.dgvInventoryList.RowHeadersVisible = false;
-            this.dgvInventoryList.RowHeadersWidth = 51;
-            this.dgvInventoryList.Size = new System.Drawing.Size(1249, 507);
-            this.dgvInventoryList.TabIndex = 5;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.btnPrintInventoryList);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1249, 53);
-            this.panel4.TabIndex = 0;
-            // 
-            // btnPrintInventoryList
-            // 
-            this.btnPrintInventoryList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPrintInventoryList.FlatAppearance.BorderSize = 0;
-            this.btnPrintInventoryList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintInventoryList.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintInventoryList.Image")));
-            this.btnPrintInventoryList.Location = new System.Drawing.Point(926, 8);
-            this.btnPrintInventoryList.Name = "btnPrintInventoryList";
-            this.btnPrintInventoryList.Size = new System.Drawing.Size(42, 36);
-            this.btnPrintInventoryList.TabIndex = 16;
-            this.btnPrintInventoryList.UseVisualStyleBackColor = true;
-            this.btnPrintInventoryList.Click += new System.EventHandler(this.btnPrintInventoryList_Click);
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.dgvCancel);
-            this.tabPage5.Controls.Add(this.panel5);
-            this.tabPage5.Location = new System.Drawing.Point(4, 38);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1249, 560);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Ordenes canceladas";
-            // 
-            // dgvCancel
-            // 
-            this.dgvCancel.AllowUserToAddRows = false;
-            this.dgvCancel.BackgroundColor = System.Drawing.Color.White;
-            this.dgvCancel.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCancel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            this.dgvCancel.ColumnHeadersHeight = 30;
-            this.dgvCancel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvCancel.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn21,
-            this.dataGridViewTextBoxColumn22,
-            this.Column10,
-            this.dataGridViewTextBoxColumn23,
-            this.Column11,
-            this.dataGridViewTextBoxColumn24,
-            this.dataGridViewTextBoxColumn26,
-            this.dataGridViewTextBoxColumn25,
-            this.Column12,
-            this.Column13,
-            this.Column14,
-            this.Column15});
-            this.dgvCancel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCancel.EnableHeadersVisualStyles = false;
-            this.dgvCancel.Location = new System.Drawing.Point(0, 69);
-            this.dgvCancel.Name = "dgvCancel";
-            this.dgvCancel.RowHeadersVisible = false;
-            this.dgvCancel.RowHeadersWidth = 51;
-            this.dgvCancel.Size = new System.Drawing.Size(1249, 491);
-            this.dgvCancel.TabIndex = 8;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.btnLoadCancel);
-            this.panel5.Controls.Add(this.btnPrintCancel);
-            this.panel5.Controls.Add(this.label7);
-            this.panel5.Controls.Add(this.dtToCancel);
-            this.panel5.Controls.Add(this.dtFromCancel);
-            this.panel5.Controls.Add(this.label8);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1249, 69);
-            this.panel5.TabIndex = 7;
-            // 
-            // btnLoadCancel
-            // 
-            this.btnLoadCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLoadCancel.FlatAppearance.BorderSize = 0;
-            this.btnLoadCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadCancel.Image")));
-            this.btnLoadCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLoadCancel.Location = new System.Drawing.Point(624, 18);
-            this.btnLoadCancel.Name = "btnLoadCancel";
-            this.btnLoadCancel.Size = new System.Drawing.Size(181, 36);
-            this.btnLoadCancel.TabIndex = 16;
-            this.btnLoadCancel.Text = "Cargar Datos";
-            this.btnLoadCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLoadCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLoadCancel.UseVisualStyleBackColor = true;
-            this.btnLoadCancel.Click += new System.EventHandler(this.btnLoadCancel_Click);
-            // 
-            // btnPrintCancel
-            // 
-            this.btnPrintCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPrintCancel.FlatAppearance.BorderSize = 0;
-            this.btnPrintCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintCancel.Image")));
-            this.btnPrintCancel.Location = new System.Drawing.Point(926, 18);
-            this.btnPrintCancel.Name = "btnPrintCancel";
-            this.btnPrintCancel.Size = new System.Drawing.Size(42, 36);
-            this.btnPrintCancel.TabIndex = 15;
-            this.btnPrintCancel.UseVisualStyleBackColor = true;
-            this.btnPrintCancel.Click += new System.EventHandler(this.btnPrintCancel_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(293, 24);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(25, 22);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "A";
-            // 
-            // dtToCancel
-            // 
-            this.dtToCancel.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtToCancel.Location = new System.Drawing.Point(324, 19);
-            this.dtToCancel.Name = "dtToCancel";
-            this.dtToCancel.Size = new System.Drawing.Size(104, 30);
-            this.dtToCancel.TabIndex = 1;
-            // 
-            // dtFromCancel
-            // 
-            this.dtFromCancel.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFromCancel.Location = new System.Drawing.Point(180, 19);
-            this.dtFromCancel.Name = "dtFromCancel";
-            this.dtFromCancel.Size = new System.Drawing.Size(104, 30);
-            this.dtFromCancel.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 24);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(166, 22);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Filtrar por : Desde";
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.dgvStockIn);
-            this.tabPage6.Controls.Add(this.panel6);
-            this.tabPage6.Location = new System.Drawing.Point(4, 38);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1249, 560);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Historial en Stock";
-            // 
-            // dgvStockIn
-            // 
-            this.dgvStockIn.AllowUserToAddRows = false;
-            this.dgvStockIn.BackgroundColor = System.Drawing.Color.White;
-            this.dgvStockIn.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStockIn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
-            this.dgvStockIn.ColumnHeadersHeight = 30;
-            this.dgvStockIn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvStockIn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn27,
-            this.dataGridViewTextBoxColumn28,
-            this.dataGridViewTextBoxColumn31,
-            this.dataGridViewTextBoxColumn29,
-            this.dataGridViewTextBoxColumn30,
-            this.dataGridViewTextBoxColumn32,
-            this.dataGridViewTextBoxColumn33,
-            this.dataGridViewTextBoxColumn34,
-            this.Column17,
-            this.Column18});
-            this.dgvStockIn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvStockIn.EnableHeadersVisualStyles = false;
-            this.dgvStockIn.Location = new System.Drawing.Point(0, 69);
-            this.dgvStockIn.Name = "dgvStockIn";
-            this.dgvStockIn.RowHeadersVisible = false;
-            this.dgvStockIn.RowHeadersWidth = 51;
-            this.dgvStockIn.Size = new System.Drawing.Size(1249, 491);
-            this.dgvStockIn.TabIndex = 10;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Controls.Add(this.btnLoadStockIn);
-            this.panel6.Controls.Add(this.btnPrintStockIn);
-            this.panel6.Controls.Add(this.label6);
-            this.panel6.Controls.Add(this.dtToStockIn);
-            this.panel6.Controls.Add(this.dtFromStockIn);
-            this.panel6.Controls.Add(this.label9);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1249, 69);
-            this.panel6.TabIndex = 9;
-            // 
-            // btnLoadStockIn
-            // 
-            this.btnLoadStockIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLoadStockIn.FlatAppearance.BorderSize = 0;
-            this.btnLoadStockIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadStockIn.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadStockIn.Image")));
-            this.btnLoadStockIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLoadStockIn.Location = new System.Drawing.Point(548, 12);
-            this.btnLoadStockIn.Name = "btnLoadStockIn";
-            this.btnLoadStockIn.Size = new System.Drawing.Size(174, 48);
-            this.btnLoadStockIn.TabIndex = 16;
-            this.btnLoadStockIn.Text = "Cargar datos";
-            this.btnLoadStockIn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLoadStockIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLoadStockIn.UseVisualStyleBackColor = true;
-            this.btnLoadStockIn.Click += new System.EventHandler(this.btnLoadStockIn_Click);
-            // 
-            // btnPrintStockIn
-            // 
-            this.btnPrintStockIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPrintStockIn.FlatAppearance.BorderSize = 0;
-            this.btnPrintStockIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintStockIn.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintStockIn.Image")));
-            this.btnPrintStockIn.Location = new System.Drawing.Point(926, 18);
-            this.btnPrintStockIn.Name = "btnPrintStockIn";
-            this.btnPrintStockIn.Size = new System.Drawing.Size(42, 36);
-            this.btnPrintStockIn.TabIndex = 15;
-            this.btnPrintStockIn.UseVisualStyleBackColor = true;
-            this.btnPrintStockIn.Click += new System.EventHandler(this.btnPrintStockIn_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(310, 24);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(25, 22);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "A";
-            // 
-            // dtToStockIn
-            // 
-            this.dtToStockIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtToStockIn.Location = new System.Drawing.Point(351, 21);
-            this.dtToStockIn.Name = "dtToStockIn";
-            this.dtToStockIn.Size = new System.Drawing.Size(104, 30);
-            this.dtToStockIn.TabIndex = 1;
-            // 
-            // dtFromStockIn
-            // 
-            this.dtFromStockIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFromStockIn.Location = new System.Drawing.Point(180, 21);
-            this.dtFromStockIn.Name = "dtFromStockIn";
-            this.dtFromStockIn.Size = new System.Drawing.Size(104, 30);
-            this.dtFromStockIn.TabIndex = 1;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 24);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(166, 22);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Filtrar por : Desde";
-            // 
-            // dataGridViewTextBoxColumn27
-            // 
-            this.dataGridViewTextBoxColumn27.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn27.HeaderText = "No";
-            this.dataGridViewTextBoxColumn27.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
-            this.dataGridViewTextBoxColumn27.Width = 63;
-            // 
-            // dataGridViewTextBoxColumn28
-            // 
-            this.dataGridViewTextBoxColumn28.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn28.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn28.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
-            this.dataGridViewTextBoxColumn28.Width = 55;
-            // 
-            // dataGridViewTextBoxColumn31
-            // 
-            this.dataGridViewTextBoxColumn31.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn31.HeaderText = "Referencia#";
-            this.dataGridViewTextBoxColumn31.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
-            this.dataGridViewTextBoxColumn31.Width = 151;
-            // 
-            // dataGridViewTextBoxColumn29
-            // 
-            this.dataGridViewTextBoxColumn29.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn29.HeaderText = "codeP";
-            this.dataGridViewTextBoxColumn29.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
-            this.dataGridViewTextBoxColumn29.Width = 97;
-            // 
-            // dataGridViewTextBoxColumn30
-            // 
-            this.dataGridViewTextBoxColumn30.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn30.HeaderText = "Descripcion";
-            this.dataGridViewTextBoxColumn30.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
-            // 
-            // dataGridViewTextBoxColumn32
-            // 
-            this.dataGridViewTextBoxColumn32.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn32.DefaultCellStyle = dataGridViewCellStyle21;
-            this.dataGridViewTextBoxColumn32.HeaderText = "Cant";
-            this.dataGridViewTextBoxColumn32.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
-            this.dataGridViewTextBoxColumn32.Width = 84;
-            // 
-            // dataGridViewTextBoxColumn33
-            // 
-            this.dataGridViewTextBoxColumn33.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn33.DefaultCellStyle = dataGridViewCellStyle22;
-            this.dataGridViewTextBoxColumn33.HeaderText = "Fecha en Stock";
-            this.dataGridViewTextBoxColumn33.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
-            this.dataGridViewTextBoxColumn33.Width = 179;
-            // 
-            // dataGridViewTextBoxColumn34
-            // 
-            this.dataGridViewTextBoxColumn34.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle23;
-            this.dataGridViewTextBoxColumn34.HeaderText = "En Stock por";
-            this.dataGridViewTextBoxColumn34.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
-            this.dataGridViewTextBoxColumn34.Width = 150;
-            // 
-            // Column17
-            // 
-            this.Column17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column17.HeaderText = "Estado";
-            this.Column17.MinimumWidth = 6;
-            this.Column17.Name = "Column17";
-            this.Column17.Width = 99;
-            // 
-            // Column18
-            // 
-            this.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column18.HeaderText = "Proveedor";
-            this.Column18.MinimumWidth = 6;
-            this.Column18.Name = "Column18";
-            this.Column18.Width = 134;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "No";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 63;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column2.HeaderText = "codP";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 85;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.HeaderText = "Descripcion";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column6.HeaderText = "Cant";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 84;
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column7.HeaderText = "Ventas totales";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 169;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1028,6 +492,140 @@ namespace POSales
             this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.Width = 80;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.lblTotal);
+            this.panel3.Controls.Add(this.btnLoadSoldItems);
+            this.panel3.Controls.Add(this.btnPrintSoldItems);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.dtToSoldItems);
+            this.panel3.Controls.Add(this.dtFromSoldItems);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1249, 69);
+            this.panel3.TabIndex = 1;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTotal.Location = new System.Drawing.Point(882, 22);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(138, 31);
+            this.lblTotal.TabIndex = 17;
+            this.lblTotal.Text = "0.00";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnLoadSoldItems
+            // 
+            this.btnLoadSoldItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLoadSoldItems.FlatAppearance.BorderSize = 0;
+            this.btnLoadSoldItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadSoldItems.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadSoldItems.Image")));
+            this.btnLoadSoldItems.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLoadSoldItems.Location = new System.Drawing.Point(527, 20);
+            this.btnLoadSoldItems.Name = "btnLoadSoldItems";
+            this.btnLoadSoldItems.Size = new System.Drawing.Size(173, 36);
+            this.btnLoadSoldItems.TabIndex = 3;
+            this.btnLoadSoldItems.Text = "Cargar Datos";
+            this.btnLoadSoldItems.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLoadSoldItems.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLoadSoldItems.UseVisualStyleBackColor = true;
+            this.btnLoadSoldItems.Click += new System.EventHandler(this.btnLoadSoldItems_Click);
+            // 
+            // btnPrintSoldItems
+            // 
+            this.btnPrintSoldItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPrintSoldItems.FlatAppearance.BorderSize = 0;
+            this.btnPrintSoldItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintSoldItems.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintSoldItems.Image")));
+            this.btnPrintSoldItems.Location = new System.Drawing.Point(834, 21);
+            this.btnPrintSoldItems.Name = "btnPrintSoldItems";
+            this.btnPrintSoldItems.Size = new System.Drawing.Size(42, 36);
+            this.btnPrintSoldItems.TabIndex = 4;
+            this.btnPrintSoldItems.UseVisualStyleBackColor = true;
+            this.btnPrintSoldItems.Click += new System.EventHandler(this.btnPrintSoldItems_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(299, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(25, 22);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "A";
+            // 
+            // dtToSoldItems
+            // 
+            this.dtToSoldItems.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtToSoldItems.Location = new System.Drawing.Point(330, 18);
+            this.dtToSoldItems.Name = "dtToSoldItems";
+            this.dtToSoldItems.Size = new System.Drawing.Size(104, 30);
+            this.dtToSoldItems.TabIndex = 2;
+            // 
+            // dtFromSoldItems
+            // 
+            this.dtFromSoldItems.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFromSoldItems.Location = new System.Drawing.Point(189, 18);
+            this.dtFromSoldItems.Name = "dtFromSoldItems";
+            this.dtFromSoldItems.Size = new System.Drawing.Size(104, 30);
+            this.dtFromSoldItems.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(166, 22);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Filtrar por : Desde";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.White;
+            this.tabPage3.Controls.Add(this.dgvCriticalItems);
+            this.tabPage3.Location = new System.Drawing.Point(4, 38);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1249, 560);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Stock criticos";
+            // 
+            // dgvCriticalItems
+            // 
+            this.dgvCriticalItems.AllowUserToAddRows = false;
+            this.dgvCriticalItems.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCriticalItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCriticalItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvCriticalItems.ColumnHeadersHeight = 30;
+            this.dgvCriticalItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvCriticalItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.Column5,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.Column8,
+            this.Column9});
+            this.dgvCriticalItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCriticalItems.EnableHeadersVisualStyles = false;
+            this.dgvCriticalItems.Location = new System.Drawing.Point(0, 0);
+            this.dgvCriticalItems.Name = "dgvCriticalItems";
+            this.dgvCriticalItems.RowHeadersVisible = false;
+            this.dgvCriticalItems.RowHeadersWidth = 51;
+            this.dgvCriticalItems.Size = new System.Drawing.Size(1249, 560);
+            this.dgvCriticalItems.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -1106,6 +704,51 @@ namespace POSales
             this.Column9.Name = "Column9";
             this.Column9.Width = 183;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.BackColor = System.Drawing.Color.White;
+            this.tabPage4.Controls.Add(this.dgvInventoryList);
+            this.tabPage4.Controls.Add(this.panel4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 38);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(1249, 560);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Lista de inventario";
+            // 
+            // dgvInventoryList
+            // 
+            this.dgvInventoryList.AllowUserToAddRows = false;
+            this.dgvInventoryList.BackgroundColor = System.Drawing.Color.White;
+            this.dgvInventoryList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInventoryList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.dgvInventoryList.ColumnHeadersHeight = 30;
+            this.dgvInventoryList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvInventoryList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn20,
+            this.dataGridViewTextBoxColumn19});
+            this.dgvInventoryList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvInventoryList.EnableHeadersVisualStyles = false;
+            this.dgvInventoryList.Location = new System.Drawing.Point(0, 53);
+            this.dgvInventoryList.Name = "dgvInventoryList";
+            this.dgvInventoryList.RowHeadersVisible = false;
+            this.dgvInventoryList.RowHeadersWidth = 51;
+            this.dgvInventoryList.Size = new System.Drawing.Size(1249, 507);
+            this.dgvInventoryList.TabIndex = 5;
+            // 
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -1182,6 +825,75 @@ namespace POSales
             this.dataGridViewTextBoxColumn19.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.Width = 121;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btnPrintInventoryList);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1249, 53);
+            this.panel4.TabIndex = 0;
+            // 
+            // btnPrintInventoryList
+            // 
+            this.btnPrintInventoryList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPrintInventoryList.FlatAppearance.BorderSize = 0;
+            this.btnPrintInventoryList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintInventoryList.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintInventoryList.Image")));
+            this.btnPrintInventoryList.Location = new System.Drawing.Point(926, 8);
+            this.btnPrintInventoryList.Name = "btnPrintInventoryList";
+            this.btnPrintInventoryList.Size = new System.Drawing.Size(42, 36);
+            this.btnPrintInventoryList.TabIndex = 16;
+            this.btnPrintInventoryList.UseVisualStyleBackColor = true;
+            this.btnPrintInventoryList.Click += new System.EventHandler(this.btnPrintInventoryList_Click);
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.dgvCancel);
+            this.tabPage5.Controls.Add(this.panel5);
+            this.tabPage5.Location = new System.Drawing.Point(4, 38);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(1249, 560);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Ordenes canceladas";
+            // 
+            // dgvCancel
+            // 
+            this.dgvCancel.AllowUserToAddRows = false;
+            this.dgvCancel.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCancel.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCancel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.dgvCancel.ColumnHeadersHeight = 30;
+            this.dgvCancel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvCancel.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn21,
+            this.dataGridViewTextBoxColumn22,
+            this.Column10,
+            this.dataGridViewTextBoxColumn23,
+            this.Column11,
+            this.dataGridViewTextBoxColumn24,
+            this.dataGridViewTextBoxColumn26,
+            this.dataGridViewTextBoxColumn25,
+            this.Column12,
+            this.Column13,
+            this.Column14,
+            this.Column15});
+            this.dgvCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCancel.EnableHeadersVisualStyles = false;
+            this.dgvCancel.Location = new System.Drawing.Point(0, 69);
+            this.dgvCancel.Name = "dgvCancel";
+            this.dgvCancel.RowHeadersVisible = false;
+            this.dgvCancel.RowHeadersWidth = 51;
+            this.dgvCancel.Size = new System.Drawing.Size(1249, 491);
+            this.dgvCancel.TabIndex = 8;
             // 
             // dataGridViewTextBoxColumn21
             // 
@@ -1282,6 +994,294 @@ namespace POSales
             this.Column15.Name = "Column15";
             this.Column15.Width = 213;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.btnLoadCancel);
+            this.panel5.Controls.Add(this.btnPrintCancel);
+            this.panel5.Controls.Add(this.label7);
+            this.panel5.Controls.Add(this.dtToCancel);
+            this.panel5.Controls.Add(this.dtFromCancel);
+            this.panel5.Controls.Add(this.label8);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1249, 69);
+            this.panel5.TabIndex = 7;
+            // 
+            // btnLoadCancel
+            // 
+            this.btnLoadCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLoadCancel.FlatAppearance.BorderSize = 0;
+            this.btnLoadCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadCancel.Image")));
+            this.btnLoadCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLoadCancel.Location = new System.Drawing.Point(624, 18);
+            this.btnLoadCancel.Name = "btnLoadCancel";
+            this.btnLoadCancel.Size = new System.Drawing.Size(181, 36);
+            this.btnLoadCancel.TabIndex = 3;
+            this.btnLoadCancel.Text = "Cargar Datos";
+            this.btnLoadCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLoadCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLoadCancel.UseVisualStyleBackColor = true;
+            this.btnLoadCancel.Click += new System.EventHandler(this.btnLoadCancel_Click);
+            // 
+            // btnPrintCancel
+            // 
+            this.btnPrintCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPrintCancel.FlatAppearance.BorderSize = 0;
+            this.btnPrintCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintCancel.Image")));
+            this.btnPrintCancel.Location = new System.Drawing.Point(926, 18);
+            this.btnPrintCancel.Name = "btnPrintCancel";
+            this.btnPrintCancel.Size = new System.Drawing.Size(42, 36);
+            this.btnPrintCancel.TabIndex = 4;
+            this.btnPrintCancel.UseVisualStyleBackColor = true;
+            this.btnPrintCancel.Click += new System.EventHandler(this.btnPrintCancel_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(293, 24);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(25, 22);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "A";
+            // 
+            // dtToCancel
+            // 
+            this.dtToCancel.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtToCancel.Location = new System.Drawing.Point(324, 19);
+            this.dtToCancel.Name = "dtToCancel";
+            this.dtToCancel.Size = new System.Drawing.Size(104, 30);
+            this.dtToCancel.TabIndex = 2;
+            // 
+            // dtFromCancel
+            // 
+            this.dtFromCancel.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFromCancel.Location = new System.Drawing.Point(180, 19);
+            this.dtFromCancel.Name = "dtFromCancel";
+            this.dtFromCancel.Size = new System.Drawing.Size(104, 30);
+            this.dtFromCancel.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 24);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(166, 22);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Filtrar por : Desde";
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.dgvStockIn);
+            this.tabPage6.Controls.Add(this.panel6);
+            this.tabPage6.Location = new System.Drawing.Point(4, 38);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(1249, 560);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Historial en Stock";
+            // 
+            // dgvStockIn
+            // 
+            this.dgvStockIn.AllowUserToAddRows = false;
+            this.dgvStockIn.BackgroundColor = System.Drawing.Color.White;
+            this.dgvStockIn.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStockIn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            this.dgvStockIn.ColumnHeadersHeight = 30;
+            this.dgvStockIn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvStockIn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn27,
+            this.dataGridViewTextBoxColumn28,
+            this.dataGridViewTextBoxColumn31,
+            this.dataGridViewTextBoxColumn29,
+            this.dataGridViewTextBoxColumn30,
+            this.dataGridViewTextBoxColumn32,
+            this.dataGridViewTextBoxColumn33,
+            this.dataGridViewTextBoxColumn34,
+            this.Column17,
+            this.Column18});
+            this.dgvStockIn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvStockIn.EnableHeadersVisualStyles = false;
+            this.dgvStockIn.Location = new System.Drawing.Point(0, 69);
+            this.dgvStockIn.Name = "dgvStockIn";
+            this.dgvStockIn.RowHeadersVisible = false;
+            this.dgvStockIn.RowHeadersWidth = 51;
+            this.dgvStockIn.Size = new System.Drawing.Size(1249, 491);
+            this.dgvStockIn.TabIndex = 10;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn27.HeaderText = "No";
+            this.dataGridViewTextBoxColumn27.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.Width = 63;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn28.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn28.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.Width = 55;
+            // 
+            // dataGridViewTextBoxColumn31
+            // 
+            this.dataGridViewTextBoxColumn31.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn31.HeaderText = "Referencia#";
+            this.dataGridViewTextBoxColumn31.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            this.dataGridViewTextBoxColumn31.Width = 151;
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn29.HeaderText = "codeP";
+            this.dataGridViewTextBoxColumn29.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.Width = 97;
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn30.HeaderText = "Descripcion";
+            this.dataGridViewTextBoxColumn30.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            this.dataGridViewTextBoxColumn32.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn32.DefaultCellStyle = dataGridViewCellStyle21;
+            this.dataGridViewTextBoxColumn32.HeaderText = "Cant";
+            this.dataGridViewTextBoxColumn32.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            this.dataGridViewTextBoxColumn32.Width = 84;
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            this.dataGridViewTextBoxColumn33.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn33.DefaultCellStyle = dataGridViewCellStyle22;
+            this.dataGridViewTextBoxColumn33.HeaderText = "Fecha en Stock";
+            this.dataGridViewTextBoxColumn33.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            this.dataGridViewTextBoxColumn33.Width = 179;
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            this.dataGridViewTextBoxColumn34.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle23;
+            this.dataGridViewTextBoxColumn34.HeaderText = "En Stock por";
+            this.dataGridViewTextBoxColumn34.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            this.dataGridViewTextBoxColumn34.Width = 150;
+            // 
+            // Column17
+            // 
+            this.Column17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column17.HeaderText = "Estado";
+            this.Column17.MinimumWidth = 6;
+            this.Column17.Name = "Column17";
+            this.Column17.Width = 99;
+            // 
+            // Column18
+            // 
+            this.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column18.HeaderText = "Proveedor";
+            this.Column18.MinimumWidth = 6;
+            this.Column18.Name = "Column18";
+            this.Column18.Width = 134;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.Controls.Add(this.btnLoadStockIn);
+            this.panel6.Controls.Add(this.btnPrintStockIn);
+            this.panel6.Controls.Add(this.label6);
+            this.panel6.Controls.Add(this.dtToStockIn);
+            this.panel6.Controls.Add(this.dtFromStockIn);
+            this.panel6.Controls.Add(this.label9);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1249, 69);
+            this.panel6.TabIndex = 9;
+            // 
+            // btnLoadStockIn
+            // 
+            this.btnLoadStockIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLoadStockIn.FlatAppearance.BorderSize = 0;
+            this.btnLoadStockIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadStockIn.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadStockIn.Image")));
+            this.btnLoadStockIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLoadStockIn.Location = new System.Drawing.Point(548, 12);
+            this.btnLoadStockIn.Name = "btnLoadStockIn";
+            this.btnLoadStockIn.Size = new System.Drawing.Size(174, 48);
+            this.btnLoadStockIn.TabIndex = 3;
+            this.btnLoadStockIn.Text = "Cargar datos";
+            this.btnLoadStockIn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLoadStockIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLoadStockIn.UseVisualStyleBackColor = true;
+            this.btnLoadStockIn.Click += new System.EventHandler(this.btnLoadStockIn_Click);
+            // 
+            // btnPrintStockIn
+            // 
+            this.btnPrintStockIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPrintStockIn.FlatAppearance.BorderSize = 0;
+            this.btnPrintStockIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintStockIn.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintStockIn.Image")));
+            this.btnPrintStockIn.Location = new System.Drawing.Point(926, 18);
+            this.btnPrintStockIn.Name = "btnPrintStockIn";
+            this.btnPrintStockIn.Size = new System.Drawing.Size(42, 36);
+            this.btnPrintStockIn.TabIndex = 4;
+            this.btnPrintStockIn.UseVisualStyleBackColor = true;
+            this.btnPrintStockIn.Click += new System.EventHandler(this.btnPrintStockIn_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(310, 24);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(25, 22);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "A";
+            // 
+            // dtFromStockIn
+            // 
+            this.dtFromStockIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFromStockIn.Location = new System.Drawing.Point(180, 21);
+            this.dtFromStockIn.Name = "dtFromStockIn";
+            this.dtFromStockIn.Size = new System.Drawing.Size(104, 30);
+            this.dtFromStockIn.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(8, 24);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(166, 22);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Filtrar por : Desde";
+            // 
+            // dtToStockIn
+            // 
+            this.dtToStockIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtToStockIn.Location = new System.Drawing.Point(351, 21);
+            this.dtToStockIn.Name = "dtToStockIn";
+            this.dtToStockIn.Size = new System.Drawing.Size(104, 30);
+            this.dtToStockIn.TabIndex = 2;
+            // 
             // Record
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
@@ -1368,7 +1368,6 @@ namespace POSales
         private System.Windows.Forms.Button btnLoadStockIn;
         private System.Windows.Forms.Button btnPrintStockIn;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dtToStockIn;
         private System.Windows.Forms.DateTimePicker dtFromStockIn;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
@@ -1423,5 +1422,6 @@ namespace POSales
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DateTimePicker dtToStockIn;
     }
 }
