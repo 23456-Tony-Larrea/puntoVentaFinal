@@ -682,6 +682,7 @@
     <EmbeddedResource Include="Mantenimientos\EntregasCajero.resx">
       <DependentUpon>EntregasCajero.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\InformeMantenimiento.rdlc" />
     <EmbeddedResource Include="Mantenimientos\InformeCliente.resx">
       <DependentUpon>InformeCliente.cs</DependentUpon>
     </EmbeddedResource>
