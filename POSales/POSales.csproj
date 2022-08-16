@@ -920,6 +920,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Testing.rdlc" />
     <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet.xsc">
       <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet.xsd</DependentUpon>
     </None>

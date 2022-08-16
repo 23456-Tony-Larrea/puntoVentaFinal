@@ -34,11 +34,12 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "POSales.ReportTeest.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "POSales.Testing.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(2);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.ServerReport.ReportPath = "C:\\Users\\J_Bra\\source\\PuntoDeVenta\\puntoVentaFinal\\POSales\\bin\\Debug\\Reportsº";
             this.reportViewer1.Size = new System.Drawing.Size(548, 561);
             this.reportViewer1.TabIndex = 0;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
