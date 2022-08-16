@@ -598,6 +598,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet5.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet6.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Adjustments.resx">
       <DependentUpon>Adjustments.cs</DependentUpon>
     </EmbeddedResource>
@@ -692,6 +697,7 @@
     <EmbeddedResource Include="Mantenimientos\MarcaEquipoModulo.resx">
       <DependentUpon>MarcaEquipoModulo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\ReporteOrden.rdlc" />
     <EmbeddedResource Include="Mantenimientos\ReporteFacturaMantenimiento.resx">
       <DependentUpon>ReporteFacturaMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
@@ -768,6 +774,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\facturaMantenimiento.rdlc" />
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="ReportTeest.rdlc" />
     <EmbeddedResource Include="ReporteFactura.resx">
       <DependentUpon>ReporteFactura.cs</DependentUpon>
     </EmbeddedResource>
@@ -978,6 +985,17 @@
     </None>
     <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet5.xss">
       <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet6.xsc">
+      <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet6.xss">
+      <DependentUpon>_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet6.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

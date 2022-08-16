@@ -22,7 +22,7 @@ namespace POSalesDb
         private string con;
         public string myConnection()
         {
-            con = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            con = @"Data Source=localhost;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True";
             return con;
         }
 
@@ -2165,6 +2165,23 @@ namespace POSalesDb
             cn.ConnectionString=myConnection();
             cm = new SqlCommand("SELECT Clientes.Id, Clientes.nombre, Clientes.ciRuc, Clientes.celular, Equipo.idCliente, Equipo.descirpcionEquipo, Equipo.codigo, estadoMantenimiento.descripcion, Mantenimiento.solucion, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.precioReferencial, Mantenimiento.fechaMantenimiento, Mantenimiento.fechaEntregaEquipo Clientes INNER JOIN Equipo ON Clientes.Id = Equipo.idCliente INNER JOIN estadoMantenimiento ON Equipo.Id = estadoMantenimiento.Id INNER JOIN Mantenimiento ON Equipo.Id = Mantenimiento.idEquipo INNER JOIN ordenServicio ON Mantenimiento.idOrdenServicio = ordenServicio.Id", cn);
          SqlDataAdapter adapter = new SqlDataAdapter(cm);
+            DataSet table = new DataSet();
+            cn.Open();
+            adapter.Fill(table);
+            adapter.Dispose();
+            cn.Close();
+            return table;
+        }
+        public DataSet generarInformeOrdenMatenimiento(int IdOrden)
+        {
+            cn.ConnectionString = myConnection();
+            cm = new SqlCommand($@"SELECT [IdOrden]
+              ,[IdMantenimiento]
+              ,[codigo]
+              ,[descirpcionEquipo]
+              ,[accesoriosEquipo]
+                FROM [dbo].[OrdenesDetallados] Where IdORden = {IdOrden}", cn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cm);
             DataSet table = new DataSet();
             cn.Open();
             adapter.Fill(table);

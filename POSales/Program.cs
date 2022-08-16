@@ -1,4 +1,5 @@
-﻿using POSalesDb;
+﻿using POSales.Mantenimientos;
+using POSalesDb;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace POSales
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new InformeCliente(8));
         }
     }
 }

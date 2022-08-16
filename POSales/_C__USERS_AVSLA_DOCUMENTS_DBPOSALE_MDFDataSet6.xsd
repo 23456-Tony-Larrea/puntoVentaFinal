@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet6" targetNamespace="http://tempuri.org/_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet6.xsd" xmlns:mstns="http://tempuri.org/_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet6.xsd" xmlns="http://tempuri.org/_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet6.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.POSales.Properties.Settings.GlobalReference.Default.C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OrdenesDetalladosTableAdapter" GeneratorDataComponentClassName="OrdenesDetalladosTableAdapter" Name="OrdenesDetallados" UserDataComponentName="OrdenesDetalladosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFConnectionString (Settings)" DbObjectName="[C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF].dbo.OrdenesDetallados" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IdOrden, IdMantenimiento, codigo, descirpcionEquipo, accesoriosEquipo FROM dbo.OrdenesDetallados</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdOrden" DataSetColumn="IdOrden" />
+              <Mapping SourceColumn="IdMantenimiento" DataSetColumn="IdMantenimiento" />
+              <Mapping SourceColumn="codigo" DataSetColumn="codigo" />
+              <Mapping SourceColumn="descirpcionEquipo" DataSetColumn="descirpcionEquipo" />
+              <Mapping SourceColumn="accesoriosEquipo" DataSetColumn="accesoriosEquipo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet6" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet6" msprop:Generator_DataSetName="_C__USERS_AVSLA_DOCUMENTS_DBPOSALE_MDFDataSet6">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="OrdenesDetallados" msprop:Generator_RowEvHandlerName="OrdenesDetalladosRowChangeEventHandler" msprop:Generator_RowDeletedName="OrdenesDetalladosRowDeleted" msprop:Generator_RowDeletingName="OrdenesDetalladosRowDeleting" msprop:Generator_RowEvArgName="OrdenesDetalladosRowChangeEvent" msprop:Generator_TablePropName="OrdenesDetallados" msprop:Generator_RowChangedName="OrdenesDetalladosRowChanged" msprop:Generator_RowChangingName="OrdenesDetalladosRowChanging" msprop:Generator_TableClassName="OrdenesDetalladosDataTable" msprop:Generator_RowClassName="OrdenesDetalladosRow" msprop:Generator_TableVarName="tableOrdenesDetallados" msprop:Generator_UserTableName="OrdenesDetallados">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdOrden" msprop:Generator_ColumnPropNameInRow="IdOrden" msprop:Generator_ColumnPropNameInTable="IdOrdenColumn" msprop:Generator_ColumnVarNameInTable="columnIdOrden" msprop:Generator_UserColumnName="IdOrden" type="xs:int" />
+              <xs:element name="IdMantenimiento" msprop:Generator_ColumnPropNameInRow="IdMantenimiento" msprop:Generator_ColumnPropNameInTable="IdMantenimientoColumn" msprop:Generator_ColumnVarNameInTable="columnIdMantenimiento" msprop:Generator_UserColumnName="IdMantenimiento" type="xs:int" />
+              <xs:element name="codigo" msprop:Generator_ColumnPropNameInRow="codigo" msprop:Generator_ColumnPropNameInTable="codigoColumn" msprop:Generator_ColumnVarNameInTable="columncodigo" msprop:Generator_UserColumnName="codigo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="descirpcionEquipo" msprop:Generator_ColumnPropNameInRow="descirpcionEquipo" msprop:Generator_ColumnPropNameInTable="descirpcionEquipoColumn" msprop:Generator_ColumnVarNameInTable="columndescirpcionEquipo" msprop:Generator_UserColumnName="descirpcionEquipo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="accesoriosEquipo" msprop:Generator_ColumnPropNameInRow="accesoriosEquipo" msprop:Generator_ColumnPropNameInTable="accesoriosEquipoColumn" msprop:Generator_ColumnVarNameInTable="columnaccesoriosEquipo" msprop:Generator_UserColumnName="accesoriosEquipo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
