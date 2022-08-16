@@ -2159,6 +2159,19 @@ namespace POSalesDb
             }
 
         }
+        
+        public DataSet generarInformeDaño ()
+        {
+            cn.ConnectionString=myConnection();
+            cm = new SqlCommand("SELECT Clientes.Id, Clientes.nombre, Clientes.ciRuc, Clientes.celular, Equipo.idCliente, Equipo.descirpcionEquipo, Equipo.codigo, estadoMantenimiento.descripcion, Mantenimiento.solucion, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.precioReferencial, Mantenimiento.fechaMantenimiento, Mantenimiento.fechaEntregaEquipo Clientes INNER JOIN Equipo ON Clientes.Id = Equipo.idCliente INNER JOIN estadoMantenimiento ON Equipo.Id = estadoMantenimiento.Id INNER JOIN Mantenimiento ON Equipo.Id = Mantenimiento.idEquipo INNER JOIN ordenServicio ON Mantenimiento.idOrdenServicio = ordenServicio.Id", cn);
+         SqlDataAdapter adapter = new SqlDataAdapter(cm);
+            DataSet table = new DataSet();
+            cn.Open();
+            adapter.Fill(table);
+            adapter.Dispose();
+            cn.Close();
+            return table;
+        }
         public DataSet generarReporte(int IdCompra) 
         {
             cn.ConnectionString = myConnection();

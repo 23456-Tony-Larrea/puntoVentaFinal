@@ -310,13 +310,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MantenimientosDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Mantenimientos\DataSet1Informe.cs">
-      <DependentUpon>DataSet1Informe.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Mantenimientos\DataSet1Informe.Designer.cs">
+    <Compile Include="Mantenimientos\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1Informe.xsd</DependentUpon>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\EntregasCajero.cs">
       <SubType>Form</SubType>
@@ -882,16 +879,16 @@
     <None Include="MantenimientosDS.xss">
       <DependentUpon>MantenimientosDS.xsd</DependentUpon>
     </None>
-    <None Include="Mantenimientos\DataSet1Informe.xsc">
-      <DependentUpon>DataSet1Informe.xsd</DependentUpon>
+    <None Include="Mantenimientos\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
-    <None Include="Mantenimientos\DataSet1Informe.xsd">
+    <None Include="Mantenimientos\DataSet1.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1Informe.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Mantenimientos\DataSet1Informe.xss">
-      <DependentUpon>DataSet1Informe.xsd</DependentUpon>
+    <None Include="Mantenimientos\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\POSalesDb.Accesorios.datasource" />
