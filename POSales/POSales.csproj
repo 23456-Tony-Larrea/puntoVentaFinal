@@ -327,6 +327,12 @@
     <Compile Include="Mantenimientos\InformeCliente.Designer.cs">
       <DependentUpon>InformeCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\listaOrdenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\listaOrdenes.Designer.cs">
+      <DependentUpon>listaOrdenes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\MarcaEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -690,6 +696,9 @@
     <EmbeddedResource Include="Mantenimientos\InformeMantenimiento.rdlc" />
     <EmbeddedResource Include="Mantenimientos\InformeCliente.resx">
       <DependentUpon>InformeCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\listaOrdenes.resx">
+      <DependentUpon>listaOrdenes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\MarcaEquipo.resx">
       <DependentUpon>MarcaEquipo.cs</DependentUpon>

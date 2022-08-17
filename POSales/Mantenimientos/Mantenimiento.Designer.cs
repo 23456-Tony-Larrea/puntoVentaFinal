@@ -322,7 +322,7 @@ namespace POSales.Mantenimientos
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(601, 41);
             this.label9.TabIndex = 17;
-            this.label9.Text = "Buscar Por Codigo,Falla,Solcion y Descripcion de Equipo";
+            this.label9.Text = "Buscar Por Codigo,Falla,Solucion y Descripcion de Equipo";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtBucadorCodigo

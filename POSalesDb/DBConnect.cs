@@ -1,6 +1,7 @@
 ﻿using POSalesDb;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -22,7 +23,7 @@ namespace POSalesDb
         private string con;
         public string myConnection()
         {
-            con = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            con = ConfigurationManager.ConnectionStrings["dev"].ConnectionString;
             return con;
         }
 

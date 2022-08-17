@@ -34,15 +34,15 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblRole = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnReservas = new System.Windows.Forms.Button();
-            this.btnMatenimientos = new System.Windows.Forms.Button();
+            this.btnOrdenMantenimiento = new System.Windows.Forms.Button();
+            this.btnCompras = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelSlide = new System.Windows.Forms.Panel();
+            this.btnList = new System.Windows.Forms.Button();
+            this.btnGenerarDaño = new System.Windows.Forms.Button();
+            this.btnClientes = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.btnOrdenProductos = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelLogo.SuspendLayout();
             this.panelSlide.SuspendLayout();
@@ -109,38 +109,40 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // btnReservas
+            // btnOrdenMantenimiento
             // 
-            this.btnReservas.BackColor = System.Drawing.Color.Blue;
-            this.btnReservas.FlatAppearance.BorderSize = 0;
-            this.btnReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReservas.ForeColor = System.Drawing.Color.White;
-            this.btnReservas.Location = new System.Drawing.Point(0, 398);
-            this.btnReservas.Margin = new System.Windows.Forms.Padding(4);
-            this.btnReservas.Name = "btnReservas";
-            this.btnReservas.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.btnReservas.Size = new System.Drawing.Size(241, 68);
-            this.btnReservas.TabIndex = 3;
-            this.btnReservas.Text = "facturar orden del mantenimiento";
-            this.btnReservas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReservas.UseVisualStyleBackColor = false;
+            this.btnOrdenMantenimiento.BackColor = System.Drawing.Color.Blue;
+            this.btnOrdenMantenimiento.FlatAppearance.BorderSize = 0;
+            this.btnOrdenMantenimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrdenMantenimiento.ForeColor = System.Drawing.Color.White;
+            this.btnOrdenMantenimiento.Location = new System.Drawing.Point(0, 398);
+            this.btnOrdenMantenimiento.Margin = new System.Windows.Forms.Padding(4);
+            this.btnOrdenMantenimiento.Name = "btnOrdenMantenimiento";
+            this.btnOrdenMantenimiento.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.btnOrdenMantenimiento.Size = new System.Drawing.Size(241, 68);
+            this.btnOrdenMantenimiento.TabIndex = 3;
+            this.btnOrdenMantenimiento.Text = "facturar orden del mantenimiento";
+            this.btnOrdenMantenimiento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOrdenMantenimiento.UseVisualStyleBackColor = false;
+            this.btnOrdenMantenimiento.Click += new System.EventHandler(this.btnOrdenMantenimiento_Click);
             // 
-            // btnMatenimientos
+            // btnCompras
             // 
-            this.btnMatenimientos.BackColor = System.Drawing.Color.Blue;
-            this.btnMatenimientos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMatenimientos.FlatAppearance.BorderSize = 0;
-            this.btnMatenimientos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMatenimientos.ForeColor = System.Drawing.Color.White;
-            this.btnMatenimientos.Location = new System.Drawing.Point(0, 341);
-            this.btnMatenimientos.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMatenimientos.Name = "btnMatenimientos";
-            this.btnMatenimientos.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.btnMatenimientos.Size = new System.Drawing.Size(241, 59);
-            this.btnMatenimientos.TabIndex = 2;
-            this.btnMatenimientos.Text = "Facturar productos";
-            this.btnMatenimientos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMatenimientos.UseVisualStyleBackColor = false;
+            this.btnCompras.BackColor = System.Drawing.Color.Blue;
+            this.btnCompras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCompras.FlatAppearance.BorderSize = 0;
+            this.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompras.ForeColor = System.Drawing.Color.White;
+            this.btnCompras.Location = new System.Drawing.Point(0, 341);
+            this.btnCompras.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCompras.Name = "btnCompras";
+            this.btnCompras.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.btnCompras.Size = new System.Drawing.Size(241, 59);
+            this.btnCompras.TabIndex = 2;
+            this.btnCompras.Text = "Facturar compras";
+            this.btnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCompras.UseVisualStyleBackColor = false;
+            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
             // 
             // btnDashboard
             // 
@@ -177,12 +179,12 @@
             // 
             this.panelSlide.AllowDrop = true;
             this.panelSlide.AutoScroll = true;
-            this.panelSlide.Controls.Add(this.button2);
-            this.panelSlide.Controls.Add(this.button1);
+            this.panelSlide.Controls.Add(this.btnList);
+            this.panelSlide.Controls.Add(this.btnGenerarDaño);
             this.panelSlide.Controls.Add(this.btnSalir);
-            this.panelSlide.Controls.Add(this.btnReservas);
-            this.panelSlide.Controls.Add(this.btnMatenimientos);
-            this.panelSlide.Controls.Add(this.btnOrdenProductos);
+            this.panelSlide.Controls.Add(this.btnOrdenMantenimiento);
+            this.panelSlide.Controls.Add(this.btnCompras);
+            this.panelSlide.Controls.Add(this.btnClientes);
             this.panelSlide.Controls.Add(this.btnDashboard);
             this.panelSlide.Controls.Add(this.panelLogo);
             this.panelSlide.Dock = System.Windows.Forms.DockStyle.Left;
@@ -192,6 +194,57 @@
             this.panelSlide.Name = "panelSlide";
             this.panelSlide.Size = new System.Drawing.Size(241, 660);
             this.panelSlide.TabIndex = 8;
+            // 
+            // btnList
+            // 
+            this.btnList.BackColor = System.Drawing.Color.Blue;
+            this.btnList.FlatAppearance.BorderSize = 0;
+            this.btnList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnList.ForeColor = System.Drawing.Color.White;
+            this.btnList.Location = new System.Drawing.Point(0, 527);
+            this.btnList.Margin = new System.Windows.Forms.Padding(4);
+            this.btnList.Name = "btnList";
+            this.btnList.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.btnList.Size = new System.Drawing.Size(241, 68);
+            this.btnList.TabIndex = 6;
+            this.btnList.Text = "Lista de ordenes";
+            this.btnList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnList.UseVisualStyleBackColor = false;
+            this.btnList.Click += new System.EventHandler(this.btnList_Click);
+            // 
+            // btnGenerarDaño
+            // 
+            this.btnGenerarDaño.BackColor = System.Drawing.Color.Blue;
+            this.btnGenerarDaño.FlatAppearance.BorderSize = 0;
+            this.btnGenerarDaño.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerarDaño.ForeColor = System.Drawing.Color.White;
+            this.btnGenerarDaño.Location = new System.Drawing.Point(0, 463);
+            this.btnGenerarDaño.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGenerarDaño.Name = "btnGenerarDaño";
+            this.btnGenerarDaño.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.btnGenerarDaño.Size = new System.Drawing.Size(241, 68);
+            this.btnGenerarDaño.TabIndex = 5;
+            this.btnGenerarDaño.Text = "Generar reporte del daño";
+            this.btnGenerarDaño.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGenerarDaño.UseVisualStyleBackColor = false;
+            // 
+            // btnClientes
+            // 
+            this.btnClientes.BackColor = System.Drawing.Color.Blue;
+            this.btnClientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnClientes.FlatAppearance.BorderSize = 0;
+            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClientes.ForeColor = System.Drawing.Color.White;
+            this.btnClientes.Location = new System.Drawing.Point(0, 282);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.btnClientes.Size = new System.Drawing.Size(241, 59);
+            this.btnClientes.TabIndex = 1;
+            this.btnClientes.Text = "Crear Clientes";
+            this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClientes.UseVisualStyleBackColor = false;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // panelMain
             // 
@@ -203,55 +256,6 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1742, 660);
             this.panelMain.TabIndex = 9;
-            // 
-            // btnOrdenProductos
-            // 
-            this.btnOrdenProductos.BackColor = System.Drawing.Color.Blue;
-            this.btnOrdenProductos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOrdenProductos.FlatAppearance.BorderSize = 0;
-            this.btnOrdenProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrdenProductos.ForeColor = System.Drawing.Color.White;
-            this.btnOrdenProductos.Location = new System.Drawing.Point(0, 282);
-            this.btnOrdenProductos.Margin = new System.Windows.Forms.Padding(4);
-            this.btnOrdenProductos.Name = "btnOrdenProductos";
-            this.btnOrdenProductos.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.btnOrdenProductos.Size = new System.Drawing.Size(241, 59);
-            this.btnOrdenProductos.TabIndex = 1;
-            this.btnOrdenProductos.Text = "Crear Clientes";
-            this.btnOrdenProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrdenProductos.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Blue;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 463);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(241, 68);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Generar reporte del daño";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Blue;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(0, 527);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(241, 68);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Lista de ordenes";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
             // 
             // MenuPrincipalFactura
             // 
@@ -279,14 +283,14 @@
         public System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnReservas;
-        private System.Windows.Forms.Button btnMatenimientos;
+        private System.Windows.Forms.Button btnOrdenMantenimiento;
+        private System.Windows.Forms.Button btnCompras;
         public System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Panel panelSlide;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnOrdenProductos;
+        private System.Windows.Forms.Button btnList;
+        private System.Windows.Forms.Button btnGenerarDaño;
+        private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Panel panelMain;
     }
 }

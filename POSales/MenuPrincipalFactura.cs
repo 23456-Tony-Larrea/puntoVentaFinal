@@ -19,40 +19,28 @@ namespace POSales
             _idUsuario =idUsuario;
             InitializeComponent();
         }
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            Clients client = new Clients();
+            client.ShowDialog();
+        }
 
-        private void btnFactura_Click(object sender, EventArgs e)
+        private void btnCompras_Click(object sender, EventArgs e)
         {
             ComprasProveedor factura = new ComprasProveedor(_idUsuario);
             factura.ShowDialog();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void picClientes_Click(object sender, EventArgs e)
-        {
-            ClientModule clientModule = new ClientModule(new Clientes());
-            clientModule.ShowDialog();
-           
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            Mantenimientos.SeleccionarMantenimiento clientModule = new Mantenimientos.SeleccionarMantenimiento(_idUsuario);
-            clientModule.ShowDialog();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void btnList_Click(object sender, EventArgs e)
         {
             Mantenimientos.OrdenServicioModulo orden = new Mantenimientos.OrdenServicioModulo(_idUsuario);
             orden.ShowDialog();
+        }
+
+        private void btnOrdenMantenimiento_Click(object sender, EventArgs e)
+        {
+            Mantenimientos.SeleccionarMantenimiento clientModule = new Mantenimientos.SeleccionarMantenimiento(_idUsuario);
+            clientModule.ShowDialog();
         }
     }
 }
