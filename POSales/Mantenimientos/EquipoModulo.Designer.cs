@@ -46,20 +46,20 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.txtIdEquipo = new System.Windows.Forms.TextBox();
             this.advancedDataGridView1 = new Zuby.ADGV.AdvancedDataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.iconButton6 = new FontAwesome.Sharp.IconButton();
+            this.cboMarcaEquipo = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.cboTipoEquipo = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accesoriosEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accesoriosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.iconButton6 = new FontAwesome.Sharp.IconButton();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel1.SuspendLayout();
@@ -88,7 +88,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1021, 45);
             this.panel2.TabIndex = 140;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // picClose
             // 
@@ -130,9 +129,9 @@
             // 
             // txtSeriesEquipo
             // 
-            this.txtSeriesEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtSeriesEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSeriesEquipo.Enabled = false;
-            this.txtSeriesEquipo.Location = new System.Drawing.Point(185, 258);
+            this.txtSeriesEquipo.Location = new System.Drawing.Point(199, 255);
             this.txtSeriesEquipo.Name = "txtSeriesEquipo";
             this.txtSeriesEquipo.Size = new System.Drawing.Size(569, 30);
             this.txtSeriesEquipo.TabIndex = 3;
@@ -140,7 +139,7 @@
             // txtCodigoEquipo
             // 
             this.txtCodigoEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodigoEquipo.Location = new System.Drawing.Point(185, 101);
+            this.txtCodigoEquipo.Location = new System.Drawing.Point(199, 95);
             this.txtCodigoEquipo.Name = "txtCodigoEquipo";
             this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 30);
             this.txtCodigoEquipo.TabIndex = 1;
@@ -168,7 +167,7 @@
             // txtDescripcionEquipo
             // 
             this.txtDescripcionEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescripcionEquipo.Location = new System.Drawing.Point(185, 132);
+            this.txtDescripcionEquipo.Location = new System.Drawing.Point(199, 129);
             this.txtDescripcionEquipo.Multiline = true;
             this.txtDescripcionEquipo.Name = "txtDescripcionEquipo";
             this.txtDescripcionEquipo.Size = new System.Drawing.Size(569, 120);
@@ -183,7 +182,6 @@
             this.label10.Size = new System.Drawing.Size(179, 21);
             this.label10.TabIndex = 162;
             this.label10.Text = "Descripcion equipo";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // btnCancel
             // 
@@ -213,7 +211,6 @@
             this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "Actualizar";
             this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnSave
             // 
@@ -265,6 +262,109 @@
             this.advancedDataGridView1.SortStringChangedInvokeBeforeDatasourceUpdate = true;
             this.advancedDataGridView1.TabIndex = 168;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 397);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 21);
+            this.label2.TabIndex = 169;
+            this.label2.Text = "Accesorios";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.Location = new System.Drawing.Point(718, 512);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(41, 35);
+            this.btnAdd.TabIndex = 8;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // iconButton6
+            // 
+            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.iconButton6.IconColor = System.Drawing.Color.Black;
+            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton6.IconSize = 30;
+            this.iconButton6.Location = new System.Drawing.Point(960, 334);
+            this.iconButton6.Name = "iconButton6";
+            this.iconButton6.Size = new System.Drawing.Size(45, 39);
+            this.iconButton6.TabIndex = 7;
+            this.iconButton6.Tag = "Buscar Cliente";
+            this.iconButton6.UseVisualStyleBackColor = true;
+            this.iconButton6.Click += new System.EventHandler(this.iconButton6_Click);
+            // 
+            // cboMarcaEquipo
+            // 
+            this.cboMarcaEquipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMarcaEquipo.FormattingEnabled = true;
+            this.cboMarcaEquipo.Location = new System.Drawing.Point(509, 340);
+            this.cboMarcaEquipo.Name = "cboMarcaEquipo";
+            this.cboMarcaEquipo.Size = new System.Drawing.Size(445, 29);
+            this.cboMarcaEquipo.TabIndex = 175;
+            this.cboMarcaEquipo.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(521, 300);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(167, 21);
+            this.label3.TabIndex = 174;
+            this.label3.Text = "Marca del equipo";
+            // 
+            // iconButton5
+            // 
+            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.iconButton5.IconColor = System.Drawing.Color.Black;
+            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton5.IconSize = 30;
+            this.iconButton5.Location = new System.Drawing.Point(458, 334);
+            this.iconButton5.Name = "iconButton5";
+            this.iconButton5.Size = new System.Drawing.Size(45, 39);
+            this.iconButton5.TabIndex = 6;
+            this.iconButton5.Tag = "Buscar Cliente";
+            this.iconButton5.UseVisualStyleBackColor = true;
+            this.iconButton5.Click += new System.EventHandler(this.iconButton5_Click);
+            // 
+            // cboTipoEquipo
+            // 
+            this.cboTipoEquipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoEquipo.FormattingEnabled = true;
+            this.cboTipoEquipo.Location = new System.Drawing.Point(7, 340);
+            this.cboTipoEquipo.Name = "cboTipoEquipo";
+            this.cboTipoEquipo.Size = new System.Drawing.Size(445, 29);
+            this.cboTipoEquipo.TabIndex = 5;
+            this.cboTipoEquipo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 300);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(144, 21);
+            this.label8.TabIndex = 171;
+            this.label8.Text = "Tipo del equipo";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(774, 260);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(124, 25);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "lleva series";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -311,106 +411,6 @@
             // 
             this.accesoriosBindingSource.DataSource = typeof(POSalesDb.Accesorios);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 397);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 21);
-            this.label2.TabIndex = 169;
-            this.label2.Text = "Accesorios";
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(718, 512);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(41, 35);
-            this.btnAdd.TabIndex = 8;
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // iconButton6
-            // 
-            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.iconButton6.IconColor = System.Drawing.Color.Black;
-            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton6.IconSize = 30;
-            this.iconButton6.Location = new System.Drawing.Point(960, 334);
-            this.iconButton6.Name = "iconButton6";
-            this.iconButton6.Size = new System.Drawing.Size(45, 39);
-            this.iconButton6.TabIndex = 7;
-            this.iconButton6.Tag = "Buscar Cliente";
-            this.iconButton6.UseVisualStyleBackColor = true;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(509, 340);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(445, 29);
-            this.comboBox2.TabIndex = 175;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(521, 300);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(167, 21);
-            this.label3.TabIndex = 174;
-            this.label3.Text = "Marca del equipo";
-            // 
-            // iconButton5
-            // 
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.iconButton5.IconColor = System.Drawing.Color.Black;
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 30;
-            this.iconButton5.Location = new System.Drawing.Point(458, 334);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(45, 39);
-            this.iconButton5.TabIndex = 6;
-            this.iconButton5.Tag = "Buscar Cliente";
-            this.iconButton5.UseVisualStyleBackColor = true;
-            this.iconButton5.Click += new System.EventHandler(this.iconButton5_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(7, 340);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(445, 29);
-            this.comboBox1.TabIndex = 5;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 300);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(144, 21);
-            this.label8.TabIndex = 171;
-            this.label8.Text = "Tipo del equipo";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(760, 260);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(124, 25);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "lleva series";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // EquipoModulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
@@ -418,10 +418,10 @@
             this.ClientSize = new System.Drawing.Size(1021, 706);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.iconButton6);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cboMarcaEquipo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.iconButton5);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboTipoEquipo);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label2);
@@ -444,7 +444,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EquipoModulo";
             this.Text = "EquipoModulo";
-            this.Load += new System.EventHandler(this.EquipoModulo_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -480,11 +479,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn accesoriosEquipoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idEquipoDataGridViewTextBoxColumn;
         private FontAwesome.Sharp.IconButton iconButton6;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label3;
         private FontAwesome.Sharp.IconButton iconButton5;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox checkBox1;
+        public System.Windows.Forms.ComboBox cboMarcaEquipo;
+        public System.Windows.Forms.ComboBox cboTipoEquipo;
     }
 }

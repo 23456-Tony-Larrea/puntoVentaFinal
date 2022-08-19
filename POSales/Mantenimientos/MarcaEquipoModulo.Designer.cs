@@ -52,7 +52,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(627, 148);
+            this.btnCancel.Location = new System.Drawing.Point(640, 148);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 35);
             this.btnCancel.TabIndex = 4;
@@ -67,7 +67,7 @@
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(480, 148);
+            this.btnUpdate.Location = new System.Drawing.Point(493, 148);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(121, 35);
             this.btnUpdate.TabIndex = 3;
@@ -106,7 +106,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 202);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(754, 63);
+            this.panel1.Size = new System.Drawing.Size(767, 63);
             this.panel1.TabIndex = 193;
             // 
             // btnSave
@@ -116,7 +116,7 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(359, 148);
+            this.btnSave.Location = new System.Drawing.Point(372, 148);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(115, 35);
             this.btnSave.TabIndex = 2;
@@ -129,12 +129,13 @@
             this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picClose.Image = ((System.Drawing.Image)(resources.GetObject("picClose.Image")));
             this.picClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.picClose.Location = new System.Drawing.Point(698, 0);
+            this.picClose.Location = new System.Drawing.Point(711, 0);
             this.picClose.Margin = new System.Windows.Forms.Padding(5);
             this.picClose.Name = "picClose";
             this.picClose.Size = new System.Drawing.Size(56, 45);
             this.picClose.TabIndex = 1;
             this.picClose.TabStop = false;
+            this.picClose.Click += new System.EventHandler(this.picClose_Click);
             // 
             // label18
             // 
@@ -155,14 +156,14 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(754, 45);
+            this.panel2.Size = new System.Drawing.Size(767, 45);
             this.panel2.TabIndex = 194;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // txtCodigoEquipo
             // 
             this.txtCodigoEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodigoEquipo.Location = new System.Drawing.Point(174, 100);
+            this.txtCodigoEquipo.Location = new System.Drawing.Point(198, 106);
             this.txtCodigoEquipo.Name = "txtCodigoEquipo";
             this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 30);
             this.txtCodigoEquipo.TabIndex = 1;
@@ -170,18 +171,18 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(29, 103);
+            this.label11.Location = new System.Drawing.Point(24, 109);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(143, 21);
+            this.label11.Size = new System.Drawing.Size(167, 21);
             this.label11.TabIndex = 200;
-            this.label11.Text = "tipo del equipo";
+            this.label11.Text = "Marca del equipo";
             // 
             // MarcaEquipoModulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 265);
+            this.ClientSize = new System.Drawing.Size(767, 265);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.txtIdAccesorios);

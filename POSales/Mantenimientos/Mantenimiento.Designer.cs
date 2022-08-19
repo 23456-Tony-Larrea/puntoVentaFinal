@@ -305,7 +305,7 @@ namespace POSales.Mantenimientos
             this.btnBuscarCodigo.IconColor = System.Drawing.Color.Black;
             this.btnBuscarCodigo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBuscarCodigo.IconSize = 15;
-            this.btnBuscarCodigo.Location = new System.Drawing.Point(1067, 52);
+            this.btnBuscarCodigo.Location = new System.Drawing.Point(1188, 53);
             this.btnBuscarCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBuscarCodigo.Name = "btnBuscarCodigo";
             this.btnBuscarCodigo.Size = new System.Drawing.Size(33, 23);
@@ -327,7 +327,7 @@ namespace POSales.Mantenimientos
             // 
             // txtBucadorCodigo
             // 
-            this.txtBucadorCodigo.Location = new System.Drawing.Point(688, 52);
+            this.txtBucadorCodigo.Location = new System.Drawing.Point(809, 53);
             this.txtBucadorCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBucadorCodigo.Multiline = true;
             this.txtBucadorCodigo.Name = "txtBucadorCodigo";
@@ -352,7 +352,7 @@ namespace POSales.Mantenimientos
             this.btnEntregaBuscar.IconColor = System.Drawing.Color.Black;
             this.btnEntregaBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEntregaBuscar.IconSize = 15;
-            this.btnEntregaBuscar.Location = new System.Drawing.Point(523, 52);
+            this.btnEntregaBuscar.Location = new System.Drawing.Point(540, 55);
             this.btnEntregaBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEntregaBuscar.Name = "btnEntregaBuscar";
             this.btnEntregaBuscar.Size = new System.Drawing.Size(33, 23);
@@ -363,7 +363,7 @@ namespace POSales.Mantenimientos
             // dtFechaEntregaMantenimientoHasta
             // 
             this.dtFechaEntregaMantenimientoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaEntregaMantenimientoHasta.Location = new System.Drawing.Point(413, 52);
+            this.dtFechaEntregaMantenimientoHasta.Location = new System.Drawing.Point(430, 55);
             this.dtFechaEntregaMantenimientoHasta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtFechaEntregaMantenimientoHasta.Name = "dtFechaEntregaMantenimientoHasta";
             this.dtFechaEntregaMantenimientoHasta.Size = new System.Drawing.Size(103, 22);
@@ -373,7 +373,7 @@ namespace POSales.Mantenimientos
             // dtFechaEntregaDesde
             // 
             this.dtFechaEntregaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaEntregaDesde.Location = new System.Drawing.Point(304, 52);
+            this.dtFechaEntregaDesde.Location = new System.Drawing.Point(321, 55);
             this.dtFechaEntregaDesde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtFechaEntregaDesde.Name = "dtFechaEntregaDesde";
             this.dtFechaEntregaDesde.Size = new System.Drawing.Size(103, 22);
@@ -385,7 +385,7 @@ namespace POSales.Mantenimientos
             this.label15.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label15.Location = new System.Drawing.Point(-5, 17);
+            this.label15.Location = new System.Drawing.Point(21, 4);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(149, 32);
             this.label15.TabIndex = 7;
@@ -398,7 +398,7 @@ namespace POSales.Mantenimientos
             this.btnIngresoBuscar.IconColor = System.Drawing.Color.Black;
             this.btnIngresoBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnIngresoBuscar.IconSize = 15;
-            this.btnIngresoBuscar.Location = new System.Drawing.Point(221, 55);
+            this.btnIngresoBuscar.Location = new System.Drawing.Point(243, 54);
             this.btnIngresoBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnIngresoBuscar.Name = "btnIngresoBuscar";
             this.btnIngresoBuscar.Size = new System.Drawing.Size(33, 23);
@@ -409,7 +409,7 @@ namespace POSales.Mantenimientos
             // dtFechaIngresoHasta
             // 
             this.dtFechaIngresoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaIngresoHasta.Location = new System.Drawing.Point(112, 54);
+            this.dtFechaIngresoHasta.Location = new System.Drawing.Point(134, 53);
             this.dtFechaIngresoHasta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtFechaIngresoHasta.Name = "dtFechaIngresoHasta";
             this.dtFechaIngresoHasta.Size = new System.Drawing.Size(103, 22);
@@ -419,7 +419,7 @@ namespace POSales.Mantenimientos
             // dtFechaIngresoDesde
             // 
             this.dtFechaIngresoDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaIngresoDesde.Location = new System.Drawing.Point(3, 54);
+            this.dtFechaIngresoDesde.Location = new System.Drawing.Point(25, 53);
             this.dtFechaIngresoDesde.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtFechaIngresoDesde.Name = "dtFechaIngresoDesde";
             this.dtFechaIngresoDesde.Size = new System.Drawing.Size(103, 22);

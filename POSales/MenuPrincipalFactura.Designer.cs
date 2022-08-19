@@ -54,7 +54,7 @@
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(0, 593);
+            this.btnSalir.Location = new System.Drawing.Point(0, 595);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
@@ -63,6 +63,7 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // lblName
             // 
@@ -227,6 +228,7 @@
             this.btnGenerarDaño.Text = "Generar reporte del daño";
             this.btnGenerarDaño.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGenerarDaño.UseVisualStyleBackColor = false;
+            this.btnGenerarDaño.Click += new System.EventHandler(this.btnGenerarDaño_Click);
             // 
             // btnClientes
             // 

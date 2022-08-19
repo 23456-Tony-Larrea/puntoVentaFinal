@@ -1,5 +1,6 @@
 ﻿
 using POSalesDb;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -30,20 +31,58 @@ namespace POSales.Mantenimientos
 
         private void btnSave_Click(object sender, System.EventArgs e)
         {
-            Marca.NombreMarcaEquipo = txtCodigoEquipo.Text;
-            dbcon.insertMarcaEquipo(Marca);
+            try
+            {
+                if (MessageBox.Show("Estas seguro de guardar este tipo equipo?", "Item Guardado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (string.IsNullOrEmpty(txtCodigoEquipo.Text))
+                    {
+                        MessageBox.Show("Por favor, ingrese el nombre del tipo equipo");
+                    }
+                    Marca.NombreMarcaEquipo = txtCodigoEquipo.Text;
+                    dbcon.insertMarcaEquipo(Marca);
+                }
+                MessageBox.Show("tipo equipo insertado con exito");
+                Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
 
         private void btnUpdate_Click(object sender, System.EventArgs e)
         {
-            Marca.NombreMarcaEquipo = txtCodigoEquipo.Text;
-            dbcon.actualizarMarcaEquipo(Marca);
+            try
+            {
+                if (MessageBox.Show("Estas seguro de actualizar esta marca equipo?", "Item Guardado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Marca.NombreMarcaEquipo = txtCodigoEquipo.Text;
+                    dbcon.actualizarMarcaEquipo(Marca);
 
+                }
+                MessageBox.Show("marca de equipo actualizada con exito");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnCancel_Click(object sender, System.EventArgs e)
         {
-            this.Close();
+            Clear();
+        }
+        public void Clear()
+        {
+            txtCodigoEquipo.Text = "";
+        }
+
+        private void picClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

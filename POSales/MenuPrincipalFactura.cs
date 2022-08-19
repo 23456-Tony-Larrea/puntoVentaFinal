@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using POSales.Mantenimientos;
 using POSalesDb;
 
 namespace POSales
@@ -19,16 +20,30 @@ namespace POSales
             _idUsuario =idUsuario;
             InitializeComponent();
         }
+        private Form activeForm = null;
+        public void openChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(childForm);
+            panelMain.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            Clients client = new Clients();
-            client.ShowDialog();
+           Form client = new Clients();
+            openChildForm(client);
         }
 
         private void btnCompras_Click(object sender, EventArgs e)
         {
-            ComprasProveedor factura = new ComprasProveedor(_idUsuario);
-            factura.ShowDialog();
+            Form  factura = new ComprasProveedor(_idUsuario);
+           openChildForm(factura);
         }
 
         private void btnList_Click(object sender, EventArgs e)
@@ -41,6 +56,20 @@ namespace POSales
         {
             Mantenimientos.SeleccionarMantenimiento clientModule = new Mantenimientos.SeleccionarMantenimiento(_idUsuario);
             clientModule.ShowDialog();
+        }
+
+        private void btnGenerarDaño_Click(object sender, EventArgs e)
+        {
+            Form listaOrdenes = new listaOrdenes();
+            openChildForm(listaOrdenes);
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login login = new Login();
+            login.ShowDialog();
+            this.Visible = true;
         }
     }
 }

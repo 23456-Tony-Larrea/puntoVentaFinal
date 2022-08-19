@@ -118,45 +118,52 @@ namespace POSales.Mantenimientos
 
         private void dgvClients_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int idmantenimiento = 0;
-            int index = e.RowIndex;
-            if (index > (-1))
-            {
-                int.TryParse(dgvClients.Rows[index].Cells["id"].Value.ToString(), out idmantenimiento);
-                DataGridViewColumn colum = dgvClients.Columns[e.ColumnIndex];
-                if (colum.Name == "solucion" && usuario.role == "tecnico")
+                int idmantenimiento = 0;
+                int index = e.RowIndex;
+                if (index > (-1))
                 {
-                    if (idmantenimiento > 0)
+                    int.TryParse(dgvClients.Rows[index].Cells["id"].Value.ToString(), out idmantenimiento);
+                    DataGridViewColumn colum = dgvClients.Columns[e.ColumnIndex];
+                    if (colum.Name == "solucion" && usuario.role == "tecnico")
                     {
+                        if (idmantenimiento > 0)
+                        {
+                        
                         mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
-                        mantenimiento.equipo = dbcon.selectEquipoPorId(mantenimiento.IdEquipo);
-                        Mantenimientos.precioReferencial MantenimientoView = new Mantenimientos.precioReferencial(mantenimiento, usuario.Id);
-                        MantenimientoView.ShowDialog();
+                            mantenimiento.equipo = dbcon.selectEquipoPorId(mantenimiento.IdEquipo);
+                      
                     }
 
-                }
-                if (colum.Name == "aplicarCorreccion")
-                {
-                    if (usuario.role == "tecnico" && (bool)dgvClients.Rows[index].Cells["aplicarCorreccion"].Value == true)
-                    {
-                        mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
-                        mantenimiento.idEstadoMantenimiento = 5;
-                        dbcon.actualizarMantenimientoModel(mantenimiento);
-                    }
-                    else
-                    if (idmantenimiento > 0 && usuario.role == "facturero")
-                    {
-                        dgvClients.Rows[index].Cells["aplicarCorreccion"].Value = true;
-                        dgvClients.Rows[index].Cells["NoAplicarCorreccion"].Value = false;
-                        mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
-                        mantenimiento.equipo = dbcon.selectEquipoPorId(mantenimiento.IdEquipo);
-                        mantenimiento.estadoAplicarCorreccion = true;
-                        mantenimiento.estadoNoAplicarCorreccion = false;
-                        mantenimiento.idEstadoMantenimiento = 4;
-                        dbcon.actualizarMantenimientoModel(mantenimiento);
-                    }
+                    Mantenimientos.precioReferencial MantenimientoView = new Mantenimientos.precioReferencial(mantenimiento, usuario.Id);
+                            MantenimientoView.ShowDialog();
+                    mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
+                    dgvClients.Rows[index].Cells["solucion"].Value = mantenimiento.solucion;
+                    mantenimiento.estadoMantenimiento = dbcon.selectEstadoMantenimientoPorId(mantenimiento.idEstadoMantenimiento);
+                    dgvClients.Rows[index].Cells["IdEstadoMantenimiento"].Value = mantenimiento.estadoMantenimiento.Id;
+                    dgvClients.Rows[index].Cells["estado"].Value = mantenimiento.estadoMantenimiento.descripcion;
 
                 }
+                    if (colum.Name == "aplicarCorreccion")
+                    {
+                        if (usuario.role == "tecnico" && (bool)dgvClients.Rows[index].Cells["aplicarCorreccion"].Value == true)
+                        {
+                            mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
+                            mantenimiento.idEstadoMantenimiento = 5;
+                            dbcon.actualizarMantenimientoModel(mantenimiento);
+                        }
+                        if (idmantenimiento > 0 && usuario.role == "facturero")
+                        {
+                            dgvClients.Rows[index].Cells["aplicarCorreccion"].Value = true;
+                            dgvClients.Rows[index].Cells["NoAplicarCorreccion"].Value = false;
+                            mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
+                            mantenimiento.equipo = dbcon.selectEquipoPorId(mantenimiento.IdEquipo);
+                            mantenimiento.estadoAplicarCorreccion = true;
+                            mantenimiento.estadoNoAplicarCorreccion = false;
+                            mantenimiento.idEstadoMantenimiento = 4;
+                            dbcon.actualizarMantenimientoModel(mantenimiento);
+                        }
+
+                    }
                 if (colum.Name == "NoAplicarCorreccion" && usuario.role == "facturero")
                 {
                     if (idmantenimiento > 0)

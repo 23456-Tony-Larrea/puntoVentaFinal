@@ -37,7 +37,7 @@ namespace POSales.Mantenimientos
             {
                 btnUpdate.Visible = false;
             }
-            cargarMarcasEquipo();
+           cargarMarcasEquipo();
             cargarTipodeEquios();
         }
         private void cargarEquipo()
@@ -55,8 +55,8 @@ namespace POSales.Mantenimientos
             {
                 checkBox1.Checked = true;
             }
-            comboBox1.Text = tipoEquipos.Where(x => x.Id == equipo.IdtipoEquipo).First().tipoEquipo;
-            comboBox2.Text = marcas.Where(x => x.Id == equipo.Idmarca).First().NombreMarcaEquipo;
+            cboTipoEquipo.Text = tipoEquipos.Where(x => x.Id == equipo.IdtipoEquipo).First().tipoEquipo;
+            cboMarcaEquipo.Text = marcas.Where(x => x.Id == equipo.IdMarcaEquipo).First().NombreMarcaEquipo;
         }
 
         private void cargarMarcasEquipo()
@@ -64,7 +64,7 @@ namespace POSales.Mantenimientos
             marcas = dbcon.TodosLasMarcasEquipo();
             foreach (var marca in marcas)
             {
-                comboBox1.Items.Add(marca.NombreMarcaEquipo);
+                cboMarcaEquipo.Items.Add(marca.NombreMarcaEquipo);
             }
         }
         private void cargarTipodeEquios()
@@ -72,7 +72,7 @@ namespace POSales.Mantenimientos
             tipoEquipos = dbcon.TodosLosTipoEquipos();
             foreach (var tipoEquipo in tipoEquipos)
             {
-                comboBox1.Items.Add(tipoEquipo.tipoEquipo);
+                cboTipoEquipo.Items.Add(tipoEquipo.tipoEquipo);
             }
         }
         private void picClose_Click(object sender, EventArgs e)
@@ -84,6 +84,7 @@ namespace POSales.Mantenimientos
          txtCodigoEquipo.Clear();
          txtDescripcionEquipo.Clear();
             txtSeriesEquipo.Clear();
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -91,10 +92,7 @@ namespace POSales.Mantenimientos
             clear();
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -109,21 +107,15 @@ namespace POSales.Mantenimientos
            
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-        private void EquipoModulo_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             equipo.codigo= txtCodigoEquipo.Text;
             equipo.descripcionEquipo=  txtDescripcionEquipo.Text ;
             equipo.series=txtSeriesEquipo.Text;
+            equipo.IdMarcaEquipo =Convert.ToInt16 (cboMarcaEquipo.SelectedValue);
+            equipo.IdtipoEquipo= Convert.ToInt16(cboTipoEquipo.SelectedValue);
             equipo.Id = dbcon.insertEquipos(equipo);
             foreach (var accesorio in equipo.accesorios)
             {
@@ -134,24 +126,21 @@ namespace POSales.Mantenimientos
             this.Dispose();
         }
 
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            equipo.IdtipoEquipo = tipoEquipos.ElementAt(comboBox1.SelectedIndex).Id;
+            equipo.IdtipoEquipo = tipoEquipos.ElementAt(cboTipoEquipo.SelectedIndex).Id;
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            equipo.Idmarca = marcas.ElementAt(comboBox2.SelectedIndex).Id;
+            equipo.IdMarcaEquipo = marcas.ElementAt(cboMarcaEquipo.SelectedIndex).Id;
         }
 
         private void iconButton5_Click(object sender, EventArgs e)
         {
-
+            TipoEquipoModulo tipoEquipo = new TipoEquipoModulo(new POSalesDb.TipoEquipo());
+            tipoEquipo.ShowDialog();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -165,6 +154,12 @@ namespace POSales.Mantenimientos
                 txtSeriesEquipo.Clear();
                 txtSeriesEquipo.Enabled = false;
             }
+        }
+
+        private void iconButton6_Click(object sender, EventArgs e)
+        {
+            MarcaEquipoModulo marcaEquipo = new MarcaEquipoModulo(new POSalesDb.MarcaEquipo());
+            marcaEquipo.ShowDialog();
         }
     }
 }

@@ -47,7 +47,6 @@
             this.btnAccesorios = new System.Windows.Forms.Button();
             this.btnEquipo = new System.Windows.Forms.Button();
             this.btnMantenimiento = new System.Windows.Forms.Button();
-            this.btnOrdenProductos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelLogo.SuspendLayout();
             this.panelSlide.SuspendLayout();
@@ -149,7 +148,7 @@
             this.btnMatenimientos.FlatAppearance.BorderSize = 0;
             this.btnMatenimientos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMatenimientos.ForeColor = System.Drawing.Color.White;
-            this.btnMatenimientos.Location = new System.Drawing.Point(0, 341);
+            this.btnMatenimientos.Location = new System.Drawing.Point(0, 282);
             this.btnMatenimientos.Margin = new System.Windows.Forms.Padding(4);
             this.btnMatenimientos.Name = "btnMatenimientos";
             this.btnMatenimientos.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
@@ -165,7 +164,7 @@
             this.btnReservas.FlatAppearance.BorderSize = 0;
             this.btnReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReservas.ForeColor = System.Drawing.Color.White;
-            this.btnReservas.Location = new System.Drawing.Point(0, 603);
+            this.btnReservas.Location = new System.Drawing.Point(0, 542);
             this.btnReservas.Margin = new System.Windows.Forms.Padding(4);
             this.btnReservas.Name = "btnReservas";
             this.btnReservas.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
@@ -184,7 +183,6 @@
             this.panelSlide.Controls.Add(this.btnReservas);
             this.panelSlide.Controls.Add(this.panelSubMantenimiento);
             this.panelSlide.Controls.Add(this.btnMatenimientos);
-            this.panelSlide.Controls.Add(this.btnOrdenProductos);
             this.panelSlide.Controls.Add(this.btnDashboard);
             this.panelSlide.Controls.Add(this.panelLogo);
             this.panelSlide.Dock = System.Windows.Forms.DockStyle.Left;
@@ -200,7 +198,7 @@
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(0, 785);
+            this.btnSalir.Location = new System.Drawing.Point(0, 724);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
@@ -216,7 +214,7 @@
             this.panelSubReserva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(200)))));
             this.panelSubReserva.Controls.Add(this.btnReserva);
             this.panelSubReserva.Controls.Add(this.btnItems);
-            this.panelSubReserva.Location = new System.Drawing.Point(0, 666);
+            this.panelSubReserva.Location = new System.Drawing.Point(0, 605);
             this.panelSubReserva.Margin = new System.Windows.Forms.Padding(4);
             this.panelSubReserva.Name = "panelSubReserva";
             this.panelSubReserva.Size = new System.Drawing.Size(241, 125);
@@ -260,7 +258,7 @@
             this.panelSubMantenimiento.Controls.Add(this.btnAccesorios);
             this.panelSubMantenimiento.Controls.Add(this.btnEquipo);
             this.panelSubMantenimiento.Controls.Add(this.btnMantenimiento);
-            this.panelSubMantenimiento.Location = new System.Drawing.Point(0, 399);
+            this.panelSubMantenimiento.Location = new System.Drawing.Point(0, 336);
             this.panelSubMantenimiento.Margin = new System.Windows.Forms.Padding(4);
             this.panelSubMantenimiento.Name = "panelSubMantenimiento";
             this.panelSubMantenimiento.Size = new System.Drawing.Size(241, 209);
@@ -303,7 +301,7 @@
             this.btnMantenimiento.FlatAppearance.BorderSize = 0;
             this.btnMantenimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMantenimiento.ForeColor = System.Drawing.Color.White;
-            this.btnMantenimiento.Location = new System.Drawing.Point(0, 0);
+            this.btnMantenimiento.Location = new System.Drawing.Point(-8, 0);
             this.btnMantenimiento.Margin = new System.Windows.Forms.Padding(4);
             this.btnMantenimiento.Name = "btnMantenimiento";
             this.btnMantenimiento.Padding = new System.Windows.Forms.Padding(48, 0, 0, 0);
@@ -313,24 +311,6 @@
             this.btnMantenimiento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMantenimiento.UseVisualStyleBackColor = true;
             this.btnMantenimiento.Click += new System.EventHandler(this.btnMantenimiento_Click);
-            // 
-            // btnOrdenProductos
-            // 
-            this.btnOrdenProductos.BackColor = System.Drawing.Color.Blue;
-            this.btnOrdenProductos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOrdenProductos.FlatAppearance.BorderSize = 0;
-            this.btnOrdenProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrdenProductos.ForeColor = System.Drawing.Color.White;
-            this.btnOrdenProductos.Location = new System.Drawing.Point(0, 282);
-            this.btnOrdenProductos.Margin = new System.Windows.Forms.Padding(4);
-            this.btnOrdenProductos.Name = "btnOrdenProductos";
-            this.btnOrdenProductos.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.btnOrdenProductos.Size = new System.Drawing.Size(241, 59);
-            this.btnOrdenProductos.TabIndex = 1;
-            this.btnOrdenProductos.Text = "Orden Servicio";
-            this.btnOrdenProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrdenProductos.UseVisualStyleBackColor = false;
-            this.btnOrdenProductos.Click += new System.EventHandler(this.btnOrdenProductos_Click);
             // 
             // MenuMantenimiento
             // 
@@ -374,6 +354,5 @@
         private System.Windows.Forms.Button btnAccesorios;
         private System.Windows.Forms.Button btnEquipo;
         private System.Windows.Forms.Button btnMantenimiento;
-        private System.Windows.Forms.Button btnOrdenProductos;
     }
 }

@@ -42,8 +42,6 @@
             this.enviarSolucionPorWhatsappToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dgvListaOrdenes = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaEntrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionFalla = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +54,8 @@
             this.descripcionEquipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Imprimir = new System.Windows.Forms.DataGridViewImageColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaOrdenes)).BeginInit();
@@ -77,7 +77,7 @@
             // 
             // txtBucadorCodigo
             // 
-            this.txtBucadorCodigo.Location = new System.Drawing.Point(576, 46);
+            this.txtBucadorCodigo.Location = new System.Drawing.Point(565, 45);
             this.txtBucadorCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBucadorCodigo.Multiline = true;
             this.txtBucadorCodigo.Name = "txtBucadorCodigo";
@@ -202,39 +202,15 @@
             this.Imprimir});
             this.dgvListaOrdenes.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvListaOrdenes.EnableHeadersVisualStyles = false;
-            this.dgvListaOrdenes.Location = new System.Drawing.Point(-10, 110);
+            this.dgvListaOrdenes.Location = new System.Drawing.Point(0, 101);
             this.dgvListaOrdenes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvListaOrdenes.Name = "dgvListaOrdenes";
             this.dgvListaOrdenes.ReadOnly = true;
             this.dgvListaOrdenes.RowHeadersVisible = false;
             this.dgvListaOrdenes.RowHeadersWidth = 51;
-            this.dgvListaOrdenes.Size = new System.Drawing.Size(1597, 596);
+            this.dgvListaOrdenes.Size = new System.Drawing.Size(1597, 579);
             this.dgvListaOrdenes.TabIndex = 14;
             this.dgvListaOrdenes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellContentClick);
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(12, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(319, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Manejo de Mantenimientos";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 693);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1599, 69);
-            this.panel1.TabIndex = 13;
             // 
             // Id
             // 
@@ -334,6 +310,30 @@
             this.Imprimir.MinimumWidth = 6;
             this.Imprimir.Name = "Imprimir";
             this.Imprimir.ReadOnly = true;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(319, 32);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Manejo de Mantenimientos";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 693);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1599, 69);
+            this.panel1.TabIndex = 13;
             // 
             // listaOrdenes
             // 

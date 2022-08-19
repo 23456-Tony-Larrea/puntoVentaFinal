@@ -331,9 +331,6 @@ namespace POSalesDb
         //insertar OrdenServicioModel 
         public int insertOrdenServicioModel(OrdenServicioModel orden)
         {
-            
-
-
             cn.ConnectionString = myConnection();
             int IdOrden = 0;
             try
@@ -867,7 +864,7 @@ namespace POSalesDb
             {
                 cn.Close();
             }
-        }
+        } 
         //insertar MantenimientoModels 
         public string insertMantenimientoModels(MantenimientoModel MantenimientoModel)
         {
@@ -1330,6 +1327,8 @@ namespace POSalesDb
                     equipo.descripcionEquipo = dt.Rows[0]["descirpcionEquipo"].ToString();
                     equipo.codigo = dt.Rows[0]["codigo"].ToString();
                     equipo.series = dt.Rows[0]["series"].ToString();
+                    equipo.IdMarcaEquipo = (int)dt.Rows[0]["IdMarcaEquipo"];
+                    equipo.IdtipoEquipo = (int)dt.Rows[0]["IdTipoEquipo"];
                 }
                 return equipo;
 
@@ -1368,7 +1367,7 @@ namespace POSalesDb
                         equipo.Id = (int)r["Id"];
                         equipo.descripcionEquipo = r["descirpcionEquipo"].ToString();
                         equipo.IdtipoEquipo = idTipo;
-                        equipo.Idmarca = idMarca;
+                        equipo.IdMarcaEquipo = idMarca;
                         equipo.codigo = r["codigo"].ToString();
                         equipo.series = r["series"].ToString();
                         equipos.Add(equipo);
@@ -1407,12 +1406,12 @@ namespace POSalesDb
                     {
                         int idTipo, idMarca;
                         int.TryParse(r["IdtipoEquipo"].ToString(), out idTipo);
-                        int.TryParse(r["Idmarca"].ToString(), out idMarca);
+                        int.TryParse(r["IdmarcaEquipo"].ToString(), out idMarca);
                         Equipo equipo = new Equipo();
                         equipo.Id = (int)r["Id"];
                         equipo.descripcionEquipo = r["descirpcionEquipo"].ToString();
                         equipo.IdtipoEquipo = idTipo;
-                        equipo.Idmarca = idMarca;
+                        equipo.IdMarcaEquipo = idMarca;
                         equipo.codigo = r["codigo"].ToString();
                         equipo.series = r["series"].ToString();
                         equipos.Add(equipo);
@@ -1439,13 +1438,13 @@ namespace POSalesDb
             int Error = 0;
             try
             {
-                cm = new SqlCommand("Insert into Equipo (descirpcionEquipo,codigo,series,idCliente,IdtipoEquipo,IdMarca) values (@descripcionEquipo,@codigo,@series,@idCliente,@IdtipoEquipo,@IdMarca) SET @ID = SCOPE_IDENTITY();", cn);
+                cm = new SqlCommand("Insert into Equipo (descirpcionEquipo,codigo,series,idCliente,IdtipoEquipo,IdMarcaEquipo) values (@descripcionEquipo,@codigo,@series,@idCliente,@IdtipoEquipo,@IdMarcaEquipo) SET @ID = SCOPE_IDENTITY();", cn);
                 cm.Parameters.AddWithValue("@descripcionEquipo", equipo.descripcionEquipo);
                 cm.Parameters.AddWithValue("@codigo", equipo.codigo);
                 cm.Parameters.AddWithValue("@series", equipo.series);
                 cm.Parameters.AddWithValue("@idcliente", equipo.idCliente);
                 cm.Parameters.AddWithValue("@IdtipoEquipo", equipo.IdtipoEquipo);
-                cm.Parameters.AddWithValue("@IdMarca", equipo.Idmarca);
+                cm.Parameters.AddWithValue("@IdMarcaEquipo", equipo.IdMarcaEquipo);
                 SqlParameter param = new SqlParameter("@ID", SqlDbType.Int, 4);
                 param.Direction = ParameterDirection.Output;
                 cm.Parameters.Add(param);
@@ -1480,14 +1479,14 @@ namespace POSalesDb
                 codigo=@codigo,
                 series=@series, 
                 IdtipoEquipo=@IdtipoEquipo,
-                IdMarca=@IdMarca 
+                IdMarca=@IdMarcaEquipo 
                 WHERE Id = @Id", cn);
                 cm.Parameters.AddWithValue("@Id", equipo.Id);
                 cm.Parameters.AddWithValue("@descripcionEquipo", equipo.descripcionEquipo);
                 cm.Parameters.AddWithValue("@codigo", equipo.codigo);
                 cm.Parameters.AddWithValue("@series", equipo.series);
                 cm.Parameters.AddWithValue("@IdtipoEquipo", equipo.IdtipoEquipo);
-                cm.Parameters.AddWithValue("@IdMarca", equipo.Idmarca);
+                cm.Parameters.AddWithValue("@IdMarcaEquipo", equipo.IdMarcaEquipo);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
@@ -4614,7 +4613,7 @@ namespace POSalesDb
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("Insert into factura (numero,clienteId,usuario,fecha_venta,total,iva,subtotal,descuento,productoId)values(@numero,@clienteId,@usuario,@fecha_venta,@total,@iva,@subtotal,@descuento,@productoId)");
+                cm = new SqlCommand("Insert into factura (numero,clienteId,usuario,fecha_venta,total,iva,subtotal,descuento,productoId)values(@numero,@clienteId,@usuario,@fecha_venta,@total,@iva,@subtotal,@descuento,@productoId)",cn);
                 cm.Parameters.AddWithValue("@numero", factura.numero);
                 cm.Parameters.AddWithValue("@clienteId", factura.clienteId);
                 cm.Parameters.AddWithValue("@usuario", factura.usuario);
@@ -4771,27 +4770,28 @@ namespace POSalesDb
                 cn.Close();
             }
         }
+      
         //insertar un tipoEquipo
-        public string insertTipoEquipo(TipoEquipo tipoEquipo)
+            public int insertTipoEquipo(TipoEquipo tipoEquipo)
         {
             cn.ConnectionString = myConnection();
-            string Error = String.Empty;
+            int Error = 0;
             try
             {
-                cm = new SqlCommand("Insert into TipoEquipo (tipoEquipo)values(@tipoEquipo)");
+                cm = new SqlCommand("Insert into TipoEquipo (tipoEquipo)values(@tipoEquipo)",cn);
                 cm.Parameters.AddWithValue("@tipoEquipo", tipoEquipo.tipoEquipo);
+                SqlParameter param = new SqlParameter("@ID", SqlDbType.Int, 4);
+                param.Direction = ParameterDirection.Output;
+                cm.Parameters.Add(param);
                 cn.Open();
-                adapter.InsertCommand = cm;
-                adapter.InsertCommand.ExecuteNonQuery();
-                adapter.Dispose();
+                cm.ExecuteNonQuery();
+                int.TryParse(param.Value.ToString(), out Error);
                 return Error;
-
             }
 
             catch (Exception ex)
             {
                 CrearEvento(ex.ToString());
-                Error = ex.ToString();
                 return Error;
             }
             finally
@@ -4806,9 +4806,9 @@ namespace POSalesDb
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("UPDATE TipoEquipo SET tipoEquipo=@tipoequipo WHERE Id = @Id  ", cn);
+                cm = new SqlCommand("UPDATE TipoEquipo SET tipoEquipo=@tipoEquipo WHERE Id = @Id  ", cn);
                 cm.Parameters.AddWithValue("@", tipoEquipo.Id);
-                cm.Parameters.AddWithValue("@nombre", tipoEquipo.tipoEquipo);
+                cm.Parameters.AddWithValue("@tipoEquipo", tipoEquipo.tipoEquipo);
                 cn.Open();
                 adapter.UpdateCommand = cm;
                 adapter.UpdateCommand.ExecuteNonQuery();
@@ -4927,7 +4927,7 @@ namespace POSalesDb
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("Insert into MarcaEquipo (marcaEquipo)values(@marcaEquipo)");
+                cm = new SqlCommand("Insert into MarcaEquipo (marcaEquipo)values(@marcaEquipo)",cn);
                 cm.Parameters.AddWithValue("@marcaEquipo", marcaEquipo.NombreMarcaEquipo);
                 cn.Open();
                 adapter.InsertCommand = cm;
@@ -5379,7 +5379,7 @@ namespace POSalesDb
 
             try
             {
-                cm = new SqlCommand($"Select * from TipoEquipos");
+                cm = new SqlCommand($"Select * from TipoEquipo");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();
@@ -5390,7 +5390,7 @@ namespace POSalesDb
                     {
                         TipoEquipo tipoEquipo = new TipoEquipo();
                         tipoEquipo.Id = (int)dt.Rows[0]["Id"];
-                        tipoEquipo.tipoEquipo = Convert.ToString(dt.Rows[0]["marca"]);
+                        tipoEquipo.tipoEquipo = Convert.ToString(dt.Rows[0]["tipoEquipo"]);
 
                         tipoEquipos.Add(tipoEquipo);
                     }

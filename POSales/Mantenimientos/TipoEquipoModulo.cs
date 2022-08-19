@@ -41,19 +41,63 @@ namespace POSales.Mantenimientos
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            tipoEquipo.tipoEquipo = txtCodigoEquipo.Text;
-            dbcon.insertTipoEquipo(tipoEquipo);
+            try
+            {
+                if (MessageBox.Show("Estas seguro de guardar este tipo quipo?", "Item Guardado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (string.IsNullOrEmpty(txtCodigoEquipo.Text))
+                    {
+                        MessageBox.Show("Por favor, ingrese el nombre del tipo equipo");
+                    }
+
+                    tipoEquipo.tipoEquipo = txtCodigoEquipo.Text;
+                    dbcon.insertTipoEquipo(tipoEquipo);
+                }
+                MessageBox.Show("tipo Equipo guardado con exito");
+                Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            tipoEquipo.tipoEquipo = txtCodigoEquipo.Text;
-            dbcon.actualizarTipoEquipo(tipoEquipo);
+            try
+            {
+                if (MessageBox.Show("Estas seguro de actualizar este tipo quipo?", "Item Guardado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (string.IsNullOrEmpty(txtCodigoEquipo.Text))
+                    {
+                        MessageBox.Show("Por favor, ingrese el nombre del tipo equipo");
+                    }
+
+                    tipoEquipo.tipoEquipo = txtCodigoEquipo.Text;
+                    dbcon.actualizarTipoEquipo(tipoEquipo);
+                  
+                }
+                Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);   
+            }
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+        public void Clear()
+        {
+            txtCodigoEquipo.Clear();
         }
     }
 }

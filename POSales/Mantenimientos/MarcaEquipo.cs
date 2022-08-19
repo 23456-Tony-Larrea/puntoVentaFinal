@@ -29,6 +29,9 @@ namespace POSales.Mantenimientos
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
+            MarcaEquipoModulo tipoEquipoModulo = new MarcaEquipoModulo(new POSalesDb.MarcaEquipo());
+            tipoEquipoModulo.ShowDialog();
+            cargarMarcas();
         }
     }
 }

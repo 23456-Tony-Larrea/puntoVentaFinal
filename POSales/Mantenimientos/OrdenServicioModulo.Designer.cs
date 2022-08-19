@@ -261,7 +261,7 @@
             // TxtEmail
             // 
             this.TxtEmail.AutoSize = true;
-            this.TxtEmail.Location = new System.Drawing.Point(79, 156);
+            this.TxtEmail.Location = new System.Drawing.Point(179, 156);
             this.TxtEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(55, 21);
@@ -271,7 +271,7 @@
             // TxtCelular
             // 
             this.TxtCelular.AutoSize = true;
-            this.TxtCelular.Location = new System.Drawing.Point(79, 111);
+            this.TxtCelular.Location = new System.Drawing.Point(179, 111);
             this.TxtCelular.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxtCelular.Name = "TxtCelular";
             this.TxtCelular.Size = new System.Drawing.Size(71, 21);
@@ -281,7 +281,7 @@
             // TxtNombre
             // 
             this.TxtNombre.AutoSize = true;
-            this.TxtNombre.Location = new System.Drawing.Point(79, 63);
+            this.TxtNombre.Location = new System.Drawing.Point(188, 63);
             this.TxtNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(86, 21);
@@ -291,7 +291,7 @@
             // TxtCiCliente
             // 
             this.TxtCiCliente.AutoSize = true;
-            this.TxtCiCliente.Location = new System.Drawing.Point(159, 15);
+            this.TxtCiCliente.Location = new System.Drawing.Point(188, 15);
             this.TxtCiCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxtCiCliente.Name = "TxtCiCliente";
             this.TxtCiCliente.Size = new System.Drawing.Size(175, 21);
@@ -607,6 +607,7 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(220, 53);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 30);

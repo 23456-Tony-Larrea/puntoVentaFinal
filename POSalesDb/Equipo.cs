@@ -14,9 +14,10 @@ namespace POSalesDb
         public string  series { get; set; }
         public int idCliente { get; set; }
         public List<Accesorios> accesorios { get; set; } = new List<Accesorios>();
-        public int Idmarca { get; set; }
+        public int IdMarcaEquipo { get; set; }
         public MarcaEquipo marcaEquipo { get; set; } = new MarcaEquipo();
         public int IdtipoEquipo { get; set; }
         public TipoEquipo tipoEquipo { get; set; } = new TipoEquipo();
+
     }
 }
