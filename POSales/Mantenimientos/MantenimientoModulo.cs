@@ -47,6 +47,11 @@ namespace POSales.Mantenimientos
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (mantenimiento.idEstadoMantenimiento > 2)
+            {
+                MessageBox.Show("Ya no se puede modificar este mantenimiento");
+                return;
+            }
             decimal precioReferencial = 0;
             string Error = string.Empty;
             mantenimiento.idEstadoMantenimiento = 2;
