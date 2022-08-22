@@ -128,19 +128,17 @@ namespace POSales.Mantenimientos
                     {
                         if (idmantenimiento > 0)
                         {
-                        
-                        mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
+                            mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
                             mantenimiento.equipo = dbcon.selectEquipoPorId(mantenimiento.IdEquipo);
-                      
-                    }
+                        }
 
-                    Mantenimientos.precioReferencial MantenimientoView = new Mantenimientos.precioReferencial(mantenimiento, usuario.Id);
-                            MantenimientoView.ShowDialog();
-                    mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
-                    dgvClients.Rows[index].Cells["solucion"].Value = mantenimiento.solucion;
-                    mantenimiento.estadoMantenimiento = dbcon.selectEstadoMantenimientoPorId(mantenimiento.idEstadoMantenimiento);
-                    dgvClients.Rows[index].Cells["IdEstadoMantenimiento"].Value = mantenimiento.estadoMantenimiento.Id;
-                    dgvClients.Rows[index].Cells["estado"].Value = mantenimiento.estadoMantenimiento.descripcion;
+                        Mantenimientos.precioReferencial MantenimientoView = new Mantenimientos.precioReferencial(mantenimiento, usuario.Id);
+                        MantenimientoView.ShowDialog();
+                        mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
+                        dgvClients.Rows[index].Cells["solucion"].Value = mantenimiento.solucion;
+                        mantenimiento.estadoMantenimiento = dbcon.selectEstadoMantenimientoPorId(mantenimiento.idEstadoMantenimiento);
+                        dgvClients.Rows[index].Cells["IdEstadoMantenimiento"].Value = mantenimiento.estadoMantenimiento.Id;
+                        dgvClients.Rows[index].Cells["estado"].Value = mantenimiento.estadoMantenimiento.descripcion;
 
                 }
                     if (colum.Name == "aplicarCorreccion")
