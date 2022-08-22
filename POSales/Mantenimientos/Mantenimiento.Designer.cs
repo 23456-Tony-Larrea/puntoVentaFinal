@@ -65,6 +65,7 @@ namespace POSales.Mantenimientos
             this.btnIngresoBuscar = new FontAwesome.Sharp.IconButton();
             this.dtFechaIngresoHasta = new System.Windows.Forms.DateTimePicker();
             this.dtFechaIngresoDesde = new System.Windows.Forms.DateTimePicker();
+            this.cambiarAPorEntregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -269,9 +270,10 @@ namespace POSales.Mantenimientos
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.enviarSolucionPorWhatsappToolStripMenuItem,
-            this.agregarReservaToolStripMenuItem});
+            this.agregarReservaToolStripMenuItem,
+            this.cambiarAPorEntregarToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(230, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(230, 92);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // enviarSolucionPorWhatsappToolStripMenuItem
@@ -439,6 +441,13 @@ namespace POSales.Mantenimientos
             this.dtFechaIngresoDesde.TabIndex = 1;
             this.dtFechaIngresoDesde.ValueChanged += new System.EventHandler(this.dtFechaIngresoDesde_ValueChanged);
             // 
+            // cambiarAPorEntregarToolStripMenuItem
+            // 
+            this.cambiarAPorEntregarToolStripMenuItem.Name = "cambiarAPorEntregarToolStripMenuItem";
+            this.cambiarAPorEntregarToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.cambiarAPorEntregarToolStripMenuItem.Text = "Cambiar a Por Entregar";
+            this.cambiarAPorEntregarToolStripMenuItem.Click += new System.EventHandler(this.cambiarAPorEntregarToolStripMenuItem_Click);
+            // 
             // Mantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -500,5 +509,6 @@ namespace POSales.Mantenimientos
         private System.Windows.Forms.DataGridViewCheckBoxColumn aplicarCorreccion;
         private System.Windows.Forms.DataGridViewCheckBoxColumn NoAplicarCorreccion;
         private System.Windows.Forms.ToolStripMenuItem agregarReservaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cambiarAPorEntregarToolStripMenuItem;
     }
 }

@@ -289,5 +289,25 @@ namespace POSales.Mantenimientos
         {
             ((DataTable)dgvOrdenes.DataSource).DefaultView.RowFilter = string.Format("[Nombre1] LIKE '%{0}%' || ", textBox1.Text);
         }
+
+        private void marcarEquipoEntregadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int idmantenimiento = 0;
+            int index = dgvClients.CurrentCell.RowIndex;
+            if (index > (-1))
+            {
+
+                int.TryParse(dgvClients.Rows[index].Cells["id"].Value.ToString(), out idmantenimiento);
+                if (usuario.role == "tecnico" && (bool)dgvClients.Rows[index].Cells["aplicarCorreccion"].Value == true && mantenimiento.idEstadoMantenimiento == 4)
+                {
+                    mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
+                    mantenimiento.idEstadoMantenimiento = 6;
+                    mantenimiento.estadoMantenimiento = dbcon.selectEstadoMantenimientoPorId(mantenimiento.idEstadoMantenimiento);
+                    dgvClients.Rows[index].Cells["IdEstadoMantenimiento"].Value = mantenimiento.estadoMantenimiento.Id;
+                    dgvClients.Rows[index].Cells["descripcion"].Value = mantenimiento.estadoMantenimiento.descripcion;
+                    dbcon.actualizarMantenimientoModel(mantenimiento);
+                }
+            }
+        }
     }
 }

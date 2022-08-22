@@ -150,16 +150,16 @@ namespace POSales.Mantenimientos
                             dbcon.actualizarMantenimientoModel(mantenimiento);
                         }
                         if (idmantenimiento > 0 && mantenimiento.idEstadoMantenimiento < 4 && usuario.role == "facturero")
-                        {
-                            dgvClients.Rows[index].Cells["aplicarCorreccion"].Value = true;
-                            dgvClients.Rows[index].Cells["NoAplicarCorreccion"].Value = false;
-                            mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
-                            mantenimiento.equipo = dbcon.selectEquipoPorId(mantenimiento.IdEquipo);
-                            mantenimiento.estadoAplicarCorreccion = true;
-                            mantenimiento.estadoNoAplicarCorreccion = false;
-                            mantenimiento.idEstadoMantenimiento = 4;
-                            dbcon.actualizarMantenimientoModel(mantenimiento);
-                        }
+                            {
+                                dgvClients.Rows[index].Cells["aplicarCorreccion"].Value = true;
+                                dgvClients.Rows[index].Cells["NoAplicarCorreccion"].Value = false;
+                                mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
+                                mantenimiento.equipo = dbcon.selectEquipoPorId(mantenimiento.IdEquipo);
+                                mantenimiento.estadoAplicarCorreccion = true;
+                                mantenimiento.estadoNoAplicarCorreccion = false;
+                                mantenimiento.idEstadoMantenimiento = 4;
+                                dbcon.actualizarMantenimientoModel(mantenimiento);
+                            }
 
                     }
                 if (colum.Name == "NoAplicarCorreccion" && usuario.role == "facturero")
@@ -306,6 +306,26 @@ namespace POSales.Mantenimientos
            
             }
                 
+        }
+
+        private void cambiarAPorEntregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int idmantenimiento = 0;
+            int index = dgvClients.CurrentCell.RowIndex;
+            if (index > (-1))
+            {
+
+                int.TryParse(dgvClients.Rows[index].Cells["id"].Value.ToString(), out idmantenimiento);
+                if (usuario.role == "tecnico" && (bool)dgvClients.Rows[index].Cells["aplicarCorreccion"].Value == true && mantenimiento.idEstadoMantenimiento == 4)
+                {
+                    mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
+                    mantenimiento.idEstadoMantenimiento = 5;
+                    mantenimiento.estadoMantenimiento = dbcon.selectEstadoMantenimientoPorId(mantenimiento.idEstadoMantenimiento);
+                    dgvClients.Rows[index].Cells["IdEstadoMantenimiento"].Value = mantenimiento.estadoMantenimiento.Id;
+                    dgvClients.Rows[index].Cells["descripcion"].Value = mantenimiento.estadoMantenimiento.descripcion;
+                    dbcon.actualizarMantenimientoModel(mantenimiento);
+                }
+            }
         }
     }
 }
