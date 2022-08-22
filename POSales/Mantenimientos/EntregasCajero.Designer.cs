@@ -45,6 +45,7 @@
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ordenServicioModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.noSeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -60,9 +61,9 @@
             this.panel2.Controls.Add(this.txtBucadorCodigo);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1629, 106);
+            this.panel2.Size = new System.Drawing.Size(963, 86);
             this.panel2.TabIndex = 15;
             // 
             // btnBuscarCodigo
@@ -71,10 +72,10 @@
             this.btnBuscarCodigo.IconColor = System.Drawing.Color.Black;
             this.btnBuscarCodigo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBuscarCodigo.IconSize = 15;
-            this.btnBuscarCodigo.Location = new System.Drawing.Point(987, 36);
-            this.btnBuscarCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBuscarCodigo.Location = new System.Drawing.Point(740, 29);
+            this.btnBuscarCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBuscarCodigo.Name = "btnBuscarCodigo";
-            this.btnBuscarCodigo.Size = new System.Drawing.Size(33, 23);
+            this.btnBuscarCodigo.Size = new System.Drawing.Size(25, 19);
             this.btnBuscarCodigo.TabIndex = 2;
             this.btnBuscarCodigo.UseVisualStyleBackColor = true;
             this.btnBuscarCodigo.Click += new System.EventHandler(this.btnBuscarCodigo_Click);
@@ -84,26 +85,27 @@
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label9.Location = new System.Drawing.Point(12, 9);
+            this.label9.Location = new System.Drawing.Point(9, 7);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(344, 70);
+            this.label9.Size = new System.Drawing.Size(258, 57);
             this.label9.TabIndex = 17;
             this.label9.Text = "Buscar Por Codigo,Falla,Solucion";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtBucadorCodigo
             // 
-            this.txtBucadorCodigo.Location = new System.Drawing.Point(608, 36);
-            this.txtBucadorCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBucadorCodigo.Location = new System.Drawing.Point(456, 29);
+            this.txtBucadorCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBucadorCodigo.Multiline = true;
             this.txtBucadorCodigo.Name = "txtBucadorCodigo";
-            this.txtBucadorCodigo.Size = new System.Drawing.Size(372, 22);
+            this.txtBucadorCodigo.Size = new System.Drawing.Size(280, 19);
             this.txtBucadorCodigo.TabIndex = 1;
             // 
             // enviarSolucionPorWhatsappToolStripMenuItem
             // 
             this.enviarSolucionPorWhatsappToolStripMenuItem.Name = "enviarSolucionPorWhatsappToolStripMenuItem";
-            this.enviarSolucionPorWhatsappToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
+            this.enviarSolucionPorWhatsappToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.enviarSolucionPorWhatsappToolStripMenuItem.Text = "Facturar";
             this.enviarSolucionPorWhatsappToolStripMenuItem.Click += new System.EventHandler(this.enviarSolucionPorWhatsappToolStripMenuItem_Click);
             // 
@@ -111,9 +113,10 @@
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.enviarSolucionPorWhatsappToolStripMenuItem});
+            this.enviarSolucionPorWhatsappToolStripMenuItem,
+            this.noSeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(131, 28);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // panel1
@@ -121,10 +124,10 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 697);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(0, 566);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1629, 69);
+            this.panel1.Size = new System.Drawing.Size(963, 56);
             this.panel1.TabIndex = 13;
             // 
             // label1
@@ -133,9 +136,10 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Location = new System.Drawing.Point(9, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(259, 32);
+            this.label1.Size = new System.Drawing.Size(194, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Manejo de Entregas";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -156,14 +160,13 @@
             this.dgvOrdenes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvOrdenes.FilterAndSortEnabled = true;
             this.dgvOrdenes.FilterStringChangedInvokeBeforeDatasourceUpdate = true;
-            this.dgvOrdenes.Location = new System.Drawing.Point(0, 103);
-            this.dgvOrdenes.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvOrdenes.Location = new System.Drawing.Point(0, 83);
             this.dgvOrdenes.Name = "dgvOrdenes";
             this.dgvOrdenes.ReadOnly = true;
             this.dgvOrdenes.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dgvOrdenes.RowHeadersVisible = false;
             this.dgvOrdenes.RowHeadersWidth = 51;
-            this.dgvOrdenes.Size = new System.Drawing.Size(1629, 594);
+            this.dgvOrdenes.Size = new System.Drawing.Size(963, 483);
             this.dgvOrdenes.SortStringChangedInvokeBeforeDatasourceUpdate = true;
             this.dgvOrdenes.TabIndex = 16;
             // 
@@ -217,15 +220,22 @@
             // 
             this.ordenServicioModelBindingSource.DataSource = typeof(POSalesDb.OrdenServicioModel);
             // 
+            // noSeToolStripMenuItem
+            // 
+            this.noSeToolStripMenuItem.Name = "noSeToolStripMenuItem";
+            this.noSeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.noSeToolStripMenuItem.Text = "No se";
+            this.noSeToolStripMenuItem.Click += new System.EventHandler(this.noSeToolStripMenuItem_Click);
+            // 
             // EntregasCajero
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1629, 766);
+            this.ClientSize = new System.Drawing.Size(963, 622);
             this.Controls.Add(this.dgvOrdenes);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "EntregasCajero";
             this.Text = "EntregasCajero";
             this.Load += new System.EventHandler(this.EntregasCajero_Load);
@@ -256,5 +266,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewCheckBoxColumn estado;
+        private System.Windows.Forms.ToolStripMenuItem noSeToolStripMenuItem;
     }
 }

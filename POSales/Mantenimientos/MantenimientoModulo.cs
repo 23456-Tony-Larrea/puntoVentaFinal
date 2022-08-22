@@ -78,7 +78,7 @@ namespace POSales.Mantenimientos
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Mantenimientos.ReservasModulo reserva = new Mantenimientos.ReservasModulo(mantenimiento.Id);
+            POSales.Mantenimientos.ReservasModulo reserva = new POSales.Mantenimientos.ReservasModulo(mantenimiento.Id);
             reserva.ShowDialog();
             mantenimiento.reservas = reserva.ItemsFacturados;
         }

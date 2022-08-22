@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,13 +12,13 @@ using POSalesDb;
 
 namespace POSales.Mantenimientos
 {
-    public partial class SeleccionarMantenimiento : Form
+    public partial class Mantenimientos : Form
     {
         DBConnect dbcon = new DBConnect();
         Usuarios usuario = new Usuarios();
         List<OrdenServicioModel> orden = new List<OrdenServicioModel>();
         MantenimientoModel mantenimiento = new MantenimientoModel();
-        public SeleccionarMantenimiento(int idUsuario)
+        public Mantenimientos(int idUsuario)
         {
             this.usuario = dbcon.selectUsuariosPorId(idUsuario);
             InitializeComponent();
@@ -60,7 +61,7 @@ namespace POSales.Mantenimientos
                     foreach (DataRow r in ordenes.Tables[0].Rows)
                     {
                         string Estado = string.Empty;
-                        if (r["Estado"].ToString() == "1" || r["Estado"].ToString() == "true")
+                        if (r["IsReady"].ToString() == "1" || r["IsReady"].ToString() == "true")
                         {
                             Estado = "Facturado";
                         }
@@ -70,7 +71,7 @@ namespace POSales.Mantenimientos
                         }
                         dgvOrdenes.Rows.Add(r["id"].ToString(), r["Fecha Ingreso"].ToString(),
                             r["ciRuc"].ToString(), r["Nombre"].ToString(),
-                            r["Estado"].ToString(), Estado, r["idUsuarios"].ToString(),
+                            r["IsReady"].ToString(), Estado, r["idUsuarios"].ToString(),
                             r["idCliente"].ToString());
                     }
 
@@ -106,7 +107,7 @@ namespace POSales.Mantenimientos
             { 
                 return;
             }
-            int.TryParse(dgvOrdenes.Rows[e.RowIndex].Cells["Id"].Value.ToString(), out idOrden);
+            int.TryParse(dgvOrdenes.Rows[e.RowIndex].Cells["idOrden"].Value.ToString(), out idOrden);
             if (idOrden > 0)
             {
                 cargarDatosMantenimiento(idOrden);
@@ -128,7 +129,7 @@ namespace POSales.Mantenimientos
                     {
                         mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
                         mantenimiento.equipo = dbcon.selectEquipoPorId(mantenimiento.IdEquipo);
-                        Mantenimientos.precioReferencial MantenimientoView = new Mantenimientos.precioReferencial(mantenimiento, usuario.Id);
+                        POSales.Mantenimientos.precioReferencial MantenimientoView = new POSales.Mantenimientos.precioReferencial(mantenimiento, usuario.Id);
                         MantenimientoView.ShowDialog();
                     }
 
@@ -172,6 +173,121 @@ namespace POSales.Mantenimientos
                 }
             }
 
+        }
+
+        private void enviarSolucionPorWhatsappToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            decimal total = 0;
+            int idmantenimiento = 0;
+            int index = dgvClients.CurrentCell.RowIndex;
+            if (index > (-1))
+            {
+
+                int.TryParse(dgvClients.Rows[index].Cells["id"].Value.ToString(), out idmantenimiento);
+                OrdenServicioModel orden = new OrdenServicioModel();
+                var mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
+                mantenimiento.reservas = dbcon.selectReservaPorMantenimiento(idmantenimiento);
+                foreach (var reserva in mantenimiento.reservas)
+                {
+                    total += reserva.precioFinal;
+                }
+                total += mantenimiento.precioReferencial;
+                orden = dbcon.selectOrdenServicioModelPorId(mantenimiento.idOrdenServicio);
+                orden.cliente = dbcon.selectClientesId(orden.idCliente);
+                decimal TotalPorMantenimiento = 0;
+                string Message = $"Saludos, El equipo codigo. {mantenimiento.equipo.codigo} falla:{mantenimiento.descripcionFalla} tiene la solucion: {mantenimiento.solucion} con un costo de mantenimiento de: {total}";
+                string Completo = $"https://web.whatsapp.com/send?phone=+59{orden.cliente.celular}&text={Message.Replace(" ", "%20")}";
+                ProcessStartInfo SendWhatsapp = new ProcessStartInfo(Completo);
+                Process.Start(SendWhatsapp);
+                mantenimiento.idEstadoMantenimiento = 3;
+                dbcon.actualizarMantenimientoModel(mantenimiento);
+            }
+        }
+
+        private void facturarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int idFactura = 0;
+            int index = dgvOrdenes.CurrentCell.RowIndex;
+            if (index < 0)
+            {
+                MessageBox.Show("Selecciona una Orden");
+                return;
+            }
+
+
+            OrdenServicioModel ordenSeleccionada = new OrdenServicioModel();
+            ordenSeleccionada = orden.ElementAt(index);
+            Factura factura = new Factura();
+            factura = dbcon.selectFacturaPorOrden(ordenSeleccionada.Id);
+
+            if (factura.id_venta == 0)
+            {
+                factura.total = Convert.ToDecimal(dgvOrdenes.Rows[index].Cells["Total"].Value.ToString());
+                factura.subtotal = factura.total;
+                factura.usuario = usuario.Id;
+                factura.idORden = ordenSeleccionada.Id;
+                factura.clienteId = ordenSeleccionada.idCliente;
+                idFactura = dbcon.insertFacturaMantenimiento(factura);
+            }
+
+            string Error = string.Empty;
+            decimal Total = 0;
+
+            if (idFactura > 0)
+            {
+                factura.id_venta = idFactura;
+                foreach (var mantenimiento in ordenSeleccionada.mantenimientos)
+                {
+                    DetallesVenta detallesVentaMantenimiento = new DetallesVenta();
+                    detallesVentaMantenimiento.IdFactura = idFactura;
+                    detallesVentaMantenimiento.IdItem = 1;
+                    detallesVentaMantenimiento.montoTotal = mantenimiento.precioReferencial;
+                    dbcon.insertDetalleVenta(detallesVentaMantenimiento);
+                    foreach (var reserva in mantenimiento.reservas)
+                    {
+                        DetallesVenta detallesVentaReserva = new DetallesVenta();
+                        detallesVentaReserva.IdFactura = idFactura;
+                        detallesVentaReserva.IdItem = reserva.idItem;
+                        detallesVentaReserva.montoTotal = reserva.precioFinal;
+                        detallesVentaReserva.precioVenta = reserva.precioUnitario;
+                        detallesVentaReserva.cantidad = reserva.Cantidad;
+                        dbcon.insertDetalleVenta(detallesVentaReserva);
+                    }
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Error al insertar factura");
+                return;
+            }
+
+            ReporteFacturaMantenimiento reporte = new ReporteFacturaMantenimiento(factura);
+            reporte.Show();
+        }
+
+        private void generarReporteDeDañoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void generarReporteDeDañoDeOrdenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int index = dgvOrdenes.CurrentCell.RowIndex;
+            if (index < 0)
+            {
+                MessageBox.Show("Selecciona una Orden");
+                return;
+            }
+            OrdenServicioModel ordenSeleccionada = new OrdenServicioModel();
+            ordenSeleccionada = orden.ElementAt(index);
+            InformeCliente informe = new InformeCliente(ordenSeleccionada.Id);
+            informe.ShowDialog();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            ((DataTable)dgvOrdenes.DataSource).DefaultView.RowFilter = string.Format("[Nombre1] LIKE '%{0}%' || ", textBox1.Text);
         }
     }
 }

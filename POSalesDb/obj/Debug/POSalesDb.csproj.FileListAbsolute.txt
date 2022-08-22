@@ -16,15 +16,6 @@ C:\Users\WORLD06\Desktop\pullPuntoVenta\puntoVrntaFacturaElectronica\POSalesDb\o
 C:\Users\WORLD06\Desktop\pullPuntoVenta\puntoVrntaFacturaElectronica\POSalesDb\obj\Debug\POSalesDb.pdb
 C:\Users\WORLD06\Desktop\pullPuntoVenta\puntoVrntaFacturaElectronica\POSalesDb\obj\Debug\POSalesDb.csproj.AssemblyReference.cache
 C:\Users\WORLD06\Desktop\pullPuntoVenta\puntoVrntaFacturaElectronica\POSalesDb\obj\Debug\POSalesDb.csproj.CopyComplete
-C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.dll
-C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.pdb
-C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\bin\Debug\Dapper.dll
-C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\bin\Debug\Dapper.xml
-C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.AssemblyReference.cache
-C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CoreCompileInputs.cache
-C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CopyComplete
-C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.dll
-C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.pdb
 D:\nuevo la cague\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.dll
 D:\nuevo la cague\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.pdb
 D:\nuevo la cague\puntoVentaFinal\POSalesDb\bin\Debug\Dapper.dll
@@ -34,7 +25,6 @@ D:\nuevo la cague\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CoreCompi
 D:\nuevo la cague\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CopyComplete
 D:\nuevo la cague\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.dll
 D:\nuevo la cague\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.pdb
-C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.dll.config
 D:\nuevo pull\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.dll.config
 D:\nuevo pull\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.dll
 D:\nuevo pull\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.pdb
@@ -65,3 +55,13 @@ D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.cspro
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CopyComplete
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.dll
 D:\pullMantenimientoWhatsaap\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.pdb
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.dll.config
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.dll
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\bin\Debug\POSalesDb.pdb
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\bin\Debug\Dapper.dll
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\bin\Debug\Dapper.xml
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.AssemblyReference.cache
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CoreCompileInputs.cache
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.csproj.CopyComplete
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.dll
+C:\Users\J_Bra\source\PuntoDeVenta\puntoVentaFinal\POSalesDb\obj\Debug\POSalesDb.pdb

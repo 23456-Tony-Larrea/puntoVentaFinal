@@ -53,53 +53,7 @@ namespace POSales.Mantenimientos
 
         private void enviarSolucionPorWhatsappToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int index = dgvOrdenes.CurrentCell.RowIndex;
-            if (index < 0)
-            {
-                MessageBox.Show("Selecciona una Orden");
-                return;
-            }
-            OrdenServicioModel ordenSeleccionada = new OrdenServicioModel();
-            ordenSeleccionada = ordenes.ElementAt(index);
-            Factura factura = new Factura();
-            factura.total = Convert.ToDecimal(dgvOrdenes.Rows[index].Cells["Total"].Value.ToString());
-            factura.subtotal = factura.total;
-            factura.usuario = usuario.Id;
-
-            string Error = string.Empty;
-            decimal Total = 0;
-
-            int idFactura = dbcon.insertFacturaMantenimiento(factura);
-            if (idFactura > 0)
-            {
-                foreach (var mantenimiento in ordenSeleccionada.mantenimientos)
-                {
-                    DetallesVenta detallesVentaMantenimiento = new DetallesVenta();
-                    detallesVentaMantenimiento.IdFactura = idFactura;
-                    detallesVentaMantenimiento.IdItem = 1;
-                    detallesVentaMantenimiento.montoTotal = mantenimiento.precioReferencial;
-                    dbcon.insertDetalleVenta(detallesVentaMantenimiento);
-                    foreach (var reserva in mantenimiento.reservas)
-                    {
-                        DetallesVenta detallesVentaReserva = new DetallesVenta();
-                        detallesVentaReserva.IdFactura = idFactura;
-                        detallesVentaReserva.IdItem = reserva.idItem;
-                        detallesVentaReserva.montoTotal = reserva.precioFinal;
-                        detallesVentaReserva.precioVenta = reserva.precioUnitario;
-                        detallesVentaReserva.cantidad = reserva.Cantidad;
-                        dbcon.insertDetalleVenta(detallesVentaReserva);
-                    }
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Error al insertar factura");
-                return;
-            }
-
-            ReporteFacturaMantenimiento reporte = new ReporteFacturaMantenimiento(factura);
-            reporte.Show();
+            
 
 
         }
@@ -107,6 +61,11 @@ namespace POSales.Mantenimientos
         private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
 
+        }
+
+        private void noSeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

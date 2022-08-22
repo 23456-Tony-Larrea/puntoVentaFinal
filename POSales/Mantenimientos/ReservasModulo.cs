@@ -65,6 +65,18 @@ namespace POSales.Mantenimientos
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            dbcon.deleteReserva(idMantenimiento);
+
+            if (ItemsFacturados.Count > 0)
+            {
+                foreach (var reserva in ItemsFacturados)
+                {
+                    reserva.IdMantenimiento = idMantenimiento;
+                    dbcon.insertarReservas(reserva);
+                }
+
+            }
+
             MessageBox.Show("Agregado Satisfactoriamente");
             this.Close();
         }

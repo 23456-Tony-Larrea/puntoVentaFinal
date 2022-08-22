@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Drawing;
+using System.Runtime.Remoting.Contexts;
 
 namespace POSalesDb
 {
+
     public class Accesorios
     {
         public int Id { get; set; }

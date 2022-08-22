@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrdenServicioModulo));
             this.label1 = new System.Windows.Forms.Label();
-            this.picClose = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -85,7 +84,6 @@
             this.advancedDataGridView1 = new Zuby.ADGV.AdvancedDataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -113,26 +111,13 @@
             this.label1.Text = "Modulo de Ordenes de servicio";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // picClose
-            // 
-            this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picClose.Image = ((System.Drawing.Image)(resources.GetObject("picClose.Image")));
-            this.picClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.picClose.Location = new System.Drawing.Point(1066, 0);
-            this.picClose.Margin = new System.Windows.Forms.Padding(5);
-            this.picClose.Name = "picClose";
-            this.picClose.Size = new System.Drawing.Size(56, 45);
-            this.picClose.TabIndex = 1;
-            this.picClose.TabStop = false;
-            this.picClose.Click += new System.EventHandler(this.picClose_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(21, 156);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 21);
+            this.label5.Size = new System.Drawing.Size(46, 20);
             this.label5.TabIndex = 53;
             this.label5.Text = "Email";
             // 
@@ -142,7 +127,7 @@
             this.label4.Location = new System.Drawing.Point(8, 111);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 21);
+            this.label4.Size = new System.Drawing.Size(61, 20);
             this.label4.TabIndex = 52;
             this.label4.Text = "Celular";
             // 
@@ -152,7 +137,7 @@
             this.label3.Location = new System.Drawing.Point(5, 15);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(175, 21);
+            this.label3.Size = new System.Drawing.Size(146, 20);
             this.label3.TabIndex = 51;
             this.label3.Text = "Cedula del Cliente";
             // 
@@ -161,7 +146,6 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
             this.panel2.Controls.Add(this.lblCajero);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.picClose);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(5);
@@ -177,7 +161,7 @@
             this.lblCajero.ForeColor = System.Drawing.Color.White;
             this.lblCajero.Location = new System.Drawing.Point(81, 11);
             this.lblCajero.Name = "lblCajero";
-            this.lblCajero.Size = new System.Drawing.Size(96, 23);
+            this.lblCajero.Size = new System.Drawing.Size(77, 18);
             this.lblCajero.TabIndex = 98;
             this.lblCajero.Text = "lblCajero";
             // 
@@ -188,7 +172,7 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(15, 11);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 23);
+            this.label6.Size = new System.Drawing.Size(59, 18);
             this.label6.TabIndex = 97;
             this.label6.Text = "Cajero";
             // 
@@ -238,7 +222,7 @@
             this.label20.Location = new System.Drawing.Point(3, 63);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(86, 21);
+            this.label20.Size = new System.Drawing.Size(72, 20);
             this.label20.TabIndex = 92;
             this.label20.Text = "Nombre ";
             // 
@@ -264,7 +248,7 @@
             this.TxtEmail.Location = new System.Drawing.Point(179, 156);
             this.TxtEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxtEmail.Name = "TxtEmail";
-            this.TxtEmail.Size = new System.Drawing.Size(55, 21);
+            this.TxtEmail.Size = new System.Drawing.Size(46, 20);
             this.TxtEmail.TabIndex = 102;
             this.TxtEmail.Text = "Email";
             // 
@@ -274,7 +258,7 @@
             this.TxtCelular.Location = new System.Drawing.Point(179, 111);
             this.TxtCelular.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxtCelular.Name = "TxtCelular";
-            this.TxtCelular.Size = new System.Drawing.Size(71, 21);
+            this.TxtCelular.Size = new System.Drawing.Size(61, 20);
             this.TxtCelular.TabIndex = 101;
             this.TxtCelular.Text = "Celular";
             // 
@@ -284,7 +268,7 @@
             this.TxtNombre.Location = new System.Drawing.Point(188, 63);
             this.TxtNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(86, 21);
+            this.TxtNombre.Size = new System.Drawing.Size(72, 20);
             this.TxtNombre.TabIndex = 100;
             this.TxtNombre.Text = "Nombre ";
             // 
@@ -294,7 +278,7 @@
             this.TxtCiCliente.Location = new System.Drawing.Point(188, 15);
             this.TxtCiCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxtCiCliente.Name = "TxtCiCliente";
-            this.TxtCiCliente.Size = new System.Drawing.Size(175, 21);
+            this.TxtCiCliente.Size = new System.Drawing.Size(146, 20);
             this.TxtCiCliente.TabIndex = 99;
             this.TxtCiCliente.Text = "Cedula del Cliente";
             // 
@@ -469,7 +453,7 @@
             this.label14.Location = new System.Drawing.Point(11, 532);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(235, 21);
+            this.label14.Size = new System.Drawing.Size(199, 20);
             this.label14.TabIndex = 103;
             this.label14.Text = "Lista de equipos a reparar";
             // 
@@ -512,7 +496,7 @@
             this.IdMantenimiento.MinimumWidth = 6;
             this.IdMantenimiento.Name = "IdMantenimiento";
             this.IdMantenimiento.ReadOnly = true;
-            this.IdMantenimiento.Width = 194;
+            this.IdMantenimiento.Width = 162;
             // 
             // FechaIngreso
             // 
@@ -536,7 +520,7 @@
             this.label8.Location = new System.Drawing.Point(448, 11);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 21);
+            this.label8.Size = new System.Drawing.Size(64, 20);
             this.label8.TabIndex = 105;
             this.label8.Text = "Historial";
             // 
@@ -546,7 +530,7 @@
             this.label2.Location = new System.Drawing.Point(5, 11);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 21);
+            this.label2.Size = new System.Drawing.Size(155, 20);
             this.label2.TabIndex = 103;
             this.label2.Text = "Descripcion de falla";
             // 
@@ -601,7 +585,7 @@
             this.label9.Location = new System.Drawing.Point(4, 56);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(209, 21);
+            this.label9.Size = new System.Drawing.Size(177, 20);
             this.label9.TabIndex = 103;
             this.label9.Text = "Codigo Orden Servicio";
             // 
@@ -610,7 +594,7 @@
             this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(220, 53);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(100, 30);
+            this.txtCodigo.Size = new System.Drawing.Size(100, 25);
             this.txtCodigo.TabIndex = 1;
             // 
             // seriesDataGridViewTextBoxColumn
@@ -688,7 +672,7 @@
             this.label7.Location = new System.Drawing.Point(460, 62);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(190, 21);
+            this.label7.Size = new System.Drawing.Size(159, 20);
             this.label7.TabIndex = 108;
             this.label7.Text = "Seleccion de Equipo";
             this.label7.Click += new System.EventHandler(this.label7_Click);
@@ -709,7 +693,7 @@
             // 
             // OrdenServicioModulo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1122, 873);
             this.Controls.Add(this.iconButton4);
@@ -729,12 +713,12 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "OrdenServicioModulo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "OrdenServicioModulo";
             this.Load += new System.EventHandler(this.OrdenServicioModulo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -756,7 +740,6 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox picClose;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

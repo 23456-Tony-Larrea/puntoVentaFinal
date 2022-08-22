@@ -46,6 +46,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.txtIdEquipo = new System.Windows.Forms.TextBox();
             this.advancedDataGridView1 = new Zuby.ADGV.AdvancedDataGridView();
+            this.accesoriosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
@@ -59,7 +60,8 @@
             this.codigoEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accesoriosEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accesoriosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel1.SuspendLayout();
@@ -73,7 +75,7 @@
             this.label18.Location = new System.Drawing.Point(9, 70);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(27, 21);
+            this.label18.Size = new System.Drawing.Size(24, 20);
             this.label18.TabIndex = 142;
             this.label18.Text = "Id";
             this.label18.Visible = false;
@@ -133,7 +135,7 @@
             this.txtSeriesEquipo.Enabled = false;
             this.txtSeriesEquipo.Location = new System.Drawing.Point(199, 255);
             this.txtSeriesEquipo.Name = "txtSeriesEquipo";
-            this.txtSeriesEquipo.Size = new System.Drawing.Size(569, 30);
+            this.txtSeriesEquipo.Size = new System.Drawing.Size(569, 25);
             this.txtSeriesEquipo.TabIndex = 3;
             // 
             // txtCodigoEquipo
@@ -141,7 +143,7 @@
             this.txtCodigoEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodigoEquipo.Location = new System.Drawing.Point(199, 95);
             this.txtCodigoEquipo.Name = "txtCodigoEquipo";
-            this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 30);
+            this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 25);
             this.txtCodigoEquipo.TabIndex = 1;
             // 
             // label12
@@ -150,7 +152,7 @@
             this.label12.Location = new System.Drawing.Point(55, 261);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(123, 21);
+            this.label12.Size = new System.Drawing.Size(105, 20);
             this.label12.TabIndex = 165;
             this.label12.Text = "series equipo";
             // 
@@ -160,7 +162,7 @@
             this.label11.Location = new System.Drawing.Point(43, 104);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(140, 21);
+            this.label11.Size = new System.Drawing.Size(118, 20);
             this.label11.TabIndex = 164;
             this.label11.Text = "codigo equipo";
             // 
@@ -179,7 +181,7 @@
             this.label10.Location = new System.Drawing.Point(9, 132);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(179, 21);
+            this.label10.Size = new System.Drawing.Size(152, 20);
             this.label10.TabIndex = 162;
             this.label10.Text = "Descripcion equipo";
             // 
@@ -233,7 +235,7 @@
             this.txtIdEquipo.Enabled = false;
             this.txtIdEquipo.Location = new System.Drawing.Point(42, 67);
             this.txtIdEquipo.Name = "txtIdEquipo";
-            this.txtIdEquipo.Size = new System.Drawing.Size(114, 30);
+            this.txtIdEquipo.Size = new System.Drawing.Size(114, 25);
             this.txtIdEquipo.TabIndex = 143;
             this.txtIdEquipo.Visible = false;
             // 
@@ -248,19 +250,26 @@
             this.idDataGridViewTextBoxColumn,
             this.codigoEquipoDataGridViewTextBoxColumn,
             this.accesoriosEquipoDataGridViewTextBoxColumn,
-            this.idEquipoDataGridViewTextBoxColumn});
+            this.idEquipoDataGridViewTextBoxColumn,
+            this.Edit,
+            this.Delete});
             this.advancedDataGridView1.DataSource = this.accesoriosBindingSource;
             this.advancedDataGridView1.FilterAndSortEnabled = true;
             this.advancedDataGridView1.FilterStringChangedInvokeBeforeDatasourceUpdate = true;
-            this.advancedDataGridView1.Location = new System.Drawing.Point(144, 397);
+            this.advancedDataGridView1.Location = new System.Drawing.Point(122, 397);
             this.advancedDataGridView1.Name = "advancedDataGridView1";
             this.advancedDataGridView1.ReadOnly = true;
             this.advancedDataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.advancedDataGridView1.RowHeadersVisible = false;
             this.advancedDataGridView1.RowHeadersWidth = 51;
-            this.advancedDataGridView1.Size = new System.Drawing.Size(569, 150);
+            this.advancedDataGridView1.Size = new System.Drawing.Size(646, 150);
             this.advancedDataGridView1.SortStringChangedInvokeBeforeDatasourceUpdate = true;
             this.advancedDataGridView1.TabIndex = 168;
+            this.advancedDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridView1_CellContentClick);
+            // 
+            // accesoriosBindingSource
+            // 
+            this.accesoriosBindingSource.DataSource = typeof(POSalesDb.Accesorios);
             // 
             // label2
             // 
@@ -268,7 +277,7 @@
             this.label2.Location = new System.Drawing.Point(10, 397);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 21);
+            this.label2.Size = new System.Drawing.Size(90, 20);
             this.label2.TabIndex = 169;
             this.label2.Text = "Accesorios";
             // 
@@ -278,7 +287,7 @@
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(718, 512);
+            this.btnAdd.Location = new System.Drawing.Point(774, 512);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(41, 35);
@@ -306,7 +315,7 @@
             this.cboMarcaEquipo.FormattingEnabled = true;
             this.cboMarcaEquipo.Location = new System.Drawing.Point(509, 340);
             this.cboMarcaEquipo.Name = "cboMarcaEquipo";
-            this.cboMarcaEquipo.Size = new System.Drawing.Size(445, 29);
+            this.cboMarcaEquipo.Size = new System.Drawing.Size(445, 27);
             this.cboMarcaEquipo.TabIndex = 175;
             this.cboMarcaEquipo.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -316,7 +325,7 @@
             this.label3.Location = new System.Drawing.Point(521, 300);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(167, 21);
+            this.label3.Size = new System.Drawing.Size(142, 20);
             this.label3.TabIndex = 174;
             this.label3.Text = "Marca del equipo";
             // 
@@ -340,7 +349,7 @@
             this.cboTipoEquipo.FormattingEnabled = true;
             this.cboTipoEquipo.Location = new System.Drawing.Point(7, 340);
             this.cboTipoEquipo.Name = "cboTipoEquipo";
-            this.cboTipoEquipo.Size = new System.Drawing.Size(445, 29);
+            this.cboTipoEquipo.Size = new System.Drawing.Size(445, 27);
             this.cboTipoEquipo.TabIndex = 5;
             this.cboTipoEquipo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -350,7 +359,7 @@
             this.label8.Location = new System.Drawing.Point(3, 300);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(144, 21);
+            this.label8.Size = new System.Drawing.Size(120, 20);
             this.label8.TabIndex = 171;
             this.label8.Text = "Tipo del equipo";
             // 
@@ -359,7 +368,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(774, 260);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(124, 25);
+            this.checkBox1.Size = new System.Drawing.Size(108, 24);
             this.checkBox1.TabIndex = 4;
             this.checkBox1.Text = "lleva series";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -407,13 +416,29 @@
             this.idEquipoDataGridViewTextBoxColumn.Visible = false;
             this.idEquipoDataGridViewTextBoxColumn.Width = 125;
             // 
-            // accesoriosBindingSource
+            // Edit
             // 
-            this.accesoriosBindingSource.DataSource = typeof(POSalesDb.Accesorios);
+            this.Edit.HeaderText = "";
+            this.Edit.MinimumWidth = 22;
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Edit.ToolTipText = "Editar";
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "";
+            this.Delete.MinimumWidth = 22;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Delete.ToolTipText = "Eliminar";
             // 
             // EquipoModulo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1021, 706);
             this.Controls.Add(this.checkBox1);
@@ -474,10 +499,6 @@
         private System.Windows.Forms.BindingSource accesoriosBindingSource;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoEquipoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn accesoriosEquipoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idEquipoDataGridViewTextBoxColumn;
         private FontAwesome.Sharp.IconButton iconButton6;
         private System.Windows.Forms.Label label3;
         private FontAwesome.Sharp.IconButton iconButton5;
@@ -485,5 +506,11 @@
         private System.Windows.Forms.CheckBox checkBox1;
         public System.Windows.Forms.ComboBox cboMarcaEquipo;
         public System.Windows.Forms.ComboBox cboTipoEquipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoEquipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn accesoriosEquipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEquipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn Edit;
+        private System.Windows.Forms.DataGridViewImageColumn Delete;
     }
 }

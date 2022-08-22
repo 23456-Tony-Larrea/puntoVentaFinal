@@ -214,7 +214,7 @@ namespace POSalesDb
 	              ,[ciRuc]
                   ,[nombre]
                   ,[idUsuarios]
-	              ,[ordenServicio].[Estado]
+	              ,[ordenServicio].[isReady]
               FROM [C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF].[dbo].[ordenServicio]
               join clientes on Clientes.Id = ordenServicio.idCliente");
                 using (SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn))
@@ -589,9 +589,9 @@ namespace POSalesDb
             try
             {
                 cm = new SqlCommand($@"SELECT Mantenimiento.Id,Mantenimiento.fechaMantenimiento , Mantenimiento.fechaEntregaEquipo, Mantenimiento.descripcionFalla, Mantenimiento.solucion, Mantenimiento.IdEstadoMantenimiento, 
-                         Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
+                         Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio as idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
                          Equipo.codigo ,Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
-                         FROM                   
+                         FROM                  
                          Mantenimiento LEFT JOIN
                          Equipo ON Mantenimiento.IdEquipo = Equipo.Id LEFT JOIN
                          estadoMantenimiento ON Mantenimiento.[IdEstadoMantenimiento] = estadoMantenimiento.Id Order by Mantenimiento.Id desc");
@@ -621,9 +621,9 @@ namespace POSalesDb
             try
             {
                 cm = new SqlCommand($@"SELECT Mantenimiento.Id,Mantenimiento.fechaMantenimiento , Mantenimiento.fechaEntregaEquipo, Mantenimiento.descripcionFalla, Mantenimiento.solucion, Mantenimiento.IdEstadoMantenimiento, 
-                         Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
+                         Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio as idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
                          Equipo.codigo ,Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
-                         FROM                   
+                         FROM             
                          Mantenimiento LEFT JOIN
                          Equipo ON Mantenimiento.IdEquipo = Equipo.Id LEFT JOIN
                          estadoMantenimiento ON Mantenimiento.[IdEstadoMantenimiento] = estadoMantenimiento.Id where Mantenimiento.idOrdenServicio = {IdOrden} Order by Mantenimiento.Id desc");
@@ -653,7 +653,7 @@ namespace POSalesDb
             try
             {
                 cm = new SqlCommand($@"SELECT Mantenimiento.Id,Mantenimiento.fechaMantenimiento , Mantenimiento.fechaEntregaEquipo, Mantenimiento.descripcionFalla, Mantenimiento.solucion, Mantenimiento.IdEstadoMantenimiento, 
-                         Mantenimiento.idUsuarios, Mantenimiento.codigo as idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
+                         Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio as idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
                          Equipo.codigo ,Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
                          FROM                   
                          [dbo].[Mantenimiento] LEFT JOIN
@@ -688,9 +688,9 @@ namespace POSalesDb
             try
             {
                 cm = new SqlCommand($@"SELECT Mantenimiento.Id,Mantenimiento.fechaMantenimiento , Mantenimiento.fechaEntregaEquipo, Mantenimiento.descripcionFalla, Mantenimiento.solucion, Mantenimiento.IdEstadoMantenimiento, 
-                         Mantenimiento.idUsuarios, Mantenimiento.codigo as idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
+                         Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio as idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
                          Equipo.codigo ,Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
-                         FROM                            
+                         FROM                     
                          Mantenimiento LEFT JOIN
                          Equipo ON Mantenimiento.IdEquipo = Equipo.Id LEFT JOIN
                          estadoMantenimiento ON Mantenimiento.[IdEstadoMantenimiento] = estadoMantenimiento.Id
@@ -752,9 +752,9 @@ namespace POSalesDb
             try
             {
                 cm = new SqlCommand($@"SELECT Mantenimiento.Id,Mantenimiento.fechaMantenimiento , Mantenimiento.fechaEntregaEquipo, Mantenimiento.descripcionFalla, Mantenimiento.solucion, Mantenimiento.IdEstadoMantenimiento, 
-                         Mantenimiento.idUsuarios, Mantenimiento.codigo as idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
+                         Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio as idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
                          Equipo.codigo ,Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
-                         FROM                             
+                         FROM                                
                          Mantenimiento LEFT JOIN
                          Equipo ON Mantenimiento.IdEquipo = Equipo.Id LEFT JOIN
                          estadoMantenimiento ON Mantenimiento.[IdEstadoMantenimiento] = estadoMantenimiento.Id
@@ -921,7 +921,7 @@ namespace POSalesDb
                 idOrdenServicio={MantenimientoModel.idOrdenServicio},
                 estadoAplicarCorreccion={Aplicar},
                 estadoNoAplicarCorreccion={NoAplicar},
-                precioReferencial ={MantenimientoModel.precioReferencial},";
+                precioReferencial ={MantenimientoModel.precioReferencial.ToString().Replace(",",".")},";
                 DateTime MinimunDate = Convert.ToDateTime("01/01/2000");
                 if (MantenimientoModel.fechaEntregaEquipo > MinimunDate)
                 {
@@ -952,18 +952,7 @@ namespace POSalesDb
                 return Error;
             }
             selectContadorDeMantenimientosRealizados(MantenimientoModel.idOrdenServicio);
-            deleteReserva(MantenimientoModel.Id);
-
-            if (MantenimientoModel.reservas.Count > 0)
-            {
-                foreach (var reserva in MantenimientoModel.reservas)
-                {
-                    reserva.IdMantenimiento = MantenimientoModel.Id;
-                    insertarReservas(reserva);
-                }
-
-            }
-
+       
         }
 
         //eliminar MantenimientoModels
@@ -1370,7 +1359,6 @@ namespace POSalesDb
                         equipo.IdMarcaEquipo = idMarca;
                         equipo.codigo = r["codigo"].ToString();
                         equipo.series = r["series"].ToString();
-                        equipos.Add(equipo);
                         equipos.Add(equipo);
                     }
 
@@ -4534,6 +4522,43 @@ namespace POSalesDb
                 cn.Close();
             }
         }
+        public Factura selectFacturaPorOrden(int IdOrden)
+        {
+            cn.ConnectionString = myConnection();
+            Factura factura = new Factura();
+            try
+            {
+                cm = new SqlCommand($"Select * from factura Where IdOrden = {IdOrden}");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                cn.Open();
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    factura.id_venta = (int)dt.Rows[0]["id_venta"];
+                    factura.numero = (int)dt.Rows[0]["numero"];
+                    factura.clienteId = (int)dt.Rows[0]["clienteId"];
+                    factura.usuario = (int)dt.Rows[0]["usuario"];
+                    factura.fecha_venta = Convert.ToDateTime(dt.Rows[0]["fecha_venta"]);
+                    factura.total = Convert.ToDecimal(dt.Rows[0]["total"]);
+                    factura.iva = Convert.ToDecimal(dt.Rows[0]["iva"]);
+                    factura.subtotal = Convert.ToDecimal(dt.Rows[0]["subtotal"]);
+                    factura.descuento = Convert.ToDecimal(dt.Rows[0]["descuento"]);
+                    factura.productoId = (int)dt.Rows[0]["productoId"];
+                }
+                return factura;
+
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return factura;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
         public DataSet selectFacturaIdData(int Id)
         {
             DataSet dt = new DataSet();
@@ -4541,10 +4566,10 @@ namespace POSalesDb
             Factura factura = new Factura();
             try
             {
-                cm = new SqlCommand($"Select * from factura Where Id = {Id}");
+                cm = new SqlCommand($"Select * from factura Where Id_venta = {Id}",cn);
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
-        
+
                 da.Fill(dt);
                 return dt;
 
@@ -4568,7 +4593,7 @@ namespace POSalesDb
 
             try
             {
-                cm = new SqlCommand($"Select * from Clientes");
+                cm = new SqlCommand($"Select * from Clientes",cn);
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();

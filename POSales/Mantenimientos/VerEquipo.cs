@@ -20,7 +20,7 @@ namespace POSales.Mantenimientos
         List<Equipo> ListaDeEquipos = new List<Equipo>();
         int idCliente;
         SqlDataReader dr;
-        public VerEquipo(int idCliente)
+        public VerEquipo()
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.myConnection());
@@ -31,9 +31,11 @@ namespace POSales.Mantenimientos
        public void cargarEquipo()
         {
             int i = 1;
-            ListaDeEquipos = dbcon.selectTodosLosEquiposPorCliente(idCliente);
+            ListaDeEquipos = dbcon.selectTodosLosEquipos();
             foreach (var equipo in ListaDeEquipos)
             {
+                equipo.tipoEquipo = dbcon.selectTipoEquipoId(equipo.IdtipoEquipo);
+                equipo.marcaEquipo = dbcon.selectMarcaEquipoId(equipo.IdMarcaEquipo);
                 dgvEquipo.Rows.Add(i,equipo.Id,equipo.descripcionEquipo,equipo.codigo,equipo.series);
                 i++;
             }
@@ -54,27 +56,6 @@ namespace POSales.Mantenimientos
                 equipoModule.ShowDialog();
                 cargarEquipo();
             }
-            colName = dgvEquipo.Columns[e.ColumnIndex].Name;
-            if (colName == "Selected")
-            {
-                if (dgvEquipo.Rows[e.RowIndex].Cells["Selected"].Value == null)
-                {
-                    dgvEquipo.Rows[e.RowIndex].Cells["Selected"].Value = true;
-                }
-                else
-                {
-                    string variable = dgvEquipo.Rows[e.RowIndex].Cells["Selected"].Value.ToString();
-                    if (variable == "False")
-                    {
-                        dgvEquipo.Rows[e.RowIndex].Cells["Selected"].Value = true;
-                    }
-                    else if (variable == "True")
-                    {
-                        dgvEquipo.Rows[e.RowIndex].Cells["Selected"].Value = false;
-                    }
-                }
-
-            }
         }
 
         private void VerEquipo_Load(object sender, EventArgs e)
@@ -89,8 +70,23 @@ namespace POSales.Mantenimientos
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Form equipoModule = new EquipoModulo(new Equipo());
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox1.Text))
+            {
+                string Buscar = textBox1.Text;
+                ListaDeEquipos.Where(x => x.codigo.Contains(Buscar) || x.descripcionEquipo.Contains(Buscar) || x.series.Contains(Buscar) || x.tipoEquipo.tipoEquipo.Contains(Buscar));
+                int i = 1;
+                dgvEquipo.Rows.Clear();
+                foreach (var equipo in ListaDeEquipos)
+                {
+                    dgvEquipo.Rows.Add(i, equipo.Id, equipo.descripcionEquipo, equipo.codigo, equipo.series);
+                    i++;
+                }
+            }
         }
     }
 }

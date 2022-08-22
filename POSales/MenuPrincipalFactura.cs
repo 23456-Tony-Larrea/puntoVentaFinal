@@ -48,14 +48,15 @@ namespace POSales
 
         private void btnList_Click(object sender, EventArgs e)
         {
-            Mantenimientos.OrdenServicioModulo orden = new Mantenimientos.OrdenServicioModulo(_idUsuario);
-            orden.ShowDialog();
+            Mantenimientos.Mantenimientos clientModule = new Mantenimientos.Mantenimientos(_idUsuario);
+            clientModule.ShowDialog();
         }
 
         private void btnOrdenMantenimiento_Click(object sender, EventArgs e)
         {
-            Mantenimientos.SeleccionarMantenimiento clientModule = new Mantenimientos.SeleccionarMantenimiento(_idUsuario);
-            clientModule.ShowDialog();
+            Mantenimientos.OrdenServicioModulo orden = new Mantenimientos.OrdenServicioModulo(_idUsuario);
+            orden.ShowDialog();
+
         }
 
         private void btnGenerarDaño_Click(object sender, EventArgs e)

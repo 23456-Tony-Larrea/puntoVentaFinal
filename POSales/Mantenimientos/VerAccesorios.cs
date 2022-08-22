@@ -1,15 +1,11 @@
 ﻿using POSalesDb;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
+using System.Collections.Generic;
+
 namespace POSales.Mantenimientos
 {
     public partial class VerAccesorios : Form
@@ -76,6 +72,16 @@ namespace POSales.Mantenimientos
         private void VerAccesorios_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox1.Text))
+            {
+                string Buscar = textBox1.Text;
+                accesorios.Select($"accesoriosEquipo like %{Buscar}% or codigo like %{Buscar}% or equipo like %{Buscar}%");
+            }
+           
         }
     }
 
