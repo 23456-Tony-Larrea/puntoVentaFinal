@@ -198,7 +198,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AccesoriosModulo";
             this.Text = "Accesorios";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AccesoriosModulo_FormClosing);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.panel2.ResumeLayout(false);

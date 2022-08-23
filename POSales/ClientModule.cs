@@ -47,7 +47,7 @@ namespace POSales
         {
             try
             {
-                if (MessageBox.Show("Estas seguro de guardar este ecliente?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Estas seguro de guardar este cliente?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
                     clientes.nombre= txtName.Text;
@@ -66,7 +66,7 @@ namespace POSales
                     clientes.fax = txtFax.Text;
                     clientes.cargo = txtCargo.Text;
                     clientes.email = txtEmail.Text;
-                    clientes.tipoCliente = cboTipoCliente.SelectedValue.ToString();
+                    clientes.tipoCliente = cboTipoCliente.SelectedItem.ToString();
                     string Error = dbcon.insertClientes(clientes);
                     if (string.IsNullOrEmpty(Error))
                     {
@@ -137,6 +137,55 @@ namespace POSales
                 MessageBox.Show("Cliente actualizado correctamente.", "POS");
                 Clear();
             }
+        }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ClientModule_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+               {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelf_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ClientModule_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCelular_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFax_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCiRuc_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -101,13 +101,7 @@ namespace POSales.Mantenimientos
 
         }
 
-        private void AccesoriosModulo_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (string.IsNullOrEmpty(accesorio.codigoEquipo))
-            {
-                MessageBox.Show("debe asignar un codigo de accesorio para poder ingresarlo a un equipo");
-            }
-        }
+        
     }
 }
 
