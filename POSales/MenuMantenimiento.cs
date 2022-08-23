@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POSales.Mantenimientos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -67,12 +68,14 @@ namespace POSales
 
         private void btnEquipo_Click(object sender, EventArgs e)
         {
-       
+            VerEquipo verEquipo = new VerEquipo();
+            verEquipo.ShowDialog();
         }
 
         private void btnAccesorios_Click(object sender, EventArgs e)
         {
-
+            VerAccesorios verAccesorios = new VerAccesorios();
+            verAccesorios.ShowDialog();
         }
     }
 }

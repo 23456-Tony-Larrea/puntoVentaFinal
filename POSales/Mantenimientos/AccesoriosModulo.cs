@@ -41,7 +41,6 @@ namespace POSales.Mantenimientos
         {
             txtIdAccesorios.Text = accesorio.Id.ToString();
             txtAccesoriosEquipo.Text = accesorio.accesoriosEquipo;
-            txtCodigoEquipo.Text = accesorio.codigoEquipo;
         }
 
         private void picClose_Click(object sender, EventArgs e)
@@ -51,14 +50,12 @@ namespace POSales.Mantenimientos
 
         public void Clear()
         {
-            txtCodigoEquipo.Clear();
             txtAccesoriosEquipo.Clear();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             accesorio.accesoriosEquipo = txtAccesoriosEquipo.Text;
-            accesorio.codigoEquipo = txtCodigoEquipo.Text ;
             this.Close();
         }
 

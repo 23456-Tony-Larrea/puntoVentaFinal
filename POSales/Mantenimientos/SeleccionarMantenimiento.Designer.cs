@@ -1,6 +1,6 @@
 ﻿namespace POSales.Mantenimientos
 {
-    partial class SeleccionarMantenimiento
+    partial class Mantenimientos
     {
         /// <summary>
         /// Required designer variable.
@@ -51,8 +51,10 @@
             this.NoAplicarCorreccion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.enviarSolucionPorWhatsappToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generarReporteDeDañoDeOrdenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcarEquipoEntregadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvOrdenes = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +62,8 @@
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroContextMenu1 = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.facturarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -71,6 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
+            this.metroContextMenu1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -278,15 +283,32 @@
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.enviarSolucionPorWhatsappToolStripMenuItem});
+            this.enviarSolucionPorWhatsappToolStripMenuItem,
+            this.generarReporteDeDañoDeOrdenToolStripMenuItem,
+            this.marcarEquipoEntregadoToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(273, 28);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(315, 76);
             // 
             // enviarSolucionPorWhatsappToolStripMenuItem
             // 
             this.enviarSolucionPorWhatsappToolStripMenuItem.Name = "enviarSolucionPorWhatsappToolStripMenuItem";
-            this.enviarSolucionPorWhatsappToolStripMenuItem.Size = new System.Drawing.Size(272, 24);
+            this.enviarSolucionPorWhatsappToolStripMenuItem.Size = new System.Drawing.Size(314, 24);
             this.enviarSolucionPorWhatsappToolStripMenuItem.Text = "Enviar solucion por whatsapp";
+            this.enviarSolucionPorWhatsappToolStripMenuItem.Click += new System.EventHandler(this.enviarSolucionPorWhatsappToolStripMenuItem_Click);
+            // 
+            // generarReporteDeDañoDeOrdenToolStripMenuItem
+            // 
+            this.generarReporteDeDañoDeOrdenToolStripMenuItem.Name = "generarReporteDeDañoDeOrdenToolStripMenuItem";
+            this.generarReporteDeDañoDeOrdenToolStripMenuItem.Size = new System.Drawing.Size(314, 24);
+            this.generarReporteDeDañoDeOrdenToolStripMenuItem.Text = "Generar Reporte de Daño de Orden";
+            this.generarReporteDeDañoDeOrdenToolStripMenuItem.Click += new System.EventHandler(this.generarReporteDeDañoDeOrdenToolStripMenuItem_Click);
+            // 
+            // marcarEquipoEntregadoToolStripMenuItem
+            // 
+            this.marcarEquipoEntregadoToolStripMenuItem.Name = "marcarEquipoEntregadoToolStripMenuItem";
+            this.marcarEquipoEntregadoToolStripMenuItem.Size = new System.Drawing.Size(314, 24);
+            this.marcarEquipoEntregadoToolStripMenuItem.Text = "Marcar Equipo Entregado";
+            this.marcarEquipoEntregadoToolStripMenuItem.Click += new System.EventHandler(this.marcarEquipoEntregadoToolStripMenuItem_Click);
             // 
             // dgvOrdenes
             // 
@@ -306,7 +328,7 @@
             this.dgvOrdenes.ColumnHeadersHeight = 30;
             this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvOrdenes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
+            this.IdOrden,
             this.dataGridViewTextBoxColumn2,
             this.Cedula,
             this.NombreCliente,
@@ -314,6 +336,7 @@
             this.Estado,
             this.dataGridViewTextBoxColumn7,
             this.idCliente});
+            this.dgvOrdenes.ContextMenuStrip = this.metroContextMenu1;
             this.dgvOrdenes.EnableHeadersVisualStyles = false;
             this.dgvOrdenes.Location = new System.Drawing.Point(12, 170);
             this.dgvOrdenes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -325,12 +348,12 @@
             this.dgvOrdenes.TabIndex = 16;
             this.dgvOrdenes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrdenes_CellContentClick);
             // 
-            // dataGridViewTextBoxColumn1
+            // IdOrden
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Numero de Orden";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.IdOrden.HeaderText = "Numero de Orden";
+            this.IdOrden.MinimumWidth = 6;
+            this.IdOrden.Name = "IdOrden";
+            this.IdOrden.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -387,6 +410,21 @@
             this.idCliente.ReadOnly = true;
             this.idCliente.Visible = false;
             // 
+            // metroContextMenu1
+            // 
+            this.metroContextMenu1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.metroContextMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.facturarToolStripMenuItem});
+            this.metroContextMenu1.Name = "metroContextMenu1";
+            this.metroContextMenu1.Size = new System.Drawing.Size(131, 28);
+            // 
+            // facturarToolStripMenuItem
+            // 
+            this.facturarToolStripMenuItem.Name = "facturarToolStripMenuItem";
+            this.facturarToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
+            this.facturarToolStripMenuItem.Text = "Facturar";
+            this.facturarToolStripMenuItem.Click += new System.EventHandler(this.facturarToolStripMenuItem_Click);
+            // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.SystemColors.Highlight;
@@ -408,6 +446,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(372, 22);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label6
             // 
@@ -453,6 +492,7 @@
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.Size = new System.Drawing.Size(103, 22);
             this.dateTimePicker4.TabIndex = 42;
+            this.dateTimePicker4.ValueChanged += new System.EventHandler(this.dateTimePicker4_ValueChanged);
             // 
             // txtBucadorCodigo
             // 
@@ -476,7 +516,7 @@
             this.label9.Text = "Buscar Por Codigo,Falla,Solcion y Descripcion de Equipo";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // SeleccionarMantenimiento
+            // Mantenimientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -495,13 +535,15 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "SeleccionarMantenimiento";
+            this.Name = "Mantenimientos";
             this.Text = "SeleccionarMantenimiento";
             this.Load += new System.EventHandler(this.SeleccionarMantenimiento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).EndInit();
+            this.metroContextMenu1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -537,7 +579,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem enviarSolucionPorWhatsappToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdOrden;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreCliente;
@@ -545,5 +587,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCliente;
+        private MetroFramework.Controls.MetroContextMenu metroContextMenu1;
+        private System.Windows.Forms.ToolStripMenuItem facturarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generarReporteDeDañoDeOrdenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcarEquipoEntregadoToolStripMenuItem;
     }
 }

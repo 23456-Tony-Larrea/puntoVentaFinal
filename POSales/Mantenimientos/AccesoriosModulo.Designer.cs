@@ -40,8 +40,6 @@
             this.picClose = new System.Windows.Forms.PictureBox();
             this.label18 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtCodigoEquipo = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel2.SuspendLayout();
@@ -50,19 +48,19 @@
             // txtAccesoriosEquipo
             // 
             this.txtAccesoriosEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtAccesoriosEquipo.Location = new System.Drawing.Point(211, 132);
+            this.txtAccesoriosEquipo.Location = new System.Drawing.Point(23, 121);
             this.txtAccesoriosEquipo.Multiline = true;
             this.txtAccesoriosEquipo.Name = "txtAccesoriosEquipo";
-            this.txtAccesoriosEquipo.Size = new System.Drawing.Size(569, 120);
+            this.txtAccesoriosEquipo.Size = new System.Drawing.Size(747, 120);
             this.txtAccesoriosEquipo.TabIndex = 2;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 135);
+            this.label10.Location = new System.Drawing.Point(19, 98);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(206, 21);
+            this.label10.Size = new System.Drawing.Size(173, 20);
             this.label10.TabIndex = 177;
             this.label10.Text = "Accesorios del equipo";
             // 
@@ -101,7 +99,7 @@
             this.txtIdAccesorios.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtIdAccesorios.Location = new System.Drawing.Point(62, 53);
             this.txtIdAccesorios.Name = "txtIdAccesorios";
-            this.txtIdAccesorios.Size = new System.Drawing.Size(114, 30);
+            this.txtIdAccesorios.Size = new System.Drawing.Size(114, 25);
             this.txtIdAccesorios.TabIndex = 171;
             this.txtIdAccesorios.Visible = false;
             // 
@@ -164,7 +162,7 @@
             this.label18.Location = new System.Drawing.Point(29, 56);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(27, 21);
+            this.label18.Size = new System.Drawing.Size(24, 20);
             this.label18.TabIndex = 170;
             this.label18.Text = "Id";
             this.label18.Visible = false;
@@ -181,27 +179,9 @@
             this.panel2.TabIndex = 169;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // txtCodigoEquipo
-            // 
-            this.txtCodigoEquipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodigoEquipo.Location = new System.Drawing.Point(190, 96);
-            this.txtCodigoEquipo.Name = "txtCodigoEquipo";
-            this.txtCodigoEquipo.Size = new System.Drawing.Size(590, 30);
-            this.txtCodigoEquipo.TabIndex = 1;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(43, 99);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(140, 21);
-            this.label11.TabIndex = 179;
-            this.label11.Text = "codigo equipo";
-            // 
             // AccesoriosModulo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 374);
             this.Controls.Add(this.txtAccesoriosEquipo);
@@ -213,8 +193,6 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.txtCodigoEquipo);
-            this.Controls.Add(this.label11);
             this.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -242,7 +220,5 @@
         private System.Windows.Forms.PictureBox picClose;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtCodigoEquipo;
-        private System.Windows.Forms.Label label11;
     }
 }

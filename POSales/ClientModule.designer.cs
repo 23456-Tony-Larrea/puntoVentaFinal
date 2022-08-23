@@ -70,8 +70,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
-            this.cboTipoCliente = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.cboTipoCliente = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
@@ -307,6 +307,7 @@
             // 
             // cboTipo
             // 
+            this.cboTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipo.FormattingEnabled = true;
             this.cboTipo.Items.AddRange(new object[] {
             "CI",
@@ -352,6 +353,7 @@
             // 
             // cboEstado
             // 
+            this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstado.FormattingEnabled = true;
             this.cboEstado.Items.AddRange(new object[] {
             "True",
@@ -473,27 +475,28 @@
             this.txtId.Size = new System.Drawing.Size(114, 28);
             this.txtId.TabIndex = 45;
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(19, 562);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(135, 21);
+            this.label19.TabIndex = 46;
+            this.label19.Text = "Tipo de cliente";
+            // 
             // cboTipoCliente
             // 
+            this.cboTipoCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipoCliente.FormattingEnabled = true;
             this.cboTipoCliente.Items.AddRange(new object[] {
             "Precio A",
             "Precio B",
             "Precio C",
             "Precio D"});
-            this.cboTipoCliente.Location = new System.Drawing.Point(447, 523);
+            this.cboTipoCliente.Location = new System.Drawing.Point(156, 559);
             this.cboTipoCliente.Name = "cboTipoCliente";
             this.cboTipoCliente.Size = new System.Drawing.Size(220, 29);
             this.cboTipoCliente.TabIndex = 17;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(310, 526);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(135, 21);
-            this.label19.TabIndex = 46;
-            this.label19.Text = "Tipo de cliente";
             // 
             // ClientModule
             // 
@@ -597,7 +600,7 @@
         public System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.ComboBox cboTipoCliente;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox cboTipoCliente;
     }
 }

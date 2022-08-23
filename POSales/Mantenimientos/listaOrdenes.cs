@@ -21,5 +21,15 @@ namespace POSales.Mantenimientos
         {
 
         }
+
+        private void enviarSolucionPorWhatsappToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listaOrdenes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

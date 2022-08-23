@@ -47,7 +47,7 @@ namespace POSales
         {
             try
             {
-                if (MessageBox.Show("Estas seguro de guardar este ecliente?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Estas seguro de guardar este cliente?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
                     clientes.nombre= txtName.Text;
@@ -66,7 +66,7 @@ namespace POSales
                     clientes.fax = txtFax.Text;
                     clientes.cargo = txtCargo.Text;
                     clientes.email = txtEmail.Text;
-                    clientes.tipoCliente = cboTipoCliente.SelectedValue.ToString();
+                    clientes.tipoCliente = cboTipoCliente.SelectedItem.ToString();
                     string Error = dbcon.insertClientes(clientes);
                     if (string.IsNullOrEmpty(Error))
                     {

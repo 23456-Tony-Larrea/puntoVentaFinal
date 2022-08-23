@@ -40,7 +40,6 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelSlide = new System.Windows.Forms.Panel();
             this.btnList = new System.Windows.Forms.Button();
-            this.btnGenerarDaño = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -54,7 +53,7 @@
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(0, 595);
+            this.btnSalir.Location = new System.Drawing.Point(0, 532);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
@@ -72,7 +71,7 @@
             this.lblName.Location = new System.Drawing.Point(7, 127);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(25, 20);
+            this.lblName.Size = new System.Drawing.Size(21, 17);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Ln";
             this.lblName.Visible = false;
@@ -84,7 +83,7 @@
             this.lblUsername.Location = new System.Drawing.Point(72, 151);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(63, 20);
+            this.lblUsername.Size = new System.Drawing.Size(51, 17);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Usuario";
             // 
@@ -95,7 +94,7 @@
             this.lblRole.Location = new System.Drawing.Point(68, 197);
             this.lblRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(78, 20);
+            this.lblRole.Size = new System.Drawing.Size(64, 17);
             this.lblRole.TabIndex = 0;
             this.lblRole.Text = "facturero";
             // 
@@ -181,7 +180,6 @@
             this.panelSlide.AllowDrop = true;
             this.panelSlide.AutoScroll = true;
             this.panelSlide.Controls.Add(this.btnList);
-            this.panelSlide.Controls.Add(this.btnGenerarDaño);
             this.panelSlide.Controls.Add(this.btnSalir);
             this.panelSlide.Controls.Add(this.btnOrdenMantenimiento);
             this.panelSlide.Controls.Add(this.btnCompras);
@@ -193,7 +191,7 @@
             this.panelSlide.Location = new System.Drawing.Point(0, 0);
             this.panelSlide.Margin = new System.Windows.Forms.Padding(4);
             this.panelSlide.Name = "panelSlide";
-            this.panelSlide.Size = new System.Drawing.Size(241, 660);
+            this.panelSlide.Size = new System.Drawing.Size(241, 596);
             this.panelSlide.TabIndex = 8;
             // 
             // btnList
@@ -202,7 +200,7 @@
             this.btnList.FlatAppearance.BorderSize = 0;
             this.btnList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnList.ForeColor = System.Drawing.Color.White;
-            this.btnList.Location = new System.Drawing.Point(0, 527);
+            this.btnList.Location = new System.Drawing.Point(0, 465);
             this.btnList.Margin = new System.Windows.Forms.Padding(4);
             this.btnList.Name = "btnList";
             this.btnList.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
@@ -212,23 +210,6 @@
             this.btnList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnList.UseVisualStyleBackColor = false;
             this.btnList.Click += new System.EventHandler(this.btnList_Click);
-            // 
-            // btnGenerarDaño
-            // 
-            this.btnGenerarDaño.BackColor = System.Drawing.Color.Blue;
-            this.btnGenerarDaño.FlatAppearance.BorderSize = 0;
-            this.btnGenerarDaño.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerarDaño.ForeColor = System.Drawing.Color.White;
-            this.btnGenerarDaño.Location = new System.Drawing.Point(0, 463);
-            this.btnGenerarDaño.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGenerarDaño.Name = "btnGenerarDaño";
-            this.btnGenerarDaño.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.btnGenerarDaño.Size = new System.Drawing.Size(241, 68);
-            this.btnGenerarDaño.TabIndex = 5;
-            this.btnGenerarDaño.Text = "Generar reporte del daño";
-            this.btnGenerarDaño.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerarDaño.UseVisualStyleBackColor = false;
-            this.btnGenerarDaño.Click += new System.EventHandler(this.btnGenerarDaño_Click);
             // 
             // btnClientes
             // 
@@ -256,14 +237,14 @@
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Margin = new System.Windows.Forms.Padding(4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1742, 660);
+            this.panelMain.Size = new System.Drawing.Size(1284, 596);
             this.panelMain.TabIndex = 9;
             // 
             // MenuPrincipalFactura
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1742, 660);
+            this.ClientSize = new System.Drawing.Size(1284, 596);
             this.Controls.Add(this.panelSlide);
             this.Controls.Add(this.panelMain);
             this.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -291,7 +272,6 @@
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Panel panelSlide;
         private System.Windows.Forms.Button btnList;
-        private System.Windows.Forms.Button btnGenerarDaño;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Panel panelMain;
     }

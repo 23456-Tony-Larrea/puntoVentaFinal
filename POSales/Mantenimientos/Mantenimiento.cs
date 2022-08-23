@@ -132,34 +132,34 @@ namespace POSales.Mantenimientos
                             mantenimiento.equipo = dbcon.selectEquipoPorId(mantenimiento.IdEquipo);
                         }
 
-                        Mantenimientos.precioReferencial MantenimientoView = new Mantenimientos.precioReferencial(mantenimiento, usuario.Id);
+                    POSales.Mantenimientos.precioReferencial MantenimientoView = new POSales.Mantenimientos.precioReferencial(mantenimiento, usuario.Id);
                         MantenimientoView.ShowDialog();
                         mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
                         dgvClients.Rows[index].Cells["solucion"].Value = mantenimiento.solucion;
                         mantenimiento.estadoMantenimiento = dbcon.selectEstadoMantenimientoPorId(mantenimiento.idEstadoMantenimiento);
                         dgvClients.Rows[index].Cells["IdEstadoMantenimiento"].Value = mantenimiento.estadoMantenimiento.Id;
-                        dgvClients.Rows[index].Cells["estado"].Value = mantenimiento.estadoMantenimiento.descripcion;
+                        dgvClients.Rows[index].Cells["descripcion"].Value = mantenimiento.estadoMantenimiento.descripcion;
 
                 }
                     if (colum.Name == "aplicarCorreccion")
                     {
-                        if (usuario.role == "tecnico" && (bool)dgvClients.Rows[index].Cells["aplicarCorreccion"].Value == true)
+                        if (usuario.role == "tecnico" && (bool)dgvClients.Rows[index].Cells["aplicarCorreccion"].Value == true && mantenimiento.idEstadoMantenimiento == 4)
                         {
                             mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
                             mantenimiento.idEstadoMantenimiento = 5;
                             dbcon.actualizarMantenimientoModel(mantenimiento);
                         }
-                        if (idmantenimiento > 0 && usuario.role == "facturero")
-                        {
-                            dgvClients.Rows[index].Cells["aplicarCorreccion"].Value = true;
-                            dgvClients.Rows[index].Cells["NoAplicarCorreccion"].Value = false;
-                            mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
-                            mantenimiento.equipo = dbcon.selectEquipoPorId(mantenimiento.IdEquipo);
-                            mantenimiento.estadoAplicarCorreccion = true;
-                            mantenimiento.estadoNoAplicarCorreccion = false;
-                            mantenimiento.idEstadoMantenimiento = 4;
-                            dbcon.actualizarMantenimientoModel(mantenimiento);
-                        }
+                        if (idmantenimiento > 0 && mantenimiento.idEstadoMantenimiento < 4 && usuario.role == "facturero")
+                            {
+                                dgvClients.Rows[index].Cells["aplicarCorreccion"].Value = true;
+                                dgvClients.Rows[index].Cells["NoAplicarCorreccion"].Value = false;
+                                mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
+                                mantenimiento.equipo = dbcon.selectEquipoPorId(mantenimiento.IdEquipo);
+                                mantenimiento.estadoAplicarCorreccion = true;
+                                mantenimiento.estadoNoAplicarCorreccion = false;
+                                mantenimiento.idEstadoMantenimiento = 4;
+                                dbcon.actualizarMantenimientoModel(mantenimiento);
+                            }
 
                     }
                 if (colum.Name == "NoAplicarCorreccion" && usuario.role == "facturero")
@@ -283,6 +283,48 @@ namespace POSales.Mantenimientos
                 dtFechaEntregaDesde.Value = dtFechaEntregaMantenimientoHasta.Value;
                 MessageBox.Show("Debe escoger un valor Mayor en la fecha Hasta");
                 return;
+            }
+        }
+
+        private void agregarReservaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int idmantenimiento = 0;
+            int index = dgvClients.CurrentCell.RowIndex;
+            if (index > (-1))
+            {
+                int.TryParse(dgvClients.Rows[index].Cells["id"].Value.ToString(), out idmantenimiento);
+                var mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
+                if (mantenimiento.idEstadoMantenimiento == 4)
+                {
+                    ReservasModulo reserva = new ReservasModulo(idmantenimiento);
+                    reserva.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("No se le puede aplicar reserva al equipo");
+                }
+           
+            }
+                
+        }
+
+        private void cambiarAPorEntregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int idmantenimiento = 0;
+            int index = dgvClients.CurrentCell.RowIndex;
+            if (index > (-1))
+            {
+
+                int.TryParse(dgvClients.Rows[index].Cells["id"].Value.ToString(), out idmantenimiento);
+                if (usuario.role == "tecnico" && (bool)dgvClients.Rows[index].Cells["aplicarCorreccion"].Value == true && mantenimiento.idEstadoMantenimiento == 4)
+                {
+                    mantenimiento = dbcon.selectMantenimientoModelPorId(idmantenimiento);
+                    mantenimiento.idEstadoMantenimiento = 5;
+                    mantenimiento.estadoMantenimiento = dbcon.selectEstadoMantenimientoPorId(mantenimiento.idEstadoMantenimiento);
+                    dgvClients.Rows[index].Cells["IdEstadoMantenimiento"].Value = mantenimiento.estadoMantenimiento.Id;
+                    dgvClients.Rows[index].Cells["descripcion"].Value = mantenimiento.estadoMantenimiento.descripcion;
+                    dbcon.actualizarMantenimientoModel(mantenimiento);
+                }
             }
         }
     }

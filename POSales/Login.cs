@@ -59,6 +59,7 @@ namespace POSales
                     cashier.lblUsername.Text = usuario.nombre;
                     cashier.lblname.Text = usuario.nombre + " | " + _role;
                     cashier.ShowDialog();
+                    this.Show();
                 }
 
                 if (usuario.role == "Administrador")
@@ -71,7 +72,7 @@ namespace POSales
                     main.lblUsername.Text = usuario.username;
                     main.lblName.Text = usuario.nombre;
                     main.ShowDialog();
-                    this.Visible = true;
+                    this.Show();
                 }
                 if (usuario.role == "facturero")
                 {
@@ -81,7 +82,7 @@ namespace POSales
                     this.Hide();
                     MenuPrincipalFactura menuPrincipalFactura = new MenuPrincipalFactura(usuario.Id);
                     menuPrincipalFactura.ShowDialog();
-                    this.Visible = true;
+                    this.Show();
 
                 }
                 
@@ -93,7 +94,7 @@ namespace POSales
                     this.Hide();
                     MenuMantenimiento  menuMantenimiento = new MenuMantenimiento(usuario.Id);
                     menuMantenimiento.ShowDialog() ;
-                    this.Visible = true;
+                    this.Show();
                 }
 
             }

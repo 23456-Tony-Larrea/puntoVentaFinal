@@ -161,5 +161,10 @@ namespace POSales.Mantenimientos
             MarcaEquipoModulo marcaEquipo = new MarcaEquipoModulo(new POSalesDb.MarcaEquipo());
             marcaEquipo.ShowDialog();
         }
+
+        private void advancedDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
