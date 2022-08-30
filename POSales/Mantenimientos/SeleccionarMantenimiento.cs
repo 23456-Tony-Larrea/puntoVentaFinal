@@ -51,7 +51,9 @@ namespace POSales.Mantenimientos
 
         private void CargarOrdenes()
         {
-            dgvOrdenes.Rows.Clear();
+            orden = dbcon.selectTodosLasOrdenServicioModel();
+            dgvOrdenes.Rows.Clear()
+            ;
             DataSet ordenes = new DataSet();
             ordenes = dbcon.selectTodosLasOrdenesDS();
             if (ordenes.Tables.Count > 0)
@@ -91,8 +93,33 @@ namespace POSales.Mantenimientos
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-          
-           
+
+            dgvOrdenes.Rows.Clear();
+            DataSet ordenes = new DataSet();
+            ordenes = dbcon.selectTodosLasOrdenesDS(dateTimePicker4.Value,dateTimePicker3.Value);
+            if (ordenes.Tables.Count > 0)
+            {
+                if (ordenes.Tables[0].Rows.Count > 0)
+                {
+                    foreach (DataRow r in ordenes.Tables[0].Rows)
+                    {
+                        string Estado = string.Empty;
+                        if (r["IsReady"].ToString() == "1" || r["IsReady"].ToString() == "true")
+                        {
+                            Estado = "Facturado";
+                        }
+                        else
+                        {
+                            Estado = "No Facturado";
+                        }
+                        dgvOrdenes.Rows.Add(r["id"].ToString(), r["Fecha Ingreso"].ToString(),
+                            r["ciRuc"].ToString(), r["Nombre"].ToString(),
+                            r["IsReady"].ToString(), Estado, r["idUsuarios"].ToString(),
+                            r["idCliente"].ToString());
+                    }
+
+                }
+            }
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
@@ -287,7 +314,7 @@ namespace POSales.Mantenimientos
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            ((DataTable)dgvOrdenes.DataSource).DefaultView.RowFilter = string.Format("[NombreCliente] LIKE '%{0}%' || ", textBox1.Text);
+            ((DataTable)dgvOrdenes.DataSource).DefaultView.RowFilter = string.Format("[Nombre1] LIKE '%{0}%' || ", textBox1.Text);
         }
 
         private void marcarEquipoEntregadoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -308,11 +335,6 @@ namespace POSales.Mantenimientos
                     dbcon.actualizarMantenimientoModel(mantenimiento);
                 }
             }
-        }
-
-        private void dateTimePicker4_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

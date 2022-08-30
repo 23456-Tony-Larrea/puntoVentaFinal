@@ -119,7 +119,11 @@ namespace POSales.Mantenimientos
         private void dgvClients_CellClick(object sender, DataGridViewCellEventArgs e)
         {
                 int idmantenimiento = 0;
-                int index = e.RowIndex;
+            if (dgvClients.Rows.Count == 0)
+            {
+                return;
+            }
+            int index = e.RowIndex;
                 if (index > (-1))
                 {
                     int.TryParse(dgvClients.Rows[index].Cells["id"].Value.ToString(), out idmantenimiento);
@@ -210,6 +214,10 @@ namespace POSales.Mantenimientos
         {
             decimal total = 0;
             int idmantenimiento = 0;
+            if (dgvClients.Rows.Count == 0)
+            {
+                return;
+            }
             int index = dgvClients.CurrentCell.RowIndex;
             if (index > (-1))
             {
@@ -289,6 +297,11 @@ namespace POSales.Mantenimientos
         private void agregarReservaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int idmantenimiento = 0;
+            if (dgvClients.Rows.Count == 0)
+            {
+                return;
+            }
+
             int index = dgvClients.CurrentCell.RowIndex;
             if (index > (-1))
             {
@@ -311,6 +324,10 @@ namespace POSales.Mantenimientos
         private void cambiarAPorEntregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int idmantenimiento = 0;
+            if (dgvClients.Rows.Count == 0)
+            {
+                return;
+            }
             int index = dgvClients.CurrentCell.RowIndex;
             if (index > (-1))
             {

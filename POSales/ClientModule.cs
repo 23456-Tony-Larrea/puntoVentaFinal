@@ -24,13 +24,38 @@ namespace POSales
             InitializeComponent();
             cn = new SqlConnection(dbcon.myConnection());
             this.clientes = cliente;
-              
+            ocultarActualizar();
+           
         }
-        private void EsNuevoIngreso()
+        
+        private void cargarCliente()
         {
-            if (clientes.Id > 0)
+            
+            txtName.Text = clientes.nombre;
+            txtComercio.Text =clientes.comercio ;
+            txtCodigo.Text= clientes.codigo;
+            dateNacimiento.Value= clientes.fechaNacimiento;
+            dateRegisstro.Value= clientes.fechaRegistro  ;
+             txtCiudad.Text=clientes.ciudad ;
+             cboTipo.Text= clientes.tipo;
+            txtCiRuc.Text= clientes.ciRuc ;
+            txtPais.Text=clientes.pais ;
+            cboEstado.Text=clientes.estado ;
+            txtDireccion.Text= clientes.direccion ;
+            txtTelf.Text= clientes.telefono ;
+            txtCelular.Text= clientes.celular ;
+            txtFax.Text=clientes.fax ;
+            txtCargo.Text= clientes.cargo ;
+            txtEmail.Text=clientes.email  ;
+            cboTipoCliente.Text=clientes.tipoCliente;
+        }
+
+        private void ocultarActualizar()
+        {
+             if (clientes.Id > 0)
             {
                 btnSave.Visible = false;
+                cargarCliente();
             }
             else
             {
@@ -106,40 +131,58 @@ namespace POSales
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            //Update brand name
-            if (MessageBox.Show("Estas seguro de actualizar este cliente?", "Actualizado con exito!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-                cn.Open();
-                cm = new SqlCommand("UPDATE Clientes SET nombre=@nombre,comercio=@comercio,codigo=@codigo,fechaNacimiento=@fechaNacimiento,fechaRegistro=@fechaRegistro,ciudad=@ciudad,tip=@tipo,ciRuc=@ciRuc,pais=@pais,estado=@estado,direccion=@direccion,celular=@celular,fax=@fax,cargo=cargo,emaiñ=@email,tipoCliente=@tipoCliente  WHERE id LIKE'" + txtId.Text + "'", cn);
-                cm.Parameters.AddWithValue("@nombre", txtName.Text);
-                cm.Parameters.AddWithValue("@comercio", txtComercio.Text);
-                cm.Parameters.AddWithValue("@codigo", txtCodigo.Text);
-                cm.Parameters.AddWithValue("@fechaNacimiento", dateNacimiento.Value.ToString("dd/MM/yyy"));
-                cm.Parameters.AddWithValue("@fechaRegistro", dateRegisstro.Value.ToString("dd/MM/yyy"));
-                cm.Parameters.AddWithValue("@ciudad", txtCiudad.Text);
-                cm.Parameters.AddWithValue("@tipo", cboTipo.SelectedItem.ToString());
-                cm.Parameters.AddWithValue("@ciRuc", txtCiRuc.Text);
-                cm.Parameters.AddWithValue("@pais", txtPais.Text);
-                cm.Parameters.AddWithValue("@estado", cboEstado.SelectedItem.ToString());
-                cm.Parameters.AddWithValue("@direccion", txtDireccion.Text);
-                cm.Parameters.AddWithValue("@telefono", txtTelf.Text);
-                cm.Parameters.AddWithValue("@celular", txtCelular.Text);
-                cm.Parameters.AddWithValue("@fax", txtFax.Text);
-                cm.Parameters.AddWithValue("@cargo", txtCargo.Text);
-                cm.Parameters.AddWithValue("@email", txtEmail.Text);
-                cm.Parameters.AddWithValue("@tipoCliente", cboTipoCliente.SelectedValue);
 
-                cm.ExecuteNonQuery();
-                cn.Close();
-                MessageBox.Show("Existosamente guardado.", "POS");
-                Clear(); cm.ExecuteNonQuery();
-                cn.Close();
-                MessageBox.Show("Cliente actualizado correctamente.", "POS");
+
+                if (MessageBox.Show("Estas seguro de actualizar este cliente?", "Actualizado con exito!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    clientes.nombre = txtName.Text ;
+                    clientes.comercio= txtComercio.Text ;
+                    clientes.codigo= txtCodigo.Text ;
+                    clientes.fechaNacimiento= dateNacimiento.Value ;
+                    clientes.fechaRegistro = dateRegisstro.Value ;
+                    clientes.ciudad = txtCiudad.Text ;
+                     clientes.tipo= cboTipo.Text ;
+                     clientes.ciRuc= txtCiRuc.Text ;
+                    clientes.pais= txtPais.Text ;
+                     clientes.estado= cboEstado.Text;
+                    clientes.direccion= txtDireccion.Text ;
+                    clientes.telefono=txtTelf.Text ;
+                    clientes.celular= txtCelular.Text ;
+                    clientes.fax= txtFax.Text ;
+                    clientes.cargo= txtCargo.Text ;
+                    clientes.email=txtEmail.Text ;
+                    clientes.tipoCliente= cboTipoCliente.Text ;
+                    dbcon.actualizarClientes(clientes);
+                    MessageBox.Show("Cliente actualizado correctamente.", "POS");
+                }
                 Clear();
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
+           
+        }
+  
+        private void txtComercio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+            {
+                e.Handled = true;
+                MessageBox.Show("por favor solo ingresa solo letras");
+            }
+
         }
 
-   
+        private void txtCiRuc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                MessageBox.Show("por favor solo ingresa solo numeros");
+            }
 
         }
+    }
     }

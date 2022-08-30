@@ -16,9 +16,10 @@ namespace POSales
         [STAThread]
         static void Main()
         {
+            int idUsuario = 2;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ClientModule(new Clientes()));
+            Application.Run(new MenuPrincipalFactura(idUsuario));
         }
     }
 }

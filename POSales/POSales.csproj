@@ -381,6 +381,12 @@
     <Compile Include="Mantenimientos\AccesoriosModulo.Designer.cs">
       <DependentUpon>AccesoriosModulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\VerCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\VerCliente.Designer.cs">
+      <DependentUpon>VerCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\VerEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -725,6 +731,9 @@
     <EmbeddedResource Include="Mantenimientos\AccesoriosModulo.resx">
       <DependentUpon>AccesoriosModulo.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\VerCliente.resx">
+      <DependentUpon>VerCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\VerEquipo.resx">
       <DependentUpon>VerEquipo.cs</DependentUpon>

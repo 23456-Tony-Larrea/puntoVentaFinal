@@ -287,7 +287,7 @@
             this.generarReporteDeDañoDeOrdenToolStripMenuItem,
             this.marcarEquipoEntregadoToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(315, 76);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(259, 70);
             // 
             // enviarSolucionPorWhatsappToolStripMenuItem
             // 
@@ -306,7 +306,7 @@
             // marcarEquipoEntregadoToolStripMenuItem
             // 
             this.marcarEquipoEntregadoToolStripMenuItem.Name = "marcarEquipoEntregadoToolStripMenuItem";
-            this.marcarEquipoEntregadoToolStripMenuItem.Size = new System.Drawing.Size(314, 24);
+            this.marcarEquipoEntregadoToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
             this.marcarEquipoEntregadoToolStripMenuItem.Text = "Marcar Equipo Entregado";
             this.marcarEquipoEntregadoToolStripMenuItem.Click += new System.EventHandler(this.marcarEquipoEntregadoToolStripMenuItem_Click);
             // 
@@ -344,7 +344,8 @@
             this.dgvOrdenes.ReadOnly = true;
             this.dgvOrdenes.RowHeadersVisible = false;
             this.dgvOrdenes.RowHeadersWidth = 51;
-            this.dgvOrdenes.Size = new System.Drawing.Size(1165, 226);
+            this.dgvOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOrdenes.Size = new System.Drawing.Size(874, 184);
             this.dgvOrdenes.TabIndex = 16;
             this.dgvOrdenes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrdenes_CellContentClick);
             // 
@@ -492,7 +493,6 @@
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.Size = new System.Drawing.Size(103, 22);
             this.dateTimePicker4.TabIndex = 42;
-            this.dateTimePicker4.ValueChanged += new System.EventHandler(this.dateTimePicker4_ValueChanged);
             // 
             // txtBucadorCodigo
             // 

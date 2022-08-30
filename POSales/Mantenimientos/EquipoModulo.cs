@@ -55,25 +55,32 @@ namespace POSales.Mantenimientos
             {
                 checkBox1.Checked = true;
             }
-            cboTipoEquipo.Text = tipoEquipos.Where(x => x.Id == equipo.IdtipoEquipo).First().tipoEquipo;
-            cboMarcaEquipo.Text = marcas.Where(x => x.Id == equipo.IdMarcaEquipo).First().NombreMarcaEquipo;
+            //cboTipoEquipo.Text = tipoEquipos.FirstOrDefault(x => x.Id == equipo.IdtipoEquipo).tipoEquipo;
+            //cboMarcaEquipo.Text = marcas.FirstOrDefault(x => x.Id == equipo.IdMarcaEquipo).NombreMarcaEquipo;
         }
 
         private void cargarMarcasEquipo()
         {
             marcas = dbcon.TodosLasMarcasEquipo();
-            foreach (var marca in marcas)
-            {
-                cboMarcaEquipo.Items.Add(marca.NombreMarcaEquipo);
-            }
+            cboMarcaEquipo.DataSource=marcas.ToList();
+            cboMarcaEquipo.DisplayMember = "NombreMarcaEquipo";
+            cboMarcaEquipo.ValueMember = "Id";
+            //foreach (var marca in marcas)
+            //{
+            //    cboMarcaEquipo.Items.Add(marca.NombreMarcaEquipo);
+            //}
         }
         private void cargarTipodeEquios()
         { 
+
             tipoEquipos = dbcon.TodosLosTipoEquipos();
-            foreach (var tipoEquipo in tipoEquipos)
-            {
-                cboTipoEquipo.Items.Add(tipoEquipo.tipoEquipo);
-            }
+            cboTipoEquipo.DataSource = tipoEquipos.ToList();
+            cboTipoEquipo.DisplayMember = "tipoEquipo";
+            cboTipoEquipo.ValueMember = "Id";
+            //foreach (var tipoEquipo in tipoEquipos)
+            //{
+            //    cboTipoEquipo.Items.Add(tipoEquipo.tipoEquipo);
+            //}
         }
         private void picClose_Click(object sender, EventArgs e)
         {
@@ -99,11 +106,9 @@ namespace POSales.Mantenimientos
             advancedDataGridView1.DataSource = new Accesorios();
             AccesoriosModulo accesorio = new AccesoriosModulo(new Accesorios(),equipo.Id);
             accesorio.ShowDialog();
-            if (!string.IsNullOrEmpty(accesorio.accesorio.codigoEquipo))
-            {
                 equipo.accesorios.Add(accesorio.accesorio);
                 advancedDataGridView1.DataSource = equipo.accesorios;
-            }
+            
            
         }
 
@@ -141,6 +146,7 @@ namespace POSales.Mantenimientos
         {
             TipoEquipoModulo tipoEquipo = new TipoEquipoModulo(new POSalesDb.TipoEquipo());
             tipoEquipo.ShowDialog();
+            cargarTipodeEquios();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -160,9 +166,48 @@ namespace POSales.Mantenimientos
         {
             MarcaEquipoModulo marcaEquipo = new MarcaEquipoModulo(new POSalesDb.MarcaEquipo());
             marcaEquipo.ShowDialog();
+            cargarMarcasEquipo();
         }
 
         private void advancedDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colName = advancedDataGridView1.Columns[e.ColumnIndex].Name;
+            if (colName == "Edit")
+            {
+                Accesorios accesorios = new Accesorios();
+                accesorios.accesoriosEquipo = advancedDataGridView1.Rows[e.RowIndex].Cells["accesoriosEquipo"].Value.ToString();
+                AccesoriosModulo accesoriosModulo = new AccesoriosModulo(accesorios,accesorios.idEquipo);
+                accesoriosModulo.ShowDialog();
+                if(accesorios.Id > 0)
+                {
+                    dbcon.actualizarAccesorios(accesorios);
+
+
+                }
+                 advancedDataGridView1.Rows[e.RowIndex].Cells["accesoriosEquipo"].Value= accesorios.accesoriosEquipo ;
+            }
+            else if (colName == "Delete")
+            {
+                int idAccesorios = 0;
+                int.TryParse(advancedDataGridView1["id", e.RowIndex].Value.ToString(),out idAccesorios);
+           
+                if (MessageBox.Show("Estas seguro de eliminar este Accesorio?", "Eliminar Accesorio", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (idAccesorios > 0)
+                    {
+                        dbcon.deleteAccesorios(idAccesorios);
+                       
+
+                    }
+                    equipo.accesorios.Remove(equipo.accesorios.Where(x=>x.Id==idAccesorios).First());
+                    advancedDataGridView1.DataSource = new List<Accesorios>();
+                    advancedDataGridView1.DataSource = equipo.accesorios;
+                    
+                }
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
 
         }

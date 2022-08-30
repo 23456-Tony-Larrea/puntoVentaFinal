@@ -60,7 +60,7 @@ namespace POSales.Mantenimientos
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            Clients FormCliente = new Clients();
+            VerCliente FormCliente = new VerCliente();
             FormCliente.ShowDialog();
             cliente = FormCliente.cliente;
             TxtCiCliente.Text = cliente.ciRuc;

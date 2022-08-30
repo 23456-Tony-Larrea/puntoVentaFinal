@@ -9,9 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using POSalesDb;
-namespace POSales
+
+namespace POSales.Mantenimientos
 {
-    public partial class Clients : Form
+    public partial class VerCliente : Form
     {
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
@@ -20,11 +21,11 @@ namespace POSales
         public Clientes cliente = new Clientes();
         SqlDataReader dr;
 
-        public Clients()
+        public VerCliente()
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.myConnection());
-            cargarClientes(); 
+            cargarClientes();
         }
 
         public void cargarClientes()
@@ -51,19 +52,19 @@ namespace POSales
                 ClientModule clientModule = new ClientModule(cliente);
                 clientModule.ShowDialog();
             }
-            //else 
-            //{
-            //    cliente = clientes.ElementAt(e.RowIndex);
-            //    MessageBox.Show($"Ha seleccionado al cliente {cliente.nombre}");
-            //    this.Close();
-            //}
+            else
+            {
+                cliente = clientes.ElementAt(e.RowIndex);
+                MessageBox.Show($"Ha seleccionado al cliente {cliente.nombre}");
+                this.Close();
+            }
 
         }
 
 
         private void Clients_Load(object sender, EventArgs e)
         {
-        
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -71,12 +72,12 @@ namespace POSales
             List<Clientes> limpiarClientes = new List<Clientes>();
             if (!string.IsNullOrEmpty(textBox1.Text))
             {
-            
+
                 dgvClients.DataSource = limpiarClientes;
-                 limpiarClientes = clientes.Where(x => 
-                 x.nombre.StartsWith(textBox1.Text) || x.nombre.StartsWith(textBox1.Text.ToUpper())
-                    || x.codigo.StartsWith(textBox1.Text) ||
-                   x.comercio.StartsWith(textBox1.Text) || x.ciRuc.StartsWith(textBox1.Text)).ToList();
+                limpiarClientes = clientes.Where(x =>
+                x.nombre.StartsWith(textBox1.Text) || x.nombre.StartsWith(textBox1.Text.ToUpper())
+                   || x.codigo.StartsWith(textBox1.Text) ||
+                  x.comercio.StartsWith(textBox1.Text) || x.ciRuc.StartsWith(textBox1.Text)).ToList();
                 dgvClients.DataSource = limpiarClientes;
             }
             else
@@ -84,7 +85,12 @@ namespace POSales
                 dgvClients.DataSource = limpiarClientes;
                 dgvClients.DataSource = clientes;
             }
-       
+
+        }
+
+        private void dgvClients_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

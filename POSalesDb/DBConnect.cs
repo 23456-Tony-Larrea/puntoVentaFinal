@@ -215,7 +215,7 @@ namespace POSalesDb
                   ,[nombre]
                   ,[idUsuarios]
 	              ,[ordenServicio].[isReady]
-              FROM [C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF].[dbo].[ordenServicio]
+              FROM [tecnico].[dbo].[ordenServicio]
               join clientes on Clientes.Id = ordenServicio.idCliente");
                 using (SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn))
                 {
@@ -236,6 +236,72 @@ namespace POSalesDb
 
         }
 
+        public DataSet selectTodosLasOrdenesDS(DateTime desde, DateTime Hasta)
+        {
+            cn.ConnectionString = myConnection();
+            DataSet dt = new DataSet();
+            try
+            {
+                cm = new SqlCommand($@"SELECT [ordenServicio].[Id]
+                  ,[Fecha Ingreso]
+                  ,[idCliente]
+                  ,[ciRuc]
+                  ,[nombre]
+                  ,[idUsuarios]
+                  ,[ordenServicio].[isReady]
+              FROM [tecnico].[dbo].[ordenServicio]
+              join clientes on Clientes.Id = ordenServicio.idCliente Where Fecha [Fecha Ingreso] Between '{desde.ToString("yyyy/MM/dd")} 00:00:00' and '{Hasta} 23:59:59'");
+                using (SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn))
+                {
+                    cn.Open();
+                    da.Fill(dt);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return dt;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
+        public DataSet selectTodosLasOrdenesDS(string Buscar)
+        {
+            cn.ConnectionString = myConnection();
+            DataSet dt = new DataSet();
+            try
+            {
+                cm = new SqlCommand($@"SELECT [ordenServicio].[Id]
+                  ,[Fecha Ingreso]
+                  ,[idCliente]
+                  ,[ciRuc]
+                  ,[nombre]
+                  ,[idUsuarios]
+                  ,[ordenServicio].[isReady]
+              FROM [tecnico].[dbo].[ordenServicio]
+              join clientes on Clientes.Id = ordenServicio.idCliente Where [ciRuc] like %{Buscar}% or [nombre] like %{Buscar}%");
+                using (SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn))
+                {
+                    cn.Open();
+                    da.Fill(dt);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return dt;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+        }
         private List<MantenimientoModel> selectLosMantenimientoPorOrden(int IdOrden)
         {
             cn.ConnectionString = myConnection();
@@ -474,7 +540,7 @@ namespace POSalesDb
                   ,[idEquipo]
                   ,[precioReferencial]
                   ,[Codigo]
-                    FROM [C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF].[dbo].[Mantenimiento]  Where IdEquipo = {1} order by [Id] desc", cn);
+                    FROM [tecnico].[dbo].[Mantenimiento]  Where IdEquipo = {1} order by [Id] desc", cn);
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
                 DataTable dt = new DataTable();
@@ -518,7 +584,7 @@ namespace POSalesDb
       ,[idEquipo]
       ,[precioReferencial]
       ,[Codigo]
-  FROM [C:\USERS\AVSLA\DOCUMENTS\DBPOSALE.MDF].[dbo].[Mantenimiento]  Where IdEquipo = {Id} order by [Id] desc ", cn);
+  FROM [tecnico].[dbo].[Mantenimiento]  Where IdEquipo = {Id} order by [Id] desc ", cn);
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
 
@@ -526,6 +592,39 @@ namespace POSalesDb
                 return dt;
 
             }
+            catch (Exception ex)
+            {
+                CrearEvento(ex.ToString());
+                return dt;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public DataTable selectTodosLosMantenimientoPorOrdenData(string Buscar)
+        {
+            cn.ConnectionString = myConnection();
+            List<MantenimientoModel> MantenimientoModels = new List<MantenimientoModel>();
+            cn.Open();
+            DataTable dt = new DataTable();
+            try
+            {
+                cm = new SqlCommand($@"SELECT Mantenimiento.Id,Mantenimiento.fechaMantenimiento , Mantenimiento.fechaEntregaEquipo, Mantenimiento.descripcionFalla, Mantenimiento.solucion, Mantenimiento.IdEstadoMantenimiento, 
+                         Mantenimiento.idUsuarios, Mantenimiento.idOrdenServicio as idOrdenServicio, Mantenimiento.estadoAplicarCorreccion, Mantenimiento.estadoNoAplicarCorreccion, Mantenimiento.idEquipo, 
+                         Equipo.codigo ,Equipo.descirpcionEquipo, estadoMantenimiento.descripcion
+                         FROM
+                         Mantenimiento LEFT JOIN
+                         Equipo ON Mantenimiento.IdEquipo = Equipo.Id LEFT JOIN
+                         estadoMantenimiento ON Mantenimiento.[IdEstadoMantenimiento] = estadoMantenimiento.Id where descripcionFalla like %{Buscar}% or codigo like %{Buscar}% or solucion like %{Buscar}% or descirpcionEquipo like %{Buscar}% Order by Mantenimiento.Id desc");
+                SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+
+                da.Fill(dt);
+
+                return dt;
+            }
+
             catch (Exception ex)
             {
                 CrearEvento(ex.ToString());
@@ -4278,7 +4377,7 @@ namespace POSalesDb
                     clientes.fax = Convert.ToString(dt.Rows[0]["fax"]);
                     clientes.cargo = Convert.ToString(dt.Rows[0]["cargo"]);
                     clientes.email = Convert.ToString(dt.Rows[0]["email"]);
-                    clientes.tipo = Convert.ToString(dt.Rows[0]["tipoCliente"]);
+                    clientes.tipoCliente = Convert.ToString(dt.Rows[0]["tipoCliente"]);
                 }
                 return clientes;
 
@@ -4354,7 +4453,7 @@ namespace POSalesDb
                         clientes.fax = Convert.ToString(r["fax"]);
                         clientes.cargo = Convert.ToString(r[15]);
                         clientes.email = Convert.ToString(r["email"]);
-                        clientes.tipo = Convert.ToString(r["tipoCliente"]);
+                        clientes.tipoCliente = Convert.ToString(r["tipoCliente"]);
                         client.Add(clientes);
                     }
 
@@ -4380,13 +4479,34 @@ namespace POSalesDb
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("Insert into Clientes (nombre,comercio,codigo,fechaNacimiento,fechaRegistro,ciudad,tipo,ciRuc,pais,estado,direccion,telefono,celular,fax,cargo,email,tipoCliente )values(@nombre,@comercio,@codigo,@fechaNacimiento,@fechaRegistro,@ciudad,@tipo,@ciRuc,@pais,@estado,@direccion,@telefono,@celular,@fax,@cargo,@email,@tipoCliente)", cn);
+                cm = new SqlCommand(@"Insert into Clientes 
+                                    (nombre,
+                                    comercio,
+                                    codigo,
+                                    fechaNacimiento,
+                                    fechaRegistro,
+                                    ciudad,
+                                    tipo,
+                                    ciRuc,
+                                    pais,
+                                    estado,
+                                    direccion,
+                                    telefono,
+                                    celular,
+                                    fax,
+                                    cargo,
+                                    email,
+                                    tipoCliente)
+                                    values
+(@nombre,@comercio,@codigo,@fechaNacimiento,@fechaRegistro,@ciudad,@tipo,@ciRuc,@pais,@estado,@direccion,@telefono,@celular,@fax,@cargo,@email,@tipoCliente)", cn);
 
                 cm.Parameters.AddWithValue("@nombre", clientes.nombre);
                 cm.Parameters.AddWithValue("@comercio", clientes.comercio);
                 cm.Parameters.AddWithValue("@codigo", clientes.codigo);
-                cm.Parameters.AddWithValue("@fechaNacimiento", clientes.fechaNacimiento.ToString("yyyy/MM/dd"));
-                cm.Parameters.AddWithValue("@fechaRegistro", clientes.fechaRegistro.ToString("yyyy/MM/dd"));
+                cm.Parameters.AddWithValue("@fechaNacimiento",clientes.fechaNacimiento.ToString("yyyy/MM/dd HH:mm:ss"));
+                cm.Parameters["@fechaNacimiento"].SqlDbType = SqlDbType.DateTime;
+                cm.Parameters.AddWithValue("@fechaRegistro", clientes.fechaRegistro.ToString("yyyy/MM/dd HH:mm:ss"));
+                cm.Parameters["@fechaRegistro"].SqlDbType = SqlDbType.DateTime;
                 cm.Parameters.AddWithValue("@ciudad", clientes.ciudad);
                 cm.Parameters.AddWithValue("@tipo", clientes.tipo);
                 cm.Parameters.AddWithValue("@ciRuc", clientes.ciRuc);
@@ -4398,7 +4518,7 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@fax", clientes.fax);
                 cm.Parameters.AddWithValue("@cargo", clientes.cargo);
                 cm.Parameters.AddWithValue("@email", clientes.email);
-                cm.Parameters.AddWithValue("@tipoCliente", clientes.tipo);
+                cm.Parameters.AddWithValue("@tipoCliente", clientes.tipoCliente);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
@@ -4423,13 +4543,15 @@ namespace POSalesDb
             string Error = String.Empty;
             try
             {
-                cm = new SqlCommand("UPDATE Clientes SET nombre=@nombre,comercio=@comercio,codigo=@codigo,fechaNacimiento=@fechaNacimiento,fechaRegistro=@fechaRegistro,ciudad=@ciudad,tipo=@tipo,ciRuc=@ciRuc,pais=@pais,estado=@estado,direccion=@direccion,telefono=@telefono,celular=@celular,fax=@fax,cargo=@cargo, email=@email,tipoCLiente=@tipoCliente WHERE Id = @Id  ", cn);
-                cm.Parameters.AddWithValue("@", clientes.Id);
+                cm = new SqlCommand("UPDATE Clientes SET nombre=@nombre,comercio=@comercio,codigo=@codigo,fechaNacimiento=@fechaNacimiento,fechaRegistro=@fechaRegistro,ciudad=@ciudad,tipo=@tipo,ciRuc=@ciRuc,pais=@pais,estado=@estado,direccion=@direccion,telefono=@telefono,celular=@celular,fax=@fax,cargo=@cargo, email=@email,tipoCliente=@tipoCliente WHERE Id = @Id  ", cn);
+                cm.Parameters.AddWithValue("@Id", clientes.Id);
                 cm.Parameters.AddWithValue("@nombre", clientes.nombre);
                 cm.Parameters.AddWithValue("@comercio", clientes.comercio);
                 cm.Parameters.AddWithValue("@codigo", clientes.codigo);
                 cm.Parameters.AddWithValue("@fechaNacimiento", clientes.fechaNacimiento.ToString("yyyy/MM/dd"));
+                cm.Parameters["@fechaNacimiento"].SqlDbType = SqlDbType.DateTime;
                 cm.Parameters.AddWithValue("@fechaRegistro", clientes.fechaRegistro.ToString("yyyy/MM/dd"));
+                cm.Parameters["@fechaRegistro"].SqlDbType = SqlDbType.DateTime;
                 cm.Parameters.AddWithValue("@ciudad", clientes.ciudad);
                 cm.Parameters.AddWithValue("@tipo", clientes.tipo);
                 cm.Parameters.AddWithValue("@ciRuc", clientes.ciRuc);
@@ -4441,7 +4563,7 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@fax", clientes.fax);
                 cm.Parameters.AddWithValue("@cargo", clientes.cargo);
                 cm.Parameters.AddWithValue("@email", clientes.email);
-                cm.Parameters.AddWithValue("@tipoCliente", clientes.tipo);
+                cm.Parameters.AddWithValue("@tipoCliente", clientes.tipoCliente);
                 cn.Open();
                 adapter.UpdateCommand = cm;
                 adapter.UpdateCommand.ExecuteNonQuery();
@@ -4775,8 +4897,8 @@ namespace POSalesDb
                     foreach (DataRow r in dt.Rows)
                     {
                         TipoEquipo tipoEquipos = new TipoEquipo();
-                        tipoEquipos.Id = (int)dt.Rows[0]["Id"];
-                        tipoEquipos.tipoEquipo = Convert.ToString(dt.Rows[0]["tipoEquipo"]);
+                        tipoEquipos.Id = (int)r["Id"];
+                        tipoEquipos.tipoEquipo = r["tipoEquipo"].ToString();
 
                         tipoEquipo.Add(tipoEquipos);
                     }
@@ -4917,22 +5039,38 @@ namespace POSalesDb
             {
                 cm = new SqlCommand($"Select * from MarcaEquipo");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
+                // te dejo otra opcion, a ver que sale
+
+
                 cn.Open();
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
+
+                using (var reader = da.SelectCommand.ExecuteReader())
                 {
-                    foreach (DataRow r in dt.Rows)
+                    while (reader.Read())
                     {
-                        MarcaEquipo marcaEquipos = new MarcaEquipo();
-                        marcaEquipos.Id = (int)dt.Rows[0]["Id"];
-                        marcaEquipos.NombreMarcaEquipo = Convert.ToString(dt.Rows[0]["marcaEquipo"]);
-
-                        marcaEquipo.Add(marcaEquipos);
+                        marcaEquipo.Add(new MarcaEquipo()
+                        {
+                            Id = int.Parse(reader["Id"].ToString()),
+                            NombreMarcaEquipo = reader["marcaEquipo"].ToString()//seguro que esa es la columna ?
+                        });
                     }
-
                 }
-                return marcaEquipo;
+
+                    //DataTable dt = new DataTable();
+                    //da.Fill(dt);
+                    //if (dt.Rows.Count > 0)
+                    //{
+                    //    foreach (DataRow r in dt.Rows)
+                    //    {
+                    //        MarcaEquipo marcaEquipos = new MarcaEquipo();
+                    //        marcaEquipos.Id = (int)dt.Rows[0]["Id"];
+                    //        marcaEquipos.NombreMarcaEquipo = Convert.ToString(dt.Rows[0]["marcaEquipo"]);
+
+                    //        marcaEquipo.Add(marcaEquipos);
+                    //    }
+
+                    //}
+                    return marcaEquipo;
             }
 
             catch (Exception ex)
@@ -5407,20 +5545,31 @@ namespace POSalesDb
                 cm = new SqlCommand($"Select * from TipoEquipo");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 cn.Open();
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
+                using (var reader = da.SelectCommand.ExecuteReader())
                 {
-                    foreach (DataRow r in dt.Rows)
+                    while (reader.Read())
                     {
-                        TipoEquipo tipoEquipo = new TipoEquipo();
-                        tipoEquipo.Id = (int)dt.Rows[0]["Id"];
-                        tipoEquipo.tipoEquipo = Convert.ToString(dt.Rows[0]["tipoEquipo"]);
-
-                        tipoEquipos.Add(tipoEquipo);
+                        tipoEquipos.Add(new TipoEquipo()
+                        {
+                            Id = int.Parse(reader["Id"].ToString()),
+                            tipoEquipo = reader["tipoEquipo"].ToString()//seguro que esa es la columna ?
+                        });
                     }
-
                 }
+                //DataTable dt = new DataTable();
+                //da.Fill(dt);
+                //if (dt.Rows.Count > 0)
+                //{
+                //    foreach (DataRow r in dt.Rows)
+                //    {
+                //        TipoEquipo tipoEquipo = new TipoEquipo();
+                //        tipoEquipo.Id = (int)dt.Rows[0]["Id"];
+                //        tipoEquipo.tipoEquipo = Convert.ToString(dt.Rows[0]["tipoEquipo"]);
+
+                //        tipoEquipos.Add(tipoEquipo);
+                //    }
+
+                //}
                 return tipoEquipos;
             }
 

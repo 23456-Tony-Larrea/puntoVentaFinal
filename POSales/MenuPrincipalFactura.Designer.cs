@@ -71,7 +71,7 @@
             this.lblName.Location = new System.Drawing.Point(7, 127);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(21, 17);
+            this.lblName.Size = new System.Drawing.Size(25, 20);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Ln";
             this.lblName.Visible = false;
@@ -83,7 +83,7 @@
             this.lblUsername.Location = new System.Drawing.Point(72, 151);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(51, 17);
+            this.lblUsername.Size = new System.Drawing.Size(63, 20);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Usuario";
             // 
@@ -94,7 +94,7 @@
             this.lblRole.Location = new System.Drawing.Point(68, 197);
             this.lblRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(64, 17);
+            this.lblRole.Size = new System.Drawing.Size(78, 20);
             this.lblRole.TabIndex = 0;
             this.lblRole.Text = "facturero";
             // 
@@ -121,7 +121,7 @@
             this.btnOrdenMantenimiento.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.btnOrdenMantenimiento.Size = new System.Drawing.Size(241, 68);
             this.btnOrdenMantenimiento.TabIndex = 3;
-            this.btnOrdenMantenimiento.Text = "facturar orden del mantenimiento";
+            this.btnOrdenMantenimiento.Text = " orden del mantenimiento";
             this.btnOrdenMantenimiento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOrdenMantenimiento.UseVisualStyleBackColor = false;
             this.btnOrdenMantenimiento.Click += new System.EventHandler(this.btnOrdenMantenimiento_Click);
@@ -242,7 +242,7 @@
             // 
             // MenuPrincipalFactura
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 596);
             this.Controls.Add(this.panelSlide);

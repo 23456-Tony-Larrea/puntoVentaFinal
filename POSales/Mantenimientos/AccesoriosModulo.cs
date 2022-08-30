@@ -28,13 +28,15 @@ namespace POSales.Mantenimientos
             accesorio.idEquipo = idequipo;
             if (accesorio.Id > 0)
             {
-                CargarAccesorios();
+               
                 btnSave.Visible = false;
             }
             else
             {
                 btnUpdate.Visible = false;
+            
             }
+            CargarAccesorios();
         }
 
         private void CargarAccesorios()
@@ -101,13 +103,7 @@ namespace POSales.Mantenimientos
 
         }
 
-        private void AccesoriosModulo_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (string.IsNullOrEmpty(accesorio.codigoEquipo))
-            {
-                MessageBox.Show("debe asignar un codigo de accesorio para poder ingresarlo a un equipo");
-            }
-        }
+        
     }
 }
 
