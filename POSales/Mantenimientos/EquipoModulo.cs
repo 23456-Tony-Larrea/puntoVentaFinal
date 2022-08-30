@@ -81,6 +81,7 @@ namespace POSales.Mantenimientos
             //{
             //    cboTipoEquipo.Items.Add(tipoEquipo.tipoEquipo);
             //}
+            //ajajajja
         }
         private void picClose_Click(object sender, EventArgs e)
         {
