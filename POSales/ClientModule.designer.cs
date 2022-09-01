@@ -264,6 +264,8 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(659, 28);
             this.txtName.TabIndex = 1;
+            
+            this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtComercio_KeyPress);
             // 
             // txtComercio
@@ -273,6 +275,7 @@
             this.txtComercio.Name = "txtComercio";
             this.txtComercio.Size = new System.Drawing.Size(659, 28);
             this.txtComercio.TabIndex = 2;
+            this.txtComercio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             this.txtComercio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtComercio_KeyPress);
             // 
             // txtCodigo
@@ -282,6 +285,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(133, 28);
             this.txtCodigo.TabIndex = 3;
+            this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             // 
             // dateNacimiento
             // 
@@ -291,6 +295,7 @@
             this.dateNacimiento.Name = "dateNacimiento";
             this.dateNacimiento.Size = new System.Drawing.Size(133, 28);
             this.dateNacimiento.TabIndex = 4;
+            this.dateNacimiento.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             // 
             // dateRegisstro
             // 
@@ -300,6 +305,7 @@
             this.dateRegisstro.Name = "dateRegisstro";
             this.dateRegisstro.Size = new System.Drawing.Size(133, 28);
             this.dateRegisstro.TabIndex = 5;
+            this.dateRegisstro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             // 
             // txtCiudad
             // 
@@ -308,6 +314,7 @@
             this.txtCiudad.Name = "txtCiudad";
             this.txtCiudad.Size = new System.Drawing.Size(216, 28);
             this.txtCiudad.TabIndex = 6;
+            this.txtCiudad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             this.txtCiudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtComercio_KeyPress);
             // 
             // cboTipo
@@ -321,6 +328,7 @@
             this.cboTipo.Name = "cboTipo";
             this.cboTipo.Size = new System.Drawing.Size(121, 29);
             this.cboTipo.TabIndex = 7;
+            this.cboTipo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             // 
             // label16
             // 
@@ -338,6 +346,7 @@
             this.txtCiRuc.Name = "txtCiRuc";
             this.txtCiRuc.Size = new System.Drawing.Size(208, 28);
             this.txtCiRuc.TabIndex = 8;
+            this.txtCiRuc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             this.txtCiRuc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCiRuc_KeyPress);
             // 
             // txtPais
@@ -347,6 +356,7 @@
             this.txtPais.Name = "txtPais";
             this.txtPais.Size = new System.Drawing.Size(216, 28);
             this.txtPais.TabIndex = 9;
+            this.txtPais.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             this.txtPais.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtComercio_KeyPress);
             // 
             // label17
@@ -369,6 +379,7 @@
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(121, 29);
             this.cboEstado.TabIndex = 10;
+            this.cboEstado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             // 
             // txtDireccion
             // 
@@ -377,6 +388,7 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(680, 28);
             this.txtDireccion.TabIndex = 11;
+            this.txtDireccion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             // 
             // txtTelf
             // 
@@ -385,6 +397,7 @@
             this.txtTelf.Name = "txtTelf";
             this.txtTelf.Size = new System.Drawing.Size(216, 28);
             this.txtTelf.TabIndex = 12;
+            this.txtTelf.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             this.txtTelf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCiRuc_KeyPress);
             // 
             // txtFax
@@ -394,6 +407,7 @@
             this.txtFax.Name = "txtFax";
             this.txtFax.Size = new System.Drawing.Size(216, 28);
             this.txtFax.TabIndex = 15;
+            this.txtFax.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             this.txtFax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCiRuc_KeyPress);
             // 
             // txtCelular
@@ -403,6 +417,7 @@
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(216, 28);
             this.txtCelular.TabIndex = 13;
+            this.txtCelular.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             this.txtCelular.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCiRuc_KeyPress);
             // 
             // txtCargo
@@ -412,6 +427,7 @@
             this.txtCargo.Name = "txtCargo";
             this.txtCargo.Size = new System.Drawing.Size(216, 28);
             this.txtCargo.TabIndex = 16;
+            this.txtCargo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             this.txtCargo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtComercio_KeyPress);
             // 
             // txtEmail
@@ -421,6 +437,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(228, 28);
             this.txtEmail.TabIndex = 14;
+            this.txtEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             // 
             // btnCancel
             // 
@@ -508,6 +525,7 @@
             this.cboTipoCliente.Name = "cboTipoCliente";
             this.cboTipoCliente.Size = new System.Drawing.Size(220, 29);
             this.cboTipoCliente.TabIndex = 17;
+            this.cboTipoCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             // 
             // ClientModule
             // 
@@ -560,6 +578,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ClientModule";
             this.Text = "ClientModule";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCiRuc_KeyPress);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

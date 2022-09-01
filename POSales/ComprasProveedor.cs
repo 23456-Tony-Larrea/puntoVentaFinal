@@ -142,10 +142,6 @@ namespace POSales
                 }
             }
         }
-        private void Clear()
-        {
-            
-        }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -186,11 +182,6 @@ namespace POSales
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
 
@@ -218,16 +209,14 @@ namespace POSales
             txtIva.Text = iva.ToString();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void textBox7_KeyDown(object sender, KeyEventArgs e)
         {
-            //Recept recept = new Recept();
-            //recept.LoadRecept(label12.Text, .Text);
-            //recept.ShowDialog();
-        }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-           
+            if (e.KeyData == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                SelectNextControl(ActiveControl, true, true, true, true);
+            }
         }
 
         private void ClearPrice()

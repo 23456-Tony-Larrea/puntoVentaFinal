@@ -399,18 +399,6 @@
     <Compile Include="Mantenimientos\EquipoModulo.Designer.cs">
       <DependentUpon>EquipoModulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mantenimientos\EstadoMantenimientoModulo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Mantenimientos\EstadoMantenimientoModulo.Designer.cs">
-      <DependentUpon>EstadoMantenimientoModulo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Mantenimientos\EstadoMantenimiento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Mantenimientos\EstadoMantenimiento.Designer.cs">
-      <DependentUpon>EstadoMantenimiento.cs</DependentUpon>
-    </Compile>
     <Compile Include="Mantenimientos\Mantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -740,12 +728,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\EquipoModulo.resx">
       <DependentUpon>EquipoModulo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Mantenimientos\EstadoMantenimientoModulo.resx">
-      <DependentUpon>EstadoMantenimientoModulo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Mantenimientos\EstadoMantenimiento.resx">
-      <DependentUpon>EstadoMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\Mantenimiento.resx">
       <DependentUpon>Mantenimiento.cs</DependentUpon>

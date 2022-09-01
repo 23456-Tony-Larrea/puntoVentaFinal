@@ -120,19 +120,15 @@ namespace POSales
             }
         }
 
-        private void Login_Load(object sender, EventArgs e)
+     
+        private void txtName_KeyDown(object sender, KeyEventArgs e)
         {
 
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
+            if (e.KeyData == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                SelectNextControl(ActiveControl, true, true, true, true);
+            }
         }
     }
 }

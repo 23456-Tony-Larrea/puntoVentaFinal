@@ -107,6 +107,7 @@
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyDown);
             // 
             // txtIdReserva
             // 
@@ -142,6 +143,7 @@
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyDown);
             // 
             // picClose
             // 
@@ -163,6 +165,7 @@
             this.txtDescripcionItem.Name = "txtDescripcionItem";
             this.txtDescripcionItem.Size = new System.Drawing.Size(569, 28);
             this.txtDescripcionItem.TabIndex = 2;
+            this.txtDescripcionItem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyDown);
             // 
             // label2
             // 
@@ -194,7 +197,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(827, 45);
             this.panel2.TabIndex = 185;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // txtCodBarrasItem
             // 
@@ -204,6 +206,7 @@
             this.txtCodBarrasItem.Name = "txtCodBarrasItem";
             this.txtCodBarrasItem.Size = new System.Drawing.Size(569, 28);
             this.txtCodBarrasItem.TabIndex = 1;
+            this.txtCodBarrasItem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyDown);
             // 
             // label11
             // 
@@ -224,6 +227,7 @@
             this.btnBuscarItem.Text = "...";
             this.btnBuscarItem.UseVisualStyleBackColor = true;
             this.btnBuscarItem.Click += new System.EventHandler(this.btnBuscarItem_Click);
+            this.btnBuscarItem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyDown);
             // 
             // txtPrecio
             // 
@@ -233,6 +237,7 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(124, 28);
             this.txtPrecio.TabIndex = 4;
+            this.txtPrecio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyDown);
             // 
             // txtTotal
             // 
@@ -241,6 +246,7 @@
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(124, 28);
             this.txtTotal.TabIndex = 12;
+            this.txtTotal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyDown);
             // 
             // label3
             // 
@@ -259,6 +265,7 @@
             this.txtIva.Name = "txtIva";
             this.txtIva.Size = new System.Drawing.Size(124, 28);
             this.txtIva.TabIndex = 11;
+            this.txtIva.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyDown);
             // 
             // label4
             // 
@@ -277,6 +284,7 @@
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(124, 28);
             this.textBox11.TabIndex = 223;
+            this.textBox11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyDown);
             // 
             // label23
             // 
@@ -296,6 +304,7 @@
             this.txtIvaItem.Name = "txtIvaItem";
             this.txtIvaItem.Size = new System.Drawing.Size(124, 28);
             this.txtIvaItem.TabIndex = 7;
+            this.txtIvaItem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyDown);
             // 
             // label22
             // 
@@ -315,6 +324,7 @@
             this.txtSubTotalItem.Name = "txtSubTotalItem";
             this.txtSubTotalItem.Size = new System.Drawing.Size(124, 28);
             this.txtSubTotalItem.TabIndex = 6;
+            this.txtSubTotalItem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyDown);
             // 
             // label21
             // 
@@ -333,6 +343,7 @@
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.Size = new System.Drawing.Size(124, 28);
             this.txtSubtotal.TabIndex = 217;
+            this.txtSubtotal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyDown);
             // 
             // label9
             // 
@@ -354,6 +365,7 @@
             this.btnEliminar.Text = "Eliminar ";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnEliminar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyDown);
             // 
             // txtTotalItem
             // 
@@ -363,6 +375,7 @@
             this.txtTotalItem.Name = "txtTotalItem";
             this.txtTotalItem.Size = new System.Drawing.Size(91, 28);
             this.txtTotalItem.TabIndex = 8;
+            this.txtTotalItem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyDown);
             // 
             // txtCant
             // 
@@ -372,6 +385,7 @@
             this.txtCant.Size = new System.Drawing.Size(124, 28);
             this.txtCant.TabIndex = 3;
             this.txtCant.TextChanged += new System.EventHandler(this.txtCant_TextChanged);
+            this.txtCant.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyDown);
             // 
             // txtStock
             // 
@@ -381,6 +395,7 @@
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(91, 28);
             this.txtStock.TabIndex = 5;
+            this.txtStock.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyDown);
             // 
             // label8
             // 
@@ -436,6 +451,7 @@
             this.ggvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ggvProductos.Size = new System.Drawing.Size(723, 124);
             this.ggvProductos.TabIndex = 215;
+            this.ggvProductos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyDown);
             // 
             // Id
             // 
@@ -528,6 +544,7 @@
             this.btnAgregar.Text = "Agregar ";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnAgregar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyDown);
             // 
             // ReservasModulo
             // 

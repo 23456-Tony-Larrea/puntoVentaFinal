@@ -59,6 +59,7 @@
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnCancel_KeyDown);
             // 
             // btnUpdate
             // 
@@ -74,6 +75,7 @@
             this.btnUpdate.Text = "Actualizar";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.btnUpdate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnCancel_KeyDown);
             // 
             // txtIdAccesorios
             // 
@@ -123,6 +125,7 @@
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnCancel_KeyDown);
             // 
             // picClose
             // 
@@ -167,6 +170,7 @@
             this.txtCodigoEquipo.Name = "txtCodigoEquipo";
             this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 30);
             this.txtCodigoEquipo.TabIndex = 1;
+            this.txtCodigoEquipo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnCancel_KeyDown);
             // 
             // label11
             // 

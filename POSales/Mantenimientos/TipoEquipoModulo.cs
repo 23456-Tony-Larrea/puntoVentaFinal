@@ -29,10 +29,6 @@ namespace POSales.Mantenimientos
             }
         }
 
-        private void TipoEquipoModulo_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void picClose_Click(object sender, EventArgs e)
         {
@@ -86,10 +82,7 @@ namespace POSales.Mantenimientos
             }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -98,6 +91,16 @@ namespace POSales.Mantenimientos
         public void Clear()
         {
             txtCodigoEquipo.Clear();
+        }
+
+        private void btnCancel_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyData == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                SelectNextControl(ActiveControl, true, true, true, true);
+            }
         }
     }
 }

@@ -322,10 +322,7 @@ namespace POSales
 
         private void ProductModule_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Dispose();
-            }
+
         }
 
         private void ProductModule_Load(object sender, EventArgs e)
@@ -694,5 +691,14 @@ namespace POSales
             CalcularIvaPrecioD();
         }
 
+        private void txtNameProdcut_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyData == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                SelectNextControl(ActiveControl, true, true, true, true);
+            }
+        }
     }
 }

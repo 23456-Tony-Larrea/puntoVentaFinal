@@ -141,7 +141,7 @@ namespace POSales.Mantenimientos
             this.dgvClients.Size = new System.Drawing.Size(719, 184);
             this.dgvClients.TabIndex = 11;
             this.dgvClients.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellClick);
-            this.dgvClients.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellContentClick);
+            
             // 
             // Id
             // 
@@ -274,7 +274,7 @@ namespace POSales.Mantenimientos
             this.cambiarAPorEntregarToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(230, 92);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+           
             // 
             // enviarSolucionPorWhatsappToolStripMenuItem
             // 

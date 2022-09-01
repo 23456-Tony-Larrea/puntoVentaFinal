@@ -53,11 +53,7 @@ namespace POSales.Mantenimientos
             equipos = dbcon.selectTodosLosEquiposPorCliente(cliente.Id);
             advancedDataGridView1.DataSource = equipos;
         }
-        private void btnAggCliente_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void iconButton1_Click(object sender, EventArgs e)
         {
             VerCliente FormCliente = new VerCliente();
@@ -73,21 +69,7 @@ namespace POSales.Mantenimientos
             txtDesFalla.Enabled = false;
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void iconButton2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OrdenServicioModulo_Load(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void advancedDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (advancedDataGridView1.SelectedRows.Count > (-1))
@@ -172,19 +154,15 @@ namespace POSales.Mantenimientos
             this.Dispose();
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
+ 
+        private void btnCancel_KeyDown(object sender, KeyEventArgs e)
         {
 
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            if (e.KeyData == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                SelectNextControl(ActiveControl, true, true, true, true);
+            }
         }
     }
 }

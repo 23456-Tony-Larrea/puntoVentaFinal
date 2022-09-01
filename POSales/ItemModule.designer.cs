@@ -124,6 +124,7 @@ namespace POSales
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNameProdcut_KeyDown);
             // 
             // picClose
             // 
@@ -161,6 +162,7 @@ namespace POSales
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNameProdcut_KeyDown);
             // 
             // btnUpdate
             // 
@@ -176,6 +178,7 @@ namespace POSales
             this.btnUpdate.Text = "Actualizar";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.btnUpdate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNameProdcut_KeyDown);
             // 
             // label2
             // 
@@ -194,6 +197,7 @@ namespace POSales
             this.txtIdProd.Name = "txtIdProd";
             this.txtIdProd.Size = new System.Drawing.Size(194, 30);
             this.txtIdProd.TabIndex = 1;
+            this.txtIdProd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNameProdcut_KeyDown);
             // 
             // panel1
             // 
@@ -259,6 +263,7 @@ namespace POSales
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Size = new System.Drawing.Size(194, 30);
             this.txtBarcode.TabIndex = 2;
+            this.txtBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNameProdcut_KeyDown);
             // 
             // cboBrand
             // 
@@ -342,6 +347,7 @@ namespace POSales
             this.txtNameProdcut.Name = "txtNameProdcut";
             this.txtNameProdcut.Size = new System.Drawing.Size(713, 30);
             this.txtNameProdcut.TabIndex = 3;
+            this.txtNameProdcut.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNameProdcut_KeyDown);
             // 
             // HasIva
             // 
@@ -353,6 +359,7 @@ namespace POSales
             this.HasIva.Text = "IVA";
             this.HasIva.UseVisualStyleBackColor = true;
             this.HasIva.CheckedChanged += new System.EventHandler(this.HasIva_CheckedChanged);
+            this.HasIva.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNameProdcut_KeyDown);
             // 
             // label17
             // 
@@ -840,7 +847,7 @@ namespace POSales
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProductModule";
             this.Load += new System.EventHandler(this.ProductModule_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ProductModule_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNameProdcut_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

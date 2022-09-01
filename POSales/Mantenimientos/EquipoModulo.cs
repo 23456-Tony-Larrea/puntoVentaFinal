@@ -212,5 +212,24 @@ namespace POSales.Mantenimientos
         {
 
         }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Enter))
+            {
+                SendKeys.Send("{TAB}");
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void txtCodigoEquipo_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyData == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                SelectNextControl(ActiveControl, true, true, true, true);
+            }
+        }
     }
 }

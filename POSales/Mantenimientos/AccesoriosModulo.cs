@@ -98,12 +98,16 @@ namespace POSales.Mantenimientos
             }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+     
+        private void txtAccesoriosEquipo_KeyDown(object sender, KeyEventArgs e)
         {
 
+            if (e.KeyData == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                SelectNextControl(ActiveControl, true, true, true, true);
+            }
         }
-
-        
     }
 }
 

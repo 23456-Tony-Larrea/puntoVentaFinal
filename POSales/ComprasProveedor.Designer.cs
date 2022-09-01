@@ -169,7 +169,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(1078, 442);
+            this.btnEliminar.Location = new System.Drawing.Point(1092, 443);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(99, 29);
@@ -180,7 +180,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(1078, 314);
+            this.btnAgregar.Location = new System.Drawing.Point(1092, 315);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(99, 31);
@@ -191,7 +191,7 @@
             // 
             // txtTotalItem
             // 
-            this.txtTotalItem.Location = new System.Drawing.Point(997, 378);
+            this.txtTotalItem.Location = new System.Drawing.Point(1011, 379);
             this.txtTotalItem.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalItem.Name = "txtTotalItem";
             this.txtTotalItem.Size = new System.Drawing.Size(72, 28);
@@ -199,7 +199,7 @@
             // 
             // txtCant
             // 
-            this.txtCant.Location = new System.Drawing.Point(437, 375);
+            this.txtCant.Location = new System.Drawing.Point(451, 376);
             this.txtCant.Margin = new System.Windows.Forms.Padding(4);
             this.txtCant.Name = "txtCant";
             this.txtCant.Size = new System.Drawing.Size(83, 28);
@@ -209,7 +209,7 @@
             // txtStock
             // 
             this.txtStock.Enabled = false;
-            this.txtStock.Location = new System.Drawing.Point(240, 374);
+            this.txtStock.Location = new System.Drawing.Point(254, 375);
             this.txtStock.Margin = new System.Windows.Forms.Padding(4);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(76, 28);
@@ -258,7 +258,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Modulo compras proveedor";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // ggvProductos
             // 
@@ -386,7 +385,7 @@
             // 
             this.LinFac.AutoSize = true;
             this.LinFac.LinkColor = System.Drawing.Color.Silver;
-            this.LinFac.Location = new System.Drawing.Point(575, 122);
+            this.LinFac.Location = new System.Drawing.Point(589, 123);
             this.LinFac.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LinFac.Name = "LinFac";
             this.LinFac.Size = new System.Drawing.Size(91, 21);
@@ -398,7 +397,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(173, 118);
+            this.label2.Location = new System.Drawing.Point(185, 119);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(187, 21);
@@ -408,11 +407,12 @@
             // txtCodigo
             // 
             this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.txtCodigo.Location = new System.Drawing.Point(370, 115);
+            this.txtCodigo.Location = new System.Drawing.Point(384, 116);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(196, 28);
             this.txtCodigo.TabIndex = 1;
+            this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox7_KeyDown);
             // 
             // panel1
             // 
@@ -433,7 +433,7 @@
             "01 - NOTA VENTA",
             "02 - FACTURA",
             "03 - FACTURA ELECTRONICA"});
-            this.cboNotaVenta.Location = new System.Drawing.Point(0, 115);
+            this.cboNotaVenta.Location = new System.Drawing.Point(14, 116);
             this.cboNotaVenta.Name = "cboNotaVenta";
             this.cboNotaVenta.Size = new System.Drawing.Size(165, 29);
             this.cboNotaVenta.TabIndex = 72;
@@ -471,7 +471,7 @@
             // dateFecha
             // 
             this.dateFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateFecha.Location = new System.Drawing.Point(1061, 122);
+            this.dateFecha.Location = new System.Drawing.Point(1075, 123);
             this.dateFecha.Name = "dateFecha";
             this.dateFecha.Size = new System.Drawing.Size(138, 28);
             this.dateFecha.TabIndex = 2;
@@ -479,24 +479,26 @@
             // textBox1
             // 
             this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.textBox1.Location = new System.Drawing.Point(120, 161);
+            this.textBox1.Location = new System.Drawing.Point(134, 162);
             this.textBox1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(196, 28);
             this.textBox1.TabIndex = 3;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox7_KeyDown);
             // 
             // textBox2
             // 
             this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.textBox2.Location = new System.Drawing.Point(353, 161);
+            this.textBox2.Location = new System.Drawing.Point(367, 162);
             this.textBox2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(678, 28);
             this.textBox2.TabIndex = 4;
+            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox7_KeyDown);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1040, 160);
+            this.button1.Location = new System.Drawing.Point(1054, 161);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(32, 28);
@@ -508,11 +510,12 @@
             // textBox3
             // 
             this.textBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.textBox3.Location = new System.Drawing.Point(120, 217);
+            this.textBox3.Location = new System.Drawing.Point(134, 218);
             this.textBox3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(345, 28);
             this.textBox3.TabIndex = 6;
+            this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox7_KeyDown);
             // 
             // label17
             // 
@@ -527,11 +530,12 @@
             // textBox4
             // 
             this.textBox4.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.textBox4.Location = new System.Drawing.Point(563, 216);
+            this.textBox4.Location = new System.Drawing.Point(577, 217);
             this.textBox4.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(345, 28);
             this.textBox4.TabIndex = 7;
+            this.textBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox7_KeyDown);
             // 
             // label18
             // 
@@ -546,11 +550,12 @@
             // textBox5
             // 
             this.textBox5.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.textBox5.Location = new System.Drawing.Point(120, 263);
+            this.textBox5.Location = new System.Drawing.Point(134, 264);
             this.textBox5.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(345, 28);
             this.textBox5.TabIndex = 8;
+            this.textBox5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox7_KeyDown);
             // 
             // label19
             // 
@@ -565,15 +570,16 @@
             // textBox6
             // 
             this.textBox6.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.textBox6.Location = new System.Drawing.Point(167, 317);
+            this.textBox6.Location = new System.Drawing.Point(181, 318);
             this.textBox6.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(298, 28);
             this.textBox6.TabIndex = 9;
+            this.textBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox7_KeyDown);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(488, 319);
+            this.button2.Location = new System.Drawing.Point(502, 320);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(32, 28);
@@ -595,15 +601,16 @@
             // textBox7
             // 
             this.textBox7.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.textBox7.Location = new System.Drawing.Point(692, 316);
+            this.textBox7.Location = new System.Drawing.Point(706, 317);
             this.textBox7.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(377, 28);
             this.textBox7.TabIndex = 11;
+            this.textBox7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox7_KeyDown);
             // 
             // txtSubTotalItem
             // 
-            this.txtSubTotalItem.Location = new System.Drawing.Point(614, 375);
+            this.txtSubTotalItem.Location = new System.Drawing.Point(628, 376);
             this.txtSubTotalItem.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubTotalItem.Name = "txtSubTotalItem";
             this.txtSubTotalItem.Size = new System.Drawing.Size(124, 28);
@@ -621,7 +628,7 @@
             // 
             // txtIvaItem
             // 
-            this.txtIvaItem.Location = new System.Drawing.Point(798, 375);
+            this.txtIvaItem.Location = new System.Drawing.Point(812, 376);
             this.txtIvaItem.Margin = new System.Windows.Forms.Padding(4);
             this.txtIvaItem.Name = "txtIvaItem";
             this.txtIvaItem.Size = new System.Drawing.Size(124, 28);
@@ -703,7 +710,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(6, 670);
+            this.button3.Location = new System.Drawing.Point(20, 671);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(99, 32);
@@ -713,7 +720,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(113, 670);
+            this.button4.Location = new System.Drawing.Point(127, 671);
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(119, 32);
@@ -724,7 +731,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(240, 670);
+            this.button5.Location = new System.Drawing.Point(254, 671);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(119, 32);
@@ -734,29 +741,27 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(367, 670);
+            this.button6.Location = new System.Drawing.Point(381, 671);
             this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(119, 32);
             this.button6.TabIndex = 24;
             this.button6.Text = "IMPRIMIR";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(568, 670);
+            this.button7.Location = new System.Drawing.Point(582, 671);
             this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(119, 32);
             this.button7.TabIndex = 25;
             this.button7.Text = "SALIR";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(76, 373);
+            this.txtPrecio.Location = new System.Drawing.Point(90, 374);
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(89, 28);
@@ -772,7 +777,7 @@
             "CHEQUE",
             "DEPOSITO",
             "PLAZOS"});
-            this.comboBox1.Location = new System.Drawing.Point(151, 610);
+            this.comboBox1.Location = new System.Drawing.Point(165, 611);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(165, 29);
             this.comboBox1.TabIndex = 101;
@@ -846,6 +851,7 @@
             this.Name = "ComprasProveedor";
             this.Text = "FacturaProveedor";
             this.Load += new System.EventHandler(this.FacturaProveedor_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox7_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.ggvProductos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

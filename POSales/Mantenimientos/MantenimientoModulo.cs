@@ -102,5 +102,15 @@ namespace POSales.Mantenimientos
                 e.Handled = true;
             }
         }
+
+        private void btnUpdate_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyData == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                SelectNextControl(ActiveControl, true, true, true, true);
+            }
+        }
     }
 }

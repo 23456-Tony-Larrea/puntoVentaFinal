@@ -20,11 +20,7 @@ namespace POSales.Mantenimientos
             InitializeComponent();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
-
+    
         private void btnBuscarItem_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
@@ -137,8 +133,15 @@ namespace POSales.Mantenimientos
             this.Close();
         }
 
-        private void cboEstadoReserva_SelectedIndexChanged(object sender, EventArgs e)
+       
+        private void btnSave_KeyDown(object sender, KeyEventArgs e)
         {
+
+            if (e.KeyData == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                SelectNextControl(ActiveControl, true, true, true, true);
+            }
         }
 
         private void LimpiarCampos()

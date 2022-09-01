@@ -53,6 +53,7 @@
             this.txtAccesoriosEquipo.Name = "txtAccesoriosEquipo";
             this.txtAccesoriosEquipo.Size = new System.Drawing.Size(747, 120);
             this.txtAccesoriosEquipo.TabIndex = 2;
+            this.txtAccesoriosEquipo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAccesoriosEquipo_KeyDown);
             // 
             // label10
             // 
@@ -60,7 +61,7 @@
             this.label10.Location = new System.Drawing.Point(19, 98);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(173, 20);
+            this.label10.Size = new System.Drawing.Size(206, 21);
             this.label10.TabIndex = 177;
             this.label10.Text = "Accesorios del equipo";
             // 
@@ -78,6 +79,7 @@
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAccesoriosEquipo_KeyDown);
             // 
             // btnUpdate
             // 
@@ -93,13 +95,14 @@
             this.btnUpdate.Text = "Actualizar";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.btnUpdate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAccesoriosEquipo_KeyDown);
             // 
             // txtIdAccesorios
             // 
             this.txtIdAccesorios.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtIdAccesorios.Location = new System.Drawing.Point(62, 53);
             this.txtIdAccesorios.Name = "txtIdAccesorios";
-            this.txtIdAccesorios.Size = new System.Drawing.Size(114, 25);
+            this.txtIdAccesorios.Size = new System.Drawing.Size(114, 30);
             this.txtIdAccesorios.TabIndex = 171;
             this.txtIdAccesorios.Visible = false;
             // 
@@ -142,6 +145,7 @@
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAccesoriosEquipo_KeyDown);
             // 
             // picClose
             // 
@@ -162,7 +166,7 @@
             this.label18.Location = new System.Drawing.Point(29, 56);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(24, 20);
+            this.label18.Size = new System.Drawing.Size(27, 21);
             this.label18.TabIndex = 170;
             this.label18.Text = "Id";
             this.label18.Visible = false;
@@ -177,11 +181,10 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(792, 45);
             this.panel2.TabIndex = 169;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // AccesoriosModulo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 374);
             this.Controls.Add(this.txtAccesoriosEquipo);

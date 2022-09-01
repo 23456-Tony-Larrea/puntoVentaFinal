@@ -30,6 +30,7 @@ namespace POSales
         public void cargarClientes()
         {
             int i = 0;
+            dgvClients.DataSource = new List<Clientes>();
             clientes = dbcon.TodosLosClientes();
             dgvClients.DataSource = clientes;
         }
@@ -38,6 +39,7 @@ namespace POSales
         {
             ClientModule clientModule = new ClientModule(cliente);
             clientModule.ShowDialog();
+            cargarClientes();
         }
 
         private void dgvClients_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -58,12 +60,6 @@ namespace POSales
             //    this.Close();
             //}
 
-        }
-
-
-        private void Clients_Load(object sender, EventArgs e)
-        {
-        
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

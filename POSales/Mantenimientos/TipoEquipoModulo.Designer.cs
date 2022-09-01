@@ -59,6 +59,7 @@
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnCancel_KeyDown);
             // 
             // btnUpdate
             // 
@@ -74,6 +75,7 @@
             this.btnUpdate.Text = "Actualizar";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.btnUpdate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnCancel_KeyDown);
             // 
             // txtIdAccesorios
             // 
@@ -123,6 +125,7 @@
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnCancel_KeyDown);
             // 
             // picClose
             // 
@@ -158,7 +161,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(783, 45);
             this.panel2.TabIndex = 183;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            
             // 
             // txtCodigoEquipo
             // 
@@ -167,6 +170,7 @@
             this.txtCodigoEquipo.Name = "txtCodigoEquipo";
             this.txtCodigoEquipo.Size = new System.Drawing.Size(569, 28);
             this.txtCodigoEquipo.TabIndex = 1;
+            this.txtCodigoEquipo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnCancel_KeyDown);
             // 
             // label11
             // 
@@ -197,7 +201,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TipoEquipoModulo";
             this.Text = "TipoEquipoModulo";
-            this.Load += new System.EventHandler(this.TipoEquipoModulo_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnCancel_KeyDown);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.panel2.ResumeLayout(false);

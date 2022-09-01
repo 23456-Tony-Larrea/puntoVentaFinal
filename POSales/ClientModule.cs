@@ -173,6 +173,7 @@ namespace POSales
                 MessageBox.Show("por favor solo ingresa solo letras");
             }
 
+           
         }
 
         private void txtCiRuc_KeyPress(object sender, KeyPressEventArgs e)
@@ -184,5 +185,16 @@ namespace POSales
             }
 
         }
+
+        private void txtName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                SelectNextControl(ActiveControl, true, true, true, true);
+            }
+
+        }
+
     }
     }

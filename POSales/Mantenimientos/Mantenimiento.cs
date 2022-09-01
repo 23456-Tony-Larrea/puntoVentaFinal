@@ -101,21 +101,7 @@ namespace POSales.Mantenimientos
             }
         }
 
-        private void enviarSolucionAlClienteToolStripMenuItem_Click(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void dataSet2BindingSource_CurrentChanged(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void dgvClients_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
-
+       
         private void dgvClients_CellClick(object sender, DataGridViewCellEventArgs e)
         {
                 int idmantenimiento = 0;
@@ -243,16 +229,8 @@ namespace POSales.Mantenimientos
             }
         }
 
-        private void facturarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-
-        }
-
+        
+       
         private void dtFechaIngresoDesde_ValueChanged(object sender, EventArgs e)
         {
             if (dtFechaIngresoDesde.Value > dtFechaIngresoHasta.Value)
