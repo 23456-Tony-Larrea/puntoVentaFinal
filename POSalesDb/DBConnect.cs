@@ -250,7 +250,7 @@ namespace POSalesDb
                   ,[idUsuarios]
                   ,[ordenServicio].[isReady]
               FROM [tecnico].[dbo].[ordenServicio]
-              join clientes on Clientes.Id = ordenServicio.idCliente Where Fecha [Fecha Ingreso] Between '{desde.ToString("yyyy/MM/dd")} 00:00:00' and '{Hasta} 23:59:59'");
+              join clientes on Clientes.Id = ordenServicio.idCliente Where Fecha [Fecha Ingreso] Between '{desde.ToString("dd/MM/yyyy")} 00:00:00' and '{Hasta} 23:59:59'");
                 using (SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn))
                 {
                     cn.Open();
@@ -276,7 +276,7 @@ namespace POSalesDb
             try
             {
                 cm = new SqlCommand($@"SELECT [ordenServicio].[Id]
-                  ,[Fecha Ingreso]
+                  ,[FechaIngreso]
                   ,[idCliente]
                   ,[ciRuc]
                   ,[nombre]
@@ -825,7 +825,7 @@ namespace POSalesDb
                          Mantenimiento LEFT JOIN
                          Equipo ON Mantenimiento.IdEquipo = Equipo.Id LEFT JOIN
                          estadoMantenimiento ON Mantenimiento.[IdEstadoMantenimiento] = estadoMantenimiento.Id
-                         Where Mantenimiento.fechaEntregaEquipo Between '{FechaEntregaDesde.ToString("yyyy/MM/dd")} 00:00:00' and '{FechaEntregaHasta.ToString("yyyy/MM/dd")} 23:59:59'
+                         Where Mantenimiento.fechaEntregaEquipo Between '{FechaEntregaDesde.ToString("dd/MM/yyyy")} 00:00:00' and '{FechaEntregaHasta.ToString("dd/MM/yyyy")} 23:59:59'
                          Order by Mantenimiento.Id desc");
                 SqlDataAdapter da = new SqlDataAdapter(cm.CommandText, cn);
                 da.Fill(dt);
@@ -4503,9 +4503,9 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@nombre", clientes.nombre);
                 cm.Parameters.AddWithValue("@comercio", clientes.comercio);
                 cm.Parameters.AddWithValue("@codigo", clientes.codigo);
-                cm.Parameters.AddWithValue("@fechaNacimiento",clientes.fechaNacimiento.ToString("yyyy/MM/dd HH:mm:ss"));
+                cm.Parameters.AddWithValue("@fechaNacimiento",clientes.fechaNacimiento.ToString("dd/MM/yyyy HH:mm:ss"));
                 cm.Parameters["@fechaNacimiento"].SqlDbType = SqlDbType.DateTime;
-                cm.Parameters.AddWithValue("@fechaRegistro", clientes.fechaRegistro.ToString("yyyy/MM/dd HH:mm:ss"));
+                cm.Parameters.AddWithValue("@fechaRegistro", clientes.fechaRegistro.ToString("dd/MM/yyyy HH:mm:ss"));
                 cm.Parameters["@fechaRegistro"].SqlDbType = SqlDbType.DateTime;
                 cm.Parameters.AddWithValue("@ciudad", clientes.ciudad);
                 cm.Parameters.AddWithValue("@tipo", clientes.tipo);
@@ -4548,9 +4548,9 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@nombre", clientes.nombre);
                 cm.Parameters.AddWithValue("@comercio", clientes.comercio);
                 cm.Parameters.AddWithValue("@codigo", clientes.codigo);
-                cm.Parameters.AddWithValue("@fechaNacimiento", clientes.fechaNacimiento.ToString("yyyy/MM/dd"));
+                cm.Parameters.AddWithValue("@fechaNacimiento", clientes.fechaNacimiento.ToString("dd/MM/yyyy"));
                 cm.Parameters["@fechaNacimiento"].SqlDbType = SqlDbType.DateTime;
-                cm.Parameters.AddWithValue("@fechaRegistro", clientes.fechaRegistro.ToString("yyyy/MM/dd"));
+                cm.Parameters.AddWithValue("@fechaRegistro", clientes.fechaRegistro.ToString("dd/MM/yyyy"));
                 cm.Parameters["@fechaRegistro"].SqlDbType = SqlDbType.DateTime;
                 cm.Parameters.AddWithValue("@ciudad", clientes.ciudad);
                 cm.Parameters.AddWithValue("@tipo", clientes.tipo);
@@ -4764,7 +4764,7 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@numero", factura.numero);
                 cm.Parameters.AddWithValue("@clienteId", factura.clienteId);
                 cm.Parameters.AddWithValue("@usuario", factura.usuario);
-                cm.Parameters.AddWithValue("@fecha_venta", factura.fecha_venta.ToString("yyyy/MM/dd"));
+                cm.Parameters.AddWithValue("@fecha_venta", factura.fecha_venta.ToString("dd/MM/yyyy"));
                 cm.Parameters.AddWithValue("@total", factura.total);
                 cm.Parameters.AddWithValue("@iva", factura.iva);
                 cm.Parameters.AddWithValue("@subtotal", factura.subtotal);
@@ -4799,7 +4799,7 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@numero", factura.numero);
                 cm.Parameters.AddWithValue("@clienteId", factura.clienteId);
                 cm.Parameters.AddWithValue("@usuario", factura.usuario);
-                cm.Parameters.AddWithValue("@fecha_venta", factura.fecha_venta.ToString("yyyy/MM/dd"));
+                cm.Parameters.AddWithValue("@fecha_venta", factura.fecha_venta.ToString("dd/MM/yyyy"));
                 cm.Parameters.AddWithValue("@total", factura.total);
                 cm.Parameters.AddWithValue("@iva", factura.iva);
                 cm.Parameters.AddWithValue("@subtotal", factura.subtotal);
@@ -5394,7 +5394,7 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@producto", inventario.producto);
                 cm.Parameters.AddWithValue("@cantidad", inventario.cantidad);
                 cm.Parameters.AddWithValue("@tipo", inventario.tipo);
-                cm.Parameters.AddWithValue("@fecha_inventario", inventario.fecha_inventario.ToString("yyyy/MM/dd"));
+                cm.Parameters.AddWithValue("@fecha_inventario", inventario.fecha_inventario.ToString("dd/MM/yyyy"));
                 cn.Open();
                 cm.ExecuteNonQuery();
                 return Error;
@@ -5424,7 +5424,7 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@producto", inventario.producto);
                 cm.Parameters.AddWithValue("@cantidad", inventario.cantidad);
                 cm.Parameters.AddWithValue("@tipo", inventario.tipo);
-                cm.Parameters.AddWithValue("@fecha_inventario", inventario.fecha_inventario.ToString("yyyy/MM/dd"));
+                cm.Parameters.AddWithValue("@fecha_inventario", inventario.fecha_inventario.ToString("dd/MM/yyyy"));
                 cn.Open();
                 adapter.UpdateCommand = cm;
                 adapter.UpdateCommand.ExecuteNonQuery();
@@ -6160,7 +6160,7 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@numero", venta.numero);
                 cm.Parameters.AddWithValue("@cliente", venta.Idcliente);
                 cm.Parameters.AddWithValue("@usuario", venta.Idusuario);
-                cm.Parameters.AddWithValue("@fecha_venta", venta.fecha_venta.ToString("yyyy/MM/dd"));
+                cm.Parameters.AddWithValue("@fecha_venta", venta.fecha_venta.ToString("dd/MM/yyyy"));
                 cm.Parameters.AddWithValue("@total", venta.total);
                 cm.Parameters.AddWithValue("@iva", venta.iva);
                 cm.Parameters.AddWithValue("@subtotal", venta.subtotal);
@@ -6194,7 +6194,7 @@ namespace POSalesDb
                 cm.Parameters.AddWithValue("@numero", venta.numero);
                 cm.Parameters.AddWithValue("@cliente", venta.Idcliente);
                 cm.Parameters.AddWithValue("@usuario", venta.Idusuario);
-                cm.Parameters.AddWithValue("@fecha_venta", venta.fecha_venta.ToString("yyyy/MM/dd"));
+                cm.Parameters.AddWithValue("@fecha_venta", venta.fecha_venta.ToString("dd/MM/yyyy"));
                 cm.Parameters.AddWithValue("@total", venta.total);
                 cm.Parameters.AddWithValue("@iva", venta.iva);
                 cm.Parameters.AddWithValue("@subtotal", venta.subtotal);
